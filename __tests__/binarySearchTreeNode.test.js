@@ -21,7 +21,7 @@ describe("Testing the factory function BinarySearchTreeNode", () => {
     test("Factory function BinarySearchTreeNode works correctly if it is called without an argument", () => {
       expect(BinarySearchTreeNode()).toStrictEqual(
         {
-          data: undefined,
+          data: null,
           left: null,
           right: null
         }

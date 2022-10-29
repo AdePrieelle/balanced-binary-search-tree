@@ -1,4 +1,4 @@
-export const BinarySearchTreeNode = (data, left = null, right = null) => {
+export const BinarySearchTreeNode = (data = null, left = null, right = null) => {
   return ({
     data,
     left,
