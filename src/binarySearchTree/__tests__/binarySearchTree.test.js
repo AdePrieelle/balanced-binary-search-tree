@@ -33,10 +33,10 @@ describe("Testing the factory function BinarySearchTree", () => {
       expect(binarySearchTree.buildTree()).toStrictEqual(null);
     });
 
-    test("The buildTree method of factory function LinkedList works correctly if the method is called with an argument", () => {
-      expect(binarySearchTree.buildTree([2, 1, 3])).toStrictEqual(
-        { data: 2, left: { data: 1, left: null, right: null }, right: { data: 3, left: null, right: null } }
-      );
-    });
+    // test("The buildTree method of factory function LinkedList works correctly if the method is called with an argument", () => {
+    //   expect(binarySearchTree.buildTree([2, 1, 3])).toStrictEqual(
+    //     { data: 2, left: { data: 1, left: null, right: null }, right: { data: 3, left: null, right: null } }
+    //   );
+    // });
   });
 });
