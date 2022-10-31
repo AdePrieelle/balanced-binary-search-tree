@@ -22,15 +22,15 @@ describe("Testing the function sortArrayOfNumbers", () => {
       expect(sortArrayOfNumbers()).toStrictEqual(null);
     });
   
-    test("Function sortArrayOfNumbers works correctly if the function is called with an empty array as an argument", () => {
+    test("Function sortArrayOfNumbers works correctly if the function is called with an argument of an empty array", () => {
       expect(sortArrayOfNumbers([])).toStrictEqual([]);
     });
 
-    test("Function sortArrayOfNumbers works correctly if the function is called with an argument", () => {
+    test("Function sortArrayOfNumbers works correctly if the function is called with an argument of an array that contains positive numbers", () => {
       expect(sortArrayOfNumbers([2, 1, 3])).toStrictEqual([1, 2, 3]);
     });
 
-    test("Function sortArrayOfNumbers works correctly if the function is called with an argument of an array that contains negative numbers aswell as positive numbers", () => {
+    test("Function sortArrayOfNumbers works correctly if the function is called with an argument of an array that contains negative numbers and positive numbers", () => {
       expect(sortArrayOfNumbers([-2, 2, -3, 4, 1])).toStrictEqual([-3, -2, 1, 2, 4]);
     });
 
