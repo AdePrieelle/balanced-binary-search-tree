@@ -8,8 +8,8 @@ describe("Testing the function removeDuplicatesFromArray", () => {
   });
 
   describe("Testing the return type of function removeDuplicatesFromArray", () => {
-    test("The return type of function removeDuplicatesFromArray is an object if the method is called without an argument", () => {
-      expect(typeof removeDuplicatesFromArray()).toBe("object");
+    test("The return type of function removeDuplicatesFromArray is an array if the method is called without an argument", () => {
+      expect(Array.isArray(removeDuplicatesFromArray())).toBe(true);
     });
     
     test("The return type of function removeDuplicatesFromArray is an array if the method is called with an argument", () => {
@@ -19,7 +19,7 @@ describe("Testing the function removeDuplicatesFromArray", () => {
 
   describe("Testing the return values of function removeDuplicatesFromArray", () => {
     test("The function removeDuplicatesFromArray works correctly if the function is called without an argument", () => {
-      expect(removeDuplicatesFromArray()).toStrictEqual(null);
+      expect(removeDuplicatesFromArray()).toStrictEqual([]);
     });
   
     test("Function removeDuplicatesFromArray works correctly if the function is called with an argument of an empty array", () => {

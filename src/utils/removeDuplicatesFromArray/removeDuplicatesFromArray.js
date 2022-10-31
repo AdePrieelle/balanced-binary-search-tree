@@ -1,11 +1,11 @@
 export const removeDuplicatesFromArray = (arr) => {
-  let removedDuplicatesFromArray = null;
+  let arrayWithoutDuplicates = [];
 
   if (!arr) {
-    return removedDuplicatesFromArray;
+    return arrayWithoutDuplicates;
   };
 
-  removedDuplicatesFromArray = [...new Set(arr)];
+  arrayWithoutDuplicates = [...new Set(arr)];
   
-  return removedDuplicatesFromArray;
+  return arrayWithoutDuplicates;
 };
