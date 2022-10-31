@@ -8,8 +8,8 @@ describe("Testing the function sortArrayOfNumbers", () => {
   });
 
   describe("Testing the return type of function sortArrayOfNumbers", () => {
-    test("The return type of function sortArrayOfNumbers is an object if the method is called without an argument", () => {
-      expect(typeof sortArrayOfNumbers()).toBe("object");
+    test("The return type of function sortArrayOfNumbers is an array if the method is called without an argument", () => {
+      expect(Array.isArray(sortArrayOfNumbers())).toBe(true);
     });
     
     test("The return type of function sortArrayOfNumbers is an array if the method is called with an argument", () => {
@@ -19,7 +19,7 @@ describe("Testing the function sortArrayOfNumbers", () => {
 
   describe("Testing the return values of function sortArrayOfNumbers", () => {
     test("The function sortArrayOfNumbers works correctly if the function is called without an argument", () => {
-      expect(sortArrayOfNumbers()).toStrictEqual(null);
+      expect(sortArrayOfNumbers()).toStrictEqual([]);
     });
   
     test("Function sortArrayOfNumbers works correctly if the function is called with an argument of an empty array", () => {

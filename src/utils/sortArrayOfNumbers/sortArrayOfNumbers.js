@@ -1,5 +1,5 @@
 export const sortArrayOfNumbers = (arr) => {
-  let sortedArrayOfNumbers = null;
+  let sortedArrayOfNumbers = [];
   
   if (!arr) {
     return sortedArrayOfNumbers;
