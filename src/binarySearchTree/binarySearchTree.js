@@ -25,11 +25,24 @@ export const BinarySearchTree = (arr) => {
     return root;
   };
 
+  root = buildTree(arr);
+
+  const prettyPrint = (node = root, prefix = '', isLeft = true) => {
+    if (node.right !== null) {
+      prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
+    };
+    console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
+    if (node.left !== null) {
+      prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
+    };
+  };
+
   return (Object.freeze({
     buildTree,
+    prettyPrint,
   }));
 };
 
-const result = BinarySearchTree();
+const result = BinarySearchTree([2, 1, 3]);
 
 console.log(result);
