@@ -20,6 +20,10 @@ describe("Testing the factory function BinarySearchTree", () => {
     test("The insert method of factory function BinarySearchTree is a function", () => {
       expect(typeof binarySearchTree.insert).toBe("function");
     });
+
+    test("The getRootNode method of factory function BinarySearchTree is a function", () => {
+      expect(typeof binarySearchTree.getRootNode).toBe("function");
+    });
   });
 
   describe("Testing the return type of the methods of factory function BinarySearchTree", () => {
@@ -37,6 +41,10 @@ describe("Testing the factory function BinarySearchTree", () => {
 
     test("The return type of the insert method of factory function BinarySearchTree is an object if the method is called with an argument", () => {
       expect(typeof binarySearchTree.insert(1)).toBe("object");
+    });
+
+    test("The return type of the getRootNode method of factory function BinarySearchTree is an object", () => {
+      expect(typeof binarySearchTree.getRootNode()).toBe("object");
     });
   });
 
@@ -296,16 +304,12 @@ describe("Testing the factory function BinarySearchTree", () => {
           data: 4, 
           left: { 
             data: 2, 
-            left: {
-              data: 1,
+            left: null,
+            right: {
+              data: 3,
               left: null,
-              right: {
-                data: 3,
-                left: null,
-                right: null
-              }
-            }, 
-            right: null 
+              right: null
+            } 
           }, 
           right: { 
             data: 6, 
@@ -358,6 +362,29 @@ describe("Testing the factory function BinarySearchTree", () => {
               right: null
             }
           }
+        }
+      );
+    });
+
+    test("The getRootNode method of factory function LinkedList works correctly if the the binary search tree is empty", () => {
+      expect(binarySearchTree.getRootNode()).toStrictEqual(null);
+    });
+
+    test("The getRootNode method of factory function LinkedList works correctly if the the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.getRootNode()).toStrictEqual(
+        { 
+          data: 2, 
+          left: { 
+            data: 1, 
+            left: null,
+            right: null 
+          }, 
+          right: { 
+            data: 3, 
+            left: null, 
+            right: null 
+          } 
         }
       );
     });

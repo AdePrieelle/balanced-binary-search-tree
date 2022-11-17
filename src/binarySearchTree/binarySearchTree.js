@@ -37,12 +37,42 @@ export const BinarySearchTree = (arr) => {
     };
   };
 
+  const insert = (value, rootNode = root) => {
+    if (value === undefined) {
+      return rootNode;
+    };
+
+    if (rootNode === null) {
+      rootNode = BinarySearchTreeNode(value);
+      return rootNode;
+    };
+
+    if (rootNode.data === value) {
+      return rootNode;
+    } else if (value < rootNode.data) {
+      rootNode.left = insert(value, rootNode.left);
+    } else if (value > rootNode.data) {
+      rootNode.right = insert(value, rootNode.right);
+    };
+    
+    return rootNode;
+  };
+
+  const getRootNode = () => {
+    return root;
+  };
+
   return (Object.freeze({
     buildTree,
     prettyPrint,
+    insert,
+    getRootNode,
   }));
 };
 
-const result = BinarySearchTree([2, 1, 3]);
+const result = BinarySearchTree([6, 2, 4]);
+result.insert(3);
+const result2 = result.getRootNode();
 
 console.log(result);
+console.log(result2);
