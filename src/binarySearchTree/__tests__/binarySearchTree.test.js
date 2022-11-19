@@ -448,6 +448,32 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
+    test("The delete method of factory function LinkedList works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node with the value of the argument has 2 children, and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.delete(2)).toStrictEqual(
+        { 
+          data: 3, 
+          left: { 
+            data: 1,
+            left: null,
+            right: null
+          }, 
+          right: null
+        }
+      );
+    });
+
+    test("The delete method of factory function LinkedList works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node has 1 right child node, and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([1, 2]);
+      expect(binarySearchTree.delete(1)).toStrictEqual(
+        { 
+          data: 2, 
+          left: null, 
+          right: null
+        }
+      );
+    });
+
     test("The delete method of factory function LinkedList works correctly if the method is called with a negative argument which exists in the binary search tree, the node with the value of the argument has no children, and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, -1, 3]);
       expect(binarySearchTree.delete(-1)).toStrictEqual(
@@ -534,6 +560,116 @@ describe("Testing the factory function BinarySearchTree", () => {
               data: 7,
               left: null,
               right: null
+            } 
+          } 
+        }
+      );
+    });
+
+    test("The delete method of factory function LinkedList works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has no left child node itself and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+      expect(binarySearchTree.delete(1)).toStrictEqual(
+        { 
+          data: 4, 
+          left: { 
+            data: 2, 
+            left: {
+              data: -1,
+              left: null,
+              right: {
+                data: 0,
+                left: null,
+                right: null
+              }
+            }, 
+            right: {
+              data: 3,
+              left: null,
+              right: null
+            } 
+          }, 
+          right: { 
+            data: 7, 
+            left: {
+              data: 5,
+              left: null,
+              right: {
+                data: 6,
+                left: null,
+                right: null
+              }
+            }, 
+            right: {
+              data: 8,
+              left: null,
+              right: {
+                data: 9,
+                left: null,
+                right: null
+              }
+            } 
+          } 
+        }
+      );
+    });
+
+    test("The delete method of factory function LinkedList works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has a left child node itself and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+      expect(binarySearchTree.delete(0)).toStrictEqual(
+        { 
+          data: 4, 
+          left: { 
+            data: 1, 
+            left: {
+              data: -2,
+              left: {
+                data: -3,
+                left: null,
+                right: null
+              },
+              right: {
+                data: -1,
+                left: null,
+                right: null
+              }
+            }, 
+            right: {
+              data: 2,
+              left: null,
+              right: {
+                data: 3,
+                left: null,
+                right: null
+              }
+            } 
+          }, 
+          right: { 
+            data: 8, 
+            left: {
+              data: 6,
+              left: {
+                data: 5,
+                left: null,
+                right: null
+              },
+              right: {
+                data: 7,
+                left: null,
+                right: null
+              }
+            }, 
+            right: {
+              data: 10,
+              left: {
+                data: 9,
+                left: null,
+                right: null
+              },
+              right: {
+                data: 11,
+                left: null,
+                right: null
+              }
             } 
           } 
         }
