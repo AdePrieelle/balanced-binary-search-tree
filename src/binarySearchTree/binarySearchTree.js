@@ -36,8 +36,12 @@ export const BinarySearchTree = (arr) => {
       prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
     };
   };
+  
+  const getRootNode = () => {
+    return root;
+  };
 
-  const insert = (value, rootNode = root) => {
+  const insertNode = (value, rootNode = root) => {
     if (value === undefined) {
       return rootNode;
     };
@@ -50,28 +54,62 @@ export const BinarySearchTree = (arr) => {
     if (rootNode.data === value) {
       return rootNode;
     } else if (value < rootNode.data) {
-      rootNode.left = insert(value, rootNode.left);
+      rootNode.left = insertNode(value, rootNode.left);
     } else if (value > rootNode.data) {
-      rootNode.right = insert(value, rootNode.right);
+      rootNode.right = insertNode(value, rootNode.right);
     };
     
     return rootNode;
   };
 
-  const getRootNode = () => {
-    return root;
+  const deleteNode = (value, rootNode = root) => {
+    if ((value === undefined) || (rootNode === null)) {
+      return rootNode;
+    };
+
+    if (rootNode.data > value) {
+      rootNode.left = deleteNode(value, rootNode.left);
+    } else if (rootNode.data < value) {
+      rootNode.right = deleteNode(value, rootNode.right);
+    } else {
+      // the node to be deleted
+      if (rootNode.left === null) {
+        return rootNode.right;
+      } else if (rootNode.right === null) {
+        return rootNode.left;
+      } else if ((rootNode.left !== null) && (rootNode.right !== null)) {
+        let succParent = rootNode;
+        let succ = rootNode.right;
+    
+        while (succ.left !== null) {
+          succParent = succ;
+          succ = succ.left;
+        };
+    
+        if (succParent === rootNode)  {
+          succParent.right = succ.right;
+        } else {
+          succParent.left = succ.right;
+        };
+    
+        rootNode.data = succ.data;
+      };
+    };
+
+    return rootNode;
   };
 
   return (Object.freeze({
     buildTree,
     prettyPrint,
-    insert,
     getRootNode,
+    insertNode,
+    deleteNode
   }));
 };
 
 const result = BinarySearchTree([6, 2, 4]);
-result.insert(3);
+result.insertNode(3);
 const result2 = result.getRootNode();
 
 console.log(result);
