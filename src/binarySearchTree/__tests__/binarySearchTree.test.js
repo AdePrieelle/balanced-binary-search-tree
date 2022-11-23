@@ -28,6 +28,10 @@ describe("Testing the factory function BinarySearchTree", () => {
     test("The deleteNode method of factory function BinarySearchTree is a function", () => {
       expect(typeof binarySearchTree.deleteNode).toBe("function");
     });
+
+    test("The find method of factory function BinarySearchTree is a function", () => {
+      expect(typeof binarySearchTree.find).toBe("function");
+    });
   });
 
   describe("Testing the return type of the methods of factory function BinarySearchTree", () => {
@@ -59,14 +63,22 @@ describe("Testing the factory function BinarySearchTree", () => {
       expect(typeof binarySearchTree.deleteNode(1)).toBe("object");
     });
 
+    test("The return type of the find method of factory function BinarySearchTree is an object if the method is called without an argument", () => {
+      expect(typeof binarySearchTree.find()).toBe("object");
+    });
+
+    test("The return type of the find method of factory function BinarySearchTree is an object if the method is called with an argument", () => {
+      expect(typeof binarySearchTree.find(1)).toBe("object");
+    });
+
   });
 
   describe("Testing the return values of the methods of factory function BinarySearchTree", () => {
-    test("The buildTree method of factory function LinkedList works correctly if the method is called without an argument", () => {
+    test("The buildTree method of factory function BinarySearchTree works correctly if the method is called without an argument", () => {
       expect(binarySearchTree.buildTree()).toStrictEqual(null);
     });
 
-    test("The buildTree method of factory function LinkedList works correctly if the method is called with an argument of an array that contains one number", () => {
+    test("The buildTree method of factory function BinarySearchTree works correctly if the method is called with an argument of an array that contains one number", () => {
       expect(binarySearchTree.buildTree([1])).toStrictEqual(
         { 
           data: 1, 
@@ -76,7 +88,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The buildTree method of factory function LinkedList works correctly if the method is called with an argument of an array that contains 2 unsorted positive numbers", () => {
+    test("The buildTree method of factory function BinarySearchTree works correctly if the method is called with an argument of an array that contains 2 unsorted positive numbers", () => {
       expect(binarySearchTree.buildTree([2, 1])).toStrictEqual(
         { 
           data: 1, 
@@ -90,7 +102,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The buildTree method of factory function LinkedList works correctly if the method is called with an argument of an array that contains 3 unsorted positive numbers", () => {
+    test("The buildTree method of factory function BinarySearchTree works correctly if the method is called with an argument of an array that contains 3 unsorted positive numbers", () => {
       expect(binarySearchTree.buildTree([2, 1, 3])).toStrictEqual(
         { 
           data: 2, 
@@ -108,7 +120,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The buildTree method of factory function LinkedList works correctly if the method is called with an argument of an array that contains unsorted negative numbers and unsorted positive numbers", () => {
+    test("The buildTree method of factory function BinarySearchTree works correctly if the method is called with an argument of an array that contains unsorted negative numbers and unsorted positive numbers", () => {
       expect(binarySearchTree.buildTree([2, -4, 1, -2, 3])).toStrictEqual(
         { 
           data: 1, 
@@ -134,7 +146,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The buildTree method of factory function LinkedList works correctly if the method is called with an argument of an array that contains unsorted duplicate negative numbers and unsorted duplicate positive numbers", () => {
+    test("The buildTree method of factory function BinarySearchTree works correctly if the method is called with an argument of an array that contains unsorted duplicate negative numbers and unsorted duplicate positive numbers", () => {
       expect(binarySearchTree.buildTree([2, -4, 1, -2, 3, 2, -4])).toStrictEqual(
         { 
           data: 1, 
@@ -160,11 +172,11 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The getRootNode method of factory function LinkedList works correctly if the the binary search tree is empty", () => {
+    test("The getRootNode method of factory function BinarySearchTree works correctly if the the binary search tree is empty", () => {
       expect(binarySearchTree.getRootNode()).toStrictEqual(null);
     });
 
-    test("The getRootNode method of factory function LinkedList works correctly if the the binary search tree is not empty", () => {
+    test("The getRootNode method of factory function BinarySearchTree works correctly if the the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 1, 3]);
       expect(binarySearchTree.getRootNode()).toStrictEqual(
         { 
@@ -183,11 +195,11 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called without an argument and the binary search tree is empty", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {
       expect(binarySearchTree.insertNode()).toStrictEqual(null);
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called without an argument and the binary search tree is not empty", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 1, 3]);
       expect(binarySearchTree.insertNode()).toStrictEqual(
         { 
@@ -206,7 +218,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called with a positive argument and the binary search tree is empty", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument and the binary search tree is empty", () => {
       expect(binarySearchTree.insertNode(1)).toStrictEqual(
         { 
           data: 1, 
@@ -216,7 +228,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called with a negative argument and the binary search tree is empty", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called with a negative argument and the binary search tree is empty", () => {
       expect(binarySearchTree.insertNode(-1)).toStrictEqual(
         { 
           data: -1, 
@@ -226,7 +238,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called with a positive argument and the binary search tree is not empty", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 1, 3]);
       expect(binarySearchTree.insertNode(4)).toStrictEqual(
         { 
@@ -249,7 +261,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called with a negative argument and the binary search tree is not empty", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called with a negative argument and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 1, 3]);
       expect(binarySearchTree.insertNode(-4)).toStrictEqual(
         { 
@@ -272,7 +284,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called with a positive argument and the binary search tree is not empty and the argument is already in the binary search tree", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument and the binary search tree is not empty and the argument is already in the binary search tree", () => {
       binarySearchTree.buildTree([2, 1, 3]);
       expect(binarySearchTree.insertNode(3)).toStrictEqual(
         { 
@@ -291,7 +303,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called with a negative argument and the binary search tree is not empty and the argument is already in the binary search tree", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called with a negative argument and the binary search tree is not empty and the argument is already in the binary search tree", () => {
       binarySearchTree.buildTree([2, -1, 3]);
       expect(binarySearchTree.insertNode(-1)).toStrictEqual(
         { 
@@ -310,7 +322,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called with a positive argument, the binary search tree is not empty, the binary search tree has 2 leaf nodes, the argument is smaller than the root node and the argument is smaller than the left leaf node", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument, the binary search tree is not empty, the binary search tree has 2 leaf nodes, the argument is smaller than the root node and the argument is smaller than the left leaf node", () => {
       binarySearchTree.buildTree([4, 2, 6]);
       expect(binarySearchTree.insertNode(1)).toStrictEqual(
         { 
@@ -333,7 +345,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called with a positive argument, the binary search tree is not empty, the binary search tree has 2 leaf nodes, the argument is smaller than the root node and the argument is bigger than the left leaf node", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument, the binary search tree is not empty, the binary search tree has 2 leaf nodes, the argument is smaller than the root node and the argument is bigger than the left leaf node", () => {
       binarySearchTree.buildTree([4, 2, 6]);
       expect(binarySearchTree.insertNode(3)).toStrictEqual(
         { 
@@ -356,7 +368,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called with a positive argument, the binary search tree is not empty, the binary search tree has 2 leaf nodes, the argument is bigger than the root node and the argument is smaller than the right leaf node", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument, the binary search tree is not empty, the binary search tree has 2 leaf nodes, the argument is bigger than the root node and the argument is smaller than the right leaf node", () => {
       binarySearchTree.buildTree([4, 2, 6]);
       expect(binarySearchTree.insertNode(5)).toStrictEqual(
         { 
@@ -379,7 +391,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The insertNode method of factory function LinkedList works correctly if the method is called with a positive argument, the binary search tree is not empty, the binary search tree has 2 leaf nodes, the argument is bigger than the root node and the argument is bigger than the right leaf node", () => {
+    test("The insertNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument, the binary search tree is not empty, the binary search tree has 2 leaf nodes, the argument is bigger than the root node and the argument is bigger than the right leaf node", () => {
       binarySearchTree.buildTree([4, 2, 6]);
       expect(binarySearchTree.insertNode(7)).toStrictEqual(
         { 
@@ -402,11 +414,11 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called without an argument and the binary search tree is empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {
       expect(binarySearchTree.deleteNode()).toStrictEqual(null);
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called without an argument and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 1, 3]);
       expect(binarySearchTree.deleteNode()).toStrictEqual(
         { 
@@ -425,15 +437,15 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with an argument and the binary search tree is empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument and the binary search tree is empty", () => {
       expect(binarySearchTree.deleteNode(1)).toStrictEqual(null);
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with a negative argument and the binary search tree is empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a negative argument and the binary search tree is empty", () => {
       expect(binarySearchTree.deleteNode(-1)).toStrictEqual(null);
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument has no children, and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument has no children, and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 1, 3]);
       expect(binarySearchTree.deleteNode(1)).toStrictEqual(
         { 
@@ -448,7 +460,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node with the value of the argument has 2 children, and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node with the value of the argument has 2 children, and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 1, 3]);
       expect(binarySearchTree.deleteNode(2)).toStrictEqual(
         { 
@@ -463,7 +475,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node has 1 right child node, and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node has 1 right child node, and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([1, 2]);
       expect(binarySearchTree.deleteNode(1)).toStrictEqual(
         { 
@@ -474,7 +486,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with a negative argument which exists in the binary search tree, the node with the value of the argument has no children, and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a negative argument which exists in the binary search tree, the node with the value of the argument has no children, and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, -1, 3]);
       expect(binarySearchTree.deleteNode(-1)).toStrictEqual(
         { 
@@ -489,7 +501,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 left child node, the left child node of the node with the value of the argument doesn't have child nodes itself and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 left child node, the left child node of the node with the value of the argument doesn't have child nodes itself and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 4, 6]);
       binarySearchTree.insertNode(1);
       expect(binarySearchTree.deleteNode(2)).toStrictEqual(
@@ -509,7 +521,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 right child node, the right child node of the node with the value of the argument doesn't have child nodes itself and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 right child node, the right child node of the node with the value of the argument doesn't have child nodes itself and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 4, 6]);
       binarySearchTree.insertNode(3);
       expect(binarySearchTree.deleteNode(2)).toStrictEqual(
@@ -529,7 +541,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 left child node, the left child of the node of the node with the value of the argument has 2 child nodes itself and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 left child node, the left child of the node of the node with the value of the argument has 2 child nodes itself and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 4, 6]);
       binarySearchTree.insertNode(0);
       binarySearchTree.insertNode(-1);
@@ -559,7 +571,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 right child node, the right child of the node of the node with the value of the argument has 2 child nodes itself and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 right child node, the right child of the node of the node with the value of the argument has 2 child nodes itself and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 4, 6]);
       binarySearchTree.insertNode(8);
       binarySearchTree.insertNode(7);
@@ -589,7 +601,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the 2 child nodes of the node with the value of the argument don't have child nodes themselves and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the 2 child nodes of the node with the value of the argument don't have child nodes themselves and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 4, 6]);
       binarySearchTree.insertNode(1);
       binarySearchTree.insertNode(3);
@@ -614,7 +626,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has no left child node itself and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has no left child node itself and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([4, 10, 16]);
       binarySearchTree.insertNode(2);
       binarySearchTree.insertNode(-1);
@@ -664,7 +676,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has a left child node itself and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has a left child node itself and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([4, 10, 16]);
       binarySearchTree.insertNode(2);
       binarySearchTree.insertNode(-1);
@@ -719,7 +731,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has multiple nested left child nodes itself and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has multiple nested left child nodes itself and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([4, 10, 16]);
       binarySearchTree.insertNode(3);
       binarySearchTree.insertNode(8);
@@ -764,7 +776,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
-    test("The deleteNode method of factory function LinkedList works correctly if the method is called with an argument that doesn't exist in the binary search tree and the binary search tree is not empty", () => {
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument that doesn't exist in the binary search tree and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 1, 3]);
       expect(binarySearchTree.deleteNode(4)).toStrictEqual(
         { 
@@ -779,6 +791,135 @@ describe("Testing the factory function BinarySearchTree", () => {
             left: null, 
             right: null 
           } 
+        }
+      );
+    });
+
+    test("The find method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {
+      expect(binarySearchTree.find()).toStrictEqual(null);
+    });
+
+    test("The find method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.find()).toStrictEqual(null);
+    });
+
+    test("The find method of factory function BinarySearchTree works correctly if the method is called with an argument and the binary search tree is empty", () => {
+      expect(binarySearchTree.find(1)).toStrictEqual(null);
+    });
+
+    test("The find method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't in the binary search tree and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.find(4)).toStrictEqual(null);
+    });
+
+    test("The find method of factory function BinarySearchTree works correctly if the method is called with a positive argument, the argument is in the binary search tree, the node with the argument doesn't have child nodes and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.find(3)).toStrictEqual(
+        {
+          data: 3,
+          left: null,
+          right: null
+        }
+      );
+    });
+
+    test("The find method of factory function BinarySearchTree works correctly if the method is called with a negative argument, the argument is in the binary search tree, the node with the argument doesn't have child nodes and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, -1, 3]);
+      expect(binarySearchTree.find(-1)).toStrictEqual(
+        {
+          data: -1,
+          left: null,
+          right: null
+        }
+      );
+    });
+
+    test("The find method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is in the binary search tree, the node with the argument has 1 left child node and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insert(5);
+      expect(binarySearchTree.find(6)).toStrictEqual(
+        {
+          data: 6,
+          left: {
+            data: 5,
+            left: null,
+            right: null
+          },
+          right: null
+        }
+      );
+    });
+
+    test("The find method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is in the binary search tree, the node with the argument has 1 right child node and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insert(7);
+      expect(binarySearchTree.find(6)).toStrictEqual(
+        {
+          data: 6,
+          left: null,
+          right: {
+            data: 7,
+            left: null,
+            right: null
+          }
+        }
+      );
+    });
+
+    test("The find method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is in the binary search tree, the node with the argument has 2 child nodes and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insert(5);
+      binarySearchTree.insert(7);
+      expect(binarySearchTree.find(6)).toStrictEqual(
+        {
+          data: 6,
+          left: {
+            data: 5,
+            left: null,
+            right: null
+          },
+          right: {
+            data: 7,
+            left: null,
+            right: null
+          }
+        }
+      );
+    });
+
+    test("The find method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is in the binary search tree, the node with the argument has 2 child nodes which have nested child nodes themselves aswell and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 10, 16]);
+      binarySearchTree.insert(14);
+      binarySearchTree.insert(18);
+      binarySearchTree.insert(13);
+      binarySearchTree.insert(15);
+      binarySearchTree.insert(17);
+      expect(binarySearchTree.find(16)).toStrictEqual(
+        {
+          data: 16,
+          left: {
+            data: 14,
+            left: {
+              data: 13,
+              left: null,
+              right: null
+            },
+            right: {
+              data: 15,
+              left: null,
+              right: null
+            }
+          },
+          right: {
+            data: 18,
+            left: {
+              data: 17,
+              left: null,
+              right: null
+            },
+            right: null
+          }
         }
       );
     });
