@@ -6,11 +6,7 @@ export const BinarySearchTree = (arr) => {
   let root = null;
 
   const buildTree = (arr) => {
-    if (!arr) {
-      return null;
-    };
-
-    if (arr.length === 0) {
+    if ((arr === undefined) || (arr.length === 0)) {
       return null;
     };
 
@@ -86,7 +82,7 @@ export const BinarySearchTree = (arr) => {
           succ = succ.left;
         };
     
-        if (succParent === rootNode)  {
+        if (succParent === rootNode) {
           succParent.right = succ.right;
         } else {
           succParent.left = succ.right;
@@ -99,12 +95,29 @@ export const BinarySearchTree = (arr) => {
     return rootNode;
   };
 
+  const find = (value, rootNode = root) => {
+    if ((value === undefined) || (rootNode === null)) {
+      return null;
+    };
+
+    if (rootNode.data === value) {
+      return rootNode;
+    } else if (rootNode.data > value) {
+      return find(value, rootNode.left);
+    } else if (rootNode.data < value) {
+      return find(value, rootNode.right);
+    };
+
+    return null;
+  };
+
   return (Object.freeze({
     buildTree,
     prettyPrint,
     getRootNode,
     insertNode,
-    deleteNode
+    deleteNode,
+    find
   }));
 };
 

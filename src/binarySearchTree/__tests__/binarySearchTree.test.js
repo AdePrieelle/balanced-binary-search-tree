@@ -837,7 +837,7 @@ describe("Testing the factory function BinarySearchTree", () => {
 
     test("The find method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is in the binary search tree, the node with the argument has 1 left child node and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 4, 6]);
-      binarySearchTree.insert(5);
+      binarySearchTree.insertNode(5);
       expect(binarySearchTree.find(6)).toStrictEqual(
         {
           data: 6,
@@ -853,7 +853,7 @@ describe("Testing the factory function BinarySearchTree", () => {
 
     test("The find method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is in the binary search tree, the node with the argument has 1 right child node and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 4, 6]);
-      binarySearchTree.insert(7);
+      binarySearchTree.insertNode(7);
       expect(binarySearchTree.find(6)).toStrictEqual(
         {
           data: 6,
@@ -869,8 +869,8 @@ describe("Testing the factory function BinarySearchTree", () => {
 
     test("The find method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is in the binary search tree, the node with the argument has 2 child nodes and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 4, 6]);
-      binarySearchTree.insert(5);
-      binarySearchTree.insert(7);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(7);
       expect(binarySearchTree.find(6)).toStrictEqual(
         {
           data: 6,
@@ -890,11 +890,11 @@ describe("Testing the factory function BinarySearchTree", () => {
 
     test("The find method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is in the binary search tree, the node with the argument has 2 child nodes which have nested child nodes themselves aswell and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 10, 16]);
-      binarySearchTree.insert(14);
-      binarySearchTree.insert(18);
-      binarySearchTree.insert(13);
-      binarySearchTree.insert(15);
-      binarySearchTree.insert(17);
+      binarySearchTree.insertNode(14);
+      binarySearchTree.insertNode(18);
+      binarySearchTree.insertNode(13);
+      binarySearchTree.insertNode(15);
+      binarySearchTree.insertNode(17);
       expect(binarySearchTree.find(16)).toStrictEqual(
         {
           data: 16,
