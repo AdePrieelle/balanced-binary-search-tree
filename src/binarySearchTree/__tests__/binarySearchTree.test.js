@@ -32,6 +32,10 @@ describe("Testing the factory function BinarySearchTree", () => {
     test("The find method of factory function BinarySearchTree is a function", () => {
       expect(typeof binarySearchTree.find).toBe("function");
     });
+
+    test("The levelOrder method of factory function BinarySearchTree is a function", () => {
+      expect(typeof binarySearchTree.levelOrder).toBe("function");
+    });
   });
 
   describe("Testing the return type of the methods of factory function BinarySearchTree", () => {
@@ -71,6 +75,18 @@ describe("Testing the factory function BinarySearchTree", () => {
       expect(typeof binarySearchTree.find(1)).toBe("object");
     });
 
+    test("The return type of the levelOrder method of factory function BinarySearchTree is an array if the method is called without an argument", () => {
+      expect(Array.isArray(binarySearchTree.levelOrder())).toBe(true);
+    });
+
+    test("The return type of the levelOrder method of factory function BinarySearchTree is an object if the method is called with an argument that is a function", () => {
+      const mockCallback = jest.fn(() => 1);
+      expect(typeof binarySearchTree.levelOrder(mockCallback)).toBe("object");
+    });
+
+    test("The return type of the levelOrder method of factory function BinarySearchTree is an array if the method is called with an argument that isn't a function", () => {
+      expect(Array.isArray(binarySearchTree.levelOrder([1]))).toBe(true);
+    });
   });
 
   describe("Testing the return values of the methods of factory function BinarySearchTree", () => {
