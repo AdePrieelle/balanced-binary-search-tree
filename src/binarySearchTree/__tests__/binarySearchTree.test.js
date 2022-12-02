@@ -939,5 +939,84 @@ describe("Testing the factory function BinarySearchTree", () => {
         }
       );
     });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {
+      expect(binarySearchTree.levelOrder()).toStrictEqual([]);
+    });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([3, 1, 2]);
+      expect(binarySearchTree.levelOrder()).toStrictEqual([2, 1, 3]);
+    });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(5);
+      expect(binarySearchTree.levelOrder()).toStrictEqual([4, 2, 6, 5]);
+    });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of every node is more than 1", () => {
+      binarySearchTree.buildTree([3, 1, 2]);
+      binarySearchTree.insertNode(4);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-2);
+      binarySearchTree.insertNode(-3);
+      expect(binarySearchTree.levelOrder()).toStrictEqual([2, 1, 3, -1, 4, -2, -3]);
+    });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function and the binary search tree is empty", () => {
+      expect(binarySearchTree.levelOrder(10)).toStrictEqual([]);
+    });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function, the binary search tree is not empty, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([3, 1, 2]);
+      expect(binarySearchTree.levelOrder(10)).toStrictEqual([2, 1, 3]);
+    });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function, the binary search tree is not empty, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(5);
+      expect(binarySearchTree.levelOrder(10)).toStrictEqual([4, 2, 6, 5]);
+    });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function, the binary search tree is not empty, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of every node is more than 1", () => {
+      binarySearchTree.buildTree([3, 1, 2]);
+      binarySearchTree.insertNode(4);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-2);
+      binarySearchTree.insertNode(-3);
+      expect(binarySearchTree.levelOrder(10)).toStrictEqual([2, 1, 3, -1, 4, -2, -3]);
+    });
+
+
+
+    
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function and the binary search tree is empty", () => {
+      const mockCallback = jest.fn(() => 10);
+      expect(binarySearchTree.levelOrder(mockCallback)).toStrictEqual(null);
+    });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      const mockCallback = jest.fn(() => 10);
+      binarySearchTree.buildTree([3, 1, 2]);
+      expect(binarySearchTree.levelOrder(mockCallback)).toStrictEqual(null);
+    });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      const mockCallback = jest.fn(() => 10);
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(5);
+      expect(binarySearchTree.levelOrder(mockCallback)).toStrictEqual(null);
+    });
+
+    test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of every node is more than 1", () => {
+      const mockCallback = jest.fn(() => 10);
+      binarySearchTree.buildTree([3, 1, 2]);
+      binarySearchTree.insertNode(4);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-2);
+      binarySearchTree.insertNode(-3);
+      expect(binarySearchTree.levelOrder(mockCallback)).toStrictEqual(null);
+    });
   });
 });
