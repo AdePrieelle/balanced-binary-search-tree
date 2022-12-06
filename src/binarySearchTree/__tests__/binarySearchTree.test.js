@@ -80,7 +80,7 @@ describe("Testing the factory function BinarySearchTree", () => {
     });
 
     test("The return type of the levelOrder method of factory function BinarySearchTree is an object if the method is called with an argument that is a function", () => {
-      const mockCallback = jest.fn((x) => (x + 10));
+      const mockCallback = jest.fn((x) => (x.data + 10));
       expect(typeof binarySearchTree.levelOrder(mockCallback)).toBe("object");
     });
 
@@ -989,21 +989,21 @@ describe("Testing the factory function BinarySearchTree", () => {
     });
 
     test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function and the binary search tree is empty", () => {
-      const mockCallback = jest.fn((x) => (x + 10));
+      const mockCallback = jest.fn((x) => (x.data + 10));
       expect(binarySearchTree.levelOrder(mockCallback)).toStrictEqual(null);
       expect(mockCallback.mock.calls.length).toBe(0);
     });
 
     test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
-      const mockCallback = jest.fn((x) => (x + 10));
+      const mockCallback = jest.fn((x) => (x.data + 10));
       binarySearchTree.buildTree([3, 1, 2]);
       expect(binarySearchTree.levelOrder(mockCallback)).toStrictEqual(null);
       // amount of times that the callback function has been called
       expect(mockCallback.mock.calls.length).toBe(3);
-      // the value of first argument of the n-th callback function call
-      expect(mockCallback.mock.calls[0][0]).toBe(2);
-      expect(mockCallback.mock.calls[1][0]).toBe(1);
-      expect(mockCallback.mock.calls[2][0]).toBe(3);
+      // the value of the data property of the first argument of the n-th callback function call
+      expect(mockCallback.mock.calls[0][0].data).toBe(2);
+      expect(mockCallback.mock.calls[1][0].data).toBe(1);
+      expect(mockCallback.mock.calls[2][0].data).toBe(3);
       // The return value of the n-th callback function call
       expect(mockCallback.mock.results[0].value).toBe(12);
       expect(mockCallback.mock.results[1].value).toBe(11);
@@ -1011,17 +1011,17 @@ describe("Testing the factory function BinarySearchTree", () => {
     });
 
     test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
-      const mockCallback = jest.fn((x) => (x + 10));
+      const mockCallback = jest.fn((x) => (x.data + 10));
       binarySearchTree.buildTree([2, 4, 6]);
       binarySearchTree.insertNode(5);
       expect(binarySearchTree.levelOrder(mockCallback)).toStrictEqual(null);
       // amount of times that the callback function has been called
       expect(mockCallback.mock.calls.length).toBe(4);
-      // the value of first argument of the n-th callback function call
-      expect(mockCallback.mock.calls[0][0]).toBe(4);
-      expect(mockCallback.mock.calls[1][0]).toBe(2);
-      expect(mockCallback.mock.calls[2][0]).toBe(6);
-      expect(mockCallback.mock.calls[3][0]).toBe(5);
+      // the value of the data property of the first argument of the n-th callback function call
+      expect(mockCallback.mock.calls[0][0].data).toBe(4);
+      expect(mockCallback.mock.calls[1][0].data).toBe(2);
+      expect(mockCallback.mock.calls[2][0].data).toBe(6);
+      expect(mockCallback.mock.calls[3][0].data).toBe(5);
       // The return value of the n-th callback function call
       expect(mockCallback.mock.results[0].value).toBe(14);
       expect(mockCallback.mock.results[1].value).toBe(12);
@@ -1030,7 +1030,7 @@ describe("Testing the factory function BinarySearchTree", () => {
     });
 
     test("The levelOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of every node is more than 1", () => {
-      const mockCallback = jest.fn((x) => (x + 10));
+      const mockCallback = jest.fn((x) => (x.data + 10));
       binarySearchTree.buildTree([3, 1, 2]);
       binarySearchTree.insertNode(4);
       binarySearchTree.insertNode(-1);
@@ -1039,14 +1039,14 @@ describe("Testing the factory function BinarySearchTree", () => {
       expect(binarySearchTree.levelOrder(mockCallback)).toStrictEqual(null);
       // amount of times that the callback function has been called
       expect(mockCallback.mock.calls.length).toBe(7);
-      // the value of first argument of the n-th callback function call
-      expect(mockCallback.mock.calls[0][0]).toBe(2);
-      expect(mockCallback.mock.calls[1][0]).toBe(1);
-      expect(mockCallback.mock.calls[2][0]).toBe(3);
-      expect(mockCallback.mock.calls[3][0]).toBe(-1);
-      expect(mockCallback.mock.calls[4][0]).toBe(4);
-      expect(mockCallback.mock.calls[5][0]).toBe(-2);
-      expect(mockCallback.mock.calls[6][0]).toBe(-3);
+      // the value of the data property of the first argument of the n-th callback function call
+      expect(mockCallback.mock.calls[0][0].data).toBe(2);
+      expect(mockCallback.mock.calls[1][0].data).toBe(1);
+      expect(mockCallback.mock.calls[2][0].data).toBe(3);
+      expect(mockCallback.mock.calls[3][0].data).toBe(-1);
+      expect(mockCallback.mock.calls[4][0].data).toBe(4);
+      expect(mockCallback.mock.calls[5][0].data).toBe(-2);
+      expect(mockCallback.mock.calls[6][0].data).toBe(-3);
       // The return value of the n-th callback function call
       expect(mockCallback.mock.results[0].value).toBe(12);
       expect(mockCallback.mock.results[1].value).toBe(11);

@@ -111,19 +111,56 @@ export const BinarySearchTree = (arr) => {
     return null;
   };
 
+  const levelOrder = (callback) => {
+    const callbackIsAFunction = (typeof callback === "function");
+
+    if (root === null) {
+      if (callbackIsAFunction) {
+        return null;
+      } else {
+        return ([]);
+      };
+    };
+
+    let queue = [root];
+    let currentNode = root;
+    let levelOrderListDataValues = [];
+    while (queue.length) {
+      currentNode = queue.shift();
+      if (callbackIsAFunction) {
+        callback(currentNode);
+      } else {
+        levelOrderListDataValues.push(currentNode.data);
+      };
+      if (currentNode.left) {
+        queue.push(currentNode.left);
+      };
+      if (currentNode.right) {
+        queue.push(currentNode.right);
+      };
+    };
+
+    if (callbackIsAFunction) {
+      return null;
+    } else {
+      return levelOrderListDataValues;
+    };
+  };
+
   return (Object.freeze({
     buildTree,
     prettyPrint,
     getRootNode,
     insertNode,
     deleteNode,
-    find
+    find,
+    levelOrder
   }));
 };
 
-const result = BinarySearchTree([6, 2, 4]);
-result.insertNode(3);
-const result2 = result.getRootNode();
+// const result = BinarySearchTree([6, 2, 4]);
+// result.insertNode(3);
+// const result2 = result.getRootNode();
 
-console.log(result);
-console.log(result2);
+// console.log(result);
+// console.log(result2);
