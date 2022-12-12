@@ -147,6 +147,32 @@ export const BinarySearchTree = (arr) => {
     };
   };
 
+  const preOrder = (callback, rootNode = root, preOrderListDataValues = []) => {
+    const callbackIsAFunction = (typeof callback === "function");
+
+    if (rootNode === null) {
+      if (callbackIsAFunction) {
+        return null;
+      } else {
+        return ([]);
+      };
+    };
+
+    if (callbackIsAFunction) {
+      callback(rootNode);
+    } else {
+      preOrderListDataValues.push(rootNode.data);
+    };
+    preOrder(callback, rootNode.left, preOrderListDataValues);
+    preOrder(callback, rootNode.right, preOrderListDataValues);
+
+    if (callbackIsAFunction) {
+      return null;
+    } else {
+      return preOrderListDataValues;
+    };
+  };
+
   return (Object.freeze({
     buildTree,
     prettyPrint,
@@ -154,7 +180,8 @@ export const BinarySearchTree = (arr) => {
     insertNode,
     deleteNode,
     find,
-    levelOrder
+    levelOrder,
+    preOrder
   }));
 };
 
