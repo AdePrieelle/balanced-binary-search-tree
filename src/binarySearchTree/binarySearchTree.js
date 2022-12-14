@@ -199,6 +199,32 @@ export const BinarySearchTree = (arr) => {
     };
   };
 
+  const postOrder = (callback, rootNode = root, postOrderListDataValues = []) => {
+    const callbackIsAFunction = (typeof callback === "function");
+
+    if (rootNode === null) {
+      if (callbackIsAFunction) {
+        return null;
+      } else {
+        return ([]);
+      };
+    };
+
+    postOrder(callback, rootNode.left, postOrderListDataValues);
+    postOrder(callback, rootNode.right, postOrderListDataValues);
+    if (callbackIsAFunction) {
+      callback(rootNode);
+    } else {
+      postOrderListDataValues.push(rootNode.data);
+    };
+
+    if (callbackIsAFunction) {
+      return null;
+    } else {
+      return postOrderListDataValues;
+    };
+  };
+
   return (Object.freeze({
     buildTree,
     prettyPrint,
@@ -208,6 +234,7 @@ export const BinarySearchTree = (arr) => {
     find,
     levelOrder,
     preOrder,
-    inOrder
+    inOrder,
+    postOrder
   }));
 };
