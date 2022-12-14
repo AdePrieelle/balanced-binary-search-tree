@@ -44,6 +44,10 @@ describe("Testing the factory function BinarySearchTree", () => {
     test("The inOrder method of factory function BinarySearchTree is a function", () => {
       expect(typeof binarySearchTree.inOrder).toBe("function");
     });
+
+    test("The postOrder method of factory function BinarySearchTree is a function", () => {
+      expect(typeof binarySearchTree.postOrder).toBe("function");
+    });
   });
 
   describe("Testing the return type of the methods of factory function BinarySearchTree", () => {
@@ -120,6 +124,19 @@ describe("Testing the factory function BinarySearchTree", () => {
     test("The return type of the inOrder method of factory function BinarySearchTree is an object if the method is called with an argument that is a function", () => {
       const mockCallback = jest.fn((x) => (x.data + 10));
       expect(typeof binarySearchTree.inOrder(mockCallback)).toBe("object");
+    });
+
+    test("The return type of the postOrder method of factory function BinarySearchTree is an array if the method is called without an argument", () => {
+      expect(Array.isArray(binarySearchTree.postOrder())).toBe(true);
+    });
+
+    test("The return type of the postOrder method of factory function BinarySearchTree is an array if the method is called with an argument that isn't a function", () => {
+      expect(Array.isArray(binarySearchTree.postOrder([1]))).toBe(true);
+    });
+    
+    test("The return type of the postOrder method of factory function BinarySearchTree is an object if the method is called with an argument that is a function", () => {
+      const mockCallback = jest.fn((x) => (x.data + 10));
+      expect(typeof binarySearchTree.postOrder(mockCallback)).toBe("object");
     });
   });
 
@@ -1719,6 +1736,255 @@ describe("Testing the factory function BinarySearchTree", () => {
       expect(mockCallback.mock.results[8].value).toBe(15);
       expect(mockCallback.mock.results[9].value).toBe(16);
       expect(mockCallback.mock.results[10].value).toBe(17);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {
+      expect(binarySearchTree.postOrder()).toStrictEqual([]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.postOrder()).toStrictEqual([2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.postOrder()).toStrictEqual([-2, 2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.postOrder()).toStrictEqual([6, 2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.postOrder()).toStrictEqual([-2, 6, 2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.postOrder()).toStrictEqual([-4, -1, 0, -2, 5, 3, 7, 9, 8, 6, 2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.postOrder()).toStrictEqual([-5, -3, -4, -1, -2, 4, 5, 3, 7, 6, 2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function and the binary search tree is empty", () => {
+      expect(binarySearchTree.postOrder(10)).toStrictEqual([]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.postOrder(10)).toStrictEqual([2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.postOrder(10)).toStrictEqual([-2, 2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.postOrder(10)).toStrictEqual([6, 2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.postOrder(10)).toStrictEqual([-2, 6, 2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.postOrder(10)).toStrictEqual([-4, -1, 0, -2, 5, 3, 7, 9, 8, 6, 2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a function, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.postOrder(10)).toStrictEqual([-5, -3, -4, -1, -2, 4, 5, 3, 7, 6, 2]);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function and the binary search tree is empty", () => {
+      const mockCallback = jest.fn((x) => (x.data + 10));
+      expect(binarySearchTree.postOrder(mockCallback)).toStrictEqual(null);
+      // amount of times that the callback function has been called
+      expect(mockCallback.mock.calls.length).toBe(0);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      const mockCallback = jest.fn((x) => (x.data + 10));
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.postOrder(mockCallback)).toStrictEqual(null);
+      // amount of times that the callback function has been called
+      expect(mockCallback.mock.calls.length).toBe(1);
+      // the value of the data property of the first argument of the n-th callback function call
+      expect(mockCallback.mock.calls[0][0].data).toBe(2);
+      // The return value of the n-th callback function call
+      expect(mockCallback.mock.results[0].value).toBe(12);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      const mockCallback = jest.fn((x) => (x.data + 10));
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.postOrder(mockCallback)).toStrictEqual(null);
+      // amount of times that the callback function has been called
+      expect(mockCallback.mock.calls.length).toBe(2);
+      // the value of the data property of the first argument of the n-th callback function call
+      expect(mockCallback.mock.calls[0][0].data).toBe(-2);
+      expect(mockCallback.mock.calls[1][0].data).toBe(2);
+      // The return value of the n-th callback function call
+      expect(mockCallback.mock.results[0].value).toBe(8);
+      expect(mockCallback.mock.results[1].value).toBe(12);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      const mockCallback = jest.fn((x) => (x.data + 10));
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.postOrder(mockCallback)).toStrictEqual(null);
+      // amount of times that the callback function has been called
+      expect(mockCallback.mock.calls.length).toBe(2);
+      // the value of the data property of the first argument of the n-th callback function call
+      expect(mockCallback.mock.calls[0][0].data).toBe(6);
+      expect(mockCallback.mock.calls[1][0].data).toBe(2);
+      // The return value of the n-th callback function call
+      expect(mockCallback.mock.results[0].value).toBe(16);
+      expect(mockCallback.mock.results[1].value).toBe(12);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      const mockCallback = jest.fn((x) => (x.data + 10));
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.postOrder(mockCallback)).toStrictEqual(null);
+      // amount of times that the callback function has been called
+      expect(mockCallback.mock.calls.length).toBe(3);
+      // the value of the data property of the first argument of the n-th callback function call
+      expect(mockCallback.mock.calls[0][0].data).toBe(-2);
+      expect(mockCallback.mock.calls[1][0].data).toBe(6);
+      expect(mockCallback.mock.calls[2][0].data).toBe(2);
+      // The return value of the n-th callback function call
+      expect(mockCallback.mock.results[0].value).toBe(8);
+      expect(mockCallback.mock.results[1].value).toBe(16);
+      expect(mockCallback.mock.results[2].value).toBe(12);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      const mockCallback = jest.fn((x) => (x.data + 10));
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.postOrder(mockCallback)).toStrictEqual(null);
+      // amount of times that the callback function has been called
+      expect(mockCallback.mock.calls.length).toBe(11);
+      // the value of the data property of the first argument of the n-th callback function call
+      expect(mockCallback.mock.calls[0][0].data).toBe(-4);
+      expect(mockCallback.mock.calls[1][0].data).toBe(-1);
+      expect(mockCallback.mock.calls[2][0].data).toBe(0);
+      expect(mockCallback.mock.calls[3][0].data).toBe(-2);
+      expect(mockCallback.mock.calls[4][0].data).toBe(5);
+      expect(mockCallback.mock.calls[5][0].data).toBe(3);
+      expect(mockCallback.mock.calls[6][0].data).toBe(7);
+      expect(mockCallback.mock.calls[7][0].data).toBe(9);
+      expect(mockCallback.mock.calls[8][0].data).toBe(8);
+      expect(mockCallback.mock.calls[9][0].data).toBe(6);
+      expect(mockCallback.mock.calls[10][0].data).toBe(2);
+      // The return value of the n-th callback function call
+      expect(mockCallback.mock.results[0].value).toBe(6);
+      expect(mockCallback.mock.results[1].value).toBe(9);
+      expect(mockCallback.mock.results[2].value).toBe(10);
+      expect(mockCallback.mock.results[3].value).toBe(8);
+      expect(mockCallback.mock.results[4].value).toBe(15);
+      expect(mockCallback.mock.results[5].value).toBe(13);
+      expect(mockCallback.mock.results[6].value).toBe(17);
+      expect(mockCallback.mock.results[7].value).toBe(19);
+      expect(mockCallback.mock.results[8].value).toBe(18);
+      expect(mockCallback.mock.results[9].value).toBe(16);
+      expect(mockCallback.mock.results[10].value).toBe(12);
+    });
+
+    test("The postOrder method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a function, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      const mockCallback = jest.fn((x) => (x.data + 10));
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.postOrder(mockCallback)).toStrictEqual(null);
+      // amount of times that the callback function has been called
+      expect(mockCallback.mock.calls.length).toBe(11);
+      // the value of the data property of the first argument of the n-th callback function call
+      expect(mockCallback.mock.calls[0][0].data).toBe(-5);
+      expect(mockCallback.mock.calls[1][0].data).toBe(-3);
+      expect(mockCallback.mock.calls[2][0].data).toBe(-4);
+      expect(mockCallback.mock.calls[3][0].data).toBe(-1);
+      expect(mockCallback.mock.calls[4][0].data).toBe(-2);
+      expect(mockCallback.mock.calls[5][0].data).toBe(4);
+      expect(mockCallback.mock.calls[6][0].data).toBe(5);
+      expect(mockCallback.mock.calls[7][0].data).toBe(3);
+      expect(mockCallback.mock.calls[8][0].data).toBe(7);
+      expect(mockCallback.mock.calls[9][0].data).toBe(6);
+      expect(mockCallback.mock.calls[10][0].data).toBe(2);
+      // The return value of the n-th callback function call
+      expect(mockCallback.mock.results[0].value).toBe(5);
+      expect(mockCallback.mock.results[1].value).toBe(7);
+      expect(mockCallback.mock.results[2].value).toBe(6);
+      expect(mockCallback.mock.results[3].value).toBe(9);
+      expect(mockCallback.mock.results[4].value).toBe(8);
+      expect(mockCallback.mock.results[5].value).toBe(14);
+      expect(mockCallback.mock.results[6].value).toBe(15);
+      expect(mockCallback.mock.results[7].value).toBe(13);
+      expect(mockCallback.mock.results[8].value).toBe(17);
+      expect(mockCallback.mock.results[9].value).toBe(16);
+      expect(mockCallback.mock.results[10].value).toBe(12);
     });
   });
 });
