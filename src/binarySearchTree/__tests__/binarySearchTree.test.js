@@ -48,6 +48,10 @@ describe("Testing the factory function BinarySearchTree", () => {
     test("The postOrder method of factory function BinarySearchTree is a function", () => {
       expect(typeof binarySearchTree.postOrder).toBe("function");
     });
+
+    test("The height method of factory function BinarySearchTree is a function", () => {
+      expect(typeof binarySearchTree.height).toBe("function");
+    });
   });
 
   describe("Testing the return type of the methods of factory function BinarySearchTree", () => {
@@ -137,6 +141,18 @@ describe("Testing the factory function BinarySearchTree", () => {
     test("The return type of the postOrder method of factory function BinarySearchTree is an object if the method is called with an argument that is a function", () => {
       const mockCallback = jest.fn((x) => (x.data + 10));
       expect(typeof binarySearchTree.postOrder(mockCallback)).toBe("object");
+    });
+
+    test("The return type of the height method of factory function BinarySearchTree is a number if the method is called without an argument", () => {
+      expect(typeof binarySearchTree.height()).toBe("number");
+    });
+
+    test("The return type of the height method of factory function BinarySearchTree is an object if the method is called with an argument that isn't an object", () => {
+      expect(typeof binarySearchTree.height(10)).toBe("object");
+    });
+
+    test("The return type of the height method of factory function BinarySearchTree is a number if the method is called with an argument that is an object", () => {
+      expect(typeof binarySearchTree.height({ data: 10, left: null, right: null })).toBe("number");
     });
   });
 
@@ -1985,6 +2001,292 @@ describe("Testing the factory function BinarySearchTree", () => {
       expect(mockCallback.mock.results[8].value).toBe(17);
       expect(mockCallback.mock.results[9].value).toBe(16);
       expect(mockCallback.mock.results[10].value).toBe(12);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {
+      expect(binarySearchTree.height()).toBe(0);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.height()).toBe(0);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.height()).toBe(1);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.height()).toBe(1);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.height()).toBe(1);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.height()).toBe(3);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.height()).toBe(4);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object and the binary search tree is empty", () => {
+      expect(binarySearchTree.height(10)).toStrictEqual(null);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.height(10)).toStrictEqual(null);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.height(10)).toStrictEqual(null);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.height(10)).toStrictEqual(null);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.height(10)).toStrictEqual(null);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.height(10)).toStrictEqual(null);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.height(10)).toStrictEqual(null);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object and the binary search tree is empty", () => {
+      expect(binarySearchTree.height(binarySearchTree.getRootNode())).toBe(0);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.height(binarySearchTree.getRootNode())).toBe(0);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.height(binarySearchTree.getRootNode())).toBe(1);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.height(binarySearchTree.getRootNode())).toBe(1);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.height(binarySearchTree.getRootNode())).toBe(1);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.height(binarySearchTree.getRootNode())).toBe(3);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.height(binarySearchTree.getRootNode())).toBe(4);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is not a sub node object of the root node object and the binary search tree is empty", () => {
+      expect(binarySearchTree.height(
+        { 
+          data: 2, 
+          left: null, 
+          right: null 
+        }
+      )).toBe(0);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is not a sub node object of the root node object, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.height(
+        { 
+          data: 2, 
+          left: { 
+            data: -2, 
+            left: null, 
+            right: null 
+          }, 
+          right: { 
+            data: 6,
+            left: null,
+            right: null
+          } 
+        }
+      )).toBe(1);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.height(
+        {
+          data: -2,
+          left: null,
+          right: null
+        }
+      )).toBe(0);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.height(
+        {
+          data: 6,
+          left: null,
+          right: null
+        }
+      )).toBe(0);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.height(
+        {
+          data: -2,
+          left: null,
+          right: null
+        }
+      )).toBe(0);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.height(
+        {
+          data: -2,
+          left: {
+            data: -4,
+            left: null,
+            right: null
+          },
+          right: {
+            data: 0,
+            left: {
+              data: -1,
+              left: null,
+              right: null
+            },
+            right: null
+          }
+        }
+      )).toBe(2);
+    });
+
+    test("The height method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.height(
+        {
+          data: 6,
+          left: {
+            data: 3,
+            left: null,
+            right: {
+              data: 5,
+              left: {
+                data: 4,
+                left: null,
+                right: null
+              },
+              right: null
+            }
+          },
+          right: {
+            data: 7,
+            left: null,
+            right: null
+          }
+        }
+      )).toBe(3);
     });
   });
 });
