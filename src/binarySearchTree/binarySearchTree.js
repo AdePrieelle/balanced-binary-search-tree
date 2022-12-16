@@ -225,6 +225,21 @@ export const BinarySearchTree = (arr) => {
     };
   };
 
+  const height = (rootNode = root) => {
+    if (typeof rootNode !== "object") {
+      return null;
+    };
+
+    if (rootNode === null) {
+      return 0;
+    };
+
+    const leftHeight = ((rootNode.left !== null) ? (height(rootNode.left) + 1) : 0);
+    const rightHeight = ((rootNode.right !== null) ? (height(rootNode.right) + 1) : 0);
+
+    return (Math.max(leftHeight, rightHeight));
+  };
+
   return (Object.freeze({
     buildTree,
     prettyPrint,
@@ -235,6 +250,7 @@ export const BinarySearchTree = (arr) => {
     levelOrder,
     preOrder,
     inOrder,
-    postOrder
+    postOrder,
+    height
   }));
 };
