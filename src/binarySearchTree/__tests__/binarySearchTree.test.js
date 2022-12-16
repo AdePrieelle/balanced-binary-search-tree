@@ -52,6 +52,10 @@ describe("Testing the factory function BinarySearchTree", () => {
     test("The height method of factory function BinarySearchTree is a function", () => {
       expect(typeof binarySearchTree.height).toBe("function");
     });
+
+    test("The depth method of factory function BinarySearchTree is a function", () => {
+      expect(typeof binarySearchTree.depth).toBe("function");
+    });
   });
 
   describe("Testing the return type of the methods of factory function BinarySearchTree", () => {
@@ -153,6 +157,23 @@ describe("Testing the factory function BinarySearchTree", () => {
 
     test("The return type of the height method of factory function BinarySearchTree is a number if the method is called with an argument that is an object", () => {
       expect(typeof binarySearchTree.height({ data: 10, left: null, right: null })).toBe("number");
+    });
+
+    test("The return type of the depth method of factory function BinarySearchTree is a number if the method is called without an argument", () => {
+      expect(typeof binarySearchTree.depth()).toBe("number");
+    });
+
+    test("The return type of the depth method of factory function BinarySearchTree is an object if the method is called with an argument that isn't an object", () => {
+      expect(typeof binarySearchTree.depth(10)).toBe("object");
+    });
+
+    test("The return type of the depth method of factory function BinarySearchTree is an object if the method is called with an argument that is an object and the argument object is not in the binary search tree", () => {
+      expect(typeof binarySearchTree.depth({ data: 10, left: null, right: null })).toBe("object");
+    });
+
+    test("The return type of the depth method of factory function BinarySearchTree is a number if the method is called with an argument that is an object and the argument object is in the binary search tree", () => {
+      binarySearchTree.buildTree([10]);
+      expect(typeof binarySearchTree.depth({ data: 10, left: null, right: null })).toBe("number");
     });
   });
 
@@ -2287,6 +2308,314 @@ describe("Testing the factory function BinarySearchTree", () => {
           }
         }
       )).toBe(3);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {
+      expect(binarySearchTree.depth()).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.depth()).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.depth()).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.depth()).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.depth()).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.depth()).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.depth()).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object and the binary search tree is empty", () => {
+      expect(binarySearchTree.depth(10)).toStrictEqual(null);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.depth(10)).toStrictEqual(null);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.depth(10)).toStrictEqual(null);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.depth(10)).toStrictEqual(null);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.depth(10)).toStrictEqual(null);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.depth(10)).toStrictEqual(null);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument isn't a node object, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.depth(10)).toStrictEqual(null);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object and the binary search tree is empty", () => {
+      expect(binarySearchTree.depth(binarySearchTree.getRootNode())).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.depth(binarySearchTree.getRootNode())).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.depth(binarySearchTree.getRootNode())).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.depth(binarySearchTree.getRootNode())).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.depth(binarySearchTree.getRootNode())).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.depth(binarySearchTree.getRootNode())).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is the root node object, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.depth(binarySearchTree.getRootNode())).toBe(0);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is not a sub node object of the root node object and the binary search tree is empty", () => {
+      expect(binarySearchTree.depth(
+        { 
+          data: 2, 
+          left: null, 
+          right: null 
+        }
+      )).toStrictEqual(null);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is not a sub node object of the root node object, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.depth(
+        { 
+          data: 2, 
+          left: { 
+            data: -2, 
+            left: null, 
+            right: null 
+          }, 
+          right: { 
+            data: 6,
+            left: null,
+            right: null
+          } 
+        }
+      )).toStrictEqual(null);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.depth(
+        {
+          data: -2,
+          left: null,
+          right: null
+        }
+      )).toBe(1);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.depth(
+        {
+          data: 6,
+          left: null,
+          right: null
+        }
+      )).toBe(1);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.depth(
+        {
+          data: -2,
+          left: null,
+          right: null
+        }
+      )).toBe(1);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the argument doesn't have any child nodes and is a leaf sub node object of the root node, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.depth(
+        {
+          data: 7,
+          left: null,
+          right: null
+        }
+      )).toBe(3);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the argument doesn't have any child nodes and is a leaf sub node object of the root node, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.depth(
+        {
+          data: 4,
+          left: null,
+          right: null
+        }
+      )).toBe(4);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the argument has at least 1 child node and is not a leaf sub node object of the root node, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.depth(
+        {
+          data: 0,
+          left: {
+            data: -1,
+            left: null,
+            right: null
+          },
+          right: null
+        }
+      )).toBe(2);
+    });
+
+    test("The depth method of factory function BinarySearchTree works correctly if the method is called with an argument, the argument is a node object, the argument is not the root node object, the argument is a sub node object of the root node object, the argument has at least 1 child node and is not a leaf sub node object of the root node, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.depth(
+        {
+          data: -4,
+          left: {
+            data: -5,
+            left: null,
+            right: null
+          },
+          right: {
+            data: -3,
+            left: null,
+            right: null
+          }
+        }
+      )).toBe(2);
     });
   });
 });
