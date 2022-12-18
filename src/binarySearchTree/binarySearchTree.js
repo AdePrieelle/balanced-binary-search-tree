@@ -1,4 +1,5 @@
 import { BinarySearchTreeNode } from '../binarySearchTreeNode/binarySearchTreeNode';
+import { getAreObjectValuesEqual } from '../utils/getAreObjectValuesEqual/getAreObjectValuesEqual';
 import { removeDuplicatesFromArray } from '../utils/removeDuplicatesFromArray/removeDuplicatesFromArray';
 import { sortArrayOfNumbers } from '../utils/sortArrayOfNumbers/sortArrayOfNumbers';
 
@@ -240,6 +241,35 @@ export const BinarySearchTree = (arr) => {
     return (Math.max(leftHeight, rightHeight));
   };
 
+  const depth = (rootNode = root) => {
+    if (typeof rootNode !== "object") {
+      return null;
+    };
+
+    if (rootNode === null) {
+      return 0;
+    };
+    
+    const nodeWithRootNodeDataValueInBST = find(rootNode.data);
+    const isRootNodeInBST = getAreObjectValuesEqual(nodeWithRootNodeDataValueInBST, rootNode);  
+
+    let count = 0;
+    let current = root;
+    if (!isRootNodeInBST) {
+      return null;
+    } else {
+      while (current.data !== rootNode.data) {
+        count += 1;
+        if (current.data > rootNode.data) {
+          current = current.left;
+        } else {
+          current = current.right;
+        };
+      };
+      return count;
+    };
+  };
+
   return (Object.freeze({
     buildTree,
     prettyPrint,
@@ -251,6 +281,7 @@ export const BinarySearchTree = (arr) => {
     preOrder,
     inOrder,
     postOrder,
-    height
+    height,
+    depth
   }));
 };
