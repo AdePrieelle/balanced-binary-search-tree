@@ -56,6 +56,10 @@ describe("Testing the factory function BinarySearchTree", () => {
     test("The depth method of factory function BinarySearchTree is a function", () => {
       expect(typeof binarySearchTree.depth).toBe("function");
     });
+
+    test("The isBalanced method of factory function BinarySearchTree is a function", () => {
+      expect(typeof binarySearchTree.isBalanced).toBe("function");
+    });
   });
 
   describe("Testing the return type of the methods of factory function BinarySearchTree", () => {
@@ -174,6 +178,10 @@ describe("Testing the factory function BinarySearchTree", () => {
     test("The return type of the depth method of factory function BinarySearchTree is a number if the method is called with an argument that is an object and the argument object is in the binary search tree", () => {
       binarySearchTree.buildTree([10]);
       expect(typeof binarySearchTree.depth({ data: 10, left: null, right: null })).toBe("number");
+    });
+
+    test("The return type of the isBalanced method of factory function BinarySearchTree is a boolean if the method is called without an argument", () => {
+      expect(typeof binarySearchTree.isBalanced()).toBe("boolean");
     });
   });
 
@@ -2616,6 +2624,140 @@ describe("Testing the factory function BinarySearchTree", () => {
           }
         }
       )).toBe(2);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has no child nodes, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([2]);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 left child node, the left child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 right child node, the right child node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 left child node, the left child node has one left child node itself, the left child node of the left child node of the root node has no child nodes itself, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      binarySearchTree.insertNode(-4);
+      expect(binarySearchTree.isBalanced()).toBe(false);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 left child node, the left child node has one right child node itself, the right child node of the left child node of the root node has no child nodes itself, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      binarySearchTree.insertNode(0);
+      expect(binarySearchTree.isBalanced()).toBe(false);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 left child node, the left child node has 2 child nodes itself, the child nodes of the left child node of the root node have no child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(-2);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      expect(binarySearchTree.isBalanced()).toBe(false);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 right child node, the right child node has one right child node itself, the right child node of the right child node of the root node has no child nodes itself, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      binarySearchTree.insertNode(8);
+      expect(binarySearchTree.isBalanced()).toBe(false);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 right child node, the right child node has one left child node itself, the left child node of the right child node of the root node has no child nodes itself, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.isBalanced()).toBe(false);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 1 right child node, the right child node has 2 child nodes itself, the child nodes of the right child node of the root node have no child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([2]);
+      binarySearchTree.insertNode(6);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.isBalanced()).toBe(false);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the child nodes dont have child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 0", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the left child node has 1 left child node itself, the left child node of the left child node of the root node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the left child node has 1 right child node itself, the right child node of the left child node of the root node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(0);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the left child node has 2 child nodes itself, the child nodes of the left child node of the root node have no child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the right child node has 1 right child node itself, the right child node of the right child node of the root node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(8);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the right child node has 1 left child node itself, the left child node of the right child node of the root node has no child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the right child node has 2 child nodes itself, the child nodes of the right child node of the root node have no child nodes themselves, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, the 2 child nodes both have 2 child nodes themselves, the left child node of the left child node of the root node doesn't have any child nodes itself, the right child node of the left child node of the root node has 1 left child node itself, the left child node of the right child node of the root node has 1 right child node itself, the right child node of the right child node of the root node has 2 child nodes itself, the binary search tree is balanced and the difference between heights of left subtree and right subtree of every node is not more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.isBalanced()).toBe(true);
+    });
+
+    test("The isBalanced method of factory function BinarySearchTree works correctly if the method is called without an argument, the binary search tree is not empty, the root node has 2 child nodes, both child nodes have (multiple nested) child nodes themselves, the binary search tree is not balanced and the difference between heights of left subtree and right subtree of at least 1 node is more than 1", () => {
+      binarySearchTree.buildTree([-2, 2, 6]);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(-4);
+      binarySearchTree.insertNode(-3);
+      binarySearchTree.insertNode(-5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(4);
+      expect(binarySearchTree.isBalanced()).toBe(false);
     });
   });
 });
