@@ -270,6 +270,48 @@ export const BinarySearchTree = (arr) => {
     };
   };
 
+  const isBalanced = () => {
+    if (root === null) {
+      return true;
+    };
+
+    let queue = [root];
+    let current;
+    let leftHeight;
+    let rightHeight;
+    let diffHeightLeftRightSubtree;
+    while (queue.length > 0) {
+      current = queue.shift();
+
+      if (current.left === null) {
+        leftHeight = height(current.left);
+      } else {
+        // add 1 because current.left is already 1 level under the current node
+        leftHeight = (height(current.left) + 1);
+      };
+      if (current.right === null) {
+        rightHeight = height(current.right);
+      } else {
+        // add 1 because current.right is already 1 level under the current node
+        rightHeight = (height(current.right) + 1);
+      };
+
+      diffHeightLeftRightSubtree = Math.abs(leftHeight - rightHeight);
+      if (diffHeightLeftRightSubtree > 1) {
+        return false;
+      };
+
+      if (current.left !== null) {
+        queue.push(current.left);
+      };
+      if (current.right !== null) {
+        queue.push(current.right);
+      };
+    };
+
+    return true;
+  };
+
   return (Object.freeze({
     buildTree,
     prettyPrint,
@@ -282,6 +324,7 @@ export const BinarySearchTree = (arr) => {
     inOrder,
     postOrder,
     height,
-    depth
+    depth,
+    isBalanced
   }));
 };
