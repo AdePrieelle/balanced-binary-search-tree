@@ -312,6 +312,18 @@ export const BinarySearchTree = (arr) => {
     return true;
   };
 
+  const rebalance = () => {
+    if (root === null) {
+      return null;
+    };
+
+    const arrayOfNodeDataValues = inOrder();
+    const rebalancedRootTree = buildTree(arrayOfNodeDataValues);
+    root = rebalancedRootTree;
+    
+    return root;
+  };
+
   return (Object.freeze({
     buildTree,
     prettyPrint,
@@ -325,6 +337,7 @@ export const BinarySearchTree = (arr) => {
     postOrder,
     height,
     depth,
-    isBalanced
+    isBalanced,
+    rebalance
   }));
 };
