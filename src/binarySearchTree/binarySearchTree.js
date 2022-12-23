@@ -7,7 +7,7 @@ export const BinarySearchTree = (arr) => {
   let root = null;
 
   const buildTree = (arr) => {
-    if ((arr === undefined) || (arr.length === 0)) {
+    if ((!Array.isArray(arr)) || (arr.length === 0)) {
       return null;
     };
 
