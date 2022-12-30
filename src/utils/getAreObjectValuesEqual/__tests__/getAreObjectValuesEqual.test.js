@@ -1,4 +1,4 @@
-import { getAreObjectValuesEqual } from "../getAreObjectValuesEqual";
+import { getAreObjectValuesEqual } from "../getAreObjectValuesEqual.js";
 
 test("Function getAreObjectValuesEqual works correctly if obj1 is undefined and obj2 is undefined", () => {
   const mockObj1 = jest.fn(() => (undefined));

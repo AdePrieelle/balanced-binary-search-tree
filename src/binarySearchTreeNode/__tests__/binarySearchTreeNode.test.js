@@ -1,4 +1,4 @@
-import { BinarySearchTreeNode } from "../binarySearchTreeNode";
+import { BinarySearchTreeNode } from "../binarySearchTreeNode.js";
 
 describe("Testing the factory function BinarySearchTreeNode", () => {
   describe("Testing the type of factory function BinarySearchTreeNode", () => {

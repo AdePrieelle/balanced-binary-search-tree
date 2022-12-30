@@ -1,4 +1,4 @@
-import { sortArrayOfNumbers } from "../sortArrayOfNumbers";
+import { sortArrayOfNumbers } from "../sortArrayOfNumbers.js";
 
 describe("Testing the function sortArrayOfNumbers", () => {
   describe("Testing the type of function sortArrayOfNumbers", () => {

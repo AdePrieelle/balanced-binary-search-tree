@@ -1,7 +1,7 @@
-import { BinarySearchTreeNode } from '../binarySearchTreeNode/binarySearchTreeNode';
-import { getAreObjectValuesEqual } from '../utils/getAreObjectValuesEqual/getAreObjectValuesEqual';
-import { removeDuplicatesFromArray } from '../utils/removeDuplicatesFromArray/removeDuplicatesFromArray';
-import { sortArrayOfNumbers } from '../utils/sortArrayOfNumbers/sortArrayOfNumbers';
+import { BinarySearchTreeNode } from '../binarySearchTreeNode/binarySearchTreeNode.js';
+import { getAreObjectValuesEqual } from '../utils/getAreObjectValuesEqual/getAreObjectValuesEqual.js';
+import { removeDuplicatesFromArray } from '../utils/removeDuplicatesFromArray/removeDuplicatesFromArray.js';
+import { sortArrayOfNumbers } from '../utils/sortArrayOfNumbers/sortArrayOfNumbers.js';
 
 export const BinarySearchTree = (arr) => {
   let root = null;

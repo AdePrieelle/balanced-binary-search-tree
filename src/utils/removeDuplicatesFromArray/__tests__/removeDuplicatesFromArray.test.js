@@ -1,4 +1,4 @@
-import { removeDuplicatesFromArray } from "../removeDuplicatesFromArray";
+import { removeDuplicatesFromArray } from "../removeDuplicatesFromArray.js";
 
 describe("Testing the function removeDuplicatesFromArray", () => {
   describe("Testing the type of function removeDuplicatesFromArray", () => {

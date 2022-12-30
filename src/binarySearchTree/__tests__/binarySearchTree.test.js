@@ -1,4 +1,4 @@
-import { BinarySearchTree } from "../binarySearchTree";
+import { BinarySearchTree } from "../binarySearchTree.js";
 
 describe("Testing the factory function BinarySearchTree", () => {
   let binarySearchTree;

@@ -1,4 +1,4 @@
-import { createArrayOfRandomNumbers } from "../createArrayOfRandomNumbers";
+import { createArrayOfRandomNumbers } from "../createArrayOfRandomNumbers.js";
 
 beforeEach(() => {
   jest.spyOn(global.Math, 'random')
