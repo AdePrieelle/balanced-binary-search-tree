@@ -4,7 +4,7 @@ import { createArrayOfRandomNumbers } from "../utils/createArrayOfRandomNumbers/
 const logBinarySearchTreeInfo = (binarySearchTree, title) => {
   console.group(title);
   console.log("Visual representation of the binary search tree:\n");
-  binarySearchTree.prettyPrint(binarySearchTree.getRootNode());
+  binarySearchTree.prettyPrint();
   console.log("");
   console.log(`Is the binary search tree balanced?\n ${binarySearchTree.isBalanced() ? "Yes" : "No"}`);
   console.log(`The levelOrder traversal of the binary search tree is:\n ${binarySearchTree.levelOrder()}`);
