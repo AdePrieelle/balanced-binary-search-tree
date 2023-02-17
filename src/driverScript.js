@@ -1,5 +1,5 @@
-import { BinarySearchTree } from "../binarySearchTree/binarySearchTree.js";
-import { createArrayOfRandomNumbers } from "../utils/createArrayOfRandomNumbers/createArrayOfRandomNumbers.js";
+import { BinarySearchTree } from "./utils/binarySearchTree/binarySearchTree.js";
+import { createArrayOfRandomNumbers } from "./utils/createArrayOfRandomNumbers/createArrayOfRandomNumbers.js";
 
 const logBinarySearchTreeInfo = (binarySearchTree, title) => {
   console.group(title);
