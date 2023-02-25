@@ -1,4 +1,7 @@
 @import "../../styles/partials/variables";
 
 .App {
+  height: 100%;
+  overflow: auto;
+  background-color: $App-bg-color;
 }
