@@ -21,7 +21,7 @@ export const ControlsBST = () => {
           <input className={styles["ControlsBST__form-input"]} id="height-value" name="depth-value" type="text" />
           <button className={styles["ControlsBST__form-button"]}>Find height</button>
           <div className={styles["ControlsBST__form-result"]}>The height of the given value in the BST is: {"result-placeholder"}</div>
-          <button className={styles["ControlsBST__form-button"]}>Rebalance BST</button>
+          <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button--large"]}`}>Rebalance BST</button>
       </form>
     </div>
   );
