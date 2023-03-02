@@ -10,6 +10,21 @@ $media-query-xlarge-screen: 1200px;
 $App-bg-color: #ffffff;
 // $App-bg-color: red;
 
+// Header
+
+// ControlsBST
+$ControlsBST-font-size: 1.6rem;
+$ControlsBST__form-column-gap: 2rem;
+$ControlsBST__form-label-margin-bottom: 1rem;
+$ControlsBST__form-label-font-size: 1.4rem;
+$ControlsBST__form-label-font-weight: 500;
+$ControlsBST__form-button-margin-top: $ControlsBST__form-label-margin-bottom;
+$ControlsBST__form-button-margin-bottom: 3rem;
+$ControlsBST__form-button-margin-bottom-small: $ControlsBST__form-button-margin-top;
+$ControlsBST__form-result-margin-bottom: $ControlsBST__form-button-margin-bottom;
+$ControlsBST__form-result-font-size: $ControlsBST__form-label-font-size;
+$ControlsBST__form-result-font-weight: $ControlsBST__form-label-font-weight;
+
 // color
 $primary-text-color: #7fd3ed;
 $primary-text-color: #e3e8ee;
