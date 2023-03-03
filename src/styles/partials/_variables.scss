@@ -20,10 +20,14 @@ $ControlsBST__form-label-font-size: 1.4rem;
 $ControlsBST__form-label-font-weight: 500;
 $ControlsBST__form-button-margin-top: $ControlsBST__form-label-margin-bottom;
 $ControlsBST__form-button-margin-bottom: 3rem;
-$ControlsBST__form-button-margin-bottom-small: $ControlsBST__form-button-margin-top;
-$ControlsBST__form-result-margin-bottom: $ControlsBST__form-button-margin-bottom;
-$ControlsBST__form-result-font-size: $ControlsBST__form-label-font-size;
-$ControlsBST__form-result-font-weight: $ControlsBST__form-label-font-weight;
+$ControlsBST__form-button-large-margin-top-small: 2rem;
+$ControlsBST__form-button--large-margin-bottom-small: 0;
+$ControlsBST__form-button-margin-bottom-small: $ControlsBST__form-label-margin-bottom;
+$ControlsBST__form-message-margin-top: $ControlsBST__form-label-margin-bottom;
+$ControlsBST__form-message-margin-bottom: $ControlsBST__form-button-margin-bottom;
+$ControlsBST__form-message-margin-bottom-small: $ControlsBST__form-label-margin-bottom;
+$ControlsBST__form-message-font-size: $ControlsBST__form-label-font-size;
+$ControlsBST__form-message-font-weight: $ControlsBST__form-label-font-weight;
 
 // color
 $primary-text-color: #7fd3ed;

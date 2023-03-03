@@ -8,37 +8,43 @@
     grid-template-areas: 
         "label-1 label-1"
         "input-1 input-1"
+        "message-1 message-1"
         "button-1 button-1"
         "label-2 label-2"
         "input-2 input-2"
+        "message-2 message-2"
         "button-2 button-2"
         "label-3 label-3"
         "input-3 input-3"
+        "message-3 message-3"
         "button-3 button-3"
         "label-4 label-4"
         "input-4 input-4"
+        "message-4 message-4"
         "button-4 button-4"
-        "result-4 result-4"
         "label-5 label-5"
         "input-5 input-5"
+        "message-5 message-5"
         "button-5 button-5"
-        "result-5 result-5"
         "button-large button-large";
     @media screen and (min-width: $media-query-small-screen) {
       grid-template-columns: 1fr max-content;
       grid-template-areas: 
         "label-1 label-1"
         "input-1 button-1"
+        "message-1 message-1"
         "label-2 label-2"
         "input-2 button-2"
+        "message-2 message-2"
         "label-3 label-3"
         "input-3 button-3"
+        "message-3 message-3"
         "label-4 label-4"
         "input-4 button-4"
-        "result-4 result-4"
+        "message-4 message-4"
         "label-5 label-5"
         "input-5 button-5"
-        "result-5 result-5"
+        "message-5 message-5"
         "button-large button-large";
     }
     column-gap: $ControlsBST__form-column-gap;
@@ -86,6 +92,7 @@
       //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
       //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
       //             rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+
     }
     .ControlsBST__form-input-1 {
       grid-area: input-1;
@@ -114,10 +121,9 @@
     min-height: 44px;
     border: unset;
     border-radius: 4px;
-    margin-top: $ControlsBST__form-button-margin-top;
     margin-bottom: $ControlsBST__form-button-margin-bottom;
     @media screen and (min-width: $media-query-small-screen) {
-      margin-top: 0;
+      margin-bottom: 0;
     }
     // outline-color: rgb(84 105 212 / 0.5);
     // background-color: rgb(255, 255, 255);
@@ -151,31 +157,42 @@
     }
     .ControlsBST__form-button-4 {
       grid-area: button-4;
-      margin-bottom: $ControlsBST__form-button-margin-bottom-small;
     }
     .ControlsBST__form-button-5 {
       grid-area: button-5;
-      margin-bottom: $ControlsBST__form-button-margin-bottom-small;
     }
     .ControlsBST__form-button--large {
       grid-area: button-large;
+      margin-bottom: $ControlsBST__form-button--large-margin-bottom-small;
       @media screen and (min-width: $media-query-small-screen) {
         grid-column: span 2;
       }
     }
-    .ControlsBST__form-result {
+    .ControlsBST__form-message {
       @media screen and (min-width: $media-query-small-screen) {
         grid-column: span 2;
+        margin-bottom: $ControlsBST__form-message-margin-bottom;
       }
-      margin-bottom: $ControlsBST__form-result-margin-bottom;
-      font-size: $ControlsBST__form-result-font-size;
-      font-weight: $ControlsBST__form-result-font-weight;
+      margin-top: $ControlsBST__form-message-margin-top;
+      margin-bottom: $ControlsBST__form-message-margin-bottom-small;
+      font-size: $ControlsBST__form-message-font-size;
+      font-weight: $ControlsBST__form-message-font-weight;
+      // visibility: hidden;
     }
-    .ControlsBST__form-result-4 {
-      grid-area: result-4;
+    .ControlsBST__form-message-1 {
+      grid-area: message-1;
     }
-    .ControlsBST__form-result-5 {
-      grid-area: result-5;
+    .ControlsBST__form-message-2 {
+      grid-area: message-2;
+    }
+    .ControlsBST__form-message-3 {
+      grid-area: message-3;
+    }
+    .ControlsBST__form-message-4 {
+      grid-area: message-4;
+    }
+    .ControlsBST__form-message-5 {
+      grid-area: message-5;
     }
 
   }
