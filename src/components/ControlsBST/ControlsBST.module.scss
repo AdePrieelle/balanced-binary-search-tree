@@ -48,7 +48,6 @@
         "button-large button-large";
     }
     column-gap: $ControlsBST__form-column-gap;
-    // align-content: flex-start;
     .ControlsBST__form-label {
       @media screen and (min-width: $media-query-small-screen) {
         grid-column: span 2;
@@ -75,24 +74,12 @@
     }
     .ControlsBST__form-input {
       width: 100%;
-      font-size: 16px;
-      line-height: 28px;
-      padding: 8px 16px;
-      min-height: 44px;
-      max-height: 44px;
-      border: unset;
-      border-radius: 4px;
-      // outline-color: rgb(84 105 212 / 0.5);
-      border: 1px solid rgba(60, 66, 87, 0.16);
-      background-color: rgb(255, 255, 255);
-      // box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-      //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-      //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-      //             rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, 
-      //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-      //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-      //             rgba(0, 0, 0, 0) 0px 0px 0px 0px;
-
+      font-size: $ControlsBST__form-input-font-size;
+      padding: $ControlsBST__form-input-padding;
+      height: $ControlsBST__form-input-height;
+      border: $ControlsBST__form-input-border;
+      border-radius: $ControlsBST__form-input-border-radius;
+      background-color: $ControlsBST__form-input-background-color;
     }
     .ControlsBST__form-input-1 {
       grid-area: input-1;
@@ -110,40 +97,23 @@
       grid-area: input-5;
     }
     .ControlsBST__form-button {
-      font-size: 16px;
-    line-height: 28px;
-    padding: 8px 16px;
-    // width: 100%;
-    // max-width: 120px;
-    // max-width: max-content;
-    width: 100%;
-    white-space: normal;
-    min-height: 44px;
-    border: unset;
-    border-radius: 4px;
-    margin-bottom: $ControlsBST__form-button-margin-bottom;
-    @media screen and (min-width: $media-query-small-screen) {
-      margin-bottom: 0;
-    }
-    // outline-color: rgb(84 105 212 / 0.5);
-    // background-color: rgb(255, 255, 255);
-    // box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-    //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-    //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-    //             rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, 
-    //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-    //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-    //             rgba(0, 0, 0, 0) 0px 0px 0px 0px;
-      background-color: rgb(84, 105, 212);
-      // box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-      //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-      //             rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
-      //             rgb(84, 105, 212) 0px 0px 0px 1px, 
-      //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-      //             rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-      //             rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
-      color: #fff;
-      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: $ControlsBST__form-button-height;
+      margin-bottom: $ControlsBST__form-button-margin-bottom-small;
+      @media screen and (min-width: $media-query-small-screen) {
+        margin-bottom: $ControlsBST__form-button-margin-bottom;
+      }
+      padding: $ControlsBST__form-button-padding;
+      font-size: $ControlsBST__form-button-font-size;
+      font-weight: $ControlsBST__form-button-font-weight;
+      white-space: normal;
+      color: $ControlsBST__form-button-color;
+      background-color: $primary-text-color;
+      border: $ControlsBST__form-button-border;
+      border-radius: $ControlsBST__form-button-border-radius;
       cursor: pointer;
     }
     .ControlsBST__form-button-1 {
@@ -163,7 +133,7 @@
     }
     .ControlsBST__form-button--large {
       grid-area: button-large;
-      margin-bottom: $ControlsBST__form-button--large-margin-bottom-small;
+      margin-bottom: $ControlsBST__form-button--large-margin-bottom;
       @media screen and (min-width: $media-query-small-screen) {
         grid-column: span 2;
       }
@@ -197,4 +167,3 @@
 
   }
 }
-
