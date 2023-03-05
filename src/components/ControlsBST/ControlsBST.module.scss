@@ -47,7 +47,10 @@
         "message-5 message-5"
         "button-large button-large";
     }
-    column-gap: $ControlsBST__form-column-gap;
+    column-gap: $ControlsBST__form-column-gap-small;
+    @media screen and (min-width: $media-query-medium-screen) {
+    column-gap: $ControlsBST__form-column-gap-medium;
+    }
     .ControlsBST__form-label {
       @media screen and (min-width: $media-query-small-screen) {
         grid-column: span 2;
@@ -80,6 +83,12 @@
       border: $ControlsBST__form-input-border;
       border-radius: $ControlsBST__form-input-border-radius;
       background-color: $ControlsBST__form-input-background-color;
+      &:focus {
+        outline-style: solid;
+        outline-color: $ControlsBST__form-input-focus-outline-color;
+        outline-width: $ControlsBST__form-input-focus-outline-width;
+        // border: 0;
+      }
     }
     .ControlsBST__form-input-1 {
       grid-area: input-1;
@@ -95,6 +104,18 @@
     }
     .ControlsBST__form-input-5 {
       grid-area: input-5;
+    }
+    .ControlsBST__form-input--success {
+      outline-style: solid;
+      outline-color: $ControlsBST__form-input--success-outline-color;
+      outline-width: $ControlsBST__form-input--success-outline-width;
+      // border: 0;
+    }
+    .ControlsBST__form-input--error {
+      outline-style: solid;
+      outline-color: $ControlsBST__form-input--error-outline-color;
+      outline-width: $ControlsBST__form-input--error-outline-width;
+      // border: 0;
     }
     .ControlsBST__form-button {
       display: flex;
@@ -163,6 +184,12 @@
     }
     .ControlsBST__form-message-5 {
       grid-area: message-5;
+    }
+    .ControlsBST__form-message--success {
+      color: $ControlsBST__form-message--success-color;
+    }
+    .ControlsBST__form-message--error {
+      color: $ControlsBST__form-message--error-color;
     }
 
   }

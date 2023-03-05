@@ -2,9 +2,13 @@
 $media-query-xxsmall-screen: 320px;
 $media-query-xsmall-screen: 360px;
 $media-query-small-screen: 420px;
-$media-query-medium-screen: 750px;
-$media-query-large-screen: 900px;
-$media-query-xlarge-screen: 1200px;
+$media-query-medium-screen: 480px;
+$media-query-large-screen: 750px;
+$media-query-xlarge-screen: 900px;
+$media-query-xxlarge-screen: 1200px;
+
+// index
+$body-font-size: 1.6rem;
 
 // App
 $App-bg-color: #ffffff;
@@ -18,12 +22,16 @@ $primary-text-color: #5469d4;
 // $primary-text-color: #5469d4;
 // $primary-text-color: rgb(84, 105, 212);
 // $primary-text-color: rgb(84, 105, 212);
+// $input-focus-color: #777;
+// $input-success-color: #2ecc71;
+// $input-error-color: #e74c3c;
 
 // Header
 
 // ControlsBST
 $ControlsBST-font-size: 1.6rem;
-$ControlsBST__form-column-gap: 2rem;
+$ControlsBST__form-column-gap-small: 1.6rem;
+$ControlsBST__form-column-gap-medium: 2rem;
 $ControlsBST__form-label-margin-bottom: 1rem;
 $ControlsBST__form-label-font-size: 1.4rem;
 $ControlsBST__form-label-font-weight: 500;
@@ -33,6 +41,12 @@ $ControlsBST__form-input-height: 4.4rem;
 $ControlsBST__form-input-border: 0.1rem solid rgba(60, 66, 87, 0.16);
 $ControlsBST__form-input-border-radius: 0.4rem;
 $ControlsBST__form-input-background-color: #fff;
+$ControlsBST__form-input-focus-outline-color: rgb(84 105 212 / 0.5);
+$ControlsBST__form-input-focus-outline-width: .2rem;
+$ControlsBST__form-input--success-outline-color: #2ecc71;
+$ControlsBST__form-input--success-outline-width: .2rem;
+$ControlsBST__form-input--error-outline-color: #e74c3c;
+$ControlsBST__form-input--error-outline-width: .2rem;
 $ControlsBST__form-button-height: 4.4rem;
 $ControlsBST__form-button-padding: .8rem 1.6rem;
 $ControlsBST__form-button-font-size: 1.6rem;
@@ -49,3 +63,5 @@ $ControlsBST__form-message-margin-bottom: $ControlsBST__form-button-margin-botto
 $ControlsBST__form-message-margin-bottom-small: $ControlsBST__form-label-margin-bottom;
 $ControlsBST__form-message-font-size: $ControlsBST__form-label-font-size;
 $ControlsBST__form-message-font-weight: $ControlsBST__form-label-font-weight;
+$ControlsBST__form-message--success-color: $ControlsBST__form-input--success-outline-color;
+$ControlsBST__form-message--error-color: $ControlsBST__form-input--error-outline-color;

@@ -5,13 +5,13 @@ export const ControlsBST = () => {
     <div className={styles.ControlsBST}>
       <form className={styles.ControlsBST__form}>
           <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-1"]}`} htmlFor="initial-values">Add initial value(s) followed by a comma and a space</label>
-          <input className={`${styles["ControlsBST__form-input"]} ${styles["ControlsBST__form-input-1"]}`} id="initial-values" name="initial-values" type="text" />
+          <input className={`${styles["ControlsBST__form-input"]} ${styles["ControlsBST__form-input-1"]} ${styles["ControlsBST__form-input--error"]}`} id="initial-values" name="initial-values" type="text" />
           <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button-1"]}`}>Create BST</button>
-          <div className={`${styles["ControlsBST__form-message"]} ${styles["ControlsBST__form-message-1"]}`}>Please enter the initial values in the correct format</div>
+          <div className={`${styles["ControlsBST__form-message"]} ${styles["ControlsBST__form-message-1"]} ${styles["ControlsBST__form-message--error"]}`}>Please enter the initial values in the correct format</div>
           <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-2"]}`} htmlFor="insert-values">Add consecutive value(s) followed by a comma and a space</label>
-          <input className={`${styles["ControlsBST__form-input"]} ${styles["ControlsBST__form-input-2"]}`} id="insert-values" name="insert-values" type="text" />
+          <input className={`${styles["ControlsBST__form-input"]} ${styles["ControlsBST__form-input-2"]} ${styles["ControlsBST__form-input--success"]}`} id="insert-values" name="insert-values" type="text" />
           <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button-2"]}`}>Add values</button>
-          <div className={`${styles["ControlsBST__form-message"]} ${styles["ControlsBST__form-message-2"]}`}>Please enter the consecutive values in the correct format</div>
+          <div className={`${styles["ControlsBST__form-message"]} ${styles["ControlsBST__form-message-2"]} ${styles["ControlsBST__form-message--success"]}`}>Please enter the consecutive values in the correct format</div>
           <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-3"]}`} htmlFor="remove-values">Remove value(s) followed by a comma and a space</label>
           <input className={`${styles["ControlsBST__form-input"]} ${styles["ControlsBST__form-input-3"]}`} id="remove-values" name="remove-values" type="text" />
           <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button-3"]}`}>Remove values</button>
@@ -25,6 +25,8 @@ export const ControlsBST = () => {
           <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button-5"]}`}>Find height</button>
           <div className={`${styles["ControlsBST__form-message"]} ${styles["ControlsBST__form-message-5"]}`}>The height of the given value in the BST is: {"result-placeholder"}</div>
           <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button--large"]}`}>Rebalance BST</button>
+          {/* <i class="fas fa-check-circle"></i> */}
+			    {/* <i class="fas fa-exclamation-circle"></i> */}
       </form>
     </div>
   );
