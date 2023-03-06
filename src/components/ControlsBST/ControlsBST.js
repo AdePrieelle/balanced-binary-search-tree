@@ -1,4 +1,6 @@
 import styles from './ControlsBST.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 
 export const ControlsBST = () => {
   return (
@@ -25,8 +27,8 @@ export const ControlsBST = () => {
           <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button-5"]}`}>Find height</button>
           <div className={`${styles["ControlsBST__form-message"]} ${styles["ControlsBST__form-message-5"]}`}>The height of the given value in the BST is: {"result-placeholder"}</div>
           <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button--large"]}`}>Rebalance BST</button>
-          {/* <i class="fas fa-check-circle"></i> */}
-			    {/* <i class="fas fa-exclamation-circle"></i> */}
+          <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--success"]}`}/>
+          <FontAwesomeIcon icon={faCircleExclamation} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--error"]}`} />
       </form>
     </div>
   );

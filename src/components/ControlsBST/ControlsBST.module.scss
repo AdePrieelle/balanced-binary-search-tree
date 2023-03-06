@@ -117,6 +117,15 @@
       outline-width: $ControlsBST__form-input--error-outline-width;
       // border: 0;
     }
+    .ControlsBST__form-input-icon {
+      font-size: $ControlsBST__form-input-icon-font-size;
+    }
+    .ControlsBST__form-input-icon--success {
+      color: $ControlsBST__form-input-icon-success-color;
+    }
+    .ControlsBST__form-input-icon--error {
+      color: $ControlsBST__form-input-icon-error-color;
+    }
     .ControlsBST__form-button {
       display: flex;
       align-items: center;
@@ -191,6 +200,5 @@
     .ControlsBST__form-message--error {
       color: $ControlsBST__form-message--error-color;
     }
-
   }
 }
