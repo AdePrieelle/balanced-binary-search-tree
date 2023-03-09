@@ -86,26 +86,23 @@
         border: $ControlsBST__form-input-border;
         border-radius: $ControlsBST__form-input-border-radius;
         background-color: $ControlsBST__form-input-background-color;
-        &:focus {
-          background-color: $ControlsBST__form-input-background-color;
-          outline-style: solid;
-          outline-color: $ControlsBST__form-input-focus-outline-color;
-          outline-width: $ControlsBST__form-input-focus-outline-width;
-          // border: 0;
+        &:focus-visible {
+          background-color: $ControlsBST__form-input-focus-visible-background-color;
+          border: 0;
+          outline: $ControlsBST__form-input-focus-visible-outline;
         }
+        // &:focus + .ControlsBST__form-input-icon {
+        //   // display: none;
+        // }
       }
       .ControlsBST__form-input--success {
-        outline-style: solid;
-        outline-color: $ControlsBST__form-input--success-outline-color;
-        outline-width: $ControlsBST__form-input--success-outline-width;
-        // border: 0;
+        border: 0;
+        outline: $ControlsBST__form-input--success-outline;
       }
       .ControlsBST__form-input--error {
         background-color: $ControlsBST__form-input--error-background-color;
-        outline-style: solid;
-        outline-color: $ControlsBST__form-input--error-outline-color;
-        outline-width: $ControlsBST__form-input--error-outline-width;
-        // border: 0;
+        border: 0;
+        outline: $ControlsBST__form-input--error-outline;
       }
       .ControlsBST__form-input-icon {
         position: absolute;
