@@ -78,3 +78,8 @@ $ControlsBST__form-message-font-size: $ControlsBST__form-label-font-size;
 $ControlsBST__form-message-font-weight: $ControlsBST__form-label-font-weight;
 $ControlsBST__form-message--success-color: $ControlsBST__form-input--success-outline-color;
 $ControlsBST__form-message--error-color: $ControlsBST__form-input--error-outline-color;
+$ControlsBST__form-message-icon-font-size: $ControlsBST__form-message-font-size;
+$ControlsBST__form-message-icon-margin-right: .4rem;
+$ControlsBST__form-message-icon--success-color: $ControlsBST__form-message--success-color;
+$ControlsBST__form-message-icon--error-color: $ControlsBST__form-message--error-color;
+$ControlsBST__form-message-line-height: calc(max($ControlsBST__form-message-font-size, $ControlsBST__form-message-icon-font-size));

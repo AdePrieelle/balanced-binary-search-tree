@@ -176,6 +176,8 @@
       }
     }
     .ControlsBST__form-message {
+      display: flex;
+      align-items: center;
       @media screen and (min-width: $media-query-small-screen) {
         grid-column: span 2;
         margin-bottom: $ControlsBST__form-message-margin-bottom;
@@ -185,6 +187,17 @@
       font-size: $ControlsBST__form-message-font-size;
       font-weight: $ControlsBST__form-message-font-weight;
       // visibility: hidden;
+      line-height: $ControlsBST__form-message-line-height;
+      .ControlsBST__form-message-icon {
+        font-size: $ControlsBST__form-message-icon-font-size;
+        margin-right: $ControlsBST__form-message-icon-margin-right;
+      }
+      .ControlsBST__form-message-icon--success {
+        color: $ControlsBST__form-message-icon--success-color;
+      }
+      .ControlsBST__form-message-icon--error {
+        color: $ControlsBST__form-message-icon--error-color;
+      }
     }
     .ControlsBST__form-message-1 {
       grid-area: message-1;
