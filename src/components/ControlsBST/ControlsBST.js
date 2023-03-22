@@ -1,23 +1,105 @@
 import styles from './ControlsBST.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState, useMemo } from 'react';
 
 export const ControlsBST = () => {
+  const [input1, setInput1] = useState("");
+  // const [input2, setInput2] = useState("");
+  // const [input3, setInput3] = useState("");
+  // const [input4, setInput4] = useState("");
+  // const [input5, setInput5] = useState("");
+  const [input1Success, setInput1Success] = useState(false);
+  // const [input2Success, setInput2Success] = useState(false);
+  // const [input3Success, setInput3Success] = useState(false);
+  // const [input4Success, setInput4Success] = useState(false);
+  // const [input5Success, setInput5Success] = useState(false);
+  const [input1Message, setInput1Message] = useState(<>&nbsp;</>);
+  // const [input2Message, setInput2Message] = useState("");
+  // const [input3Message, setInput3Message] = useState("");
+  // const [input4Message, setInput4Message] = useState("");
+  // const [input5Message, setInput5Message] = useState("");
+  const [input1UpdatedBST, setInput1UpdatedBST] = useState(false);
+
+  // below 2 work good for integers and floats and multiple values
+  // const input1Regex = useMemo(() => new RegExp("^-?([0-9]+(.[0-9]+)?)+(, -?([0-9]+(.[0-9]+)?))*$"), []);
+  // const input1Regex = useMemo(() => new RegExp("^-?([0-9]+(.[0-9]+)?)+(, -?([0-9]+(.[0-9]+)?))*$"), []);
+  // below 2 work good with double \\ to use d shortcut for [0-9]
+  // const input1Regex = useMemo(() => new RegExp("^-?(\\d+(.\\d+)?)+(, -?(\\d+(.\\d+)?))*$"), []);
+  // const input1Regex = useMemo(() => new RegExp("^-?(\\d+(.\\d+)?)+(, -?(\\d+(.\\d+)?))*$"), []);
+  const input1Regex = useMemo(() => new RegExp("^-?(\\d+(.\\d+)?)+(, -?(\\d+(.\\d+)?))*$"), []);
+
+  const isValidInput = (regexPattern, input) => {
+    return (regexPattern.test(input));
+  };
+
+  const input1OnChange = (e) => {
+    setInput1(e.target.value);
+    setInput1UpdatedBST(false);
+  };
+
+  const input1OnClick = () => {
+    if (input1 === "") {
+      setInput1Success(false);
+      setInput1Message("Please enter the initial value(s)")
+    };
+    if ((input1 !== "") && input1Success) {
+      setInput1("");
+      setInput1UpdatedBST(true);
+    };
+  };
+
+  useEffect(() => {
+    if (input1 === "" && !input1UpdatedBST) {
+      setInput1Success(true);
+      setInput1Message(<>&nbsp;</>);
+    };
+    if (input1 === "" && input1UpdatedBST) {
+      setInput1Success(true);
+      setInput1Message(
+        <>
+          <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-message-icon"]} ${styles["ControlsBST__form-message-icon--success"]}`}/>
+          <>The BST has been updated</>
+        </>
+      );
+    };
+    if (input1 !== "" && (isValidInput(input1Regex, input1))) {
+      setInput1Success(true);
+      setInput1Message("The BST is ready to be updated");
+    }
+    if (input1 !== "" && (!isValidInput(input1Regex, input1))) {
+      setInput1Success(false);
+      setInput1Message("Please enter the initial number(s) in the correct format");
+    };
+  }, [input1, input1UpdatedBST, input1Regex]);
+
   return (
     <div className={styles.ControlsBST}>
       <form className={styles.ControlsBST__form}>
-          <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-1"]}`} htmlFor="initial-values">Add initial value(s) followed by a comma and a space</label>
+
+
+          <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-1"]}`} htmlFor="initial-values">Add initial value(s) seperated by a comma and a space</label>
           <div className={`${styles["ControlsBST__form-input-icon-wrapper"]} ${styles["ControlsBST__form-input-icon-wrapper-1"]}`}>
-            <input className={`${styles["ControlsBST__form-input"]} ${styles["ControlsBST__form-input--error"]}`} id="initial-values" name="initial-values" type="text" />
-            {/* <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--success"]}`}/> */}
-            <FontAwesomeIcon icon={faCircleExclamation} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--error"]}`} />
+            <input pattern={/^-?(\d+(.\d+)?)+(, -?(\d+(.\d+)?))*$/} className={`${styles["ControlsBST__form-input"]} ${(input1 === "") ? "" : input1Success ? styles["ControlsBST__form-input--success"] : styles["ControlsBST__form-input--error"]}`} id="initial-values" name="initial-values" type="text" value={input1} onChange={input1OnChange} />
+            {
+                (input1 === "") 
+              ? ""
+              : input1Success
+              ? <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--success"]}`}/>
+              : <FontAwesomeIcon icon={faCircleExclamation} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--error"]}`} />
+            }
           </div>
-          <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button-1"]}`} type="button">Create BST</button>
-          <div className={`${styles["ControlsBST__form-message"]} ${styles["ControlsBST__form-message-1"]} ${styles["ControlsBST__form-message--error"]}`}>
-            Please enter the initial values in the correct format
+          <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button-1"]}`} type="button" onClick={input1OnClick}>Create BST</button>
+          <div className={`${styles["ControlsBST__form-message"]} ${styles["ControlsBST__form-message-1"]} ${((input1 === "") && input1Success) ? styles["ControlsBST__form-message--success"] : input1Success ? styles["ControlsBST__form-message--success"] : styles["ControlsBST__form-message--error"]}`}>
+            {input1Message}
+            {/* Please enter the initial values in the correct format */}
             {/* &nbsp; */}
-            </div>
-          <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-2"]}`} htmlFor="insert-values">Add consecutive value(s) followed by a comma and a space</label>
+          </div>
+
+
+
+
+          <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-2"]}`} htmlFor="insert-values">Add consecutive value(s) seperated by a comma and a space</label>
           <div className={`${styles["ControlsBST__form-input-icon-wrapper"]} ${styles["ControlsBST__form-input-icon-wrapper-2"]}`}>
             <input className={`${styles["ControlsBST__form-input"]} ${styles["ControlsBST__form-input--success"]}`} id="insert-values" name="insert-values" type="text" />
             <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--success"]}`}/>
@@ -30,7 +112,7 @@ export const ControlsBST = () => {
             {/* The BST has been updated */}
             {/* &nbsp; */}
           </div>
-          <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-3"]}`} htmlFor="remove-values">Remove value(s) followed by a comma and a space</label>
+          <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-3"]}`} htmlFor="remove-values">Remove value(s) seperated by a comma and a space</label>
           <div className={`${styles["ControlsBST__form-input-icon-wrapper"]} ${styles["ControlsBST__form-input-icon-wrapper-3"]}`}>
             <input className={`${styles["ControlsBST__form-input"]}`} id="remove-values" name="remove-values" type="text" />
             {/* <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--success"]}`}/> */}
