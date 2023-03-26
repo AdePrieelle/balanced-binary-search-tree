@@ -20,6 +20,8 @@ export const ControlsBST = () => {
   // const [input4Message, setInput4Message] = useState("");
   // const [input5Message, setInput5Message] = useState("");
   const [input1UpdatedBST, setInput1UpdatedBST] = useState(false);
+  const [input1ButtonClicked, setInput1ButtonClicked] = useState(false);
+
 
   // below 2 work good for integers and floats and multiple values
   // const input1Regex = useMemo(() => new RegExp("^-?([0-9]+(.[0-9]+)?)+(, -?([0-9]+(.[0-9]+)?))*$"), []);
@@ -35,14 +37,17 @@ export const ControlsBST = () => {
 
   const input1OnChange = (e) => {
     setInput1(e.target.value);
+    setInput1ButtonClicked(false);
     setInput1UpdatedBST(false);
   };
 
   const input1OnClick = () => {
-    if (input1 === "") {
-      setInput1Success(false);
-      setInput1Message("Please enter the initial value(s)")
-    };
+    setInput1ButtonClicked(true);
+    setInput1UpdatedBST(false);
+    // if (input1 === "") {
+    //   setInput1Success(false);
+    //   setInput1Message("Please enter the initial value(s)")
+    // };
     if ((input1 !== "") && input1Success) {
       setInput1("");
       setInput1UpdatedBST(true);
@@ -50,9 +55,13 @@ export const ControlsBST = () => {
   };
 
   useEffect(() => {
-    if (input1 === "" && !input1UpdatedBST) {
+    if (input1 === "" && !input1UpdatedBST && !input1ButtonClicked) {
       setInput1Success(true);
       setInput1Message(<>&nbsp;</>);
+    };
+    if (input1 === "" && !input1UpdatedBST && input1ButtonClicked) {
+      setInput1Success(false);
+      setInput1Message("Please enter the initial value(s)");
     };
     if (input1 === "" && input1UpdatedBST) {
       setInput1Success(true);
@@ -71,7 +80,21 @@ export const ControlsBST = () => {
       setInput1Success(false);
       setInput1Message("Please enter the initial number(s) in the correct format");
     };
-  }, [input1, input1UpdatedBST, input1Regex]);
+  }, [input1, input1UpdatedBST, input1ButtonClicked, input1Regex]);
+
+  let input1Icon = "";
+  if (input1 === "" && !input1ButtonClicked) {
+    input1Icon = "";
+  };
+  if (input1 === "" && input1ButtonClicked && !input1UpdatedBST) {
+    input1Icon = <FontAwesomeIcon icon={faCircleExclamation} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--error"]}`}/>;
+  };
+  if (input1 !== "" && input1Success) {
+    input1Icon = <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--success"]}`}/>;
+  };
+  if (input1 !== "" && !input1Success) {
+    input1Icon = <FontAwesomeIcon icon={faCircleExclamation} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--error"]}`}/>;
+  };
 
   return (
     <div className={styles.ControlsBST}>
@@ -80,14 +103,15 @@ export const ControlsBST = () => {
 
           <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-1"]}`} htmlFor="initial-values">Add initial value(s) seperated by a comma and a space</label>
           <div className={`${styles["ControlsBST__form-input-icon-wrapper"]} ${styles["ControlsBST__form-input-icon-wrapper-1"]}`}>
-            <input pattern={/^-?(\d+(.\d+)?)+(, -?(\d+(.\d+)?))*$/} className={`${styles["ControlsBST__form-input"]} ${(input1 === "") ? "" : input1Success ? styles["ControlsBST__form-input--success"] : styles["ControlsBST__form-input--error"]}`} id="initial-values" name="initial-values" type="text" value={input1} onChange={input1OnChange} />
-            {
+            <input pattern={/^-?(\d+(.\d+)?)+(, -?(\d+(.\d+)?))*$/} className={`${styles["ControlsBST__form-input"]} ${(input1 === "" && (!input1ButtonClicked || input1UpdatedBST)) ? "" : input1Success ? styles["ControlsBST__form-input--success"] : styles["ControlsBST__form-input--error"]}`} id="initial-values" name="initial-values" type="text" value={input1} onChange={input1OnChange} />
+            {/* {
                 (input1 === "") 
               ? ""
               : input1Success
               ? <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--success"]}`}/>
               : <FontAwesomeIcon icon={faCircleExclamation} className={`${styles["ControlsBST__form-input-icon"]} ${styles["ControlsBST__form-input-icon--error"]}`} />
-            }
+            } */}
+            {input1Icon}
           </div>
           <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button-1"]}`} type="button" onClick={input1OnClick}>Create BST</button>
           <div className={`${styles["ControlsBST__form-message"]} ${styles["ControlsBST__form-message-1"]} ${((input1 === "") && input1Success) ? styles["ControlsBST__form-message--success"] : input1Success ? styles["ControlsBST__form-message--success"] : styles["ControlsBST__form-message--error"]}`}>
