@@ -1,12 +1,12 @@
 @import "../../styles/partials/variables";
 
-.FormSubset {
+.FormFieldset {
   // display: grid;
   // grid-template-columns: 1fr 1fr;
   // @media screen and (min-width: $media-query-small-screen) {
   //   grid-template-columns: 1fr .5fr;
   // }
-  .FormSubset__label {
+  .FormFieldset__label {
     // @media screen and (min-width: $media-query-small-screen) {
     //   grid-column: span 2;
     // }
@@ -15,10 +15,10 @@
     font-size: $ControlsBST__form-label-font-size;
     font-weight: $ControlsBST__form-label-font-weight;
   }
-  .FormSubset__input-icon-wrapper {
+  .FormFieldset__input-icon-wrapper {
     position: relative;
     width: 100%;
-    .FormSubset__input {
+    .FormFieldset__input {
       width: 100%;
       font-size: $ControlsBST__form-input-font-size;
       padding: $ControlsBST__form-input-padding;
@@ -31,34 +31,34 @@
         border: 0;
         outline: $ControlsBST__form-input-focus-visible-outline;
       }
-      // &:focus + .FormSubset__input-icon {
+      // &:focus + .FormFieldset__input-icon {
       //   // display: none;
       // }
     }
-    .FormSubset__input--success {
+    .FormFieldset__input--success {
       border: 0;
       outline: $ControlsBST__form-input--success-outline;
     }
-    .FormSubset__input--error {
+    .FormFieldset__input--error {
       background-color: $ControlsBST__form-input--error-background-color;
       border: 0;
       outline: $ControlsBST__form-input--error-outline;
     }
-    .FormSubset__input-icon {
+    .FormFieldset__input-icon {
       position: absolute;
       top: 50%;
       right: $ControlsBST__form-input-icon-right;
       transform: translate(0%, -50%);
       font-size: $ControlsBST__form-input-icon-font-size;
     }
-    .FormSubset__input-icon--success {
+    .FormFieldset__input-icon--success {
       color: $ControlsBST__form-input-icon-success-color;
     }
-    .FormSubset__input-icon--error {
+    .FormFieldset__input-icon--error {
       color: $ControlsBST__form-input-icon-error-color;
     }
   }
-  .FormSubset__button {
+  .FormFieldset__button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,14 +78,14 @@
     border-radius: $ControlsBST__form-button-border-radius;
     cursor: pointer;
   }
-  .FormSubset__button--large {
+  .FormFieldset__button--large {
     grid-area: button-large;
     margin-bottom: $ControlsBST__form-button--large-margin-bottom;
     @media screen and (min-width: $media-query-small-screen) {
       grid-column: span 2;
     }
   }
-  .FormSubset__message {
+  .FormFieldset__message {
     display: flex;
     align-items: center;
     @media screen and (min-width: $media-query-small-screen) {
@@ -98,21 +98,21 @@
     font-weight: $ControlsBST__form-message-font-weight;
     // visibility: hidden;
     line-height: $ControlsBST__form-message-line-height;
-    .FormSubset__message-icon {
+    .FormFieldset__message-icon {
       font-size: $ControlsBST__form-message-icon-font-size;
       margin-right: $ControlsBST__form-message-icon-margin-right;
     }
-    .FormSubset__message-icon--success {
+    .FormFieldset__message-icon--success {
       color: $ControlsBST__form-message-icon--success-color;
     }
-    .FormSubset__message-icon--error {
+    .FormFieldset__message-icon--error {
       color: $ControlsBST__form-message-icon--error-color;
     }
   }
-  .FormSubset__message--success {
+  .FormFieldset__message--success {
     color: $ControlsBST__form-message--success-color;
   }
-  .FormSubset__message--error {
+  .FormFieldset__message--error {
     color: $ControlsBST__form-message--error-color;
   }
 }
