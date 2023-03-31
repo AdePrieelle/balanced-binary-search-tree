@@ -4,6 +4,7 @@ import { faCircleCheck, faCircleExclamation } from '@fortawesome/free-solid-svg-
 import { useEffect, useState, useMemo } from 'react';
 import { InputIcon } from '../InputIcon/InputIcon.js';
 import { FormMessage } from '../FormMessage/FormMessage.js';
+import { FormFieldset } from '../FormFieldset/FormFieldset.js';
 
 export const ControlsBST = () => {
   const [input1, setInput1] = useState("");
@@ -158,6 +159,42 @@ export const ControlsBST = () => {
   return (
     <div className={styles.ControlsBST}>
       <form className={styles.ControlsBST__form}>
+
+
+
+
+
+
+
+          <FormFieldset 
+              inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), [])}
+              // implement later
+              isValidInputValue={(input) => true} 
+              labelText={"Add initial value(s) seperated by a comma and a space"} 
+              inputName={"Initial-value(s)"} 
+              buttonText={"Create BST"} 
+              // implement later
+              onClickHandlerSuccessful={(input) => true} 
+              formMessageInitialValue={<>&nbsp;</>} 
+              formMessageEmptyErrorValue={"Please enter the initial value(s)"}
+              formMessageUpdatedValue={
+                <>
+                  <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-message-icon"]} ${styles["ControlsBST__form-message-icon--success"]}`}/>
+                  <>The BST has been updated</>
+                </>
+              } 
+              formMessageReadyToUpdateValue={"The BST is ready to be updated"} 
+              formMessageInputFormatErrorValue={"Please enter the initial number(s) in the correct format"} 
+              formMessageInputValueErrorValue={"Please only enter value(s) that exist in the BST"}
+          />
+
+
+
+
+
+
+
+
 
 
           <label className={`${styles["ControlsBST__form-label"]} ${styles["ControlsBST__form-label-1"]}`} htmlFor="initial-values">Add initial value(s) seperated by a comma and a space</label>

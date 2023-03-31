@@ -1,9 +1,22 @@
-import styles from './ControlsBST.module.scss';
+import styles from './FormFieldset.module.scss';
 import { useId, useEffect, useState, useMemo } from 'react';
 import { InputIcon } from '../InputIcon/InputIcon.js';
 import { FormMessage } from '../FormMessage/FormMessage.js';
 
-export const FormFieldset = () => {
+export const FormFieldset = ({ 
+  inputRegex, 
+  isValidInputValue, 
+  labelText, 
+  inputName, 
+  buttonText, 
+  onClickHandlerSuccessful, 
+  formMessageTextInitialValue, 
+  formMessageTextEmptyErrorValue, 
+  formMessageTextUpdatedValue, 
+  formMessageTextReadyToUpdateValue, 
+  formMessageTextInputFormatErrorValue, 
+  formMessageTextInputValueErrorValue
+}) => {
   const inputId = useId();
 
   const [input, setInput] = useState("");
@@ -11,17 +24,17 @@ export const FormFieldset = () => {
   const [inputUpdatedBST, setInputUpdatedBST] = useState(false);
   const [inputButtonClicked, setInputButtonClicked] = useState(false);
   // const input1Regex = useMemo(() => new RegExp("^(-?[0-9]+(\\.[0-9]+)?)+((, (-?[0-9]+(\\.[0-9]+)?))*)$"), []);
-  const inputRegex = useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), []);
+  // const inputRegex = useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), []);
 
   const isValidInputFormat = (regexPattern, input) => {
     console.log(regexPattern.test(input));
     return (regexPattern.test(input));
   };
 
-  const isValidInputValue = (input) => {
-    //implement later
-    return true;
-  };
+  // const isValidInputValue = (input) => {
+  //   //implement later
+  //   return true;
+  // };
 
   const inputOnChange = (e) => {
     setInput(e.target.value);
@@ -33,6 +46,8 @@ export const FormFieldset = () => {
     setInputButtonClicked(true);
     setInputUpdatedBST(false);
     if ((input !== "") && inputSuccess) {
+      onClickHandlerSuccessful(input);
+      // maybe move setInput in new useEffect hook with inputDatedBST as dependency
       setInput("");
       setInputUpdatedBST(true);
     };
@@ -47,13 +62,14 @@ export const FormFieldset = () => {
     } else {
       setInputSuccess(false);
     };
-  }, [input, inputButtonClicked, inputUpdatedBST, inputRegex]);
+  }, [input, inputButtonClicked, inputUpdatedBST, inputRegex, isValidInputValue]);
 
   return (
     <fieldset className={`${styles["FormFieldset"]}`}>
-      <label className={`${styles["FormFieldset__label"]} ${styles["FormFieldset__form-label-1"]}`} htmlFor={inputId}>Add initial value(s) seperated by a comma and a space</label>
+      <label className={`${styles["FormFieldset__label"]} ${styles["FormFieldset__form-label-1"]}`} htmlFor={inputId}>{labelText}</label>
       <div className={`${styles["FormFieldset__input-icon-wrapper"]} ${styles["FormFieldset__input-icon-wrapper-1"]}`}>
-        <input pattern={/^-?(\d+(.\d+)?)+(, -?(\d+(.\d+)?))*$/} className={`${styles["FormFieldset__input"]} ${(input === "" && (inputSuccess)) ? "" : inputSuccess ? styles["FormFieldset__input--success"] : styles["FormFieldset__input--error"]}`} id={inputId} name="initial-values" type="text" value={input} onChange={inputOnChange} />
+        {/* <input pattern={/^-?(\d+(.\d+)?)+(, -?(\d+(.\d+)?))*$/} className={`${styles["FormFieldset__input"]} ${(input === "" && (inputSuccess)) ? "" : inputSuccess ? styles["FormFieldset__input--success"] : styles["FormFieldset__input--error"]}`} id={inputId} name={inputName} type="text" value={input} onChange={inputOnChange} /> */}
+        <input pattern={inputRegex} className={`${styles["FormFieldset__input"]} ${(input === "" && (inputSuccess)) ? "" : inputSuccess ? styles["FormFieldset__input--success"] : styles["FormFieldset__input--error"]}`} id={inputId} name={inputName} type="text" value={input} onChange={inputOnChange} />
         <InputIcon 
           input={input} 
           inputSuccess={inputSuccess}
@@ -65,10 +81,16 @@ export const FormFieldset = () => {
           inputSuccess={inputSuccess}
           inputUpdatedBST={inputUpdatedBST}
           isValidInputFormat={isValidInputFormat(inputRegex, input)}
-          isValidInputValue={true}
+          isValidInputValue={isValidInputValue(input)}
+          formMessageTextInitialValue={formMessageTextInitialValue}
+          formMessageTextEmptyErrorValue={formMessageTextEmptyErrorValue}
+          formMessageTextUpdatedValue={formMessageTextUpdatedValue}
+          formMessageTextReadyToUpdateValue={formMessageTextReadyToUpdateValue}
+          formMessageTextInputFormatErrorValue={formMessageTextInputFormatErrorValue}
+          formMessageTextInputValueErrorValue={formMessageTextInputValueErrorValue}
         />
       </div>
-      <button className={`${styles["FormFieldset__button"]} ${styles["FormFieldset__button-1"]}`} type="button" onClick={inputOnClick}>Create BST</button>
+      <button className={`${styles["FormFieldset__button"]} ${styles["FormFieldset__button-1"]}`} type="button" onClick={inputOnClick}>{buttonText}</button>
     </fieldset>
   );
 };
