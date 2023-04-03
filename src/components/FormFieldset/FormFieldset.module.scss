@@ -6,6 +6,12 @@
   // @media screen and (min-width: $media-query-small-screen) {
   //   grid-template-columns: 1fr .5fr;
   // }
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  // delete later
+  border: 2px solid red;
   .FormFieldset__label {
     // @media screen and (min-width: $media-query-small-screen) {
     //   grid-column: span 2;

@@ -1,0 +1,14 @@
+@import "../../styles/partials/variables";
+
+.FormMessage {
+  width: 100%;
+  font-size: $ControlsBST__form-message-font-size;
+  font-weight: $ControlsBST__form-message-font-weight;
+  line-height: $ControlsBST__form-message-line-height;
+}
+.FormMessage--success {
+  color: $ControlsBST__form-message--success-color;
+}
+.FormMessage--error {
+  color: $ControlsBST__form-message--error-color;
+}

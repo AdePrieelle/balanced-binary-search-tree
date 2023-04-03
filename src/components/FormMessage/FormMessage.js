@@ -1,31 +1,36 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import styles from './FormMessage.module.scss';
 
-export const FormMessage = ({ input, inputSuccess, inputUpdatedBST, isValidInputValue, isValidInputFormat, formMessageTextInitialValue, formMessageTextEmptyErrorValue, formMessageTextUpdatedValue, formMessageTextReadyToUpdateValue, formMessageTextInputFormatErrorValue, formMessageTextInputValueErrorValue}) => {
-  let formMessageText = null;
+export const FormMessage = ({ 
+  formMessageEmptyErrorValue,
+  formMessageInitialValue,
+  formMessageInputFormatErrorValue,
+  formMessageInputValueErrorValue,
+  formMessageReadyToUpdateValue,
+  formMessageUpdatedValue,
+  input,
+  inputSuccess,
+  inputUpdatedBST,
+  isValidInputFormat,
+  isValidInputValue
+}) => {
+  let message = null;
   if (input === "" && !inputUpdatedBST && inputSuccess) {
-    formMessageText = formMessageTextInitialValue;
-  };
-  if (input === "" && !inputUpdatedBST && !inputSuccess) {
-    formMessageText = formMessageTextEmptyErrorValue;
-  };
-  if (input === "" && inputUpdatedBST) {
-    formMessageText = formMessageTextUpdatedValue;
-  };
-  if ((input !== "") && inputSuccess) {
-    formMessageText = formMessageTextReadyToUpdateValue;
-  }
-  if ((input !== "") && !inputSuccess && !isValidInputFormat) {
-    formMessageText = formMessageTextInputFormatErrorValue;
-  };
-  if ((input !== "") && !inputSuccess && isValidInputFormat && !isValidInputValue) {
-    formMessageText = formMessageTextInputValueErrorValue;
+    message = formMessageInitialValue;
+  } else if (input === "" && !inputUpdatedBST && !inputSuccess) {
+    message = formMessageEmptyErrorValue;
+  } else if (input === "" && inputUpdatedBST) {
+    message = formMessageUpdatedValue;
+  } else if ((input !== "") && inputSuccess) {
+    message = formMessageReadyToUpdateValue;
+  } else if ((input !== "") && !inputSuccess && !isValidInputFormat) {
+    message = formMessageInputFormatErrorValue;
+  } else if ((input !== "") && !inputSuccess && isValidInputFormat && !isValidInputValue) {
+    message = formMessageInputValueErrorValue;
   };
 
   return (
-    <div className={`${styles["FormMessage"]} ${styles["FormMessage-1"]} ${((input === "") && inputSuccess) ? styles["FormMessage--success"] : inputSuccess ? styles["FormMessage--success"] : styles["FormMessage--error"]}`}>
-      {formMessageText}
+    <div className={`${styles["FormMessage"]} ${((input === "") && inputSuccess) ? styles["FormMessage--success"] : inputSuccess ? styles["FormMessage--success"] : styles["FormMessage--error"]}`}>
+      {message}
     </div>
   );
 };

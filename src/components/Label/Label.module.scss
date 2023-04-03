@@ -1,0 +1,8 @@
+@import "../../styles/partials/variables";
+
+.Label {
+  display: block;
+  width: 100%;
+  font-size: $ControlsBST__form-label-font-size;
+  font-weight: $ControlsBST__form-label-font-weight;
+}

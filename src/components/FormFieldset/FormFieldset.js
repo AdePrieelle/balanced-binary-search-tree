@@ -2,6 +2,8 @@ import styles from './FormFieldset.module.scss';
 import { useId, useEffect, useState, useMemo } from 'react';
 import { InputIcon } from '../InputIcon/InputIcon.js';
 import { FormMessage } from '../FormMessage/FormMessage.js';
+import { Label } from '../Label/Label.js';
+import { Button } from '../Button/Button.js';
 
 export const FormFieldset = ({ 
   inputRegex, 
@@ -10,14 +12,14 @@ export const FormFieldset = ({
   inputName, 
   buttonText, 
   onClickHandlerSuccessful, 
-  formMessageTextInitialValue, 
-  formMessageTextEmptyErrorValue, 
-  formMessageTextUpdatedValue, 
-  formMessageTextReadyToUpdateValue, 
-  formMessageTextInputFormatErrorValue, 
-  formMessageTextInputValueErrorValue
+  formMessageInitialValue, 
+  formMessageEmptyErrorValue, 
+  formMessageUpdatedValue, 
+  formMessageReadyToUpdateValue, 
+  formMessageInputFormatErrorValue, 
+  formMessageInputValueErrorValue
 }) => {
-  const inputId = useId();
+  const id = useId();
 
   const [input, setInput] = useState("");
   const [inputSuccess, setInputSuccess] = useState(false);
@@ -42,7 +44,7 @@ export const FormFieldset = ({
     setInputUpdatedBST(false);
   };
 
-  const inputOnClick = () => {
+  const onClickHandler = () => {
     setInputButtonClicked(true);
     setInputUpdatedBST(false);
     if ((input !== "") && inputSuccess) {
@@ -66,31 +68,38 @@ export const FormFieldset = ({
 
   return (
     <fieldset className={`${styles["FormFieldset"]}`}>
-      <label className={`${styles["FormFieldset__label"]} ${styles["FormFieldset__form-label-1"]}`} htmlFor={inputId}>{labelText}</label>
+      {/* <label className={`${styles["FormFieldset__label"]} ${styles["FormFieldset__form-label-1"]}`} htmlFor={id}>{labelText}</label> */}
+      <div className={`${styles["FormFieldset__label-wrapper"]} ${styles["label-wrapper-1"]}`}>
+        <Label id={id}>{labelText}</Label>
+      </div>
       <div className={`${styles["FormFieldset__input-icon-wrapper"]} ${styles["FormFieldset__input-icon-wrapper-1"]}`}>
         {/* <input pattern={/^-?(\d+(.\d+)?)+(, -?(\d+(.\d+)?))*$/} className={`${styles["FormFieldset__input"]} ${(input === "" && (inputSuccess)) ? "" : inputSuccess ? styles["FormFieldset__input--success"] : styles["FormFieldset__input--error"]}`} id={inputId} name={inputName} type="text" value={input} onChange={inputOnChange} /> */}
-        <input pattern={inputRegex} className={`${styles["FormFieldset__input"]} ${(input === "" && (inputSuccess)) ? "" : inputSuccess ? styles["FormFieldset__input--success"] : styles["FormFieldset__input--error"]}`} id={inputId} name={inputName} type="text" value={input} onChange={inputOnChange} />
+        <input pattern={inputRegex} className={`${styles["FormFieldset__input"]} ${(input === "" && (inputSuccess)) ? "" : inputSuccess ? styles["FormFieldset__input--success"] : styles["FormFieldset__input--error"]}`} id={id} name={inputName} type="text" value={input} onChange={inputOnChange} />
         <InputIcon 
           input={input} 
           inputSuccess={inputSuccess}
         />
       </div>
-      <div className={`${styles["FormFieldset__message"]} ${styles["FormFieldset__message-1"]} ${((input === "") && inputSuccess) ? styles["FormFieldset__message--success"] : inputSuccess ? styles["FormFieldset__message--success"] : styles["FormFieldset__message--error"]}`}>
+      {/* add id to className for grid-name or use gridName in styles dynamically? */}
+      <div className={`${styles["FormFieldset__message-wrapper"]} ${styles["FormFieldset__message-wrapper-1"]}`}>
         <FormMessage
+          formMessageEmptyErrorValue={formMessageEmptyErrorValue}
+          formMessageInitialValue={formMessageInitialValue}
+          formMessageInputFormatErrorValue={formMessageInputFormatErrorValue}
+          formMessageInputValueErrorValue={formMessageInputValueErrorValue}
+          formMessageReadyToUpdateValue={formMessageReadyToUpdateValue}
+          formMessageUpdatedValue={formMessageUpdatedValue}
           input={input}
           inputSuccess={inputSuccess}
           inputUpdatedBST={inputUpdatedBST}
           isValidInputFormat={isValidInputFormat(inputRegex, input)}
           isValidInputValue={isValidInputValue(input)}
-          formMessageTextInitialValue={formMessageTextInitialValue}
-          formMessageTextEmptyErrorValue={formMessageTextEmptyErrorValue}
-          formMessageTextUpdatedValue={formMessageTextUpdatedValue}
-          formMessageTextReadyToUpdateValue={formMessageTextReadyToUpdateValue}
-          formMessageTextInputFormatErrorValue={formMessageTextInputFormatErrorValue}
-          formMessageTextInputValueErrorValue={formMessageTextInputValueErrorValue}
         />
       </div>
-      <button className={`${styles["FormFieldset__button"]} ${styles["FormFieldset__button-1"]}`} type="button" onClick={inputOnClick}>{buttonText}</button>
+      <div className={`${styles["FormFieldset__button-wrapper"]} ${styles["FormFieldset__button-wrapper-1"]}`}>
+        <Button onClickHandler={onClickHandler}>{buttonText}</Button>
+      </div>
+      {/* <button className={`${styles["FormFieldset__button"]} ${styles["FormFieldset__button-1"]}`} type="button" onClick={inputOnClick}>{buttonText}</button> */}
     </fieldset>
   );
 };
