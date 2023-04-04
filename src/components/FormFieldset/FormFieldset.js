@@ -4,6 +4,7 @@ import { InputIcon } from '../InputIcon/InputIcon.js';
 import { FormMessage } from '../FormMessage/FormMessage.js';
 import { Label } from '../Label/Label.js';
 import { Button } from '../Button/Button.js';
+import { Input } from '../Input/Input.js';
 
 export const FormFieldset = ({ 
   inputRegex, 
@@ -74,11 +75,23 @@ export const FormFieldset = ({
       </div>
       <div className={`${styles["FormFieldset__input-icon-wrapper"]} ${styles["FormFieldset__input-icon-wrapper-1"]}`}>
         {/* <input pattern={/^-?(\d+(.\d+)?)+(, -?(\d+(.\d+)?))*$/} className={`${styles["FormFieldset__input"]} ${(input === "" && (inputSuccess)) ? "" : inputSuccess ? styles["FormFieldset__input--success"] : styles["FormFieldset__input--error"]}`} id={inputId} name={inputName} type="text" value={input} onChange={inputOnChange} /> */}
-        <input pattern={inputRegex} className={`${styles["FormFieldset__input"]} ${(input === "" && (inputSuccess)) ? "" : inputSuccess ? styles["FormFieldset__input--success"] : styles["FormFieldset__input--error"]}`} id={id} name={inputName} type="text" value={input} onChange={inputOnChange} />
-        <InputIcon 
-          input={input} 
-          inputSuccess={inputSuccess}
-        />
+        {/* <input pattern={inputRegex} className={`${styles["FormFieldset__input"]} ${(input === "" && (inputSuccess)) ? "" : inputSuccess ? styles["FormFieldset__input--success"] : styles["FormFieldset__input--error"]}`} id={id} name={inputName} type="text" value={input} onChange={inputOnChange} /> */}
+        <div className={`${styles["FormFieldset__input-wrapper"]} ${styles["FormFieldset__input-wrapper-1"]}`}>
+          <Input
+            id={id}
+            input={input}
+            inputOnChange={inputOnChange}
+            inputName={inputName}
+            inputRegex={inputRegex}
+            inputSuccess={inputSuccess}
+          />
+        </div>
+        <div className={`${styles["FormFieldset__inputicon-wrapper"]} ${styles["FormFieldset__inputicon-wrapper-1"]}`}>
+          <InputIcon 
+            input={input} 
+            inputSuccess={inputSuccess}
+          />
+        </div>
       </div>
       {/* add id to className for grid-name or use gridName in styles dynamically? */}
       <div className={`${styles["FormFieldset__message-wrapper"]} ${styles["FormFieldset__message-wrapper-1"]}`}>

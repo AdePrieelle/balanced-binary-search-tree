@@ -1,0 +1,25 @@
+@import "../../styles/partials/variables";
+
+.Input {
+  width: 100%;
+  height: $Input-height;
+  padding: $Input-padding;
+  font-size: $Input-font-size;
+  background-color: $Input-background-color;
+  border: $Input-border;
+  border-radius: $Input-border-radius;
+  &:focus-visible {
+    background-color: $Input-focus-visible-background-color;
+    border: 0;
+    outline: $Input-focus-visible-outline;
+  }
+}
+.Input--success {
+  border: 0;
+  outline: $Input--success-outline;
+}
+.Input--error {
+  background-color: $Input--error-background-color;
+  border: 0;
+  outline: $Input--error-outline;
+}

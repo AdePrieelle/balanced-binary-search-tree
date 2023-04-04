@@ -3,7 +3,7 @@ import { faCircleCheck, faCircleExclamation } from '@fortawesome/free-solid-svg-
 import styles from './InputIcon.module.scss';
 
 export const InputIcon = ({ input, inputSuccess}) => {
-  let inputIcon = "";
+  let inputIcon = null;
   if (input === "" && inputSuccess) {
     inputIcon = null;
   } else if (input !== "" && inputSuccess) {

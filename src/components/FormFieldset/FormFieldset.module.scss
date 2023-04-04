@@ -122,3 +122,11 @@
     color: $ControlsBST__form-message--error-color;
   }
 }
+
+
+.FormFieldset__inputicon-wrapper {
+  position: absolute;
+  top: 50%;
+  right: $FormFieldset__inputicon-wrapper-right;
+  transform: translate(0%, -50%);
+}
