@@ -1,0 +1,8 @@
+@import "../../styles/partials/variables";
+
+.InputIconWrapper {
+  position: absolute;
+  top: 50%;
+  right: $InputIconWrapper-right;
+  transform: translate(0%, -50%);
+}
