@@ -1,9 +1,12 @@
 import { useId, useEffect, useState } from 'react';
 import { Button } from '../Button/Button.js';
+import { ButtonWrapper } from '../ButtonWrapper/ButtonWrapper.js';
 import { FormMessage } from '../FormMessage/FormMessage.js';
+import { FormMessageWrapper } from '../FormMessageWrapper/FormMessageWrapper.js';
 import { InputInputIconContainer } from '../InputInputIconContainer/InputInputIconContainer.js';
+import { InputInputIconContainerWrapper } from '../InputInputIconContainerWrapper/InputInputIconContainerWrapper.js';
 import { Label } from '../Label/Label.js';
-import { Wrapper } from '../Wrapper/Wrapper.js';
+import { LabelWrapper } from '../LabelWrapper/LabelWrapper.js';
 import styles from './FormFieldset.module.scss';
 
 export const FormFieldset = ({ 
@@ -27,7 +30,7 @@ export const FormFieldset = ({
   const [inputButtonClicked, setInputButtonClicked] = useState(false);
 
   const isValidInputFormat = (regexPattern, input) => {
-    console.log(regexPattern.test(input));
+    // console.log(regexPattern.test(input));
     return (regexPattern.test(input));
   };
 
@@ -66,10 +69,10 @@ export const FormFieldset = ({
 
   return (
     <fieldset className={`${styles["FormFieldset"]}`}>
-      <Wrapper gridArea={"Label-1"}>
+      <LabelWrapper gridArea={"Label-1"}>
         <Label id={id}>{labelText}</Label>
-      </Wrapper>
-      <Wrapper gridArea={"InputInputIconContainer-1"}>
+      </LabelWrapper>
+      <InputInputIconContainerWrapper gridArea={"InputInputIconContainer-1"}>
         <InputInputIconContainer
           id={id}
           input={input}
@@ -78,8 +81,8 @@ export const FormFieldset = ({
           inputSuccess={inputSuccess}
           inputRegex={inputRegex}
         />
-      </Wrapper>
-      <Wrapper gridArea={"FormMessage-1"}>
+      </InputInputIconContainerWrapper>
+      <FormMessageWrapper gridArea={"FormMessage-1"}>
         <FormMessage
           formMessageEmptyErrorValue={formMessageEmptyErrorValue}
           formMessageInitialValue={formMessageInitialValue}
@@ -93,10 +96,10 @@ export const FormFieldset = ({
           isValidInputFormat={isValidInputFormat(inputRegex, input)}
           isValidInputValue={isValidInputValue(input)}
         />
-      </Wrapper>
-      <Wrapper gridArea={"Button-1"}>
+      </FormMessageWrapper>
+      <ButtonWrapper gridArea={"Button-1"}>
         <Button onClickHandler={onClickHandler}>{buttonText}</Button>
-      </Wrapper>
+      </ButtonWrapper>
     </fieldset>
   );
 };

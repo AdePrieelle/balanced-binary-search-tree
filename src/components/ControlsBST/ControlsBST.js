@@ -5,6 +5,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { InputIcon } from '../InputIcon/InputIcon.js';
 import { FormMessage } from '../FormMessage/FormMessage.js';
 import { FormFieldset } from '../FormFieldset/FormFieldset.js';
+import { FormFieldsetWrapper } from '../FormFieldsetWrapper/FormFieldsetWrapper.js';
 
 export const ControlsBST = () => {
   const [input1, setInput1] = useState("");
@@ -165,7 +166,7 @@ export const ControlsBST = () => {
 
 
 
-
+        <FormFieldsetWrapper>
           <FormFieldset 
               inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), [])}
               // implement later
@@ -187,6 +188,7 @@ export const ControlsBST = () => {
               formMessageInputFormatErrorValue={"Please enter the initial number(s) in the correct format"} 
               formMessageInputValueErrorValue={"Please only enter value(s) that exist in the BST"}
           />
+        </FormFieldsetWrapper>
 
 
 

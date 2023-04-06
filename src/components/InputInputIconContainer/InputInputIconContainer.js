@@ -1,7 +1,7 @@
 import styles from './InputInputIconContainer.module.scss';
 import { Input } from '../Input/Input.js';
+import { InputWrapper } from '../InputWrapper/InputWrapper.js';
 import { InputIcon } from '../InputIcon/InputIcon.js';
-import { Wrapper } from '../Wrapper/Wrapper.js';
 import { InputIconWrapper } from '../InputIconWrapper/InputIconWrapper.js';
 
 export const InputInputIconContainer = ({
@@ -14,7 +14,7 @@ export const InputInputIconContainer = ({
 }) => {
   return (
     <div className={`${styles["InputInputIconContainer"]}`}>
-      <Wrapper>
+      <InputWrapper>
         <Input
           id={id}
           input={input}
@@ -23,7 +23,7 @@ export const InputInputIconContainer = ({
           inputRegex={inputRegex}
           inputSuccess={inputSuccess}
         />
-      </Wrapper>
+      </InputWrapper>
       <InputIconWrapper>
         <InputIcon 
           input={input} 
