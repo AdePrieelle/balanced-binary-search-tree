@@ -1,172 +1,25 @@
 import styles from './ControlsBST.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleCheck, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
-import { useEffect, useState, useMemo } from 'react';
-import { InputIcon } from '../InputIcon/InputIcon.js';
-import { FormMessage } from '../FormMessage/FormMessage.js';
-import { FormFieldset } from '../FormFieldset/FormFieldset.js';
-import { FormFieldsetWrapper } from '../FormFieldsetWrapper/FormFieldsetWrapper.js';
+import { Button } from '../Button/Button.js';
+import { RebalanceButtonWrapper } from '../RebalanceButtonWrapper/RebalanceButtonWrapper.js';
+import { Form } from '../Form/Form.js';
+import { FormWrapper } from '../FormWrapper/FormWrapper.js'
 
 export const ControlsBST = () => {
-  const [input1, setInput1] = useState("");
-  // const [input2, setInput2] = useState("");
-  // const [input3, setInput3] = useState("");
-  // const [input4, setInput4] = useState("");
-  // const [input5, setInput5] = useState("");
-  const [input1Success, setInput1Success] = useState(false);
-  // const [input2Success, setInput2Success] = useState(false);
-  // const [input3Success, setInput3Success] = useState(false);
-  // const [input4Success, setInput4Success] = useState(false);
-  // const [input5Success, setInput5Success] = useState(false);
-  const [input1Message, setInput1Message] = useState(<>&nbsp;</>);
-  // const [input2Message, setInput2Message] = useState("");
-  // const [input3Message, setInput3Message] = useState("");
-  // const [input4Message, setInput4Message] = useState("");
-  // const [input5Message, setInput5Message] = useState("");
-  const [input1UpdatedBST, setInput1UpdatedBST] = useState(false);
-  const [input1ButtonClicked, setInput1ButtonClicked] = useState(false);
-
-
-  // below 2 work good for integers and floats and multiple values
-  // const input1Regex = useMemo(() => new RegExp("^(-?[0-9]+(\\.[0-9]+)?)+((, (-?[0-9]+(\\.[0-9]+)?))*)$"), []);
-  // const input1Regex = useMemo(() => new RegExp("^(-?[0-9]+(\\.[0-9]+)?)+((, (-?[0-9]+(\\.[0-9]+)?))*)$"), []);
-  // const input1Regex = useMemo(() => new RegExp("^(-?[0-9]+(\\.[0-9]+)?)+((, (-?[0-9]+(\\.[0-9]+)?))*)$"), []);
-
-  // below 2 work good with double \\ to use d shortcut for [0-9]
-  // const input1Regex = useMemo(() => new RegExp("^-?(\\d+(\\.\\d+)?)+(, -?(\\d+(\\.\\d+)?))*$"), []);
-  // const input1Regex = useMemo(() => new RegExp("^-?(\\d+(\\.\\d+)?)+(, -?(\\d+(\\.\\d+)?))*$"), []);
-  const input1Regex = useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), []);
-
-  // const isValidInput = (regexPattern, input) => {
-  //   console.log(regexPattern.test(input));
-  //   return (regexPattern.test(input));
-  // };
-
-  const isValidInputFormat = (regexPattern, input) => {
-    console.log(regexPattern.test(input));
-    return (regexPattern.test(input));
-  };
-
-  const isValidInputValue = (input) => {
-    //implement later
-    return true;
-  };
-
-
-
-  const input1OnChange = (e) => {
-    setInput1(e.target.value);
-    setInput1ButtonClicked(false);
-    setInput1UpdatedBST(false);
-  };
-
-  // const input1OnClick = () => {
-  //   setInput1ButtonClicked(true);
-  //   setInput1UpdatedBST(false);
-  //   // if (input1 === "") {
-  //   //   setInput1Success(false);
-  //   //   setInput1Message("Please enter the initial value(s)")
-  //   // };
-  //   if ((input1 !== "") && input1Success) {
-  //     setInput1("");
-  //     setInput1UpdatedBST(true);
-  //   };
-  // };
-
-  const input1OnClick = () => {
-    setInput1ButtonClicked(true);
-    setInput1UpdatedBST(false);
-    // if (input1 === "") {
-    //   setInput1Success(false);
-    //   setInput1Message("Please enter the initial value(s)")
-    // };
-    if ((input1 !== "") && input1Success) {
-      setInput1("");
-      setInput1UpdatedBST(true);
-    };
-  };
-
-  // useEffect(() => {
-  //   if (input1 === "" && !input1UpdatedBST && !input1ButtonClicked) {
-  //     setInput1Success(true);
-  //     setInput1Message(<>&nbsp;</>);
-  //   };
-  //   if (input1 === "" && !input1UpdatedBST && input1ButtonClicked) {
-  //     setInput1Success(false);
-  //     setInput1Message("Please enter the initial value(s)");
-  //   };
-  //   if (input1 === "" && input1UpdatedBST) {
-  //     setInput1Success(true);
-  //     setInput1Message(
-  //       <>
-  //         <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-message-icon"]} ${styles["ControlsBST__form-message-icon--success"]}`}/>
-  //         <>The BST has been updated</>
-  //       </>
-  //     );
-  //   };
-  //   if (input1 !== "" && (isValidInput(input1Regex, input1))) {
-  //     setInput1Success(true);
-  //     setInput1Message("The BST is ready to be updated");
-  //   }
-  //   if (input1 !== "" && (!isValidInput(input1Regex, input1))) {
-  //     setInput1Success(false);
-  //     setInput1Message("Please enter the initial number(s) in the correct format");
-  //   };
-  // }, [input1, input1UpdatedBST, input1ButtonClicked, input1Regex]);
-
-  // useEffect(() => {
-  //   if (input1 === "" && !input1UpdatedBST && input1Success) {
-  //     setInput1Success(true);
-  //   };
-  //   if (input1 === "" && !input1UpdatedBST && !input1Success) {
-  //     setInput1Success(false);
-  //   };
-  //   if (input1 === "" && input1UpdatedBST) {
-  //     setInput1Success(true);
-  //   };
-  //   if (input1 !== "" && (isValidInput(input1Regex, input1))) {
-  //     setInput1Success(true);
-  //   }
-  //   if (input1 !== "" && (!isValidInput(input1Regex, input1))) {
-  //     setInput1Success(false);
-  //   };
-  // }, [input1, input1UpdatedBST, input1ButtonClicked, input1Regex]);
-
-  // useEffect(() => {
-  //   if (
-  //        ((input1 === "") && (!input1ButtonClicked || input1UpdatedBST)) 
-  //     || (input1 !== "" && (isValidInputFormat(input1Regex, input1)))
-  //   ) {
-  //     setInput1Success(true);
-  //   }
-  //   if (
-  //        ((input1 === "") && (input1ButtonClicked && !input1UpdatedBST)) 
-  //     || ((input1 !== "") && (!isValidInputFormat(input1Regex, input1)))) {
-  //     setInput1Success(false);
-  //   };
-  // }, [input1, input1ButtonClicked, input1UpdatedBST, input1Regex]);
-
-  useEffect(() => {
-    if (
-         ((input1 === "") && (!input1ButtonClicked || input1UpdatedBST)) 
-      || (input1 !== "" && (isValidInputFormat(input1Regex, input1)) && isValidInputValue(input1))
-    ) {
-      setInput1Success(true);
-    } else {
-      setInput1Success(false);
-    };
-  }, [input1, input1ButtonClicked, input1UpdatedBST, input1Regex]);
-
   return (
     <div className={styles.ControlsBST}>
-      <form className={styles.ControlsBST__form}>
+      {/* <form className={styles.ControlsBST__form}> */}
+      <FormWrapper>
+        <Form />
+      </FormWrapper>
+      <RebalanceButtonWrapper>
+      {/* implement onClickHandler later */}
+        <Button onClickHandler={() => null}>Rebalance BST</Button>
+      </RebalanceButtonWrapper>
 
 
 
 
-
-
-        <FormFieldsetWrapper>
+        {/* <FormFieldsetWrapper>
           <FormFieldset 
               inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), [])}
               // implement later
@@ -188,7 +41,7 @@ export const ControlsBST = () => {
               formMessageInputFormatErrorValue={"Please enter the initial number(s) in the correct format"} 
               formMessageInputValueErrorValue={"Please only enter value(s) that exist in the BST"}
           />
-        </FormFieldsetWrapper>
+        </FormFieldsetWrapper> */}
 
 
 
@@ -255,8 +108,8 @@ export const ControlsBST = () => {
           <div className={`${styles["ControlsBST__form-message"]} ${styles["ControlsBST__form-message-5"]}`}>
             &nbsp;
           </div> */}
-          <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button--large"]}`} type="button">Rebalance BST</button>
-      </form>
+          {/* <button className={`${styles["ControlsBST__form-button"]} ${styles["ControlsBST__form-button--large"]}`} type="button">Rebalance BST</button> */}
+      {/* </form> */}
     </div>
   );
 };
