@@ -1,13 +1,18 @@
-import React from 'react';
 import styles from './App.module.scss';
-import { Header } from '../Header/Header.js';
 import { ControlsBST } from '../ControlsBST/ControlsBST.js';
+import { ControlsBSTWrapper } from '../ControlsBSTWrapper/ControlsBSTWrapper.js';
+import { Header } from '../Header/Header.js';
+import { HeaderWrapper } from '../HeaderWrapper/HeaderWrapper.js';
 
 export const App = () => {
   return (
     <div className={styles.App}>
-        <Header title={"Binary Search Tree"} />
-        <ControlsBST />
+        <HeaderWrapper>
+          <Header title={"Binary Search Tree"} />
+        </HeaderWrapper>
+        <ControlsBSTWrapper>
+          <ControlsBST />
+        </ControlsBSTWrapper>
     </div>
   );
 };
