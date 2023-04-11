@@ -1,27 +1,27 @@
 import { useId, useEffect, useState } from 'react';
 import { Button } from '../Button/Button.js';
 import { ButtonWrapper } from '../ButtonWrapper/ButtonWrapper.js';
-import { FormMessage } from '../FormMessage/FormMessage.js';
-import { FormMessageWrapper } from '../FormMessageWrapper/FormMessageWrapper.js';
+import { FieldsetMessage } from '../FieldsetMessage/FieldsetMessage.js';
+import { FieldsetMessageWrapper } from '../FieldsetMessageWrapper/FieldsetMessageWrapper.js';
 import { InputInputIconContainer } from '../InputInputIconContainer/InputInputIconContainer.js';
 import { InputInputIconContainerWrapper } from '../InputInputIconContainerWrapper/InputInputIconContainerWrapper.js';
 import { Label } from '../Label/Label.js';
 import { LabelWrapper } from '../LabelWrapper/LabelWrapper.js';
-import styles from './FormFieldset.module.scss';
+import styles from './Fieldset.module.scss';
 
-export const FormFieldset = ({ 
-  inputRegex, 
-  isValidInputValue, 
-  labelText, 
-  inputName, 
-  buttonText, 
-  onClickHandlerSuccessful, 
-  formMessageInitialValue, 
-  formMessageEmptyErrorValue, 
-  formMessageUpdatedValue, 
-  formMessageReadyToUpdateValue, 
-  formMessageInputFormatErrorValue, 
-  formMessageInputValueErrorValue
+export const Fieldset = ({ 
+  buttonText,
+  fieldsetMessageInputFormatErrorValue,
+  fieldsetMessageEmptyInputErrorValue,
+  fieldsetMessageEmptyInputSuccessValue,
+  fieldsetMessageInputValueErrorValue,
+  fieldsetMessageReadyToUpdateValue,
+  fieldsetMessageUpdatedSuccessValue,
+  inputName,
+  inputRegex,
+  isValidInputValue,
+  labelText,
+  onClickHandlerSuccessful
 }) => {
   const id = useId();
   const [input, setInput] = useState("");
@@ -68,13 +68,13 @@ export const FormFieldset = ({
   }, [input, inputButtonClicked, inputUpdatedBST, inputRegex, isValidInputValue]);
 
   return (
-    <fieldset className={`${styles["FormFieldset"]}`}>
-      <LabelWrapper gridArea={"Label-1"}>
+    <fieldset className={`${styles["Fieldset"]}`}>
+      <LabelWrapper gridArea={"LabelWrapper-1"}>
         <Label id={id}>
           {labelText}
         </Label>
       </LabelWrapper>
-      <InputInputIconContainerWrapper gridArea={"InputInputIconContainer-1"}>
+      <InputInputIconContainerWrapper gridArea={"InputInputIconContainerWrapper-1"}>
         <InputInputIconContainer
           id={id}
           input={input}
@@ -84,22 +84,22 @@ export const FormFieldset = ({
           inputRegex={inputRegex}
         />
       </InputInputIconContainerWrapper>
-      <FormMessageWrapper gridArea={"FormMessage-1"}>
-        <FormMessage
-          formMessageEmptyErrorValue={formMessageEmptyErrorValue}
-          formMessageInitialValue={formMessageInitialValue}
-          formMessageInputFormatErrorValue={formMessageInputFormatErrorValue}
-          formMessageInputValueErrorValue={formMessageInputValueErrorValue}
-          formMessageReadyToUpdateValue={formMessageReadyToUpdateValue}
-          formMessageUpdatedValue={formMessageUpdatedValue}
+      <FieldsetMessageWrapper gridArea={"FieldsetMessageWrapper-1"}>
+        <FieldsetMessage
+          fieldsetMessageEmptyInputErrorValue={fieldsetMessageEmptyInputErrorValue}
+          fieldsetMessageEmptyInputSuccessValue={fieldsetMessageEmptyInputSuccessValue}
+          fieldsetMessageInputFormatErrorValue={fieldsetMessageInputFormatErrorValue}
+          fieldsetMessageInputValueErrorValue={fieldsetMessageInputValueErrorValue}
+          fieldsetMessageReadyToUpdateValue={fieldsetMessageReadyToUpdateValue}
+          fieldsetMessageUpdatedSuccessValue={fieldsetMessageUpdatedSuccessValue}
           input={input}
           inputSuccess={inputSuccess}
           inputUpdatedBST={inputUpdatedBST}
           isValidInputFormat={isValidInputFormat(inputRegex, input)}
           isValidInputValue={isValidInputValue(input)}
         />
-      </FormMessageWrapper>
-      <ButtonWrapper gridArea={"Button-1"}>
+      </FieldsetMessageWrapper>
+      <ButtonWrapper gridArea={"ButtonWrapper-1"}>
         <Button onClickHandler={onClickHandler}>
           {buttonText}
         </Button>
