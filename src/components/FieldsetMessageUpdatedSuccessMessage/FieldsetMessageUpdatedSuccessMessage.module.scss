@@ -1,0 +1,20 @@
+@import "../../styles/partials/variables";
+
+.FieldsetMessageUpdatedSuccessMessage {
+  display: flex;
+  align-items: center;
+  .FieldsetMessageUpdatedSuccessMessage__icon {
+    margin-right: $ControlsBST__form-message-icon-margin-right;
+    font-size: $ControlsBST__form-message-icon-font-size;
+  }
+  .FieldsetMessageUpdatedSuccessMessage__icon--success {
+    color: $ControlsBST__form-message-icon--success-color;
+  }
+  .FieldsetMessageUpdatedSuccessMessage__icon--error {
+    color: $ControlsBST__form-message-icon--error-color;
+  }
+  .FieldsetMessageUpdatedSuccessMessage__message {
+    font-size: $ControlsBST__form-message-font-size;
+    font-weight: $ControlsBST__form-message-font-weight;
+  }
+}

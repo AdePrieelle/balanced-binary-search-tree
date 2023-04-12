@@ -1,5 +1,4 @@
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FieldsetMessageUpdatedSuccessMessage } from '../FieldsetMessageUpdatedSuccessMessage/FieldsetMessageUpdatedSuccessMessage.js';
 import { Fieldset } from '../Fieldset/Fieldset.js';
 import { FieldsetWrapper } from '../FieldsetWrapper/FieldsetWrapper.js';
 import { useMemo } from 'react';
@@ -15,12 +14,8 @@ export const Form = () => {
             buttonText={"Create BST"} 
             fieldsetMessageEmptyInputSuccessValue={<>&nbsp;</>} 
             fieldsetMessageEmptyInputErrorValue={"Please enter the initial value(s)"}
-            fieldsetMessageUpdatedSuccessValue={
-              <>
-                <FontAwesomeIcon icon={faCircleCheck} className={`${styles["ControlsBST__form-message-icon"]} ${styles["ControlsBST__form-message-icon--success"]}`}/>
-                <>The BST has been updated</>
-              </>
-            } 
+            // only store the message in the array of objects
+            fieldsetMessageUpdatedSuccessValue={<FieldsetMessageUpdatedSuccessMessage message={"The BST has been updated"} />}
             fieldsetMessageReadyToUpdateValue={"The BST is ready to be updated"} 
             fieldsetMessageInputFormatErrorValue={"Please enter the initial number(s) in the correct format"} 
             fieldsetMessageInputValueErrorValue={"Please only enter value(s) that exist in the BST"}
