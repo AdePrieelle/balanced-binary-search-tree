@@ -1,8 +1,8 @@
-import styles from './ControlsBST.module.scss';
 import { Button } from '../Button/Button.js';
-import { RebalanceButtonWrapper } from '../RebalanceButtonWrapper/RebalanceButtonWrapper.js';
 import { Form } from '../Form/Form.js';
 import { FormWrapper } from '../FormWrapper/FormWrapper.js'
+import { RebalanceButtonWrapper } from '../RebalanceButtonWrapper/RebalanceButtonWrapper.js';
+import styles from './ControlsBST.module.scss';
 
 export const ControlsBST = () => {
   return (

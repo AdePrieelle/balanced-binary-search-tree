@@ -1,25 +1,25 @@
-import styles from './InputInputIconContainer.module.scss';
 import { Input } from '../Input/Input.js';
-import { InputWrapper } from '../InputWrapper/InputWrapper.js';
 import { InputIcon } from '../InputIcon/InputIcon.js';
 import { InputIconWrapper } from '../InputIconWrapper/InputIconWrapper.js';
+import { InputWrapper } from '../InputWrapper/InputWrapper.js';
+import styles from './InputInputIconContainer.module.scss';
 
 export const InputInputIconContainer = ({
-  id,
   input,
-  inputOnChange,
+  inputId,
   inputName,
-  inputSuccess,
-  inputRegex
+  inputOnChange,
+  inputRegex,
+  inputSuccess
 }) => {
   return (
     <div className={`${styles["InputInputIconContainer"]}`}>
       <InputWrapper>
         <Input
-          id={id}
           input={input}
-          inputOnChange={inputOnChange}
+          inputId={inputId}
           inputName={inputName}
+          inputOnChange={inputOnChange}
           inputRegex={inputRegex}
           inputSuccess={inputSuccess}
         />
