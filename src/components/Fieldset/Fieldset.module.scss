@@ -1,11 +1,24 @@
 @import "../../styles/partials/variables";
 
 .Fieldset {
-  // display: grid;
-  // grid-template-columns: 1fr 1fr;
-  // @media screen and (min-width: $media-query-small-screen) {
-  //   grid-template-columns: 1fr .5fr;
-  // }
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    "label-wrapper"
+    "input-inputicon-container-wrapper"
+    "fieldset-message-wrapper"
+    "button-wrapper";
+  @media screen and (min-width: $media-query-small-screen) {
+    grid-template-columns: 1fr max-content;
+    grid-template-areas: 
+      "label-wrapper label-wrapper"
+      "input-inputicon-container-wrapper button-wrapper"
+      "fieldset-message-wrapper fieldset-message-wrapper"
+  }
+  column-gap: $ControlsBST__form-column-gap-small;
+  @media screen and (min-width: $media-query-medium-screen) {
+  column-gap: $ControlsBST__form-column-gap-medium;
+  }
   width: 100%;
   margin: 0;
   padding: 0;

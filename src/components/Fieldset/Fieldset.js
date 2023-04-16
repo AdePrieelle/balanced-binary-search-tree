@@ -11,21 +11,16 @@ import styles from './Fieldset.module.scss';
 
 export const Fieldset = ({ 
   buttonText,
-  buttonWrapperGridAreaName,
-  fieldsetId,
   fieldsetMessageEmptyInputErrorValue,
   fieldsetMessageEmptyInputSuccessValue,
   fieldsetMessageInputFormatErrorValue,
   fieldsetMessageInputValueErrorValue,
   fieldsetMessageReadyToUpdateValue,
   fieldsetMessageUpdatedSuccessValue,
-  fieldsetMessageWrapperGridAreaName,
-  inputInputIconContainerWrapperGridAreaName,
   inputName,
   inputRegex,
   isValidInputValue,
   labelText,
-  labelWrapperGridAreaName,
   onClickHandlerSuccessful
 }) => {
   const inputId = useId();
@@ -74,12 +69,12 @@ export const Fieldset = ({
 
   return (
     <fieldset className={`${styles["Fieldset"]}`}>
-      <LabelWrapper gridArea={`${labelWrapperGridAreaName}-${fieldsetId}`}>
+      <LabelWrapper>
         <Label inputId={inputId}>
           {labelText}
         </Label>
       </LabelWrapper>
-      <InputInputIconContainerWrapper gridArea={`${inputInputIconContainerWrapperGridAreaName}-${fieldsetId}`}>
+      <InputInputIconContainerWrapper>
         <InputInputIconContainer
           input={input}
           inputId={inputId}
@@ -89,7 +84,7 @@ export const Fieldset = ({
           inputSuccess={inputSuccess}
         />
       </InputInputIconContainerWrapper>
-      <FieldsetMessageWrapper gridArea={`${fieldsetMessageWrapperGridAreaName}-${fieldsetId}`}>
+      <FieldsetMessageWrapper>
         <FieldsetMessage
           fieldsetMessageEmptyInputErrorValue={fieldsetMessageEmptyInputErrorValue}
           fieldsetMessageEmptyInputSuccessValue={fieldsetMessageEmptyInputSuccessValue}
@@ -104,7 +99,7 @@ export const Fieldset = ({
           isValidInputValue={isValidInputValue(input)}
         />
       </FieldsetMessageWrapper>
-      <ButtonWrapper gridArea={`${buttonWrapperGridAreaName}-${fieldsetId}`}>
+      <ButtonWrapper>
         <Button onClickHandler={onClickHandler}>
           {buttonText}
         </Button>

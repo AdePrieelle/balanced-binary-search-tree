@@ -1,52 +1,53 @@
 @import "../../styles/partials/variables";
 
 .Form {
-  display: grid;
+  // display: grid;
   width: 100%;
-  // grid-template-areas: 
-    // "label-1 label-1"
-    // "input-icon-wrapper-1 input-icon-wrapper-1"
-    // "message-1 message-1"
-    // "button-1 button-1"
-    // "label-2 label-2"
-    // "input-icon-wrapper-2 input-icon-wrapper-2"
-    // "message-2 message-2"
-    // "button-2 button-2"
-    // "label-3 label-3"
-    // "input-icon-wrapper-3 input-icon-wrapper-3"
-    // "message-3 message-3"
-    // "button-3 button-3"
-    // "label-4 label-4"
-    // "input-icon-wrapper-4 input-icon-wrapper-4"
-    // "message-4 message-4"
-    // "button-4 button-4"
-    // "label-5 label-5"
-    // "input-icon-wrapper-5 input-icon-wrapper-5"
-    // "message-5 message-5"
-    // "button-5 button-5"
-    // "button-large button-large";
-  @media screen and (min-width: $media-query-small-screen) {
-    grid-template-columns: 1fr max-content;
-    // grid-template-areas: 
-    //   "label-1 label-1"
-    //   "input-icon-wrapper-1 button-1"
-    //   "message-1 message-1"
-    //   "label-2 label-2"
-    //   "input-icon-wrapper-2 button-2"
-    //   "message-2 message-2"
-    //   "label-3 label-3"
-    //   "input-icon-wrapper-3 button-3"
-    //   "message-3 message-3"
-    //   "label-4 label-4"
-    //   "input-icon-wrapper-4 button-4"
-    //   "message-4 message-4"
-    //   "label-5 label-5"
-    //   "input-icon-wrapper-5 button-5"
-    //   "message-5 message-5"
-    //   "button-large button-large";
-  }
-  column-gap: $ControlsBST__form-column-gap-small;
-  @media screen and (min-width: $media-query-medium-screen) {
-  column-gap: $ControlsBST__form-column-gap-medium;
-  }
+  // grid-template-columns: 1fr;
+  // // grid-template-areas: 
+  //   // "label-1 label-1"
+  //   // "input-icon-wrapper-1 input-icon-wrapper-1"
+  //   // "message-1 message-1"
+  //   // "button-1 button-1"
+  //   // "label-2 label-2"
+  //   // "input-icon-wrapper-2 input-icon-wrapper-2"
+  //   // "message-2 message-2"
+  //   // "button-2 button-2"
+  //   // "label-3 label-3"
+  //   // "input-icon-wrapper-3 input-icon-wrapper-3"
+  //   // "message-3 message-3"
+  //   // "button-3 button-3"
+  //   // "label-4 label-4"
+  //   // "input-icon-wrapper-4 input-icon-wrapper-4"
+  //   // "message-4 message-4"
+  //   // "button-4 button-4"
+  //   // "label-5 label-5"
+  //   // "input-icon-wrapper-5 input-icon-wrapper-5"
+  //   // "message-5 message-5"
+  //   // "button-5 button-5"
+  //   // "button-large button-large";
+  // @media screen and (min-width: $media-query-small-screen) {
+  //   // grid-template-columns: 1fr max-content;
+  //   // grid-template-areas: 
+  //   //   "label-1 label-1"
+  //   //   "input-icon-wrapper-1 button-1"
+  //   //   "message-1 message-1"
+  //   //   "label-2 label-2"
+  //   //   "input-icon-wrapper-2 button-2"
+  //   //   "message-2 message-2"
+  //   //   "label-3 label-3"
+  //   //   "input-icon-wrapper-3 button-3"
+  //   //   "message-3 message-3"
+  //   //   "label-4 label-4"
+  //   //   "input-icon-wrapper-4 button-4"
+  //   //   "message-4 message-4"
+  //   //   "label-5 label-5"
+  //   //   "input-icon-wrapper-5 button-5"
+  //   //   "message-5 message-5"
+  //   //   "button-large button-large";
+  // }
+  // column-gap: $ControlsBST__form-column-gap-small;
+  // @media screen and (min-width: $media-query-medium-screen) {
+  // column-gap: $ControlsBST__form-column-gap-medium;
+  // }
 }

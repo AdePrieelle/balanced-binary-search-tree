@@ -1,5 +1,8 @@
 @import "../../styles/partials/variables";
 
 .ButtonWrapper {
-  width: 100%;
+  grid-area: button-wrapper;
+  // width: 100%;
+  // depends on the largest text for a button in order for it to not wrap
+  width: 165px;
 }
