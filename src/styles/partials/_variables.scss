@@ -7,10 +7,6 @@ $media-query-large-screen: 750px;
 $media-query-xlarge-screen: 900px;
 $media-query-xxlarge-screen: 1200px;
 
-:export {
-  mediaQuerySmallScreen: $media-query-small-screen;
-}
-
 // index
 $body-font-size: 1.6rem;
 
