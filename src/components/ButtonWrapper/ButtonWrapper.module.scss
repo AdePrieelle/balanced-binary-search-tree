@@ -4,7 +4,6 @@
   grid-area: button-wrapper;
   width: 100%;
   @media screen and (min-width: $media-query-small-screen) {
-    // depends on the largest text for a button in order for it to not wrap
-    width: 165px;
+    max-width: $ButtonWrapper-media-query-small-screen-or-biggger-max-width;
   }
 }
