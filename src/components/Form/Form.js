@@ -16,7 +16,7 @@ export const Form = () => {
           fieldsetMessageEmptyInputErrorValue={"Please enter the initial value(s)"}
           fieldsetMessageEmptyInputSuccessValue={<>&nbsp;</>} 
           fieldsetMessageInputFormatErrorValue={"Please enter the initial number(s) in the correct format"} 
-          fieldsetMessageInputValueErrorValue={"Please only enter value(s) that exist in the BST"}
+          fieldsetMessageInputValueErrorValue={""}
           fieldsetMessageReadyToUpdateValue={"The BST is ready to be updated"} 
           // store the message in the array of objects
           // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
@@ -35,15 +35,15 @@ export const Form = () => {
         <Fieldset 
           buttonText={"Add value(s)"} 
           // use id of map function as fieldsetId
-          fieldsetMessageEmptyInputErrorValue={"Please enter the initial value(s)"}
+          fieldsetMessageEmptyInputErrorValue={"Please enter the additional value(s)"}
           fieldsetMessageEmptyInputSuccessValue={<>&nbsp;</>} 
-          fieldsetMessageInputFormatErrorValue={"Please enter the initial number(s) in the correct format"} 
-          fieldsetMessageInputValueErrorValue={"Please only enter value(s) that exist in the BST"}
+          fieldsetMessageInputFormatErrorValue={"Please enter the additional value(s) in the correct format"} 
+          fieldsetMessageInputValueErrorValue={""}
           fieldsetMessageReadyToUpdateValue={"The BST is ready to be updated"} 
           // store the message in the array of objects
           // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
           fieldsetMessageUpdatedSuccessValue={<FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
-          inputName={"Initial-value(s)"} 
+          inputName={"Add-value(s)"} 
           inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), [])}
           // implement later
           isValidInputValue={(input) => true} 
@@ -57,15 +57,15 @@ export const Form = () => {
         <Fieldset 
           buttonText={"Remove value(s)"} 
           // use id of map function as fieldsetId
-          fieldsetMessageEmptyInputErrorValue={"Please enter the initial value(s)"}
+          fieldsetMessageEmptyInputErrorValue={"Please enter the value(s) to be removed"}
           fieldsetMessageEmptyInputSuccessValue={<>&nbsp;</>} 
-          fieldsetMessageInputFormatErrorValue={"Please enter the initial number(s) in the correct format"} 
+          fieldsetMessageInputFormatErrorValue={"Please enter the value(s) to be removed in the correct format"} 
           fieldsetMessageInputValueErrorValue={"Please only enter value(s) that exist in the BST"}
           fieldsetMessageReadyToUpdateValue={"The BST is ready to be updated"} 
           // store the message in the array of objects
           // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
           fieldsetMessageUpdatedSuccessValue={<FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
-          inputName={"Initial-value(s)"} 
+          inputName={"Remove-value(s)"} 
           inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), [])}
           // implement later
           isValidInputValue={(input) => true} 
@@ -79,16 +79,16 @@ export const Form = () => {
         <Fieldset 
           buttonText={"Find height"} 
           // use id of map function as fieldsetId
-          fieldsetMessageEmptyInputErrorValue={"Please enter the initial value(s)"}
+          fieldsetMessageEmptyInputErrorValue={"Please enter a value"}
           fieldsetMessageEmptyInputSuccessValue={<>&nbsp;</>} 
-          fieldsetMessageInputFormatErrorValue={"Please enter the initial number(s) in the correct format"} 
-          fieldsetMessageInputValueErrorValue={"Please only enter value(s) that exist in the BST"}
-          fieldsetMessageReadyToUpdateValue={"The BST is ready to be updated"} 
+          fieldsetMessageInputFormatErrorValue={"Please enter the value in the correct format"} 
+          fieldsetMessageInputValueErrorValue={"Please only enter a value that exists in the BST"}
+          fieldsetMessageReadyToUpdateValue={"Ready to find the height"} 
           // store the message in the array of objects
           // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
           fieldsetMessageUpdatedSuccessValue={<FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
-          inputName={"Initial-value(s)"} 
-          inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), [])}
+          inputName={"Height-value"} 
+          inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)$"), [])}
           // implement later
           isValidInputValue={(input) => true} 
           labelText={"Find the height of a value in the BST"} 
@@ -101,16 +101,16 @@ export const Form = () => {
         <Fieldset 
           buttonText={"Find depth"} 
           // use id of map function as fieldsetId
-          fieldsetMessageEmptyInputErrorValue={"Please enter the initial value(s)"}
+          fieldsetMessageEmptyInputErrorValue={"Please enter a value"}
           fieldsetMessageEmptyInputSuccessValue={<>&nbsp;</>} 
-          fieldsetMessageInputFormatErrorValue={"Please enter the initial number(s) in the correct format"} 
-          fieldsetMessageInputValueErrorValue={"Please only enter value(s) that exist in the BST"}
-          fieldsetMessageReadyToUpdateValue={"The BST is ready to be updated"} 
+          fieldsetMessageInputFormatErrorValue={"Please enter the value in the correct format"} 
+          fieldsetMessageInputValueErrorValue={"Please only enter a value that exists in the BST"}
+          fieldsetMessageReadyToUpdateValue={"Ready to find the depth"} 
           // store the message in the array of objects
           // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
           fieldsetMessageUpdatedSuccessValue={<FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
-          inputName={"Initial-value(s)"} 
-          inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), [])}
+          inputName={"Depth-value"} 
+          inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)$"), [])}
           // implement later
           isValidInputValue={(input) => true} 
           labelText={"Find the depth of a value in the BST"} 
