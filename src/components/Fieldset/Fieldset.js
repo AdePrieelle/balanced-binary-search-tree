@@ -7,6 +7,7 @@ import { InputInputIconContainer } from '../InputInputIconContainer/InputInputIc
 import { InputInputIconContainerWrapper } from '../InputInputIconContainerWrapper/InputInputIconContainerWrapper.js';
 import { Label } from '../Label/Label.js';
 import { LabelWrapper } from '../LabelWrapper/LabelWrapper.js';
+import { usePreviousState } from '../../hooks/usePreviousState.js';
 import styles from './Fieldset.module.scss';
 
 export const Fieldset = ({ 
@@ -25,6 +26,7 @@ export const Fieldset = ({
 }) => {
   const inputId = useId();
   const [input, setInput] = useState("");
+  const prevInputState = usePreviousState(input);
   const [inputSuccess, setInputSuccess] = useState(false);
   const [inputUpdatedBST, setInputUpdatedBST] = useState(false);
   const [inputButtonClicked, setInputButtonClicked] = useState(false);
@@ -97,6 +99,7 @@ export const Fieldset = ({
           inputUpdatedBST={inputUpdatedBST}
           isValidInputFormat={isValidInputFormat(inputRegex, input)}
           isValidInputValue={isValidInputValue(input)}
+          prevInputState={prevInputState}
         />
       </FieldsetMessageWrapper>
       <ButtonWrapper>

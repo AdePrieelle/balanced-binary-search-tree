@@ -11,7 +11,8 @@ export const FieldsetMessage = ({
   inputSuccess,
   inputUpdatedBST,
   isValidInputFormat,
-  isValidInputValue
+  isValidInputValue,
+  prevInputState
 }) => {
   let message = null;
   if (input === "" && !inputUpdatedBST && inputSuccess) {
@@ -19,7 +20,7 @@ export const FieldsetMessage = ({
   } else if (input === "" && !inputUpdatedBST && !inputSuccess) {
     message = fieldsetMessageEmptyInputErrorValue;
   } else if (input === "" && inputUpdatedBST) {
-    message = fieldsetMessageUpdatedSuccessValue;
+    message = fieldsetMessageUpdatedSuccessValue(prevInputState);
   } else if ((input !== "") && inputSuccess) {
     message = fieldsetMessageReadyToUpdateValue;
   } else if ((input !== "") && !inputSuccess && !isValidInputFormat) {

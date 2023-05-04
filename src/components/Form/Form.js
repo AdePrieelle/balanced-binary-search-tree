@@ -1,4 +1,6 @@
 import { useMemo } from 'react';
+import { getDepthOfValue } from '../../utils/getDepthOfValue/getDepthOfValue.js';
+import { getHeightOfValue } from '../../utils/getHeightOfValue/getHeightOfValue.js';
 import { Fieldset } from '../Fieldset/Fieldset.js';
 import { FieldsetMessageUpdatedSuccessMessage } from '../FieldsetMessageUpdatedSuccessMessage/FieldsetMessageUpdatedSuccessMessage.js';
 import { FieldsetWrapper } from '../FieldsetWrapper/FieldsetWrapper.js';
@@ -20,7 +22,7 @@ export const Form = () => {
           fieldsetMessageReadyToUpdateValue={"The BST is ready to be updated"} 
           // store the message in the array of objects
           // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
-          fieldsetMessageUpdatedSuccessValue={<FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
+          fieldsetMessageUpdatedSuccessValue={(input) => <FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
           inputName={"Initial-value(s)"} 
           inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), [])}
           // implement later
@@ -42,7 +44,7 @@ export const Form = () => {
           fieldsetMessageReadyToUpdateValue={"The BST is ready to be updated"} 
           // store the message in the array of objects
           // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
-          fieldsetMessageUpdatedSuccessValue={<FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
+          fieldsetMessageUpdatedSuccessValue={(input) => <FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
           inputName={"Add-value(s)"} 
           inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), [])}
           // implement later
@@ -64,7 +66,7 @@ export const Form = () => {
           fieldsetMessageReadyToUpdateValue={"The BST is ready to be updated"} 
           // store the message in the array of objects
           // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
-          fieldsetMessageUpdatedSuccessValue={<FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
+          fieldsetMessageUpdatedSuccessValue={(input) => <FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
           inputName={"Remove-value(s)"} 
           inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"), [])}
           // implement later
@@ -76,7 +78,7 @@ export const Form = () => {
       </FieldsetWrapper>
 
       <FieldsetWrapper>
-        <Fieldset 
+        {/* <Fieldset 
           buttonText={"Find height"} 
           // use id of map function as fieldsetId
           fieldsetMessageEmptyInputErrorValue={"Please enter a value"}
@@ -87,6 +89,27 @@ export const Form = () => {
           // store the message in the array of objects
           // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
           fieldsetMessageUpdatedSuccessValue={<FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
+          inputName={"Height-value"} 
+          inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)$"), [])}
+          // implement later
+          isValidInputValue={(input) => true} 
+          labelText={"Find the height of a value in the BST"} 
+          // implement later
+          onClickHandlerSuccessful={(input) => true} 
+        /> */}
+
+        <Fieldset 
+          buttonText={"Find height"} 
+          // use id of map function as fieldsetId
+          fieldsetMessageEmptyInputErrorValue={"Please enter a value"}
+          fieldsetMessageEmptyInputSuccessValue={<>&nbsp;</>} 
+          fieldsetMessageInputFormatErrorValue={"Please enter the value in the correct format"} 
+          fieldsetMessageInputValueErrorValue={"Please only enter a value that exists in the BST"}
+          fieldsetMessageReadyToUpdateValue={"Ready to find the height"} 
+          // store the message in the array of objects
+          // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
+          // fieldsetMessageUpdatedSuccessValue={(input) => <FieldsetMessageUpdatedSuccessMessage icon={true} message={`Height: ${getHeightOfValue(input)}`} />}
+          fieldsetMessageUpdatedSuccessValue={(input) => <FieldsetMessageUpdatedSuccessMessage icon={true} message={`Height of value ${input} is: ${getHeightOfValue(input)}`} />}
           inputName={"Height-value"} 
           inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)$"), [])}
           // implement later
@@ -108,7 +131,7 @@ export const Form = () => {
           fieldsetMessageReadyToUpdateValue={"Ready to find the depth"} 
           // store the message in the array of objects
           // store fieldsetMessageUpdatedSuccessValueWithIcon in the array of objects and use it as a prop here for FieldsetMessageUpdatedSuccessMessage
-          fieldsetMessageUpdatedSuccessValue={<FieldsetMessageUpdatedSuccessMessage icon={true} message={"The BST has been updated"} />}
+          fieldsetMessageUpdatedSuccessValue={(input) => <FieldsetMessageUpdatedSuccessMessage icon={true} message={`Depth of value ${input} is: ${getDepthOfValue(input)}`} />}
           inputName={"Depth-value"} 
           inputRegex={useMemo(() => new RegExp("^(-?\\d+(\\.\\d+)?)$"), [])}
           // implement later
