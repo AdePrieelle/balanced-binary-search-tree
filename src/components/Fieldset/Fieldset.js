@@ -32,14 +32,8 @@ export const Fieldset = ({
   const [inputButtonClicked, setInputButtonClicked] = useState(false);
 
   const isValidInputFormat = (regexPattern, input) => {
-    // console.log(regexPattern.test(input));
     return (regexPattern.test(input));
   };
-
-  // const isValidInputValue = (input) => {
-  //   //implement later
-  //   return true;
-  // };
 
   const inputOnChange = (e) => {
     setInput(e.target.value);
@@ -103,7 +97,7 @@ export const Fieldset = ({
         />
       </FieldsetMessageWrapper>
       <ButtonWrapper>
-        <Button onClickHandler={onClickHandler}>
+        <Button onClickHandler={(input) => onClickHandler(input)}>
           {buttonText}
         </Button>
       </ButtonWrapper>
