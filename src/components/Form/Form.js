@@ -1,12 +1,8 @@
-import { useMemo } from 'react';
-import { getDepthOfValue } from '../../utils/getDepthOfValue/getDepthOfValue.js';
-import { getHeightOfValue } from '../../utils/getHeightOfValue/getHeightOfValue.js';
 import { Fieldset } from '../Fieldset/Fieldset.js';
+import { fieldsetData } from '../../data/fieldsetData.js';
 import { FieldsetMessageUpdatedSuccessMessage } from '../FieldsetMessageUpdatedSuccessMessage/FieldsetMessageUpdatedSuccessMessage.js';
 import { FieldsetWrapper } from '../FieldsetWrapper/FieldsetWrapper.js';
 import styles from './Form.module.scss';
-// also import array of objects for Fieldset items
-import { fieldsetData } from '../../data/fieldsetData.js';
 
 export const Form = () => {
   return (
@@ -23,10 +19,10 @@ export const Form = () => {
             fieldsetMessageUpdatedSuccessValue={(input) => <FieldsetMessageUpdatedSuccessMessage icon={value.fieldsetMessageUpdatedSuccessValueWithIcon} message={value.fieldsetMessageUpdatedSuccessValueMessage(input)} />}
             inputName={value.inputName} 
             inputRegex={new RegExp(value.inputRegex)}
-            // implement later
+            // implement isValidInputValue later
             isValidInputValue={value.isValidInputValue} 
             labelText={value.labelText} 
-            // implement later
+            // implement onClickHandlerSuccessful later
             onClickHandlerSuccessful={value.onClickHandlerSuccessful} 
           />
         </FieldsetWrapper>
