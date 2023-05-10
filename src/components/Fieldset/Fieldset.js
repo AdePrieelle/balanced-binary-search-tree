@@ -87,13 +87,12 @@ export const Fieldset = ({
           fieldsetMessageInputFormatErrorValue={fieldsetMessageInputFormatErrorValue}
           fieldsetMessageInputValueErrorValue={fieldsetMessageInputValueErrorValue}
           fieldsetMessageReadyToUpdateValue={fieldsetMessageReadyToUpdateValue}
-          fieldsetMessageUpdatedSuccessValue={fieldsetMessageUpdatedSuccessValue}
+          fieldsetMessageUpdatedSuccessValue={fieldsetMessageUpdatedSuccessValue(prevInputState)}
           input={input}
           inputSuccess={inputSuccess}
           inputUpdatedBST={inputUpdatedBST}
           isValidInputFormat={isValidInputFormat(inputRegex, input)}
           isValidInputValue={isValidInputValue(input)}
-          prevInputState={prevInputState}
         />
       </FieldsetMessageWrapper>
       <ButtonWrapper>
