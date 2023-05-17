@@ -4,7 +4,7 @@ import { FieldsetMessageUpdatedSuccessMessage } from '../FieldsetMessageUpdatedS
 import { FieldsetWrapper } from '../FieldsetWrapper/FieldsetWrapper.js';
 import styles from './Form.module.scss';
 
-export const Form = () => {
+export const Form = ({ binarySearchTree, setBinarySearchTree }) => {
   return (
     <form className={styles.Form}>
       { Object.entries(fieldsetData().fieldsets.entities).map(([key, value]) => (
@@ -23,7 +23,7 @@ export const Form = () => {
             isValidInputValue={value.isValidInputValue} 
             labelText={value.labelText} 
             // implement onClickHandlerSuccessful later
-            onClickHandlerSuccessful={value.onClickHandlerSuccessful} 
+            onClickHandlerSuccessful={(input) => value.onClickHandlerSuccessful(input, binarySearchTree, setBinarySearchTree)} 
           />
         </FieldsetWrapper>
       ))}

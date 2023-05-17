@@ -22,7 +22,15 @@ export const fieldsetData = () => {
           isValidInputValue: (input) => true,
           labelText: "Add initial value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
-          onClickHandlerSuccessful: (input) => true
+          onClickHandlerSuccessful: (input, binarySearchTreeState, setBinarySearchTreeState) => { 
+            let newBinarySearchTreeState = {...binarySearchTreeState};
+            console.log(input);
+            const arrayFromInput = JSON.parse(`[${input}]`);
+            console.log(arrayFromInput);
+            newBinarySearchTreeState.buildTree(arrayFromInput);
+            console.log(newBinarySearchTreeState.getRootNode());
+            setBinarySearchTreeState(newBinarySearchTreeState);
+          }
         },
         "fieldset2": {
           id: "fieldset2", 
