@@ -1,15 +1,10 @@
-export const getArrayFromString = (string) => {
-  if (string === undefined) {
+export const getArrayFromString = (string, delimiter) => {
+  if (typeof(string) !== "string") {
     return [];
   };
-  const copyString = string;
-  const arrayFromString = copyString.split(", ");
-  const arrayFromStringWithNumbers = arrayFromString.map(element => {
-    if (isNaN(element)) {
-      return element;
-    };
-    return +element;
-  });
 
-  return arrayFromStringWithNumbers;
+  const copyString = string;
+  const arrayFromString = copyString.split(delimiter);
+  
+  return arrayFromString;
 };
