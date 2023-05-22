@@ -1,3 +1,7 @@
+import { createBinarySearchTree } from "../utils/createBinarySearchTree/createBinarySearchTree.js";
+import { getArrayFromString } from "../utils/getArrayFromString/getArrayFromString.js";
+import { getArrayWithStringNumbersConvertedToNumbersFromArray } from "../utils/getArrayWithStringNumbersConvertedToNumbersFromArray/getArrayWithStringNumbersConvertedToNumbersFromArray.js";
+import { getArrayWithStringNumbersConvertedToNumbersFromString } from "../utils/getArrayWithStringNumbersConvertedToNumbersFromString/getArrayWithStringNumbersConvertedToNumbersFromString.js";
 import { getDepthOfValue } from "../utils/getDepthOfValue/getDepthOfValue.js";
 import { getHeightOfValue } from "../utils/getHeightOfValue/getHeightOfValue.js";
 
@@ -22,14 +26,16 @@ export const fieldsetData = () => {
           isValidInputValue: (input) => true,
           labelText: "Add initial value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
-          onClickHandlerSuccessful: (input, binarySearchTreeState, setBinarySearchTreeState) => { 
-            let newBinarySearchTreeState = {...binarySearchTreeState};
-            console.log(input);
-            const arrayFromInput = JSON.parse(`[${input}]`);
-            console.log(arrayFromInput);
-            newBinarySearchTreeState.buildTree(arrayFromInput);
-            console.log(newBinarySearchTreeState.getRootNode());
-            setBinarySearchTreeState(newBinarySearchTreeState);
+          onClickHandlerSuccessful: (input, binarySearchTreeState, setBinarySearchTreeState) => {
+            createBinarySearchTree(
+              input, 
+              binarySearchTreeState, 
+              setBinarySearchTreeState, 
+              getArrayWithStringNumbersConvertedToNumbersFromString, 
+              ", ", 
+              getArrayFromString, 
+              getArrayWithStringNumbersConvertedToNumbersFromArray
+            );
           }
         },
         "fieldset2": {
