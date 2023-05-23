@@ -1,3 +1,4 @@
+import { cloneObject } from "../utils/cloneObject/cloneObject.js";
 import { createBinarySearchTree } from "../utils/createBinarySearchTree/createBinarySearchTree.js";
 import { getArrayFromString } from "../utils/getArrayFromString/getArrayFromString.js";
 import { getArrayWithStringNumbersConvertedToNumbersFromArray } from "../utils/getArrayWithStringNumbersConvertedToNumbersFromArray/getArrayWithStringNumbersConvertedToNumbersFromArray.js";
@@ -31,6 +32,7 @@ export const fieldsetData = () => {
               input, 
               binarySearchTreeState, 
               setBinarySearchTreeState, 
+              cloneObject,
               getArrayWithStringNumbersConvertedToNumbersFromString, 
               ", ", 
               getArrayFromString, 
@@ -44,7 +46,7 @@ export const fieldsetData = () => {
           fieldsetMessageEmptyInputErrorValue: "Please enter the additional value(s)",
           fieldsetMessageEmptyInputSuccessValue: <>&nbsp;</>,
           fieldsetMessageInputFormatErrorValue: "Please enter the additional value(s) in the correct format",
-          fieldsetMessageInputValueErrorValue: "Please enter the additional number(s) in the correct format",
+          fieldsetMessageInputValueErrorValue: "Please only enter value(s) that don't already exist in the BST",
           fieldsetMessageReadyToUpdateValue: "The BST is ready to be updated",
           fieldsetMessageUpdatedSuccessValueMessage: (input) => `The BST has been updated`,
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
@@ -62,7 +64,7 @@ export const fieldsetData = () => {
           fieldsetMessageEmptyInputErrorValue: "Please enter the value(s) to be removed",
           fieldsetMessageEmptyInputSuccessValue: <>&nbsp;</>,
           fieldsetMessageInputFormatErrorValue: "Please enter the value(s) to be removed in the correct format",
-          fieldsetMessageInputValueErrorValue: "Please only enter value(s) that exist in the BST",
+          fieldsetMessageInputValueErrorValue: "Please only enter value(s) that already exist in the BST",
           fieldsetMessageReadyToUpdateValue: "The BST is ready to be updated",
           fieldsetMessageUpdatedSuccessValueMessage: (input) => `The BST has been updated`,
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
