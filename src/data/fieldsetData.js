@@ -5,6 +5,8 @@ import { getArrayWithStringNumbersConvertedToNumbersFromArray } from "../utils/g
 import { getArrayWithStringNumbersConvertedToNumbersFromString } from "../utils/getArrayWithStringNumbersConvertedToNumbersFromString/getArrayWithStringNumbersConvertedToNumbersFromString.js";
 import { getDepthOfValue } from "../utils/getDepthOfValue/getDepthOfValue.js";
 import { getHeightOfValue } from "../utils/getHeightOfValue/getHeightOfValue.js";
+import { getIsValidInputValueAddValues } from "../utils/getIsValidInputValueAddValues/getIsValidInputValueAddValues.js";
+import { getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree.js";
 
 export const fieldsetData = () => {
   return ({
@@ -27,11 +29,11 @@ export const fieldsetData = () => {
           isValidInputValue: (input) => true,
           labelText: "Add initial value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
-          onClickHandlerSuccessful: (input, binarySearchTreeState, setBinarySearchTreeState) => {
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
             createBinarySearchTree(
               input, 
-              binarySearchTreeState, 
-              setBinarySearchTreeState, 
+              binarySearchTree, 
+              setBinarySearchTree, 
               cloneObject,
               getArrayWithStringNumbersConvertedToNumbersFromString, 
               ", ", 
@@ -53,7 +55,17 @@ export const fieldsetData = () => {
           inputName: "Add-value(s)",
           inputRegex: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
           // implement isValidInputValue later
-          isValidInputValue: (input) => true,
+          // isValidInputValue: (input) => true,
+          isValidInputValue: (input, binarySearchTree) => getIsValidInputValueAddValues(
+            input, 
+            binarySearchTree,
+            cloneObject,
+            getArrayWithStringNumbersConvertedToNumbersFromString, 
+            ", ", 
+            getArrayFromString, 
+            getArrayWithStringNumbersConvertedToNumbersFromArray,
+            getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
+          ),
           labelText: "Add additional value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
           onClickHandlerSuccessful: (input) => true

@@ -17,7 +17,7 @@ describe("Testing the function cloneObject", () => {
     });
     
     test("The return type of function cloneObject is an array if the method is called with an argument that is an object", () => {
-      expect(typeof(cloneObject({"test1": 1, "test2": 2}))).toBe("object");
+      expect(typeof(cloneObject({ test1: 1, test2: 2 }))).toBe("object");
     });
   });
 
@@ -31,15 +31,15 @@ describe("Testing the function cloneObject", () => {
     });
 
     test("Function cloneObject works correctly if the function is called with an argument for the first parameter that is an object", () => {
-      expect(cloneObject({"test1": 1, "test2": 2})).toStrictEqual({"test1": 1, "test2": 2});
+      expect(cloneObject({ test1: 1, test2: 2 })).toStrictEqual({ test1: 1, test2: 2 });
     });
 
     test("Function cloneObject works correctly if the function is called with an argument for the first parameter that is an object and changes in the copied object wont change the original object", () => {
-      const obj1 = {"test1": 1, "test2": 2};
+      const obj1 = { test1: 1, test2: 2 };
       const obj2 = cloneObject(obj1);
       obj2.test2 = 3;
-      expect(obj2).toStrictEqual({"test1": 1, "test2": 3});
-      expect(obj1).toStrictEqual({"test1": 1, "test2": 2});
+      expect(obj2).toStrictEqual({ test1: 1, test2: 3 });
+      expect(obj1).toStrictEqual({ test1: 1, test2: 2 });
     });
   });
 });

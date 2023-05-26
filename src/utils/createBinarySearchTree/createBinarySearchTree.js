@@ -1,15 +1,15 @@
 export const createBinarySearchTree = (
   input, 
-  binarySearchTreeState, 
-  setBinarySearchTreeState, 
+  binarySearchTree, 
+  setBinarySearchTree, 
   cloneObject,
   getArrayWithStringNumbersConvertedToNumbersFromString, 
   delimiter, 
   getArrayFromString, 
   getArrayWithStringNumbersConvertedToNumbersFromArray
 ) => {
-  let newBinarySearchTreeState = cloneObject(binarySearchTreeState);
+  let newBinarySearchTree = cloneObject(binarySearchTree);
   const arrayWithStringNumbersConvertedToNumbersFromString = getArrayWithStringNumbersConvertedToNumbersFromString(input, delimiter, getArrayFromString, getArrayWithStringNumbersConvertedToNumbersFromArray);
-  newBinarySearchTreeState.buildTree(arrayWithStringNumbersConvertedToNumbersFromString);
-  setBinarySearchTreeState(newBinarySearchTreeState);
+  newBinarySearchTree.buildTree(arrayWithStringNumbersConvertedToNumbersFromString);
+  setBinarySearchTree(newBinarySearchTree);
 };
