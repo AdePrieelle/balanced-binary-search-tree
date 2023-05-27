@@ -21,9 +21,9 @@ export const getIsValidInputValueAddValues = (
     return false;
   };
 
-  const newBinarySearchTree = cloneObject(binarySearchTree);
+  const copyBinarySearchTree = cloneObject(binarySearchTree);
   const arrayWithStringNumbersConvertedToNumbersFromString = getArrayWithStringNumbersConvertedToNumbersFromString(input, delimiter, getArrayFromString, getArrayWithStringNumbersConvertedToNumbersFromArray);
-  const isValidInputValueAddValues = getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree(arrayWithStringNumbersConvertedToNumbersFromString, newBinarySearchTree, cloneObject);
+  const isValidInputValueAddValues = getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree(arrayWithStringNumbersConvertedToNumbersFromString, copyBinarySearchTree, cloneObject);
 
   return isValidInputValueAddValues;
 };
