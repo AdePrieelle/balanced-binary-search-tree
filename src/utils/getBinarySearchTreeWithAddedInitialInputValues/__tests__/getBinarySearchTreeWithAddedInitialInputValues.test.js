@@ -57,8 +57,9 @@ describe("Testing the function getBinarySearchTreeWithAddedInitialInputValues", 
         buildTree: ((array) => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } })),
         getRootNode: (() => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } }))
       }));
+      const mockCloneObjectBuildTreeMethod = jest.fn((array) => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } }));
       const mockCloneObject = jest.fn(() => ({ 
-        buildTree: ((array) => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } })),
+        buildTree: ((array) => (mockCloneObjectBuildTreeMethod(array))),
         getRootNode: (() => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } }))
       }));
       const getArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([2.0, 3.5, -1.5]));
@@ -73,10 +74,12 @@ describe("Testing the function getBinarySearchTreeWithAddedInitialInputValues", 
         delimiter(), 
         getArrayFromString,
         getArrayWithStringNumbersConvertedToNumbersFromArray,
-      ))).toEqual(JSON.stringify({ 
+      ))).toStrictEqual(JSON.stringify({ 
         buildTree: ((array) => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } })),
         getRootNode: (() => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } }))
       }));
+      expect(mockCloneObjectBuildTreeMethod).toHaveBeenCalledWith([2.0, 3.5, -1.5]);
+      expect(mockCloneObjectBuildTreeMethod).toHaveBeenCalledTimes(1);
     });
   });
 });
