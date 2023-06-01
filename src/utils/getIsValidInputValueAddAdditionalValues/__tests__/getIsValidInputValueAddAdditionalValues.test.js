@@ -26,20 +26,20 @@ describe("Testing the function getIsValidInputValueAddAdditionalValues", () => {
         getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
         find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
       }));
-      const getArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.0, 2.0]));
-      const delimiter = jest.fn(() => (", "));
-      const getArrayFromString = jest.fn(() => (["1.5", "-3.0", "2.0"]));
-      const getArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.0, 2.0]));
-      const getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => false);
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.0, 2.0]));
+      const mockDelimiter = jest.fn(() => (", "));
+      const mockGetArrayFromString = jest.fn(() => (["1.5", "-3.0", "2.0"]));
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.0, 2.0]));
+      const mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => false);
       expect(typeof(getIsValidInputValueAddAdditionalValues(
         mockInput(), 
         mockBinarySearchTree(), 
         mockCloneObject, 
-        getArrayWithStringNumbersConvertedToNumbersFromString, 
-        delimiter(), 
-        getArrayFromString,
-        getArrayWithStringNumbersConvertedToNumbersFromArray,
-        getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
+        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
+        mockDelimiter(), 
+        mockGetArrayFromString,
+        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
+        mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
       ))).toBe("boolean");
     });
 
@@ -53,20 +53,20 @@ describe("Testing the function getIsValidInputValueAddAdditionalValues", () => {
         getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
         find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
       }));
-      const getArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.5, 2.0]));
-      const delimiter = jest.fn(() => (", "));
-      const getArrayFromString = jest.fn(() => (["1.5", "-3.5", "2.0"]));
-      const getArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.5, 2.0]));
-      const getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => false);
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.5, 2.0]));
+      const mockDelimiter = jest.fn(() => (", "));
+      const mockGetArrayFromString = jest.fn(() => (["1.5", "-3.5", "2.0"]));
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.5, 2.0]));
+      const mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => false);
       expect(typeof(getIsValidInputValueAddAdditionalValues(
         mockInput(), 
         mockBinarySearchTree(), 
         mockCloneObject, 
-        getArrayWithStringNumbersConvertedToNumbersFromString, 
-        delimiter(), 
-        getArrayFromString,
-        getArrayWithStringNumbersConvertedToNumbersFromArray,
-        getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
+        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
+        mockDelimiter(), 
+        mockGetArrayFromString,
+        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
+        mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
       ))).toBe("boolean");
     });
 
@@ -80,20 +80,20 @@ describe("Testing the function getIsValidInputValueAddAdditionalValues", () => {
         getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null }})), 
         find: (() => null)
       }));
-      const getArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.0, 2.5]));
-      const delimiter = jest.fn(() => (", "));
-      const getArrayFromString = jest.fn(() => (["1.5", "-3.0", "2.5"]));
-      const getArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.0, 2.5]));
-      const getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => true);
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.0, 2.5]));
+      const mockDelimiter = jest.fn(() => (", "));
+      const mockGetArrayFromString = jest.fn(() => (["1.5", "-3.0", "2.5"]));
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.0, 2.5]));
+      const mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => true);
       expect(typeof(getIsValidInputValueAddAdditionalValues(
         mockInput(), 
         mockBinarySearchTree(), 
         mockCloneObject, 
-        getArrayWithStringNumbersConvertedToNumbersFromString, 
-        delimiter(), 
-        getArrayFromString,
-        getArrayWithStringNumbersConvertedToNumbersFromArray,
-        getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
+        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
+        mockDelimiter(), 
+        mockGetArrayFromString,
+        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
+        mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
       ))).toBe("boolean");
     });
   });
@@ -117,20 +117,20 @@ describe("Testing the function getIsValidInputValueAddAdditionalValues", () => {
         getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
         find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
       }));
-      const getArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.0, 2.0]));
-      const delimiter = jest.fn(() => (", "));
-      const getArrayFromString = jest.fn(() => (["1.5", "-3.0", "2.0"]));
-      const getArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.0, 2.0]));
-      const getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => false);
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.0, 2.0]));
+      const mockDelimiter = jest.fn(() => (", "));
+      const mockGetArrayFromString = jest.fn(() => (["1.5", "-3.0", "2.0"]));
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.0, 2.0]));
+      const mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => false);
       expect(getIsValidInputValueAddAdditionalValues(
         mockInput(), 
         mockBinarySearchTree(), 
         mockCloneObject, 
-        getArrayWithStringNumbersConvertedToNumbersFromString, 
-        delimiter(), 
-        getArrayFromString,
-        getArrayWithStringNumbersConvertedToNumbersFromArray,
-        getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
+        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
+        mockDelimiter(), 
+        mockGetArrayFromString,
+        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
+        mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
       )).toBe(false);
     });
 
@@ -144,20 +144,20 @@ describe("Testing the function getIsValidInputValueAddAdditionalValues", () => {
         getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
         find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
       }));
-      const getArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.5, 2.0]));
-      const delimiter = jest.fn(() => (", "));
-      const getArrayFromString = jest.fn(() => (["1.5", "-3.5", "2.0"]));
-      const getArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.5, 2.0]));
-      const getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => false);
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.5, 2.0]));
+      const mockDelimiter = jest.fn(() => (", "));
+      const mockGetArrayFromString = jest.fn(() => (["1.5", "-3.5", "2.0"]));
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.5, 2.0]));
+      const mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => false);
       expect(getIsValidInputValueAddAdditionalValues(
         mockInput(), 
         mockBinarySearchTree(), 
         mockCloneObject, 
-        getArrayWithStringNumbersConvertedToNumbersFromString, 
-        delimiter(), 
-        getArrayFromString,
-        getArrayWithStringNumbersConvertedToNumbersFromArray,
-        getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
+        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
+        mockDelimiter(), 
+        mockGetArrayFromString,
+        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
+        mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
       )).toBe(false);
     });
 
@@ -171,20 +171,20 @@ describe("Testing the function getIsValidInputValueAddAdditionalValues", () => {
         getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null }})), 
         find: (() => null)
       }));
-      const getArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.0, 2.5]));
-      const delimiter = jest.fn(() => (", "));
-      const getArrayFromString = jest.fn(() => (["1.5", "-3.0", "2.5"]));
-      const getArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.0, 2.5]));
-      const getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => true);
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([1.5, -3.0, 2.5]));
+      const mockDelimiter = jest.fn(() => (", "));
+      const mockGetArrayFromString = jest.fn(() => (["1.5", "-3.0", "2.5"]));
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([1.5, -3.0, 2.5]));
+      const mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree = jest.fn(() => true);
       expect(getIsValidInputValueAddAdditionalValues(
         mockInput(), 
         mockBinarySearchTree(), 
         mockCloneObject, 
-        getArrayWithStringNumbersConvertedToNumbersFromString, 
-        delimiter(), 
-        getArrayFromString,
-        getArrayWithStringNumbersConvertedToNumbersFromArray,
-        getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
+        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
+        mockDelimiter(), 
+        mockGetArrayFromString,
+        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
+        mockGetIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
       )).toBe(true);
     });
   });
