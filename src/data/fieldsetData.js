@@ -1,12 +1,14 @@
 import { cloneObject } from "../utils/cloneObject/cloneObject.js";
-import { createBinarySearchTree } from "../utils/createBinarySearchTree/createBinarySearchTree.js";
 import { getArrayFromString } from "../utils/getArrayFromString/getArrayFromString.js";
 import { getArrayWithStringNumbersConvertedToNumbersFromArray } from "../utils/getArrayWithStringNumbersConvertedToNumbersFromArray/getArrayWithStringNumbersConvertedToNumbersFromArray.js";
 import { getArrayWithStringNumbersConvertedToNumbersFromString } from "../utils/getArrayWithStringNumbersConvertedToNumbersFromString/getArrayWithStringNumbersConvertedToNumbersFromString.js";
+import { getBinarySearchTreeWithAddedAdditionalInputValues } from "../utils/getBinarySearchTreeWithAddedAdditionalInputValues/getBinarySearchTreeWithAddedAdditionalInputValues.js";
+import { getBinarySearchTreeWithAddedArrayElements } from "../utils/getBinarySearchTreeWithAddedArrayElements/getBinarySearchTreeWithAddedArrayElements.js";
+import { getBinarySearchTreeWithAddedInitialInputValues } from "../utils/getBinarySearchTreeWithAddedInitialInputValues/getBinarySearchTreeWithAddedInitialInputValues.js";
 import { getDepthOfValue } from "../utils/getDepthOfValue/getDepthOfValue.js";
 import { getHeightOfValue } from "../utils/getHeightOfValue/getHeightOfValue.js";
-import { getIsValidInputValueAddValues } from "../utils/getIsValidInputValueAddValues/getIsValidInputValueAddValues.js";
 import { getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree.js";
+import { getIsValidInputValueAddAdditionalValues } from "../utils/getIsValidInputValueAddAdditionalValues/getIsValidInputValueAddAdditionalValues.js";
 
 export const fieldsetData = () => {
   return ({
@@ -26,19 +28,20 @@ export const fieldsetData = () => {
           inputName: "Initial-value(s)",
           inputRegex: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
           // implement isValidInputValue later
-          isValidInputValue: (input) => true,
+          isValidInputValue: (input, binarySearchTree) => true,
           labelText: "Add initial value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
           onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
-            createBinarySearchTree(
-              input, 
-              binarySearchTree, 
-              setBinarySearchTree, 
-              cloneObject,
-              getArrayWithStringNumbersConvertedToNumbersFromString, 
-              ", ", 
-              getArrayFromString, 
-              getArrayWithStringNumbersConvertedToNumbersFromArray
+            setBinarySearchTree(
+              getBinarySearchTreeWithAddedInitialInputValues(
+                input, 
+                binarySearchTree, 
+                cloneObject,
+                getArrayWithStringNumbersConvertedToNumbersFromString, 
+                ", ", 
+                getArrayFromString, 
+                getArrayWithStringNumbersConvertedToNumbersFromArray
+              )
             );
           }
         },
@@ -56,7 +59,7 @@ export const fieldsetData = () => {
           inputRegex: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
           // implement isValidInputValue later
           // isValidInputValue: (input) => true,
-          isValidInputValue: (input, binarySearchTree) => getIsValidInputValueAddValues(
+          isValidInputValue: (input, binarySearchTree) => (getIsValidInputValueAddAdditionalValues(
             input, 
             binarySearchTree,
             cloneObject,
@@ -65,10 +68,24 @@ export const fieldsetData = () => {
             getArrayFromString, 
             getArrayWithStringNumbersConvertedToNumbersFromArray,
             getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
-          ),
+          )),
           labelText: "Add additional value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
-          onClickHandlerSuccessful: (input) => true
+          // onClickHandlerSuccessful: (input) => true
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
+            setBinarySearchTree(
+              getBinarySearchTreeWithAddedAdditionalInputValues(
+                input, 
+                binarySearchTree, 
+                cloneObject,
+                getArrayWithStringNumbersConvertedToNumbersFromString, 
+                ", ", 
+                getArrayFromString, 
+                getArrayWithStringNumbersConvertedToNumbersFromArray,
+                getBinarySearchTreeWithAddedArrayElements
+              )
+            );
+          }
         },
         "fieldset3": {
           id: "fieldset3", 
