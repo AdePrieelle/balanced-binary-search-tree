@@ -23,7 +23,7 @@ export const getIsValidInputValueAddAdditionalValues = (
 
   const copyBinarySearchTree = cloneObject(binarySearchTree);
   const arrayWithStringNumbersConvertedToNumbersFromString = getArrayWithStringNumbersConvertedToNumbersFromString(input, delimiter, getArrayFromString, getArrayWithStringNumbersConvertedToNumbersFromArray);
-  const isValidInputValueAddValues = getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree(arrayWithStringNumbersConvertedToNumbersFromString, copyBinarySearchTree, cloneObject);
+  const isArrayOnlyWithValuesThatDontExistInBinarySearchTree = getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree(arrayWithStringNumbersConvertedToNumbersFromString, copyBinarySearchTree, cloneObject);
 
-  return isValidInputValueAddValues;
+  return isArrayOnlyWithValuesThatDontExistInBinarySearchTree;
 };
