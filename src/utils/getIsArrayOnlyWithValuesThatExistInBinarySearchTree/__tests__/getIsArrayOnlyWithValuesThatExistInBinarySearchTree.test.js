@@ -46,7 +46,7 @@ describe("Testing the function getIsArrayOnlyWithValuesThatExistInBinarySearchTr
       expect(typeof(getIsArrayOnlyWithValuesThatExistInBinarySearchTree(mockArray(), mockBinarySearchTree(), mockCopyObject))).toBe("boolean");
     });
 
-    test("The return type of function getIsArrayOnlyWithValuesThatExistInBinarySearchTree is a boolean if the method is called with arguments of the right type, with an argument for the first parameter that is an array with multiple element of which at least one isn't in the binarSearchTree, with the argument for the second parameter that is of type object and with an argument for the third parameter that is of type function", () => {
+    test("The return type of function getIsArrayOnlyWithValuesThatExistInBinarySearchTree is a boolean if the method is called with arguments of the right type, with an argument for the first parameter that is an array with multiple elements of which at least one isn't in the binarSearchTree, with the argument for the second parameter that is of type object and with an argument for the third parameter that is of type function", () => {
       const mockArray = jest.fn(() => ([-1.5, 2.0, 10]));
       const mockBinarySearchTree = jest.fn(() => ({
         getRootNode: (() => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } })),
@@ -127,7 +127,7 @@ describe("Testing the function getIsArrayOnlyWithValuesThatExistInBinarySearchTr
       expect(mockCopyObjectFindMethod.mock.results[0].value).toStrictEqual({ data: -1.5, left: null, right: null });
     });
 
-    test("The function getIsArrayOnlyWithValuesThatExistInBinarySearchTree if the method is called with arguments of the right type, with an argument for the first parameter that is an array with multiple element of which at least one isn't in the binarSearchTree, with the argument for the second parameter that is of type object and with an argument for the third parameter that is of type function", () => {
+    test("The function getIsArrayOnlyWithValuesThatExistInBinarySearchTree if the method is called with arguments of the right type, with an argument for the first parameter that is an array with multiple elements of which at least one isn't in the binarSearchTree, with the argument for the second parameter that is of type object and with an argument for the third parameter that is of type function", () => {
       const mockArray = jest.fn(() => ([-1.5, 2.0, 10]));
       const mockBinarySearchTree = jest.fn(() => ({
         getRootNode: (() => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } })),
