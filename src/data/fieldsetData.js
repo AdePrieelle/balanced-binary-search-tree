@@ -8,7 +8,9 @@ import { getBinarySearchTreeWithAddedInitialInputValues } from "../utils/getBina
 import { getDepthOfValue } from "../utils/getDepthOfValue/getDepthOfValue.js";
 import { getHeightOfValue } from "../utils/getHeightOfValue/getHeightOfValue.js";
 import { getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree.js";
+import { getIsArrayOnlyWithValuesThatExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatExistInBinarySearchTree/getIsArrayOnlyWithValuesThatExistInBinarySearchTree.js";
 import { getIsValidInputValueAddAdditionalValues } from "../utils/getIsValidInputValueAddAdditionalValues/getIsValidInputValueAddAdditionalValues.js";
+import { getIsValidInputValueRemoveValues } from "../utils/getIsValidInputValueRemoveValues/getIsValidInputValueRemoveValues.js";
 
 export const fieldsetData = () => {
   return ({
@@ -100,7 +102,17 @@ export const fieldsetData = () => {
           inputName: "Remove-value(s)",
           inputRegex: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
           // implement isValidInputValue later
-          isValidInputValue: (input) => true,
+          // isValidInputValue: (input) => true,
+          isValidInputValue: (input, binarySearchTree) => (getIsValidInputValueRemoveValues(
+            input, 
+            binarySearchTree,
+            cloneObject,
+            getArrayWithStringNumbersConvertedToNumbersFromString, 
+            ", ", 
+            getArrayFromString, 
+            getArrayWithStringNumbersConvertedToNumbersFromArray,
+            getIsArrayOnlyWithValuesThatExistInBinarySearchTree
+          )),
           labelText: "Remove value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
           onClickHandlerSuccessful: (input) => true
