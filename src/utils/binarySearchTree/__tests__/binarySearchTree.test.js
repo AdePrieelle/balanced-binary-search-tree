@@ -1181,7 +1181,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       binarySearchTree.buildTree([2, 4, 6]);
       binarySearchTree.insertNode(1);
       binarySearchTree.insertNode(3);
-      expect(binarySearchTree.deleteNodeRec(2)).toStrictEqual(
+      expect(binarySearchTree.deleteNode(2)).toStrictEqual(
         { 
           data: 4, 
           left: { 
@@ -1338,7 +1338,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       binarySearchTree.insertNode(7);
       binarySearchTree.insertNode(6);
       binarySearchTree.insertNode(5);
-      expect(binarySearchTree.deleteNodeRec(4)).toStrictEqual(
+      expect(binarySearchTree.deleteNode(4)).toStrictEqual(
         { 
           data: 10, 
           left: {
@@ -1385,7 +1385,7 @@ describe("Testing the factory function BinarySearchTree", () => {
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument that doesn't exist in the binary search tree and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 1, 3]);
-      expect(binarySearchTree.deleteNodeRec(4)).toStrictEqual(
+      expect(binarySearchTree.deleteNode(4)).toStrictEqual(
         { 
           data: 2, 
           left: { 
