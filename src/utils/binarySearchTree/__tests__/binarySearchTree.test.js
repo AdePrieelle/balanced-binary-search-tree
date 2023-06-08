@@ -25,6 +25,10 @@ describe("Testing the factory function BinarySearchTree", () => {
       expect(typeof binarySearchTree.insertNode).toBe("function");
     });
 
+    test("The deleteNodeRec method of factory function BinarySearchTree is a function", () => {
+      expect(typeof binarySearchTree.deleteNodeRec).toBe("function");
+    });
+
     test("The deleteNode method of factory function BinarySearchTree is a function", () => {
       expect(typeof binarySearchTree.deleteNode).toBe("function");
     });
@@ -85,6 +89,14 @@ describe("Testing the factory function BinarySearchTree", () => {
 
     test("The return type of the insertNode method of factory function BinarySearchTree is an object if the method is called with an argument", () => {
       expect(typeof binarySearchTree.insertNode(1)).toBe("object");
+    });
+
+    test("The return type of the deleteNodeRec method of factory function BinarySearchTree is an object if the method is called without an argument", () => {
+      expect(typeof binarySearchTree.deleteNodeRec()).toBe("object");
+    });
+
+    test("The return type of the deleteNodeRec method of factory function BinarySearchTree is an object if the method is called with an argument", () => {
+      expect(typeof binarySearchTree.deleteNodeRec(1)).toBe("object");
     });
 
     test("The return type of the deleteNode method of factory function BinarySearchTree is an object if the method is called without an argument", () => {
@@ -534,8 +546,407 @@ describe("Testing the factory function BinarySearchTree", () => {
       );
     });
 
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {
+      expect(binarySearchTree.deleteNodeRec()).toStrictEqual(null);
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.deleteNodeRec()).toStrictEqual(
+        { 
+          data: 2, 
+          left: { 
+            data: 1, 
+            left: null, 
+            right: null 
+          }, 
+          right: { 
+            data: 3, 
+            left: null, 
+            right: null 
+          } 
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with an argument and the binary search tree is empty", () => {
+      expect(binarySearchTree.deleteNodeRec(1)).toStrictEqual(null);
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with a negative argument and the binary search tree is empty", () => {
+      expect(binarySearchTree.deleteNodeRec(-1)).toStrictEqual(null);
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument has no children, and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.deleteNodeRec(1)).toStrictEqual(
+        { 
+          data: 2, 
+          left: null, 
+          right: { 
+            data: 3, 
+            left: null, 
+            right: null
+          } 
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node with the value of the argument has 2 children, and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.deleteNodeRec(2)).toStrictEqual(
+        { 
+          data: 3, 
+          left: { 
+            data: 1,
+            left: null,
+            right: null
+          }, 
+          right: null
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node has no child nodes, and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([1]);
+      expect(binarySearchTree.deleteNodeRec(1)).toStrictEqual(null);
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node has 1 right child node, and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([1, 2]);
+      expect(binarySearchTree.deleteNodeRec(1)).toStrictEqual(
+        { 
+          data: 2, 
+          left: null, 
+          right: null
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node has 1 left child node, and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([1]);
+      binarySearchTree.insertNode(-1);
+      expect(binarySearchTree.deleteNodeRec(1)).toStrictEqual(
+        { 
+          data: -1, 
+          left: null, 
+          right: null
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with a negative argument which exists in the binary search tree, the node with the value of the argument has no children, and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, -1, 3]);
+      expect(binarySearchTree.deleteNodeRec(-1)).toStrictEqual(
+        { 
+          data: 2, 
+          left: null, 
+          right: { 
+            data: 3, 
+            left: null, 
+            right: null
+          } 
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 left child node, the left child node of the node with the value of the argument doesn't have child nodes itself and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(1);
+      expect(binarySearchTree.deleteNodeRec(2)).toStrictEqual(
+        { 
+          data: 4, 
+          left: { 
+            data: 1, 
+            left: null, 
+            right: null 
+          }, 
+          right: { 
+            data: 6, 
+            left: null, 
+            right: null
+          } 
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 right child node, the right child node of the node with the value of the argument doesn't have child nodes itself and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(3);
+      expect(binarySearchTree.deleteNodeRec(2)).toStrictEqual(
+        { 
+          data: 4, 
+          left: { 
+            data: 3, 
+            left: null, 
+            right: null 
+          }, 
+          right: { 
+            data: 6, 
+            left: null, 
+            right: null
+          } 
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 left child node, the left child of the node of the node with the value of the argument has 2 child nodes itself and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(1);
+      expect(binarySearchTree.deleteNodeRec(2)).toStrictEqual(
+        { 
+          data: 4, 
+          left: { 
+            data: 0, 
+            left: {
+              data: -1,
+              left: null,
+              right: null
+            }, 
+            right: {
+              data: 1,
+              left: null,
+              right: null
+            } 
+          }, 
+          right: { 
+            data: 6, 
+            left: null, 
+            right: null
+          } 
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 right child node, the right child of the node of the node with the value of the argument has 2 child nodes itself and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.deleteNodeRec(6)).toStrictEqual(
+        { 
+          data: 4, 
+          left: { 
+            data: 2, 
+            left: null, 
+            right: null 
+          }, 
+          right: { 
+            data: 8, 
+            left: {
+              data: 7,
+              left: null,
+              right: null
+            }, 
+            right: {
+              data: 9,
+              left: null,
+              right: null
+            }
+          } 
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the 2 child nodes of the node with the value of the argument don't have child nodes themselves and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(1);
+      binarySearchTree.insertNode(3);
+      expect(binarySearchTree.deleteNodeRec(2)).toStrictEqual(
+        { 
+          data: 4, 
+          left: { 
+            data: 3, 
+            left: {
+              data: 1,
+              left: null,
+              right: null
+            }, 
+            right: null 
+          }, 
+          right: { 
+            data: 6, 
+            left: null, 
+            right: null
+          }
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has no left child node itself and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([4, 10, 16]);
+      binarySearchTree.insertNode(2);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(6);
+      binarySearchTree.insertNode(8);
+      expect(binarySearchTree.deleteNodeRec(4)).toStrictEqual(
+        { 
+          data: 10,
+          left: {
+            data: 5, 
+            left: { 
+              data: 2, 
+              left: {
+                data: -1,
+                left: null,
+                right: null
+              }, 
+              right: {
+                data: 3,
+                left: null,
+                right: null
+              }
+            },
+            right: {
+              data: 7,
+              left: {
+                data: 6,
+                left: null,
+                right: null
+              },
+              right: {
+                data: 8,
+                left: null,
+                right: null
+              }
+            } 
+          },
+          right: {
+            data: 16,
+            left: null,
+            right: null
+          } 
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has a left child node itself and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([4, 10, 16]);
+      binarySearchTree.insertNode(2);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(6);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.deleteNodeRec(4)).toStrictEqual(
+        { 
+          data: 10,
+          left: {
+            data: 5, 
+            left: { 
+              data: 2, 
+              left: {
+                data: -1,
+                left: null,
+                right: null
+              }, 
+              right: {
+                data: 3,
+                left: null,
+                right: null
+              }
+            },
+            right: {
+              data: 6,
+              left: null,
+              right: {
+                data: 8,
+                left: {
+                  data: 7,
+                  left: null,
+                  right: null
+                },
+                right: {
+                  data: 9,
+                  left: null,
+                  right: null
+                }
+              }
+            } 
+          },
+          right: {
+            data: 16,
+            left: null,
+            right: null
+          } 
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has multiple nested left child nodes itself and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([4, 10, 16]);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(9);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(6);
+      binarySearchTree.insertNode(5);
+      expect(binarySearchTree.deleteNodeRec(4)).toStrictEqual(
+        { 
+          data: 10, 
+          left: {
+            data: 5,
+            left: {
+              data: 3,
+              left: null,
+              right: null
+            },
+            right: {
+              data: 8,
+              left: {
+                data: 7,
+                left: {
+                  data: 6,
+                  left: null,
+                  right: null
+                },
+                right: null
+              },
+              right: {
+                data: 9,
+                left: null,
+                right: null
+              }
+            }
+          },
+          right: {
+            data: 16,
+            left: null,
+            right: null
+          }
+        }
+      );
+    });
+
+    test("The deleteNodeRec method of factory function BinarySearchTree works correctly if the method is called with an argument that doesn't exist in the binary search tree and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.deleteNodeRec(4)).toStrictEqual(
+        { 
+          data: 2, 
+          left: { 
+            data: 1, 
+            left: null,
+            right: null 
+          }, 
+          right: { 
+            data: 3, 
+            left: null, 
+            right: null 
+          } 
+        }
+      );
+    });
+
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {
       expect(binarySearchTree.deleteNode()).toStrictEqual(null);
+      expect(binarySearchTree.deleteNode()).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is not empty", () => {
@@ -555,14 +966,13 @@ describe("Testing the factory function BinarySearchTree", () => {
           } 
         }
       );
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.deleteNode()).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument and the binary search tree is empty", () => {
       expect(binarySearchTree.deleteNode(1)).toStrictEqual(null);
-    });
-
-    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a negative argument and the binary search tree is empty", () => {
-      expect(binarySearchTree.deleteNode(-1)).toStrictEqual(null);
+      expect(binarySearchTree.deleteNode(1)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument has no children, and the binary search tree is not empty", () => {
@@ -578,6 +988,8 @@ describe("Testing the factory function BinarySearchTree", () => {
           } 
         }
       );
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.deleteNode(1)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node with the value of the argument has 2 children, and the binary search tree is not empty", () => {
@@ -593,6 +1005,15 @@ describe("Testing the factory function BinarySearchTree", () => {
           right: null
         }
       );
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.deleteNode(2)).toStrictEqual(binarySearchTree.getRootNode());
+    });
+
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node has no child nodes, and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([1]);
+      expect(binarySearchTree.deleteNode(1)).toStrictEqual(null);
+      binarySearchTree.buildTree([1]);
+      expect(binarySearchTree.deleteNode(1)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node has 1 right child node, and the binary search tree is not empty", () => {
@@ -604,6 +1025,23 @@ describe("Testing the factory function BinarySearchTree", () => {
           right: null
         }
       );
+      binarySearchTree.buildTree([1, 2]);
+      expect(binarySearchTree.deleteNode(1)).toStrictEqual(binarySearchTree.getRootNode());
+    });
+
+    test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a positive argument which exists in the binary search tree, the node with the value of the argument is the root node, the node has 1 left child node, and the binary search tree is not empty", () => {
+      binarySearchTree.buildTree([1]);
+      binarySearchTree.insertNode(-1);
+      expect(binarySearchTree.deleteNode(1)).toStrictEqual(
+        { 
+          data: -1, 
+          left: null, 
+          right: null
+        }
+      );
+      binarySearchTree.buildTree([1]);
+      binarySearchTree.insertNode(-1);
+      expect(binarySearchTree.deleteNode(1)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with a negative argument which exists in the binary search tree, the node with the value of the argument has no children, and the binary search tree is not empty", () => {
@@ -619,6 +1057,8 @@ describe("Testing the factory function BinarySearchTree", () => {
           } 
         }
       );
+      binarySearchTree.buildTree([2, -1, 3]);
+      expect(binarySearchTree.deleteNode(-1)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 left child node, the left child node of the node with the value of the argument doesn't have child nodes itself and the binary search tree is not empty", () => {
@@ -639,6 +1079,9 @@ describe("Testing the factory function BinarySearchTree", () => {
           } 
         }
       );
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(1);
+      expect(binarySearchTree.deleteNode(2)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 right child node, the right child node of the node with the value of the argument doesn't have child nodes itself and the binary search tree is not empty", () => {
@@ -659,6 +1102,9 @@ describe("Testing the factory function BinarySearchTree", () => {
           } 
         }
       );
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(3);
+      expect(binarySearchTree.deleteNode(2)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 left child node, the left child of the node of the node with the value of the argument has 2 child nodes itself and the binary search tree is not empty", () => {
@@ -689,6 +1135,11 @@ describe("Testing the factory function BinarySearchTree", () => {
           } 
         }
       );
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(0);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(1);
+      expect(binarySearchTree.deleteNode(2)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 1 right child node, the right child of the node of the node with the value of the argument has 2 child nodes itself and the binary search tree is not empty", () => {
@@ -719,13 +1170,18 @@ describe("Testing the factory function BinarySearchTree", () => {
           } 
         }
       );
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.deleteNode(6)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the 2 child nodes of the node with the value of the argument don't have child nodes themselves and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 4, 6]);
       binarySearchTree.insertNode(1);
       binarySearchTree.insertNode(3);
-      expect(binarySearchTree.deleteNode(2)).toStrictEqual(
+      expect(binarySearchTree.deleteNodeRec(2)).toStrictEqual(
         { 
           data: 4, 
           left: { 
@@ -744,6 +1200,10 @@ describe("Testing the factory function BinarySearchTree", () => {
           }
         }
       );
+      binarySearchTree.buildTree([2, 4, 6]);
+      binarySearchTree.insertNode(1);
+      binarySearchTree.insertNode(3);
+      expect(binarySearchTree.deleteNode(2)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has no left child node itself and the binary search tree is not empty", () => {
@@ -794,6 +1254,15 @@ describe("Testing the factory function BinarySearchTree", () => {
           } 
         }
       );
+      binarySearchTree.buildTree([4, 10, 16]);
+      binarySearchTree.insertNode(2);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(6);
+      binarySearchTree.insertNode(8);
+      expect(binarySearchTree.deleteNode(4)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has a left child node itself and the binary search tree is not empty", () => {
@@ -849,6 +1318,16 @@ describe("Testing the factory function BinarySearchTree", () => {
           } 
         }
       );
+      binarySearchTree.buildTree([4, 10, 16]);
+      binarySearchTree.insertNode(2);
+      binarySearchTree.insertNode(-1);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(6);
+      binarySearchTree.insertNode(5);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(9);
+      expect(binarySearchTree.deleteNode(4)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument which exists in the binary search tree, the node with the value of the argument has 2 child nodes, the right child node has multiple nested left child nodes itself and the binary search tree is not empty", () => {
@@ -859,7 +1338,7 @@ describe("Testing the factory function BinarySearchTree", () => {
       binarySearchTree.insertNode(7);
       binarySearchTree.insertNode(6);
       binarySearchTree.insertNode(5);
-      expect(binarySearchTree.deleteNode(4)).toStrictEqual(
+      expect(binarySearchTree.deleteNodeRec(4)).toStrictEqual(
         { 
           data: 10, 
           left: {
@@ -894,11 +1373,19 @@ describe("Testing the factory function BinarySearchTree", () => {
           }
         }
       );
+      binarySearchTree.buildTree([4, 10, 16]);
+      binarySearchTree.insertNode(3);
+      binarySearchTree.insertNode(8);
+      binarySearchTree.insertNode(9);
+      binarySearchTree.insertNode(7);
+      binarySearchTree.insertNode(6);
+      binarySearchTree.insertNode(5);
+      expect(binarySearchTree.deleteNode(4)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The deleteNode method of factory function BinarySearchTree works correctly if the method is called with an argument that doesn't exist in the binary search tree and the binary search tree is not empty", () => {
       binarySearchTree.buildTree([2, 1, 3]);
-      expect(binarySearchTree.deleteNode(4)).toStrictEqual(
+      expect(binarySearchTree.deleteNodeRec(4)).toStrictEqual(
         { 
           data: 2, 
           left: { 
@@ -913,6 +1400,8 @@ describe("Testing the factory function BinarySearchTree", () => {
           } 
         }
       );
+      binarySearchTree.buildTree([2, 1, 3]);
+      expect(binarySearchTree.deleteNode(4)).toStrictEqual(binarySearchTree.getRootNode());
     });
 
     test("The find method of factory function BinarySearchTree works correctly if the method is called without an argument and the binary search tree is empty", () => {

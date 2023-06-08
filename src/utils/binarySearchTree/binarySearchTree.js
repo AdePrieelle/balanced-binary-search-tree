@@ -76,7 +76,11 @@ export const BinarySearchTree = (arr) => {
     return rootNode;
   };
 
-  const deleteNode = (value, rootNode = root) => {
+  // const deleteValue = (value, rootNode = root) => {
+  //   root = deleteNode(value, rootNode);
+  // };
+
+  const deleteNodeRec = (value, rootNode = root) => {
     /*
     deletes the node with the given data value from the binary search tree. 
     Returns the root node of the binary search tree. 
@@ -88,9 +92,9 @@ export const BinarySearchTree = (arr) => {
     };
 
     if (rootNode.data > value) {
-      rootNode.left = deleteNode(value, rootNode.left);
+      rootNode.left = deleteNodeRec(value, rootNode.left);
     } else if (rootNode.data < value) {
-      rootNode.right = deleteNode(value, rootNode.right);
+      rootNode.right = deleteNodeRec(value, rootNode.right);
     } else {
       // the node to be deleted
       if (rootNode.left === null) {
@@ -117,6 +121,14 @@ export const BinarySearchTree = (arr) => {
     };
 
     return rootNode;
+  };
+
+  const deleteNode = (value) => {
+    if ((value === undefined)) {
+      return root;
+    };
+    root = deleteNodeRec(value);
+    return root;
   };
 
   const find = (value, rootNode = root) => {
@@ -427,6 +439,7 @@ export const BinarySearchTree = (arr) => {
     prettyPrint,
     getRootNode,
     insertNode,
+    deleteNodeRec,
     deleteNode,
     find,
     levelOrder,
