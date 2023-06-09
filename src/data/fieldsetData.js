@@ -5,6 +5,8 @@ import { getArrayWithStringNumbersConvertedToNumbersFromString } from "../utils/
 import { getBinarySearchTreeWithAddedAdditionalInputValues } from "../utils/getBinarySearchTreeWithAddedAdditionalInputValues/getBinarySearchTreeWithAddedAdditionalInputValues.js";
 import { getBinarySearchTreeWithAddedArrayElements } from "../utils/getBinarySearchTreeWithAddedArrayElements/getBinarySearchTreeWithAddedArrayElements.js";
 import { getBinarySearchTreeWithAddedInitialInputValues } from "../utils/getBinarySearchTreeWithAddedInitialInputValues/getBinarySearchTreeWithAddedInitialInputValues.js";
+import { getBinarySearchTreeWithRemovedArrayElements } from "../utils/getBinarySearchTreeWithRemovedArrayElements/getBinarySearchTreeWithRemovedArrayElements.js";
+import { getBinarySearchTreeWithRemovedInputValues } from "../utils/getBinarySearchTreeWithRemovedInputValues/getBinarySearchTreeWithRemovedInputValues.js";
 import { getDepthOfValue } from "../utils/getDepthOfValue/getDepthOfValue.js";
 import { getHeightOfValue } from "../utils/getHeightOfValue/getHeightOfValue.js";
 import { getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree.js";
@@ -15,7 +17,7 @@ import { getIsValidInputValueRemoveValues } from "../utils/getIsValidInputValueR
 export const fieldsetData = () => {
   return ({
     fieldsets: {
-      ids: ["fieldset1", "fieldset2", "fieldset3"],
+      ids: ["fieldset1", "fieldset2", "fieldset3", "fieldset4", "fieldset5"],
       entities: {
         "fieldset1": { 
           id: "fieldset1", 
@@ -25,12 +27,14 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the initial number(s) in the correct format",
           fieldsetMessageInputValueErrorValue: "Please enter the initial number(s) in the correct format",
           fieldsetMessageReadyToUpdateValue: "The BST is ready to be updated",
-          fieldsetMessageUpdatedSuccessValueMessage: (input) => `The BST has been updated`,
+          fieldsetMessageUpdatedSuccessValueMessage: (input) => (`The BST has been updated`),
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Initial-value(s)",
           inputRegex: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
           // implement isValidInputValue later
-          isValidInputValue: (input, binarySearchTree) => true,
+          isValidInputValue: (input, binarySearchTree) => { 
+            return (true); 
+          },
           labelText: "Add initial value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
           onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
@@ -61,16 +65,20 @@ export const fieldsetData = () => {
           inputRegex: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
           // implement isValidInputValue later
           // isValidInputValue: (input) => true,
-          isValidInputValue: (input, binarySearchTree) => (getIsValidInputValueAddAdditionalValues(
-            input, 
-            binarySearchTree,
-            cloneObject,
-            getArrayWithStringNumbersConvertedToNumbersFromString, 
-            ", ", 
-            getArrayFromString, 
-            getArrayWithStringNumbersConvertedToNumbersFromArray,
-            getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
-          )),
+          isValidInputValue: (input, binarySearchTree) => {
+            return (
+              getIsValidInputValueAddAdditionalValues(
+                input, 
+                binarySearchTree,
+                cloneObject,
+                getArrayWithStringNumbersConvertedToNumbersFromString, 
+                ", ", 
+                getArrayFromString, 
+                getArrayWithStringNumbersConvertedToNumbersFromArray,
+                getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
+              )
+            );
+          },
           labelText: "Add additional value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
           // onClickHandlerSuccessful: (input) => true
@@ -103,19 +111,37 @@ export const fieldsetData = () => {
           inputRegex: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
           // implement isValidInputValue later
           // isValidInputValue: (input) => true,
-          isValidInputValue: (input, binarySearchTree) => (getIsValidInputValueRemoveValues(
-            input, 
-            binarySearchTree,
-            cloneObject,
-            getArrayWithStringNumbersConvertedToNumbersFromString, 
-            ", ", 
-            getArrayFromString, 
-            getArrayWithStringNumbersConvertedToNumbersFromArray,
-            getIsArrayOnlyWithValuesThatExistInBinarySearchTree
-          )),
+          isValidInputValue: (input, binarySearchTree) => {
+            return (
+              getIsValidInputValueRemoveValues(
+                input, 
+                binarySearchTree,
+                cloneObject,
+                getArrayWithStringNumbersConvertedToNumbersFromString, 
+                ", ", 
+                getArrayFromString, 
+                getArrayWithStringNumbersConvertedToNumbersFromArray,
+                getIsArrayOnlyWithValuesThatExistInBinarySearchTree
+              )
+            );
+          },
           labelText: "Remove value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
-          onClickHandlerSuccessful: (input) => true
+          // onClickHandlerSuccessful: (input) => true
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
+            setBinarySearchTree(
+              getBinarySearchTreeWithRemovedInputValues(
+                input, 
+                binarySearchTree, 
+                cloneObject,
+                getArrayWithStringNumbersConvertedToNumbersFromString, 
+                ", ", 
+                getArrayFromString, 
+                getArrayWithStringNumbersConvertedToNumbersFromArray,
+                getBinarySearchTreeWithRemovedArrayElements
+              )
+            );
+          }
         },
         "fieldset4": {
           id: "fieldset4", 
