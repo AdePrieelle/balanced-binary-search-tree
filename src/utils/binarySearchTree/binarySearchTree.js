@@ -8,12 +8,14 @@ export const BinarySearchTree = (arr) => {
 
   const buildTree = (arr) => {
     /*
-    builds a balanced binary search tree from a given array of data values and 
+    builds a balanced binary search tree from a given array of data values.
+    Updates the root node of the binary search tree.
     returns the root node from the balanced binary search tree. 
     Return null if no array or an empty array is given.
     */
     if ((!Array.isArray(arr)) || (arr.length === 0)) {
-      return null;
+      root = null;
+      return root;
     };
 
     const arrayWithoutDuplicates = removeDuplicatesFromArray(arr);
@@ -50,7 +52,7 @@ export const BinarySearchTree = (arr) => {
     return root;
   };
 
-  const insertNode = (value, rootNode = root) => {
+  const insertNodeRec = (value, rootNode = root) => {
     /*
     inserts a new node with a given data value into the binary search tree. 
     Returns the root node of the binary search tree. 
@@ -68,17 +70,27 @@ export const BinarySearchTree = (arr) => {
     if (rootNode.data === value) {
       return rootNode;
     } else if (value < rootNode.data) {
-      rootNode.left = insertNode(value, rootNode.left);
+      rootNode.left = insertNodeRec(value, rootNode.left);
     } else if (value > rootNode.data) {
-      rootNode.right = insertNode(value, rootNode.right);
+      rootNode.right = insertNodeRec(value, rootNode.right);
     };
     
     return rootNode;
   };
 
-  // const deleteValue = (value, rootNode = root) => {
-  //   root = deleteNode(value, rootNode);
-  // };
+  const insertNode = (value) => {
+    /*
+    inserts a new node with a given data value into the binary search tree. 
+    Updates the root node of the binary search tree.
+    Returns the root node of the binary search tree. 
+    Return the root node of the binary search tree if the method is called without an argument.
+    */
+    if (value === undefined) {
+      return root;
+    };
+    root = insertNodeRec(value);
+    return root;
+  };
 
   const deleteNodeRec = (value, rootNode = root) => {
     /*
@@ -124,7 +136,14 @@ export const BinarySearchTree = (arr) => {
   };
 
   const deleteNode = (value) => {
-    if ((value === undefined)) {
+    /*
+    deletes the node with the given data value from the binary search tree. 
+    Updates the root node of the binary search tree.
+    Returns the root node of the binary search tree. 
+    Return the root node of the binary search tree if there doesn't exist any node with the given data value in the binary search tree, 
+    if the method is called without an argument or if the root node is equal to null.
+    */
+    if ((value === undefined) || (root === null)) {
       return root;
     };
     root = deleteNodeRec(value);
@@ -438,6 +457,7 @@ export const BinarySearchTree = (arr) => {
     buildTree,
     prettyPrint,
     getRootNode,
+    insertNodeRec,
     insertNode,
     deleteNodeRec,
     deleteNode,
