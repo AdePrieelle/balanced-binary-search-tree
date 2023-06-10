@@ -11,6 +11,7 @@ import { getDepthOfValue } from "../utils/getDepthOfValue/getDepthOfValue.js";
 import { getHeightOfValue } from "../utils/getHeightOfValue/getHeightOfValue.js";
 import { getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree.js";
 import { getIsArrayOnlyWithValuesThatExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatExistInBinarySearchTree/getIsArrayOnlyWithValuesThatExistInBinarySearchTree.js";
+import { getIsValidInputValueFindHeight } from "../utils/getIsValidInputValueFindHeight/getIsValidInputValueFindHeight.js";
 import { getIsValidInputValueAddAdditionalValues } from "../utils/getIsValidInputValueAddAdditionalValues/getIsValidInputValueAddAdditionalValues.js";
 import { getIsValidInputValueRemoveValues } from "../utils/getIsValidInputValueRemoveValues/getIsValidInputValueRemoveValues.js";
 
@@ -151,12 +152,26 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the value in the correct format",
           fieldsetMessageInputValueErrorValue: "Please only enter a value that exists in the BST",
           fieldsetMessageReadyToUpdateValue: "Ready to find the height",
-          fieldsetMessageUpdatedSuccessValueMessage: (input) => (`Height of value ${input} is: ${getHeightOfValue(input)}`),
+          fieldsetMessageUpdatedSuccessValueMessage: (input) => {
+            if (input !== "") {
+              return (`Height of value ${input} is: ${getHeightOfValue(input)}`);
+            };
+            return (<>&nbsp;</>);
+          },
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Height-value",
           inputRegex: "^(-?\\d+(\\.\\d+)?)$",
           // implement isValidInputValue later
-          isValidInputValue: (input) => (true),
+          // isValidInputValue: (input) => (true),
+          isValidInputValue: (input, binarySearchTree) => {
+            return (
+              getIsValidInputValueFindHeight(
+                input, 
+                binarySearchTree,
+                cloneObject
+              )
+            );
+          },
           labelText: "Find the height of a value in the BST",
           // implement onClickHandlerSuccessful later
           onClickHandlerSuccessful: (input) => (true)
