@@ -15,6 +15,8 @@ import { getIsValidInputValueFindHeight } from "../utils/getIsValidInputValueFin
 import { getIsValidInputValueAddAdditionalValues } from "../utils/getIsValidInputValueAddAdditionalValues/getIsValidInputValueAddAdditionalValues.js";
 import { getIsValidInputValueRemoveValues } from "../utils/getIsValidInputValueRemoveValues/getIsValidInputValueRemoveValues.js";
 
+import { FieldsetMessageUpdatedSuccessMessage } from "../components/FieldsetMessageUpdatedSuccessMessage/FieldsetMessageUpdatedSuccessMessage.js";
+
 export const fieldsetData = () => {
   return ({
     fieldsets: {
@@ -28,7 +30,12 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the initial number(s) in the correct format",
           fieldsetMessageInputValueErrorValue: "Please enter the initial number(s) in the correct format",
           fieldsetMessageReadyToUpdateValue: "The BST is ready to be updated",
-          fieldsetMessageUpdatedSuccessValueMessage: (input) => (`The BST has been updated`),
+          // fieldsetMessageUpdatedSuccessValueMessage: (input) => (`The BST has been updated`),
+          fieldsetMessageUpdatedSuccessValueMessage: (input) => {
+            return (
+              <FieldsetMessageUpdatedSuccessMessage icon={true} message={`The BST has been updated`} />
+            );
+          },
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Initial-value(s)",
           inputRegex: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
@@ -38,7 +45,20 @@ export const fieldsetData = () => {
           },
           labelText: "Add initial value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
-          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
+          // onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
+          //   setBinarySearchTree(
+          //     getBinarySearchTreeWithAddedInitialInputValues(
+          //       input, 
+          //       binarySearchTree, 
+          //       cloneObject,
+          //       getArrayWithStringNumbersConvertedToNumbersFromString, 
+          //       ", ", 
+          //       getArrayFromString, 
+          //       getArrayWithStringNumbersConvertedToNumbersFromArray
+          //     )
+          //   );
+          // }
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessageText, fieldsetMessageUpdatedSuccessValueMessage) => {
             setBinarySearchTree(
               getBinarySearchTreeWithAddedInitialInputValues(
                 input, 
@@ -50,6 +70,7 @@ export const fieldsetData = () => {
                 getArrayWithStringNumbersConvertedToNumbersFromArray
               )
             );
+            setFieldsetMessageText(fieldsetMessageUpdatedSuccessValueMessage);
           }
         },
         "fieldset2": {
@@ -60,7 +81,12 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the additional value(s) in the correct format",
           fieldsetMessageInputValueErrorValue: "Please only enter value(s) that don't already exist in the BST",
           fieldsetMessageReadyToUpdateValue: "The BST is ready to be updated",
-          fieldsetMessageUpdatedSuccessValueMessage: (input) => (`The BST has been updated`),
+          // fieldsetMessageUpdatedSuccessValueMessage: (input) => (`The BST has been updated`),
+          fieldsetMessageUpdatedSuccessValueMessage: (input) => {
+            return (
+              <FieldsetMessageUpdatedSuccessMessage icon={true} message={`The BST has been updated`} />
+            );
+          },
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Add-value(s)",
           inputRegex: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
@@ -83,7 +109,21 @@ export const fieldsetData = () => {
           labelText: "Add additional value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
           // onClickHandlerSuccessful: (input) => (true)
-          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
+          // onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
+          //   setBinarySearchTree(
+          //     getBinarySearchTreeWithAddedAdditionalInputValues(
+          //       input, 
+          //       binarySearchTree, 
+          //       cloneObject,
+          //       getArrayWithStringNumbersConvertedToNumbersFromString, 
+          //       ", ", 
+          //       getArrayFromString, 
+          //       getArrayWithStringNumbersConvertedToNumbersFromArray,
+          //       getBinarySearchTreeWithAddedArrayElements
+          //     )
+          //   );
+          // }
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessageText, fieldsetMessageUpdatedSuccessValueMessage) => {
             setBinarySearchTree(
               getBinarySearchTreeWithAddedAdditionalInputValues(
                 input, 
@@ -96,6 +136,7 @@ export const fieldsetData = () => {
                 getBinarySearchTreeWithAddedArrayElements
               )
             );
+            setFieldsetMessageText(fieldsetMessageUpdatedSuccessValueMessage);
           }
         },
         "fieldset3": {
@@ -106,7 +147,12 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the value(s) to be removed in the correct format",
           fieldsetMessageInputValueErrorValue: "Please only enter value(s) that already exist in the BST",
           fieldsetMessageReadyToUpdateValue: "The BST is ready to be updated",
-          fieldsetMessageUpdatedSuccessValueMessage: (input) => (`The BST has been updated`),
+          // fieldsetMessageUpdatedSuccessValueMessage: (input) => (`The BST has been updated`),
+          fieldsetMessageUpdatedSuccessValueMessage: (input) => {
+            return (
+              <FieldsetMessageUpdatedSuccessMessage icon={true} message={`The BST has been updated`} />
+            );
+          },
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Remove-value(s)",
           inputRegex: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
@@ -129,7 +175,21 @@ export const fieldsetData = () => {
           labelText: "Remove value(s) seperated by a comma and a space",
           // implement onClickHandlerSuccessful later
           // onClickHandlerSuccessful: (input) => (true)
-          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
+          // onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
+          //   setBinarySearchTree(
+          //     getBinarySearchTreeWithRemovedInputValues(
+          //       input, 
+          //       binarySearchTree, 
+          //       cloneObject,
+          //       getArrayWithStringNumbersConvertedToNumbersFromString, 
+          //       ", ", 
+          //       getArrayFromString, 
+          //       getArrayWithStringNumbersConvertedToNumbersFromArray,
+          //       getBinarySearchTreeWithRemovedArrayElements
+          //     )
+          //   );
+          // }
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessageText, fieldsetMessageUpdatedSuccessValueMessage) => {
             setBinarySearchTree(
               getBinarySearchTreeWithRemovedInputValues(
                 input, 
@@ -142,6 +202,7 @@ export const fieldsetData = () => {
                 getBinarySearchTreeWithRemovedArrayElements
               )
             );
+            setFieldsetMessageText(fieldsetMessageUpdatedSuccessValueMessage);
           }
         },
         "fieldset4": {
@@ -152,11 +213,29 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the value in the correct format",
           fieldsetMessageInputValueErrorValue: "Please only enter a value that exists in the BST",
           fieldsetMessageReadyToUpdateValue: "Ready to find the height",
+          // fieldsetMessageUpdatedSuccessValueMessage: (input) => {
+          //   // if (input !== "") {
+          //     return (`Height of value ${input} is: ${getHeightOfValue(input)}`);
+          //   // };
+          //   // return (<>&nbsp;</>);
+          // },
+          // fieldsetMessageUpdatedSuccessValueMessage: (input) => {
+          //   if (input !== "") {
+          //     return (
+          //       <FieldsetMessageUpdatedSuccessMessage icon={true} message={`Height of value ${input} is: ${getHeightOfValue(input)}`} />
+          //     );
+          //   };
+          //   return (<>&nbsp;</>);
+          // },
+          // fieldsetMessageUpdatedSuccessValueMessage: (input) => {
+          //   return (
+          //     <FieldsetMessageUpdatedSuccessMessage emptyMessage={<>&nbsp;</>} icon={true} message={`Height of value ${input} is: ${getHeightOfValue(input)}`} input={input} />
+          //   );
+          // },
           fieldsetMessageUpdatedSuccessValueMessage: (input) => {
-            if (input !== "") {
-              return (`Height of value ${input} is: ${getHeightOfValue(input)}`);
-            };
-            return (<>&nbsp;</>);
+            return (
+              <FieldsetMessageUpdatedSuccessMessage icon={true} message={`Height of value ${input} is: ${getHeightOfValue(input)}`} />
+            );
           },
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Height-value",
@@ -174,7 +253,21 @@ export const fieldsetData = () => {
           },
           labelText: "Find the height of a value in the BST",
           // implement onClickHandlerSuccessful later
-          onClickHandlerSuccessful: (input) => (true)
+          // onClickHandlerSuccessful: (input) => (true)
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessageText, fieldsetMessageUpdatedSuccessValueMessage) => {
+            // let fieldsetMessageText = "";
+            // if (input !== "") { 
+            //   fieldsetMessageText = (
+            //     <FieldsetMessageUpdatedSuccessMessage emptyMessage={<>&nbsp;</>} icon={true} message={`Height of value ${input} is: ${getHeightOfValue(input)}`} input={input} />
+            //   );
+            // } else {
+            //   fieldsetMessageText = (<>&nbsp;</>);
+            // }
+            // setFieldsetMessageText(
+            //   fieldsetMessageText
+            // );
+            setFieldsetMessageText(fieldsetMessageUpdatedSuccessValueMessage);
+          }
         },
         "fieldset5": {
           id: "fieldset5", 
@@ -184,7 +277,12 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the value in the correct format",
           fieldsetMessageInputValueErrorValue: "Please only enter a value that exists in the BST",
           fieldsetMessageReadyToUpdateValue: "Ready to find the depth",
-          fieldsetMessageUpdatedSuccessValueMessage: (input) => (`Depth of value ${input} is: ${getDepthOfValue(input)}`),
+          // fieldsetMessageUpdatedSuccessValueMessage: (input) => (`Depth of value ${input} is: ${getDepthOfValue(input)}`),
+          fieldsetMessageUpdatedSuccessValueMessage: (input) => {
+            return (
+              <FieldsetMessageUpdatedSuccessMessage icon={true} message={`Depth of value ${input} is: ${getDepthOfValue(input)}`} />
+            );
+          },
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Depth-value",
           inputRegex: "^(-?\\d+(\\.\\d+)?)$",

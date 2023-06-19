@@ -8,7 +8,7 @@ import styles from './App.module.scss';
 
 export const App = () => {
   const [binarySearchTree, setBinarySearchTree] = useState(BinarySearchTree([-2, 3, 1]));
-  console.log(binarySearchTree.getRootNode());
+  // console.log(binarySearchTree.getRootNode());
 
   return (
     <div className={styles.App}>

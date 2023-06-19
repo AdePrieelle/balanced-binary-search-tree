@@ -22,11 +22,13 @@ export const Fieldset = ({
   inputRegex,
   isValidInputValue,
   labelText,
-  onClickHandlerSuccessful
+  lastUpdatedFieldsetId,
+  onClickHandlerSuccessful,
+  setLastUpdatedFieldsetId
 }) => {
+  const [fieldsetMessageText, setFieldsetMessageText] = useState(fieldsetMessageEmptyInputSuccessValue);
   const inputId = useId();
   const [input, setInput] = useState("");
-  const prevInputState = usePreviousState(input);
   const [inputSuccess, setInputSuccess] = useState(false);
   const [inputUpdatedBST, setInputUpdatedBST] = useState(false);
   const [inputButtonClicked, setInputButtonClicked] = useState(false);
@@ -45,12 +47,24 @@ export const Fieldset = ({
     setInputButtonClicked(true);
     setInputUpdatedBST(false);
     if ((input !== "") && inputSuccess) {
-      onClickHandlerSuccessful(input);
-      // maybe move setInput in new useEffect hook with inputUpdatedBST as dependency
+      onClickHandlerSuccessful(input, setFieldsetMessageText, fieldsetMessageUpdatedSuccessValue(input));
+      // maybe move setInput and setLastUpdatedFieldsetId in new useEffect hook with inputUpdatedBST as dependency
       setInput("");
       setInputUpdatedBST(true);
+      setLastUpdatedFieldsetId(inputId);
+
     };
   };
+
+
+
+  useEffect(() => {
+    if (input === "" && inputSuccess && lastUpdatedFieldsetId !== inputId) {
+      setFieldsetMessageText(fieldsetMessageEmptyInputSuccessValue);
+    };
+  }, [fieldsetMessageEmptyInputSuccessValue, input, inputId, inputSuccess, lastUpdatedFieldsetId]);
+
+
 
   useEffect(() => {
     if (
@@ -62,6 +76,22 @@ export const Fieldset = ({
       setInputSuccess(false);
     };
   }, [input, inputButtonClicked, inputUpdatedBST, inputRegex, isValidInputValue]);
+
+  useEffect(() => {
+    if (input === "" && !inputUpdatedBST && inputSuccess) {
+      setFieldsetMessageText(fieldsetMessageEmptyInputSuccessValue);
+    } else if (input === "" && !inputUpdatedBST && !inputSuccess) {
+      setFieldsetMessageText(fieldsetMessageEmptyInputErrorValue);
+    } else if (input === "" && inputUpdatedBST) {
+      // setFieldsetMessageText(fieldsetMessageUpdatedSuccessValue(prevInputState));
+    } else if ((input !== "") && inputSuccess) {
+      setFieldsetMessageText(fieldsetMessageReadyToUpdateValue);
+    } else if ((input !== "") && !inputSuccess && !isValidInputFormat(inputRegex, input)) {
+      setFieldsetMessageText(fieldsetMessageInputFormatErrorValue);
+    } else if ((input !== "") && !inputSuccess && isValidInputFormat(inputRegex, input) && !isValidInputValue(input)) {
+      setFieldsetMessageText(fieldsetMessageInputValueErrorValue);
+    };
+  }, [input, inputUpdatedBST, inputSuccess, isValidInputValue, fieldsetMessageEmptyInputSuccessValue, fieldsetMessageEmptyInputErrorValue, fieldsetMessageUpdatedSuccessValue, fieldsetMessageReadyToUpdateValue, fieldsetMessageInputFormatErrorValue, fieldsetMessageInputValueErrorValue, inputRegex]);
 
   return (
     <fieldset className={`${styles["Fieldset"]}`}>
@@ -87,12 +117,15 @@ export const Fieldset = ({
           fieldsetMessageInputFormatErrorValue={fieldsetMessageInputFormatErrorValue}
           fieldsetMessageInputValueErrorValue={fieldsetMessageInputValueErrorValue}
           fieldsetMessageReadyToUpdateValue={fieldsetMessageReadyToUpdateValue}
-          fieldsetMessageUpdatedSuccessValue={fieldsetMessageUpdatedSuccessValue(prevInputState)}
+          fieldsetMessageUpdatedSuccessValue={fieldsetMessageUpdatedSuccessValue(input)}
           input={input}
           inputSuccess={inputSuccess}
           inputUpdatedBST={inputUpdatedBST}
           isValidInputFormat={isValidInputFormat(inputRegex, input)}
           isValidInputValue={isValidInputValue(input)}
+          
+          fieldsetMessageText={fieldsetMessageText}
+          setFieldsetMessageText={setFieldsetMessageText}
         />
       </FieldsetMessageWrapper>
       <ButtonWrapper>
