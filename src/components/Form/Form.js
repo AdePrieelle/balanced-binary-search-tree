@@ -1,6 +1,6 @@
 import { Fieldset } from '../Fieldset/Fieldset.js';
 import { fieldsetData } from '../../data/fieldsetData.js';
-import { FieldsetMessageUpdatedSuccessMessage } from '../FieldsetMessageUpdatedSuccessMessage/FieldsetMessageUpdatedSuccessMessage.js';
+import { FieldsetMessageUpdatedSuccessValue } from '../FieldsetMessageUpdatedSuccessValue/FieldsetMessageUpdatedSuccessValue.js';
 import { FieldsetWrapper } from '../FieldsetWrapper/FieldsetWrapper.js';
 import styles from './Form.module.scss';
 import { useState } from 'react';
@@ -19,36 +19,36 @@ export const Form = ({ binarySearchTree, setBinarySearchTree }) => {
             fieldsetMessageInputFormatErrorValue={value.fieldsetMessageInputFormatErrorValue} 
             fieldsetMessageInputValueErrorValue={value.fieldsetMessageInputValueErrorValue}
             fieldsetMessageReadyToUpdateValue={value.fieldsetMessageReadyToUpdateValue} 
-            // fieldsetMessageUpdatedSuccessValue={(input) => <FieldsetMessageUpdatedSuccessMessage icon={value.fieldsetMessageUpdatedSuccessValueWithIcon} message={value.fieldsetMessageUpdatedSuccessValueMessage(input)} />}
-            // fieldsetMessageUpdatedSuccessValue={(prevInput) => {
+            // getFieldsetMessageUpdatedSuccessValue={(input) => <FieldsetMessageUpdatedSuccessValue icon={value.fieldsetMessageUpdatedSuccessValueWithIcon} message={value.getFieldsetMessageUpdatedSuccessValue(input)} />}
+            // getFieldsetMessageUpdatedSuccessValue={(prevInput) => {
             //   if (prevInput === "") {
             //     return (value.fieldsetMessageEmptyInputSuccessValue);
             //   } else {
             //     return (
-            //       <FieldsetMessageUpdatedSuccessMessage icon={value.fieldsetMessageUpdatedSuccessValueWithIcon} message={value.fieldsetMessageUpdatedSuccessValueMessage(prevInput)} />
+            //       <FieldsetMessageUpdatedSuccessValue icon={value.fieldsetMessageUpdatedSuccessValueWithIcon} message={value.getFieldsetMessageUpdatedSuccessValue(prevInput)} />
             //     );
             //   }
             // }}
-            // fieldsetMessageUpdatedSuccessValue={(prevInput) => {
+            // getFieldsetMessageUpdatedSuccessValue={(prevInput) => {
             //   if (prevInput === "") {
             //     return (value.fieldsetMessageEmptyInputSuccessValue);
             //   } else {
             //     return (
-            //       <FieldsetMessageUpdatedSuccessMessage icon={value.fieldsetMessageUpdatedSuccessValueWithIcon} message={value.fieldsetMessageUpdatedSuccessValueMessage(prevInput)} />
+            //       <FieldsetMessageUpdatedSuccessValue icon={value.fieldsetMessageUpdatedSuccessValueWithIcon} message={value.getFieldsetMessageUpdatedSuccessValue(prevInput)} />
             //     );
             //   }
             // }}
-            // fieldsetMessageUpdatedSuccessValue ={(prevInput => (value.fieldsetMessageUpdatedSuccessValueMessage(prevInput)))}
-            fieldsetMessageUpdatedSuccessValue ={(input) => (value.fieldsetMessageUpdatedSuccessValueMessage(input))}
+            // getFieldsetMessageUpdatedSuccessValue ={(prevInput => (value.getFieldsetMessageUpdatedSuccessValue(prevInput)))}
+            getFieldsetMessageUpdatedSuccessValue ={(input) => (value.getFieldsetMessageUpdatedSuccessValue(input))}
             inputName={value.inputName} 
             inputRegex={new RegExp(value.inputRegex)}
-            // implement isValidInputValue later
-            // isValidInputValue={value.isValidInputValue} 
-            isValidInputValue={(input) => value.isValidInputValue(input, binarySearchTree)} 
+            // implement getIsValidInputValue later
+            // getIsValidInputValue={value.getIsValidInputValue} 
+            getIsValidInputValue={(input) => value.getIsValidInputValue(input, binarySearchTree)} 
             labelText={value.labelText} 
             // implement onClickHandlerSuccessful later
             // onClickHandlerSuccessful={(input) => value.onClickHandlerSuccessful(input, binarySearchTree, setBinarySearchTree)} 
-            onClickHandlerSuccessful={(input, setFieldsetMessageText, fieldsetMessageUpdatedSuccessValueMessage) => value.onClickHandlerSuccessful(input, binarySearchTree, setBinarySearchTree, setFieldsetMessageText, fieldsetMessageUpdatedSuccessValueMessage)} 
+            onClickHandlerSuccessful={(input, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => value.onClickHandlerSuccessful(input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue)} 
 
             lastUpdatedFieldsetId={lastUpdatedFieldsetId}
             setLastUpdatedFieldsetId={setLastUpdatedFieldsetId}

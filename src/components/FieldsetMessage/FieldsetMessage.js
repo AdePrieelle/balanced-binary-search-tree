@@ -14,8 +14,8 @@ export const FieldsetMessage = ({
   // isValidInputFormat,
   // isValidInputValue,
 
-  fieldsetMessageText,
-  // setFieldsetMessageText
+  fieldsetMessage,
+  // setFieldsetMessage
 }) => {
   // let message = null;
   // if (input === "" && !inputUpdatedBST && inputSuccess) {
@@ -34,32 +34,32 @@ export const FieldsetMessage = ({
 
   // console.log("render fieldsetMessage");
   // if (input === "" && !inputUpdatedBST && inputSuccess) {
-  //   setFieldsetMessageText(fieldsetMessageEmptyInputSuccessValue);
+  //   setFieldsetMessage(fieldsetMessageEmptyInputSuccessValue);
   // } else if (input === "" && !inputUpdatedBST && !inputSuccess) {
-  //   setFieldsetMessageText(fieldsetMessageEmptyInputErrorValue);
+  //   setFieldsetMessage(fieldsetMessageEmptyInputErrorValue);
   // } else if (input === "" && inputUpdatedBST) {
-  //   setFieldsetMessageText(fieldsetMessageUpdatedSuccessValue);
+  //   setFieldsetMessage(fieldsetMessageUpdatedSuccessValue);
   // } else if ((input !== "") && inputSuccess) {
-  //   setFieldsetMessageText(fieldsetMessageReadyToUpdateValue);
+  //   setFieldsetMessage(fieldsetMessageReadyToUpdateValue);
   // } else if ((input !== "") && !inputSuccess && !isValidInputFormat) {
-  //   setFieldsetMessageText(fieldsetMessageInputFormatErrorValue);
+  //   setFieldsetMessage(fieldsetMessageInputFormatErrorValue);
   // } else if ((input !== "") && !inputSuccess && isValidInputFormat && !isValidInputValue) {
-  //   setFieldsetMessageText(fieldsetMessageInputValueErrorValue);
+  //   setFieldsetMessage(fieldsetMessageInputValueErrorValue);
   // };
 
   // useEffect(() => {
   //   if (input === "" && !inputUpdatedBST && inputSuccess) {
-  //     setFieldsetMessageText(fieldsetMessageEmptyInputSuccessValue);
+  //     setFieldsetMessage(fieldsetMessageEmptyInputSuccessValue);
   //   } else if (input === "" && !inputUpdatedBST && !inputSuccess) {
-  //     setFieldsetMessageText(fieldsetMessageEmptyInputErrorValue);
+  //     setFieldsetMessage(fieldsetMessageEmptyInputErrorValue);
   //   } else if (input === "" && inputUpdatedBST) {
-  //     setFieldsetMessageText(fieldsetMessageUpdatedSuccessValue);
+  //     setFieldsetMessage(fieldsetMessageUpdatedSuccessValue);
   //   } else if ((input !== "") && inputSuccess) {
-  //     setFieldsetMessageText(fieldsetMessageReadyToUpdateValue);
+  //     setFieldsetMessage(fieldsetMessageReadyToUpdateValue);
   //   } else if ((input !== "") && !inputSuccess && !isValidInputFormat) {
-  //     setFieldsetMessageText(fieldsetMessageInputFormatErrorValue);
+  //     setFieldsetMessage(fieldsetMessageInputFormatErrorValue);
   //   } else if ((input !== "") && !inputSuccess && isValidInputFormat && !isValidInputValue) {
-  //     setFieldsetMessageText(fieldsetMessageInputValueErrorValue);
+  //     setFieldsetMessage(fieldsetMessageInputValueErrorValue);
   //   };
   // }, []);
 
@@ -71,7 +71,7 @@ export const FieldsetMessage = ({
 
   return (
     <div className={`${styles["FieldsetMessage"]} ${inputSuccess ? styles["FieldsetMessage--success"] : styles["FieldsetMessage--error"]}`}>
-      {fieldsetMessageText}
+      {fieldsetMessage}
     </div>
   );
 };
