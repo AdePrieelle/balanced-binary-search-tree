@@ -4,12 +4,21 @@ export const getFieldsetMessage = (
   fieldsetMessageInputFormatErrorValue,
   fieldsetMessageInputValueErrorValue,
   fieldsetMessageReadyToUpdateValue,
+
+  fieldsetMessageUpdatedSuccessValue,
+
   getIsValidInputFormat,
   getIsValidInputValue,
   input,
+
+  inputId,
+
   inputRegex,
   inputSuccess,
-  inputUpdatedBST
+  inputUpdatedBST,
+
+  lastUpdatedFieldsetId
+
 ) => {
   if (
     typeof(fieldsetMessageEmptyInputErrorValue) !== "string"
@@ -17,30 +26,41 @@ export const getFieldsetMessage = (
  || typeof(fieldsetMessageInputFormatErrorValue) !== "string"
  || typeof(fieldsetMessageInputValueErrorValue) !== "string"
  || typeof(fieldsetMessageReadyToUpdateValue) !== "string"
+
+ // maybe of type object because it's a react fragment?
+ || typeof(fieldsetMessageUpdatedSuccessValue) !== "string"
+
  || typeof(getIsValidInputFormat) !== "function"
  || typeof(getIsValidInputValue) !== "function"
  || typeof(input) !== "string"
+
+ || typeof(inputId) !== "string"
+
  || typeof(inputRegex) !== "string"
  || typeof(inputSuccess) !== "boolean"
  || typeof(inputUpdatedBST) !== "boolean"
+
+ || typeof(lastUpdatedFieldsetId) !== "string"
+
 ) {
  return ((<>&nbsp;</>));
 };
 
-  if (input === "" && !inputUpdatedBST && inputSuccess) {
-    return(fieldsetMessageEmptyInputSuccessValue);
+  if ((input === "" && !inputUpdatedBST && inputSuccess) || (input === "" && inputSuccess && (lastUpdatedFieldsetId !== inputId))) {
+    return (fieldsetMessageEmptyInputSuccessValue);
   } else if (input === "" && !inputUpdatedBST && !inputSuccess) {
-    return(fieldsetMessageEmptyInputErrorValue);
+    return (fieldsetMessageEmptyInputErrorValue);
   } else if (input === "" && inputUpdatedBST) {
     // return(getFieldsetMessageUpdatedSuccessValue(prevInputState));
     // update it in the onClickHandlerSuccesful
-    return null;
+    // return (null);
+    return (fieldsetMessageUpdatedSuccessValue);
   } else if ((input !== "") && inputSuccess) {
-    return(fieldsetMessageReadyToUpdateValue);
+    return (fieldsetMessageReadyToUpdateValue);
   } else if ((input !== "") && !inputSuccess && !getIsValidInputFormat(inputRegex, input)) {
-    return(fieldsetMessageInputFormatErrorValue);
+    return (fieldsetMessageInputFormatErrorValue);
   } else if ((input !== "") && !inputSuccess && getIsValidInputFormat(inputRegex, input) && !getIsValidInputValue(input)) {
-    return(fieldsetMessageInputValueErrorValue);
+    return (fieldsetMessageInputValueErrorValue);
   };
-  return fieldsetMessageEmptyInputSuccessValue;
+  return (fieldsetMessageEmptyInputSuccessValue);
 };

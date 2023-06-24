@@ -1,5 +1,9 @@
 import { getFieldsetMessage } from "../getFieldsetMessage.js";
 
+test.only("test1 skip other tests", () => {
+  expect(2).toBe(2);
+});
+
 describe("Testing the function getFieldsetMessage", () => {
   describe("Testing the type of function getFieldsetMessage", () => {
     test("The type of function getFieldsetMessage is a function", () => {
@@ -917,9 +921,11 @@ describe("Testing the function getFieldsetMessage", () => {
         mockInputSuccess(),
         mockInputUpdatedBST()
       )).toBe(mockFieldsetMessageEmptyInputErrorValue());
-
-      
-
     });
+
+
+    
+
+
   });
 });

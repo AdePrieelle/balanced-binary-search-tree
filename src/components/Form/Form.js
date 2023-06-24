@@ -6,7 +6,7 @@ import styles from './Form.module.scss';
 import { useState } from 'react';
 
 export const Form = ({ binarySearchTree, setBinarySearchTree }) => {
-  const [lastUpdatedFieldsetId, setLastUpdatedFieldsetId] = useState(null);
+  const [lastUpdatedFieldsetId, setLastUpdatedFieldsetId] = useState("");
 
   return (
     <form className={styles.Form}>
@@ -48,7 +48,8 @@ export const Form = ({ binarySearchTree, setBinarySearchTree }) => {
             labelText={value.labelText} 
             // implement onClickHandlerSuccessful later
             // onClickHandlerSuccessful={(input) => value.onClickHandlerSuccessful(input, binarySearchTree, setBinarySearchTree)} 
-            onClickHandlerSuccessful={(input, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => value.onClickHandlerSuccessful(input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue)} 
+            // onClickHandlerSuccessful={(input, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => value.onClickHandlerSuccessful(input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue)} 
+            onClickHandlerSuccessful={(input) => value.onClickHandlerSuccessful(input, binarySearchTree, setBinarySearchTree)} 
 
             lastUpdatedFieldsetId={lastUpdatedFieldsetId}
             setLastUpdatedFieldsetId={setLastUpdatedFieldsetId}

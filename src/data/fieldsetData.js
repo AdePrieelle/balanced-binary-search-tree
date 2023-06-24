@@ -58,7 +58,21 @@ export const fieldsetData = () => {
           //     )
           //   );
           // }
-          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => {
+          // onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => {
+          //   setBinarySearchTree(
+          //     getBinarySearchTreeWithAddedInitialInputValues(
+          //       input, 
+          //       binarySearchTree, 
+          //       cloneObject,
+          //       getArrayWithStringNumbersConvertedToNumbersFromString, 
+          //       ", ", 
+          //       getArrayFromString, 
+          //       getArrayWithStringNumbersConvertedToNumbersFromArray
+          //     )
+          //   );
+          //   setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue);
+          // }
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
             setBinarySearchTree(
               getBinarySearchTreeWithAddedInitialInputValues(
                 input, 
@@ -70,7 +84,6 @@ export const fieldsetData = () => {
                 getArrayWithStringNumbersConvertedToNumbersFromArray
               )
             );
-            setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue);
           }
         },
         "fieldset2": {
@@ -123,7 +136,22 @@ export const fieldsetData = () => {
           //     )
           //   );
           // }
-          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => {
+          // onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => {
+          //   setBinarySearchTree(
+          //     getBinarySearchTreeWithAddedAdditionalInputValues(
+          //       input, 
+          //       binarySearchTree, 
+          //       cloneObject,
+          //       getArrayWithStringNumbersConvertedToNumbersFromString, 
+          //       ", ", 
+          //       getArrayFromString, 
+          //       getArrayWithStringNumbersConvertedToNumbersFromArray,
+          //       getBinarySearchTreeWithAddedArrayElements
+          //     )
+          //   );
+          //   setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue);
+          // }
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
             setBinarySearchTree(
               getBinarySearchTreeWithAddedAdditionalInputValues(
                 input, 
@@ -136,7 +164,6 @@ export const fieldsetData = () => {
                 getBinarySearchTreeWithAddedArrayElements
               )
             );
-            setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue);
           }
         },
         "fieldset3": {
@@ -189,7 +216,22 @@ export const fieldsetData = () => {
           //     )
           //   );
           // }
-          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => {
+          // onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => {
+          //   setBinarySearchTree(
+          //     getBinarySearchTreeWithRemovedInputValues(
+          //       input, 
+          //       binarySearchTree, 
+          //       cloneObject,
+          //       getArrayWithStringNumbersConvertedToNumbersFromString, 
+          //       ", ", 
+          //       getArrayFromString, 
+          //       getArrayWithStringNumbersConvertedToNumbersFromArray,
+          //       getBinarySearchTreeWithRemovedArrayElements
+          //     )
+          //   );
+          //   setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue);
+          // }
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
             setBinarySearchTree(
               getBinarySearchTreeWithRemovedInputValues(
                 input, 
@@ -202,7 +244,6 @@ export const fieldsetData = () => {
                 getBinarySearchTreeWithRemovedArrayElements
               )
             );
-            setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue);
           }
         },
         "fieldset4": {
@@ -254,7 +295,21 @@ export const fieldsetData = () => {
           labelText: "Find the height of a value in the BST",
           // implement onClickHandlerSuccessful later
           // onClickHandlerSuccessful: (input) => (true)
-          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => {
+          // onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue) => {
+          //   // let fieldsetMessage = "";
+          //   // if (input !== "") { 
+          //   //   fieldsetMessage = (
+          //   //     <FieldsetMessageUpdatedSuccessMessage emptyMessage={<>&nbsp;</>} icon={true} message={`Height of value ${input} is: ${getHeightOfValue(input)}`} input={input} />
+          //   //   );
+          //   // } else {
+          //   //   fieldsetMessage = (<>&nbsp;</>);
+          //   // }
+          //   // setFieldsetMessage(
+          //   //   fieldsetMessage
+          //   // );
+          //   setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue);
+          // }
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
             // let fieldsetMessage = "";
             // if (input !== "") { 
             //   fieldsetMessage = (
@@ -266,7 +321,6 @@ export const fieldsetData = () => {
             // setFieldsetMessage(
             //   fieldsetMessage
             // );
-            setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue);
           }
         },
         "fieldset5": {
@@ -290,7 +344,9 @@ export const fieldsetData = () => {
           getIsValidInputValue: (input) => (true),
           labelText: "Find the depth of a value in the BST",
           // implement onClickHandlerSuccessful later
-          onClickHandlerSuccessful: (input) => (true)
+          onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
+            
+          }
         }
       }
     }

@@ -10,6 +10,8 @@ import { LabelWrapper } from '../LabelWrapper/LabelWrapper.js';
 import { usePreviousState } from '../../hooks/usePreviousState.js';
 import styles from './Fieldset.module.scss';
 
+import { useUpdateFieldsetMessage } from '../../hooks/useUpdateFieldsetMessage.js';
+
 export const Fieldset = ({ 
   buttonText,
   fieldsetMessageEmptyInputErrorValue,
@@ -29,6 +31,7 @@ export const Fieldset = ({
   const [fieldsetMessage, setFieldsetMessage] = useState(fieldsetMessageEmptyInputSuccessValue);
   const inputId = useId();
   const [input, setInput] = useState("");
+  const [inputOnClickHandlerSuccessful, setInputOnClickHandlerSuccessful] = useState("");
   const [inputSuccess, setInputSuccess] = useState(false);
   const [inputUpdatedBST, setInputUpdatedBST] = useState(false);
   const [inputButtonClicked, setInputButtonClicked] = useState(false);
@@ -47,8 +50,10 @@ export const Fieldset = ({
     setInputButtonClicked(true);
     setInputUpdatedBST(false);
     if ((input !== "") && inputSuccess) {
-      onClickHandlerSuccessful(input, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue(input));
+      // onClickHandlerSuccessful(input, setFieldsetMessage, getFieldsetMessageUpdatedSuccessValue(input));
+      onClickHandlerSuccessful(input);
       // maybe move setInput and setLastUpdatedFieldsetId in new useEffect hook with inputUpdatedBST as dependency
+      setInputOnClickHandlerSuccessful(input);
       setInput("");
       setInputUpdatedBST(true);
       setLastUpdatedFieldsetId(inputId);
@@ -58,11 +63,16 @@ export const Fieldset = ({
 
 
 
-  useEffect(() => {
-    if (input === "" && inputSuccess && lastUpdatedFieldsetId !== inputId) {
-      setFieldsetMessage(fieldsetMessageEmptyInputSuccessValue);
-    };
-  }, [fieldsetMessageEmptyInputSuccessValue, input, inputId, inputSuccess, lastUpdatedFieldsetId]);
+
+
+  // useEffect(() => {
+  //   if (input === "" && inputSuccess && lastUpdatedFieldsetId !== inputId) {
+  //     setFieldsetMessage(fieldsetMessageEmptyInputSuccessValue);
+  //   };
+  // }, [fieldsetMessageEmptyInputSuccessValue, input, inputId, inputSuccess, lastUpdatedFieldsetId]);
+
+  // console.log(typeof(inputId));
+  // console.log(typeof(lastUpdatedFieldsetId));
 
 
 
@@ -77,21 +87,46 @@ export const Fieldset = ({
     };
   }, [input, inputButtonClicked, inputUpdatedBST, inputRegex, getIsValidInputValue]);
 
-  useEffect(() => {
-    if (input === "" && !inputUpdatedBST && inputSuccess) {
-      setFieldsetMessage(fieldsetMessageEmptyInputSuccessValue);
-    } else if (input === "" && !inputUpdatedBST && !inputSuccess) {
-      setFieldsetMessage(fieldsetMessageEmptyInputErrorValue);
-    } else if (input === "" && inputUpdatedBST) {
-      // setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue(prevInputState));
-    } else if ((input !== "") && inputSuccess) {
-      setFieldsetMessage(fieldsetMessageReadyToUpdateValue);
-    } else if ((input !== "") && !inputSuccess && !getIsValidInputFormat(inputRegex, input)) {
-      setFieldsetMessage(fieldsetMessageInputFormatErrorValue);
-    } else if ((input !== "") && !inputSuccess && getIsValidInputFormat(inputRegex, input) && !getIsValidInputValue(input)) {
-      setFieldsetMessage(fieldsetMessageInputValueErrorValue);
-    };
-  }, [input, inputUpdatedBST, inputSuccess, getIsValidInputValue, fieldsetMessageEmptyInputSuccessValue, fieldsetMessageEmptyInputErrorValue, getFieldsetMessageUpdatedSuccessValue, fieldsetMessageReadyToUpdateValue, fieldsetMessageInputFormatErrorValue, fieldsetMessageInputValueErrorValue, inputRegex]);
+  // useEffect(() => {
+  //   if (input === "" && !inputUpdatedBST && inputSuccess) {
+  //     setFieldsetMessage(fieldsetMessageEmptyInputSuccessValue);
+  //   } else if (input === "" && !inputUpdatedBST && !inputSuccess) {
+  //     setFieldsetMessage(fieldsetMessageEmptyInputErrorValue);
+  //   } else if (input === "" && inputUpdatedBST) {
+  //     // setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue(prevInputState));
+  //   } else if ((input !== "") && inputSuccess) {
+  //     setFieldsetMessage(fieldsetMessageReadyToUpdateValue);
+  //   } else if ((input !== "") && !inputSuccess && !getIsValidInputFormat(inputRegex, input)) {
+  //     setFieldsetMessage(fieldsetMessageInputFormatErrorValue);
+  //   } else if ((input !== "") && !inputSuccess && getIsValidInputFormat(inputRegex, input) && !getIsValidInputValue(input)) {
+  //     setFieldsetMessage(fieldsetMessageInputValueErrorValue);
+  //   };
+  // }, [fieldsetMessageEmptyInputErrorValue, fieldsetMessageEmptyInputSuccessValue, fieldsetMessageInputFormatErrorValue, fieldsetMessageInputValueErrorValue, fieldsetMessageReadyToUpdateValue, getIsValidInputValue, input, inputRegex, inputSuccess, inputUpdatedBST]);
+
+  useUpdateFieldsetMessage(
+    fieldsetMessageEmptyInputErrorValue,
+    fieldsetMessageEmptyInputSuccessValue,
+    fieldsetMessageInputFormatErrorValue,
+    fieldsetMessageInputValueErrorValue,
+    fieldsetMessageReadyToUpdateValue,
+
+    getFieldsetMessageUpdatedSuccessValue,
+
+    getIsValidInputFormat,
+    getIsValidInputValue,
+    input,
+
+    inputId,
+    inputOnClickHandlerSuccessful,
+
+    inputRegex,
+    inputSuccess,
+    inputUpdatedBST,
+
+    lastUpdatedFieldsetId,
+
+    setFieldsetMessage
+  );
 
   return (
     <fieldset className={`${styles["Fieldset"]}`}>
