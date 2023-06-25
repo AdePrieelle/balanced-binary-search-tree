@@ -4,62 +4,42 @@ export const getFieldsetMessage = (
   fieldsetMessageInputFormatErrorValue,
   fieldsetMessageInputValueErrorValue,
   fieldsetMessageReadyToUpdateValue,
-
   fieldsetMessageUpdatedSuccessValue,
-
-  getIsValidInputFormat,
-  getIsValidInputValue,
-  input,
-
-  inputId,
-
-  inputRegex,
   inputSuccess,
   inputUpdatedBST,
-
-  lastUpdatedFieldsetId
-
+  isEmptyInput,
+  isLastUpdatedFieldset,
+  isValidInputFormat,
+  isValidInputValue
 ) => {
   if (
-    typeof(fieldsetMessageEmptyInputErrorValue) !== "string"
- || typeof(fieldsetMessageEmptyInputSuccessValue) !== "object"
- || typeof(fieldsetMessageInputFormatErrorValue) !== "string"
- || typeof(fieldsetMessageInputValueErrorValue) !== "string"
- || typeof(fieldsetMessageReadyToUpdateValue) !== "string"
+       typeof(fieldsetMessageEmptyInputErrorValue) !== "string"
+    || typeof(fieldsetMessageEmptyInputSuccessValue) !== "object"
+    || typeof(fieldsetMessageInputFormatErrorValue) !== "string"
+    || typeof(fieldsetMessageInputValueErrorValue) !== "string"
+    || typeof(fieldsetMessageReadyToUpdateValue) !== "string"
+    || typeof(fieldsetMessageUpdatedSuccessValue) !== "object"
+    || typeof(inputSuccess) !== "boolean"
+    || typeof(inputUpdatedBST) !== "boolean"
+    || typeof(isEmptyInput) !== "boolean"
+    || typeof(isLastUpdatedFieldset) !== "boolean"
+    || typeof(isValidInputFormat) !== "boolean"
+    || typeof(isValidInputValue) !== "boolean"
+  ) {
+    return ((<>&nbsp;</>));
+  };
 
- // maybe of type object because it's a react fragment?
- || typeof(fieldsetMessageUpdatedSuccessValue) !== "string"
-
- || typeof(getIsValidInputFormat) !== "function"
- || typeof(getIsValidInputValue) !== "function"
- || typeof(input) !== "string"
-
- || typeof(inputId) !== "string"
-
- || typeof(inputRegex) !== "string"
- || typeof(inputSuccess) !== "boolean"
- || typeof(inputUpdatedBST) !== "boolean"
-
- || typeof(lastUpdatedFieldsetId) !== "string"
-
-) {
- return ((<>&nbsp;</>));
-};
-
-  if ((input === "" && !inputUpdatedBST && inputSuccess) || (input === "" && inputSuccess && (lastUpdatedFieldsetId !== inputId))) {
+  if ((isEmptyInput && !inputUpdatedBST && inputSuccess) || (isEmptyInput && inputSuccess && !isLastUpdatedFieldset)) {
     return (fieldsetMessageEmptyInputSuccessValue);
-  } else if (input === "" && !inputUpdatedBST && !inputSuccess) {
+  } else if (isEmptyInput && !inputUpdatedBST && !inputSuccess) {
     return (fieldsetMessageEmptyInputErrorValue);
-  } else if (input === "" && inputUpdatedBST) {
-    // return(getFieldsetMessageUpdatedSuccessValue(prevInputState));
-    // update it in the onClickHandlerSuccesful
-    // return (null);
+  } else if (isEmptyInput && inputUpdatedBST) {
     return (fieldsetMessageUpdatedSuccessValue);
-  } else if ((input !== "") && inputSuccess) {
+  } else if (!isEmptyInput && inputSuccess) {
     return (fieldsetMessageReadyToUpdateValue);
-  } else if ((input !== "") && !inputSuccess && !getIsValidInputFormat(inputRegex, input)) {
+  } else if (!isEmptyInput && !inputSuccess && !isValidInputFormat) {
     return (fieldsetMessageInputFormatErrorValue);
-  } else if ((input !== "") && !inputSuccess && getIsValidInputFormat(inputRegex, input) && !getIsValidInputValue(input)) {
+  } else if (!isEmptyInput && !inputSuccess && isValidInputFormat && !isValidInputValue) {
     return (fieldsetMessageInputValueErrorValue);
   };
   return (fieldsetMessageEmptyInputSuccessValue);
