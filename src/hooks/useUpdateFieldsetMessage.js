@@ -1,4 +1,3 @@
-import { useCallback, useMemo } from "react";
 import { useEffect } from "react";
 
 export const useUpdateFieldsetMessage = (
@@ -7,63 +6,28 @@ export const useUpdateFieldsetMessage = (
   fieldsetMessageInputFormatErrorValue,
   fieldsetMessageInputValueErrorValue,
   fieldsetMessageReadyToUpdateValue,
-
-  getFieldsetMessageUpdatedSuccessValue,
-
-  getIsValidInputFormat,
-  getIsValidInputValue,
-  input,
-
-  inputId,
-  inputOnClickHandlerSuccessful,
-
-  inputRegex,
-  inputSuccess,
-  inputUpdatedBST,
-
-  lastUpdatedFieldsetId,
-
+  fieldsetMessageUpdatedSuccessValue,
+  isEmptyInput,
+  isInputSuccess,
+  isLastUpdatedFieldset,
+  isUpdatedBST,
+  isValidInputFormat,
+  isValidInputValue,
   setFieldsetMessage
 ) => {
-
-  const fieldsetMessageUpdatedSuccessValue = useMemo(() => getFieldsetMessageUpdatedSuccessValue(inputOnClickHandlerSuccessful), [getFieldsetMessageUpdatedSuccessValue, inputOnClickHandlerSuccessful]);
-  console.log(fieldsetMessageUpdatedSuccessValue);
-
   useEffect(() => {
-    // if (input === "" && inputSuccess && lastUpdatedFieldsetId !== inputId) {
-    //   setFieldsetMessage(fieldsetMessageEmptyInputSuccessValue);
-    // };
-
-
-    // if (input === "" && !inputUpdatedBST && inputSuccess) {
-    if ((input === "" && !inputUpdatedBST && inputSuccess) || (input === "" && inputSuccess && lastUpdatedFieldsetId !== inputId)) {
-      // console.log("1");
+    if ((isEmptyInput && !isUpdatedBST && isInputSuccess) || (isEmptyInput && isInputSuccess && !isLastUpdatedFieldset)) {
       setFieldsetMessage(fieldsetMessageEmptyInputSuccessValue);
-    } else if (input === "" && !inputUpdatedBST && !inputSuccess) {
-      // console.log("2");
-
+    } else if (isEmptyInput && !isUpdatedBST && !isInputSuccess) {
       setFieldsetMessage(fieldsetMessageEmptyInputErrorValue);
-    } else if (input === "" && inputUpdatedBST) {
-      // setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue(prevInputState));
-      // console.log("3");
-      // below keeps on rerendering
-      // setFieldsetMessage(getFieldsetMessageUpdatedSuccessValue(inputOnClickHandlerSuccessful));
-      // const fieldsetMessageUpdatedSuccessValue = getFieldsetMessageUpdatedSuccessValue(inputOnClickHandlerSuccessful);
-
+    } else if (isEmptyInput && isUpdatedBST) {
       setFieldsetMessage(fieldsetMessageUpdatedSuccessValue);
-    } else if ((input !== "") && inputSuccess) {
-      // console.log("4");
-
+    } else if (!isEmptyInput && isInputSuccess) {
       setFieldsetMessage(fieldsetMessageReadyToUpdateValue);
-    } else if ((input !== "") && !inputSuccess && !getIsValidInputFormat(inputRegex, input)) {
-      // console.log("5");
-
+    } else if (!isEmptyInput && !isInputSuccess && !isValidInputFormat) {
       setFieldsetMessage(fieldsetMessageInputFormatErrorValue);
-    } else if ((input !== "") && !inputSuccess && getIsValidInputFormat(inputRegex, input) && !getIsValidInputValue(input)) {
-      // console.log("6");
-
+    } else if (!isEmptyInput && !isInputSuccess && isValidInputFormat && !isValidInputValue) {
       setFieldsetMessage(fieldsetMessageInputValueErrorValue);
     };
-  }, [fieldsetMessageEmptyInputErrorValue, fieldsetMessageEmptyInputSuccessValue, fieldsetMessageInputFormatErrorValue, fieldsetMessageInputValueErrorValue, fieldsetMessageReadyToUpdateValue, fieldsetMessageUpdatedSuccessValue, getIsValidInputFormat, getIsValidInputValue, input, inputId, inputRegex, inputSuccess, inputUpdatedBST, lastUpdatedFieldsetId, setFieldsetMessage]);
-
+  }, [fieldsetMessageEmptyInputErrorValue, fieldsetMessageEmptyInputSuccessValue, fieldsetMessageInputFormatErrorValue, fieldsetMessageInputValueErrorValue, fieldsetMessageReadyToUpdateValue, fieldsetMessageUpdatedSuccessValue, isEmptyInput, isInputSuccess, isLastUpdatedFieldset, isUpdatedBST, isValidInputFormat, isValidInputValue, setFieldsetMessage]);
 };

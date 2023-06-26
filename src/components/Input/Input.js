@@ -5,10 +5,11 @@ export const Input = ({
   inputId,
   inputName,
   inputOnChange,
-  inputRegex,
-  inputSuccess
+  isEmptyInput,
+  isInputSuccess,
+  regexPattern
 }) => {
   return (
-    <input pattern={inputRegex} className={`${styles["Input"]} ${(input === "" && (inputSuccess)) ? "" : inputSuccess ? styles["Input--success"] : styles["Input--error"]}`} id={inputId} name={inputName} type="text" value={input} onChange={inputOnChange} />
+    <input pattern={regexPattern} className={`${styles["Input"]} ${(isEmptyInput && isInputSuccess) ? "" : isInputSuccess ? styles["Input--success"] : styles["Input--error"]}`} id={inputId} name={inputName} type="text" value={input} onChange={inputOnChange} />
   );
 };

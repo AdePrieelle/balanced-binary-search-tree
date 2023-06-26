@@ -39,9 +39,9 @@ export const Form = ({ binarySearchTree, setBinarySearchTree }) => {
             //   }
             // }}
             // getFieldsetMessageUpdatedSuccessValue ={(prevInput => (value.getFieldsetMessageUpdatedSuccessValue(prevInput)))}
-            getFieldsetMessageUpdatedSuccessValue ={(input) => (value.getFieldsetMessageUpdatedSuccessValue(input))}
+            getFieldsetMessageUpdatedSuccessValue ={(inputOnClickHandlerSuccessful) => (value.getFieldsetMessageUpdatedSuccessValue(inputOnClickHandlerSuccessful))}
             inputName={value.inputName} 
-            inputRegex={new RegExp(value.inputRegex)}
+            regexPattern={new RegExp(value.regexPattern)}
             // implement getIsValidInputValue later
             // getIsValidInputValue={value.getIsValidInputValue} 
             getIsValidInputValue={(input) => value.getIsValidInputValue(input, binarySearchTree)} 

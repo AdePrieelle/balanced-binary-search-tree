@@ -9,8 +9,9 @@ export const InputInputIconContainer = ({
   inputId,
   inputName,
   inputOnChange,
-  inputRegex,
-  inputSuccess
+  isEmptyInput,
+  isInputSuccess,
+  regexPattern
 }) => {
   return (
     <div className={`${styles["InputInputIconContainer"]}`}>
@@ -20,14 +21,15 @@ export const InputInputIconContainer = ({
           inputId={inputId}
           inputName={inputName}
           inputOnChange={inputOnChange}
-          inputRegex={inputRegex}
-          inputSuccess={inputSuccess}
+          isEmptyInput={isEmptyInput}
+          isInputSuccess={isInputSuccess}
+          regexPattern={regexPattern}
         />
       </InputWrapper>
       <InputIconWrapper>
         <InputIcon 
-          input={input} 
-          inputSuccess={inputSuccess}
+          isEmptyInput={isEmptyInput} 
+          isInputSuccess={isInputSuccess}
         />
       </InputIconWrapper>
     </div>
