@@ -5,12 +5,12 @@ export const getFieldsetMessage = (
   fieldsetMessageInputValueErrorValue,
   fieldsetMessageReadyToUpdateValue,
   fieldsetMessageUpdatedSuccessValue,
-  inputSuccess,
-  inputUpdatedBST,
   isEmptyInput,
+  isInputSuccess,
   isLastUpdatedFieldset,
+  isUpdatedBST,
   isValidInputFormat,
-  isValidInputValue
+  isValidInputValue,
 ) => {
   if (
        typeof(fieldsetMessageEmptyInputErrorValue) !== "string"
@@ -19,27 +19,27 @@ export const getFieldsetMessage = (
     || typeof(fieldsetMessageInputValueErrorValue) !== "string"
     || typeof(fieldsetMessageReadyToUpdateValue) !== "string"
     || typeof(fieldsetMessageUpdatedSuccessValue) !== "object"
-    || typeof(inputSuccess) !== "boolean"
-    || typeof(inputUpdatedBST) !== "boolean"
     || typeof(isEmptyInput) !== "boolean"
+    || typeof(isInputSuccess) !== "boolean"
     || typeof(isLastUpdatedFieldset) !== "boolean"
+    || typeof(isUpdatedBST) !== "boolean"
     || typeof(isValidInputFormat) !== "boolean"
     || typeof(isValidInputValue) !== "boolean"
   ) {
     return ((<>&nbsp;</>));
   };
 
-  if ((isEmptyInput && !inputUpdatedBST && inputSuccess) || (isEmptyInput && inputSuccess && !isLastUpdatedFieldset)) {
+  if ((isEmptyInput && !isUpdatedBST && isInputSuccess) || (isEmptyInput && isInputSuccess && !isLastUpdatedFieldset)) {
     return (fieldsetMessageEmptyInputSuccessValue);
-  } else if (isEmptyInput && !inputUpdatedBST && !inputSuccess) {
+  } else if (isEmptyInput && !isUpdatedBST && !isInputSuccess) {
     return (fieldsetMessageEmptyInputErrorValue);
-  } else if (isEmptyInput && inputUpdatedBST) {
+  } else if (isEmptyInput && isUpdatedBST) {
     return (fieldsetMessageUpdatedSuccessValue);
-  } else if (!isEmptyInput && inputSuccess) {
+  } else if (!isEmptyInput && isInputSuccess) {
     return (fieldsetMessageReadyToUpdateValue);
-  } else if (!isEmptyInput && !inputSuccess && !isValidInputFormat) {
+  } else if (!isEmptyInput && !isInputSuccess && !isValidInputFormat) {
     return (fieldsetMessageInputFormatErrorValue);
-  } else if (!isEmptyInput && !inputSuccess && isValidInputFormat && !isValidInputValue) {
+  } else if (!isEmptyInput && !isInputSuccess && isValidInputFormat && !isValidInputValue) {
     return (fieldsetMessageInputValueErrorValue);
   };
   return (fieldsetMessageEmptyInputSuccessValue);
