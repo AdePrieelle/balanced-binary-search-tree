@@ -11,6 +11,7 @@ import { usePreviousState } from '../../hooks/usePreviousState.js';
 import styles from './Fieldset.module.scss';
 
 import { useUpdateFieldsetMessage } from '../../hooks/useUpdateFieldsetMessage.js';
+import { getFieldsetMessage } from '../../utils/getFieldsetMessage/getFieldsetMessage.js';
 
 export const Fieldset = ({ 
   buttonText,
@@ -86,6 +87,7 @@ export const Fieldset = ({
     fieldsetMessageInputValueErrorValue,
     fieldsetMessageReadyToUpdateValue,
     fieldsetMessageUpdatedSuccessValue,
+    getFieldsetMessage,
     isEmptyInput,
     isInputSuccess,
     isLastUpdatedFieldset,
