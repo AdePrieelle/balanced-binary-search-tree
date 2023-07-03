@@ -3,15 +3,12 @@ import { Button } from '../Button/Button.js';
 import { ButtonWrapper } from '../ButtonWrapper/ButtonWrapper.js';
 import { FieldsetMessage } from '../FieldsetMessage/FieldsetMessage.js';
 import { FieldsetMessageWrapper } from '../FieldsetMessageWrapper/FieldsetMessageWrapper.js';
+import { getFieldsetMessage } from '../../utils/getFieldsetMessage/getFieldsetMessage.js';
 import { InputInputIconContainer } from '../InputInputIconContainer/InputInputIconContainer.js';
 import { InputInputIconContainerWrapper } from '../InputInputIconContainerWrapper/InputInputIconContainerWrapper.js';
 import { Label } from '../Label/Label.js';
 import { LabelWrapper } from '../LabelWrapper/LabelWrapper.js';
-import { usePreviousState } from '../../hooks/usePreviousState.js';
 import styles from './Fieldset.module.scss';
-
-import { useUpdateFieldsetMessage } from '../../hooks/useUpdateFieldsetMessage.js';
-import { getFieldsetMessage } from '../../utils/getFieldsetMessage/getFieldsetMessage.js';
 
 export const Fieldset = ({ 
   buttonText,
@@ -30,7 +27,6 @@ export const Fieldset = ({
   setLastUpdatedFieldsetId
 }) => {
   const inputId = useId();
-  const [fieldsetMessage, setFieldsetMessage] = useState(fieldsetMessageEmptyInputSuccessValue);
   const [input, setInput] = useState("");
   const [inputOnClickHandlerSuccessful, setInputOnClickHandlerSuccessful] = useState("");
   const [inputButtonClicked, setInputButtonClicked] = useState(false);
@@ -80,21 +76,19 @@ export const Fieldset = ({
     };
   }, [inputButtonClicked, isEmptyInput, isUpdatedBST, isValidInputFormat, isValidInputValue]);
 
-  useUpdateFieldsetMessage(
+  const fieldsetMessage = getFieldsetMessage(
     fieldsetMessageEmptyInputErrorValue,
     fieldsetMessageEmptyInputSuccessValue,
     fieldsetMessageInputFormatErrorValue,
     fieldsetMessageInputValueErrorValue,
     fieldsetMessageReadyToUpdateValue,
     fieldsetMessageUpdatedSuccessValue,
-    getFieldsetMessage,
     isEmptyInput,
     isInputSuccess,
     isLastUpdatedFieldset,
     isUpdatedBST,
     isValidInputFormat,
     isValidInputValue,
-    setFieldsetMessage
   );
 
   return (
