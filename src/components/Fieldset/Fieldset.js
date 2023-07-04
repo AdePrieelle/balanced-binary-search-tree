@@ -4,6 +4,7 @@ import { ButtonWrapper } from '../ButtonWrapper/ButtonWrapper.js';
 import { FieldsetMessage } from '../FieldsetMessage/FieldsetMessage.js';
 import { FieldsetMessageWrapper } from '../FieldsetMessageWrapper/FieldsetMessageWrapper.js';
 import { getFieldsetMessage } from '../../utils/getFieldsetMessage/getFieldsetMessage.js';
+import { getIsInputSuccess } from '../../utils/getIsInputSuccess/getIsInputSuccess.js';
 import { InputInputIconContainer } from '../InputInputIconContainer/InputInputIconContainer.js';
 import { InputInputIconContainerWrapper } from '../InputInputIconContainerWrapper/InputInputIconContainerWrapper.js';
 import { Label } from '../Label/Label.js';
@@ -30,7 +31,6 @@ export const Fieldset = ({
   const [input, setInput] = useState("");
   const [inputOnClickHandlerSuccessful, setInputOnClickHandlerSuccessful] = useState("");
   const [inputButtonClicked, setInputButtonClicked] = useState(false);
-  const [isInputSuccess, setIsInputSuccess] = useState(false);
   const [isUpdatedBST, setIsUpdatedBST] = useState(false);
 
   const getIsValidInputFormat = (input, regexPattern) => {
@@ -43,8 +43,6 @@ export const Fieldset = ({
   const isValidInputFormat = useMemo(() => getIsValidInputFormat(input, regexPattern), [input, regexPattern]);
   const isValidInputValue = useMemo(() => getIsValidInputValue(input), [getIsValidInputValue, input]);
   
-  
-
   const inputOnChange = (e) => {
     setInput(e.target.value);
     setInputButtonClicked(false);
@@ -65,16 +63,13 @@ export const Fieldset = ({
     };
   };
 
-  useEffect(() => {
-    if (
-         ((isEmptyInput) && (!inputButtonClicked || isUpdatedBST)) 
-      || (!isEmptyInput && isValidInputFormat && isValidInputValue)
-    ) {
-      setIsInputSuccess(true);
-    } else {
-      setIsInputSuccess(false);
-    };
-  }, [inputButtonClicked, isEmptyInput, isUpdatedBST, isValidInputFormat, isValidInputValue]);
+  const isInputSuccess = getIsInputSuccess(
+    inputButtonClicked,
+    isEmptyInput,
+    isUpdatedBST,
+    isValidInputFormat,
+    isValidInputValue
+  );
 
   const fieldsetMessage = getFieldsetMessage(
     fieldsetMessageEmptyInputErrorValue,
