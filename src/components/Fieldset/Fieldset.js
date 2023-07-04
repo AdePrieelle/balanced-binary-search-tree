@@ -29,6 +29,7 @@ export const Fieldset = ({
   setLastUpdatedFieldsetId
 }) => {
   const inputId = useId();
+
   const [input, setInput] = useState("");
   const [inputOnClickHandlerSuccessful, setInputOnClickHandlerSuccessful] = useState("");
   const [inputButtonClicked, setInputButtonClicked] = useState(false);
@@ -39,7 +40,28 @@ export const Fieldset = ({
   const fieldsetMessageUpdatedSuccessValue = useMemo(() => getFieldsetMessageUpdatedSuccessValue(inputOnClickHandlerSuccessful), [getFieldsetMessageUpdatedSuccessValue, inputOnClickHandlerSuccessful]);
   const isValidInputFormat = useMemo(() => getIsValidInputFormat(input, regex), [input, regex]);
   const isValidInputValue = useMemo(() => getIsValidInputValue(input), [getIsValidInputValue, input]);
-  
+  const isInputSuccess = getIsInputSuccess(
+    inputButtonClicked,
+    isEmptyInput,
+    isUpdatedBST,
+    isValidInputFormat,
+    isValidInputValue
+  );
+  const fieldsetMessage = getFieldsetMessage(
+    fieldsetMessageEmptyInputErrorValue,
+    fieldsetMessageEmptyInputSuccessValue,
+    fieldsetMessageInputFormatErrorValue,
+    fieldsetMessageInputValueErrorValue,
+    fieldsetMessageReadyToUpdateValue,
+    fieldsetMessageUpdatedSuccessValue,
+    isEmptyInput,
+    isInputSuccess,
+    isLastUpdatedFieldset,
+    isUpdatedBST,
+    isValidInputFormat,
+    isValidInputValue,
+  );
+
   const inputOnChange = (e) => {
     setInput(e.target.value);
     setInputButtonClicked(false);
@@ -56,32 +78,8 @@ export const Fieldset = ({
       setInput("");
       setIsUpdatedBST(true);
       setLastUpdatedFieldsetId(inputId);
-
     };
   };
-
-  const isInputSuccess = getIsInputSuccess(
-    inputButtonClicked,
-    isEmptyInput,
-    isUpdatedBST,
-    isValidInputFormat,
-    isValidInputValue
-  );
-
-  const fieldsetMessage = getFieldsetMessage(
-    fieldsetMessageEmptyInputErrorValue,
-    fieldsetMessageEmptyInputSuccessValue,
-    fieldsetMessageInputFormatErrorValue,
-    fieldsetMessageInputValueErrorValue,
-    fieldsetMessageReadyToUpdateValue,
-    fieldsetMessageUpdatedSuccessValue,
-    isEmptyInput,
-    isInputSuccess,
-    isLastUpdatedFieldset,
-    isUpdatedBST,
-    isValidInputFormat,
-    isValidInputValue,
-  );
 
   return (
     <fieldset className={`${styles["Fieldset"]}`}>
