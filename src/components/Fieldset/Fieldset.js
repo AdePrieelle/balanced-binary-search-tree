@@ -1,10 +1,11 @@
-import { useEffect, useId, useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
 import { Button } from '../Button/Button.js';
 import { ButtonWrapper } from '../ButtonWrapper/ButtonWrapper.js';
 import { FieldsetMessage } from '../FieldsetMessage/FieldsetMessage.js';
 import { FieldsetMessageWrapper } from '../FieldsetMessageWrapper/FieldsetMessageWrapper.js';
 import { getFieldsetMessage } from '../../utils/getFieldsetMessage/getFieldsetMessage.js';
 import { getIsInputSuccess } from '../../utils/getIsInputSuccess/getIsInputSuccess.js';
+import { getIsValidInputFormat } from '../../utils/getIsValidInputFormat/getIsValidInputFormat.js';
 import { InputInputIconContainer } from '../InputInputIconContainer/InputInputIconContainer.js';
 import { InputInputIconContainerWrapper } from '../InputInputIconContainerWrapper/InputInputIconContainerWrapper.js';
 import { Label } from '../Label/Label.js';
@@ -24,7 +25,7 @@ export const Fieldset = ({
   labelText,
   lastUpdatedFieldsetId,
   onClickHandlerSuccessful,
-  regexPattern,
+  regex,
   setLastUpdatedFieldsetId
 }) => {
   const inputId = useId();
@@ -33,14 +34,10 @@ export const Fieldset = ({
   const [inputButtonClicked, setInputButtonClicked] = useState(false);
   const [isUpdatedBST, setIsUpdatedBST] = useState(false);
 
-  const getIsValidInputFormat = (input, regexPattern) => {
-    return (regexPattern.test(input));
-  };
-
   const isEmptyInput = (input === "");
   const isLastUpdatedFieldset = (lastUpdatedFieldsetId === inputId);
   const fieldsetMessageUpdatedSuccessValue = useMemo(() => getFieldsetMessageUpdatedSuccessValue(inputOnClickHandlerSuccessful), [getFieldsetMessageUpdatedSuccessValue, inputOnClickHandlerSuccessful]);
-  const isValidInputFormat = useMemo(() => getIsValidInputFormat(input, regexPattern), [input, regexPattern]);
+  const isValidInputFormat = useMemo(() => getIsValidInputFormat(input, regex), [input, regex]);
   const isValidInputValue = useMemo(() => getIsValidInputValue(input), [getIsValidInputValue, input]);
   
   const inputOnChange = (e) => {
@@ -99,7 +96,7 @@ export const Fieldset = ({
           inputId={inputId}
           inputName={inputName}
           inputOnChange={inputOnChange}
-          regexPattern={regexPattern}
+          regex={regex}
           isEmptyInput={isEmptyInput}
           isInputSuccess={isInputSuccess}
         />

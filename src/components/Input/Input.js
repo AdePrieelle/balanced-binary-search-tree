@@ -7,9 +7,9 @@ export const Input = ({
   inputOnChange,
   isEmptyInput,
   isInputSuccess,
-  regexPattern
+  regex
 }) => {
   return (
-    <input pattern={regexPattern} className={`${styles["Input"]} ${(isEmptyInput && isInputSuccess) ? "" : isInputSuccess ? styles["Input--success"] : styles["Input--error"]}`} id={inputId} name={inputName} type="text" value={input} onChange={inputOnChange} />
+    <input pattern={regex} className={`${styles["Input"]} ${(isEmptyInput && isInputSuccess) ? "" : isInputSuccess ? styles["Input--success"] : styles["Input--error"]}`} id={inputId} name={inputName} type="text" value={input} onChange={inputOnChange} />
   );
 };
