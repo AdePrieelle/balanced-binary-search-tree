@@ -7,7 +7,6 @@ describe("Testing the function getIsInputSuccess", () => {
     });
   });
 
-
   describe("Testing the return values of function getIsInputSuccess", () => {
     test("The return value of function getIsInputSuccess is correct if the function is called without an argument", () => {
       expect(getIsInputSuccess()).toBe(false);
