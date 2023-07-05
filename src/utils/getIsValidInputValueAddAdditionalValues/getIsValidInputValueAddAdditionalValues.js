@@ -6,7 +6,8 @@ export const getIsValidInputValueAddAdditionalValues = (
   delimiter, 
   getArrayFromString, 
   getArrayWithStringNumbersConvertedToNumbersFromArray,
-  getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
+  getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree,
+  isValidInputFormat
 ) => {
   if (
          typeof(input) !== "string" 
@@ -17,9 +18,14 @@ export const getIsValidInputValueAddAdditionalValues = (
       || typeof(getArrayFromString) !== "function" 
       || typeof(getArrayWithStringNumbersConvertedToNumbersFromArray) !== "function" 
       || typeof(getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree) !== "function" 
+      || typeof(isValidInputFormat) !== "boolean" 
   ) {
-    return false;
+    return (false);
   };
+
+  if (!isValidInputFormat) {
+    return (false);
+  }
 
   const copyBinarySearchTree = cloneObject(binarySearchTree);
   const arrayWithStringNumbersConvertedToNumbersFromString = getArrayWithStringNumbersConvertedToNumbersFromString(input, delimiter, getArrayFromString, getArrayWithStringNumbersConvertedToNumbersFromArray);

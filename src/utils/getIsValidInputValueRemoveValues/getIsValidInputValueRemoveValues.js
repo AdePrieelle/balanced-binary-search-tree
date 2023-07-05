@@ -6,7 +6,8 @@ export const getIsValidInputValueRemoveValues = (
   delimiter, 
   getArrayFromString, 
   getArrayWithStringNumbersConvertedToNumbersFromArray,
-  getIsArrayOnlyWithValuesThatExistInBinarySearchTree
+  getIsArrayOnlyWithValuesThatExistInBinarySearchTree,
+  isValidInputFormat
 ) => {
   if (
          typeof(input) !== "string" 
@@ -17,8 +18,13 @@ export const getIsValidInputValueRemoveValues = (
       || typeof(getArrayFromString) !== "function" 
       || typeof(getArrayWithStringNumbersConvertedToNumbersFromArray) !== "function" 
       || typeof(getIsArrayOnlyWithValuesThatExistInBinarySearchTree) !== "function" 
+      || typeof(isValidInputFormat) !== "boolean" 
   ) {
     return false;
+  };
+
+  if (!isValidInputFormat) {
+    return (false);
   };
 
   const copyBinarySearchTree = cloneObject(binarySearchTree);

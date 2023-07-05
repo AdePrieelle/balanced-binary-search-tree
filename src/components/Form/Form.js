@@ -44,7 +44,7 @@ export const Form = ({ binarySearchTree, setBinarySearchTree }) => {
             regex={new RegExp(value.regexPattern)}
             // implement getIsValidInputValue later
             // getIsValidInputValue={value.getIsValidInputValue} 
-            getIsValidInputValue={(input) => value.getIsValidInputValue(input, binarySearchTree)} 
+            getIsValidInputValue={(input, isValidInputFormat) => value.getIsValidInputValue(input, binarySearchTree, isValidInputFormat)} 
             labelText={value.labelText} 
             // implement onClickHandlerSuccessful later
             // onClickHandlerSuccessful={(input) => value.onClickHandlerSuccessful(input, binarySearchTree, setBinarySearchTree)} 

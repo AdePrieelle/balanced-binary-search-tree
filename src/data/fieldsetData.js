@@ -73,7 +73,7 @@ export const fieldsetData = () => {
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Add-value(s)",
           regexPattern: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
-          getIsValidInputValue: (input, binarySearchTree) => {
+          getIsValidInputValue: (input, binarySearchTree, isValidInputFormat) => {
             return (
               getIsValidInputValueAddAdditionalValues(
                 input, 
@@ -83,7 +83,8 @@ export const fieldsetData = () => {
                 ", ", 
                 getArrayFromString, 
                 getArrayWithStringNumbersConvertedToNumbersFromArray,
-                getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree
+                getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree,
+                isValidInputFormat
               )
             );
           },
@@ -119,7 +120,7 @@ export const fieldsetData = () => {
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Remove-value(s)",
           regexPattern: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
-          getIsValidInputValue: (input, binarySearchTree) => {
+          getIsValidInputValue: (input, binarySearchTree, isValidInputFormat) => {
             return (
               getIsValidInputValueRemoveValues(
                 input, 
@@ -129,7 +130,8 @@ export const fieldsetData = () => {
                 ", ", 
                 getArrayFromString, 
                 getArrayWithStringNumbersConvertedToNumbersFromArray,
-                getIsArrayOnlyWithValuesThatExistInBinarySearchTree
+                getIsArrayOnlyWithValuesThatExistInBinarySearchTree,
+                isValidInputFormat
               )
             );
           },
@@ -165,19 +167,20 @@ export const fieldsetData = () => {
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Height-value",
           regexPattern: "^(-?\\d+(\\.\\d+)?)$",
-          getIsValidInputValue: (input, binarySearchTree) => {
+          getIsValidInputValue: (input, binarySearchTree, isValidInputFormat) => {
             return (
               getIsValidInputValueFindHeight(
                 input, 
                 binarySearchTree,
-                cloneObject
+                cloneObject,
+                isValidInputFormat
               )
             );
           },
           labelText: "Find the height of a value in the BST",
           // implement onClickHandlerSuccessful later
           onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
-            
+            return (null);
           }
         },
         "fieldset5": {
@@ -201,7 +204,7 @@ export const fieldsetData = () => {
           labelText: "Find the depth of a value in the BST",
           // implement onClickHandlerSuccessful later
           onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
-            
+            return (null);
           }
         }
       }

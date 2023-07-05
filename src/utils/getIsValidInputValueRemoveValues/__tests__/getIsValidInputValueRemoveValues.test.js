@@ -2,207 +2,48 @@ import { getIsValidInputValueRemoveValues } from "../getIsValidInputValueRemoveV
 
 describe("Testing the function getIsValidInputValueRemoveValues", () => {
   describe("Testing the type of function getIsValidInputValueRemoveValues", () => {
-    test("The type of function getIsValidInputValueRemoveValues is a function", () => {
+    test("The type of function getIsValidInputValueRemoveValues is correct", () => {
       expect(typeof getIsValidInputValueRemoveValues).toBe("function");
     });
   });
 
-  describe("Testing the return type of function getIsValidInputValueRemoveValues", () => {
-    test("The return type of function getIsValidInputValueRemoveValues is a boolean if the method is called without an argument", () => {
-      expect(typeof(getIsValidInputValueRemoveValues())).toBe("boolean");
-    });
-
-    test("The return type of function getIsValidInputValueRemoveValues is a boolean if the method is called with arguments of the wrong type", () => {
-      expect(typeof(getIsValidInputValueRemoveValues(1, 2, 3, 4, 5, 6, 7, 8))).toBe("boolean");
-    });
-    
-    test("The return type of function getIsValidInputValueRemoveValues is a boolean if the method is called with arguments of the right type, with an argument for the first parameter that is of type string and with one element that isn't in the binarySearchTree, with an argument for the second parameter that is of type object, with an argument for the third parameter that is of type function, with an argument for the fourth parameter that is of type function, with an argument for the fifth parameter that is of type string, with an argument for the sixth parameter that is of type function, with an argument for the seventh parameter that is of type function, with an argument for the eighth parameter that is of type function", () => {
-      const mockInput = jest.fn(() => ("10"));
-      const mockBinarySearchTree = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
-        find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
-      }));
-      const mockCloneObject = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
-        find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
-      }));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([10]));
-      const mockDelimiter = jest.fn(() => (", "));
-      const mockGetArrayFromString = jest.fn(() => (["10"]));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([10]));
-      const mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree = jest.fn(() => false);
-      expect(typeof(getIsValidInputValueRemoveValues(
-        mockInput(), 
-        mockBinarySearchTree(), 
-        mockCloneObject, 
-        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
-        mockDelimiter(), 
-        mockGetArrayFromString,
-        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
-        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree
-      ))).toBe("boolean");
-    });
-
-    test("The return type of function getIsValidInputValueRemoveValues is a boolean if the method is called with arguments of the right type, with an argument for the first parameter that is of type string and with one element that is in the binarySearchTree, with an argument for the second parameter that is of type object, with an argument for the third parameter that is of type function, with an argument for the fourth parameter that is of type function, with an argument for the fifth parameter that is of type string, with an argument for the sixth parameter that is of type function, with an argument for the seventh parameter that is of type function, with an argument for the eighth parameter that is of type function", () => {
-      const mockInput = jest.fn(() => ("-3.5"));
-      const mockBinarySearchTree = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
-        find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
-      }));
-      const mockCloneObject = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
-        find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
-      }));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([-3.5]));
-      const mockDelimiter = jest.fn(() => (", "));
-      const mockGetArrayFromString = jest.fn(() => (["-3.5"]));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([-3.5]));
-      const mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree = jest.fn(() => true);
-      expect(typeof(getIsValidInputValueRemoveValues(
-        mockInput(), 
-        mockBinarySearchTree(), 
-        mockCloneObject, 
-        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
-        mockDelimiter(), 
-        mockGetArrayFromString,
-        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
-        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree
-      ))).toBe("boolean");
-    });
-
-    test("The return type of function getIsValidInputValueRemoveValues is a boolean if the method is called with arguments of the right type, with an argument for the first parameter that is of type string with multiple elements of which at least one isn't in the binarSearchTree, with an argument for the second parameter that is of type object, with an argument for the third parameter that is of type function, with an argument for the fourth parameter that is of type function, with an argument for the fifth parameter that is of type string, with an argument for the sixth parameter that is of type function, with an argument for the seventh parameter that is of type function, with an argument for the eighth parameter that is of type function", () => {
-      const mockInput = jest.fn(() => ("2.0, -3.5, 10"));
-      const mockBinarySearchTree = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null }})), 
-        find: (() => null)
-      }));
-      const mockCloneObject = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null }})), 
-        find: (() => null)
-      }));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([2.0, -3.5, 10]));
-      const mockDelimiter = jest.fn(() => (", "));
-      const mockGetArrayFromString = jest.fn(() => (["2.0", "-3.5", "10"]));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([2.0, -3.5, 10]));
-      const mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree = jest.fn(() => false);
-      expect(typeof(getIsValidInputValueRemoveValues(
-        mockInput(), 
-        mockBinarySearchTree(), 
-        mockCloneObject, 
-        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
-        mockDelimiter(), 
-        mockGetArrayFromString,
-        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
-        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree
-      ))).toBe("boolean");
-    });
-
-    test("The return type of function getIsValidInputValueRemoveValues is a boolean if the method is called with arguments of the right type, with an argument for the first parameter that is of type string with multiple elements which are all in the binarSearchTree, with an argument for the second parameter that is of type object, with an argument for the third parameter that is of type function, with an argument for the fourth parameter that is of type function, with an argument for the fifth parameter that is of type string, with an argument for the sixth parameter that is of type function, with an argument for the seventh parameter that is of type function, with an argument for the eighth parameter that is of type function", () => {
-      const mockInput = jest.fn(() => ("2.0, -3.5"));
-      const mockBinarySearchTree = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null }})), 
-        find: (() => null)
-      }));
-      const mockCloneObject = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null }})), 
-        find: (() => null)
-      }));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([2.0, -3.5]));
-      const mockDelimiter = jest.fn(() => (", "));
-      const mockGetArrayFromString = jest.fn(() => (["2.0", "-3.5"]));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([2.0, -3.5]));
-      const mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree = jest.fn(() => true);
-      expect(typeof(getIsValidInputValueRemoveValues(
-        mockInput(), 
-        mockBinarySearchTree(), 
-        mockCloneObject, 
-        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
-        mockDelimiter(), 
-        mockGetArrayFromString,
-        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
-        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree
-      ))).toBe("boolean");
-    });
-  });
-
   describe("Testing the return values of function getIsValidInputValueRemoveValues", () => {
-    test("The function getIsValidInputValueRemoveValues works correctly if the method is called without an argument", () => {
+    test("The return value of function getIsValidInputValueRemoveValues is correct if the function is called without an argument", () => {
       expect(getIsValidInputValueRemoveValues()).toBe(false);
     });
 
-    test("The function getIsValidInputValueRemoveValues works correctly if the method is called with arguments of the wrong type", () => {
-      expect(getIsValidInputValueRemoveValues(1, 2, 3, 4, 5, 6, 7, 8)).toBe(false);
-    });
-    
-    test("The function getIsValidInputValueRemoveValues works correctly if the method is called with arguments of the right type, with an argument for the first parameter that is of type string and with one element that isn't in the binarySearchTree, with an argument for the second parameter that is of type object, with an argument for the third parameter that is of type function, with an argument for the fourth parameter that is of type function, with an argument for the fifth parameter that is of type string, with an argument for the sixth parameter that is of type function, with an argument for the seventh parameter that is of type function, with an argument for the eighth parameter that is of type function", () => {
-      const mockInput = jest.fn(() => ("10"));
-      const mockBinarySearchTree = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
-        find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
-      }));
-      const mockCloneObject = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
-        find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
-      }));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([10]));
-      const mockDelimiter = jest.fn(() => (", "));
-      const mockGetArrayFromString = jest.fn(() => (["10"]));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([10]));
-      const mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree = jest.fn(() => false);
-      expect(getIsValidInputValueRemoveValues(
-        mockInput(), 
-        mockBinarySearchTree(), 
-        mockCloneObject, 
-        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
-        mockDelimiter(), 
-        mockGetArrayFromString,
-        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
-        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree
-      )).toBe(false);
+    test("The return value of function getIsValidInputValueRemoveValues is correct if the function is called with arguments of the wrong type", () => {
+      expect(getIsValidInputValueRemoveValues(1, 2, 3, 4, 5, 6, 7, 8, 9)).toBe(false);
     });
 
-    test("The function getIsValidInputValueRemoveValues works correctly if the method is called with arguments of the right type, with an argument for the first parameter that is of type string and with one element that is in the binarySearchTree, with an argument for the second parameter that is of type object, with an argument for the third parameter that is of type function, with an argument for the fourth parameter that is of type function, with an argument for the fifth parameter that is of type string, with an argument for the sixth parameter that is of type function, with an argument for the seventh parameter that is of type function, with an argument for the eighth parameter that is of type function", () => {
-      const mockInput = jest.fn(() => ("-3.5"));
-      const mockBinarySearchTree = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
-        find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
-      }));
-      const mockCloneObject = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } })), 
-        find: ((node) => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }))
-      }));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([-3.5]));
-      const mockDelimiter = jest.fn(() => (", "));
-      const mockGetArrayFromString = jest.fn(() => (["-3.5"]));
-      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([-3.5]));
-      const mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree = jest.fn(() => true);
-      expect(getIsValidInputValueRemoveValues(
-        mockInput(), 
-        mockBinarySearchTree(), 
-        mockCloneObject, 
-        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
-        mockDelimiter(), 
-        mockGetArrayFromString,
-        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
-        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree
-      )).toBe(true);
-    });
-
-    test("The function getIsValidInputValueRemoveValues works correctly if the method is called with arguments of the right type, with an argument for the first parameter that is of type string with multiple elements of which at least one isn't in the binarSearchTree, with an argument for the second parameter that is of type object, with an argument for the third parameter that is of type function, with an argument for the fourth parameter that is of type function, with an argument for the fifth parameter that is of type string, with an argument for the sixth parameter that is of type function, with an argument for the seventh parameter that is of type function, with an argument for the eighth parameter that is of type function", () => {
+    test("The return value of function getIsValidInputValueRemoveValues is correct if the function is called with arguments of the right type, 1st of type string, 2nd of type object, 3rd of type function, 4th of type function, 5th of type string, 6th of type function, 7th of type function, 8th of type function that returns false and 9th of type boolean that is false", () => {
       const mockInput = jest.fn(() => ("2.0, -3.5, 10"));
+      const mockBinarySearchTreeGetRootNodeMethod = jest.fn(() => (
+        { data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }
+      ));
+      const mockBinarySearchTreeFindMethod = jest.fn(() => (
+        null
+      ));
       const mockBinarySearchTree = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null }})), 
-        find: (() => null)
+        getRootNode: (mockBinarySearchTreeGetRootNodeMethod), 
+        find: (mockBinarySearchTreeFindMethod)
       }));
+      const mockCloneObjectGetRootNodeMethod = jest.fn(() => (
+        { data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }
+      ));
+      const mockCloneObjectFindMethod = jest.fn(() => (
+        null
+      ));
       const mockCloneObject = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null }})), 
-        find: (() => null)
+        getRootNode: (mockCloneObjectGetRootNodeMethod), 
+        find: (mockCloneObjectFindMethod)
       }));
       const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([2.0, -3.5, 10]));
       const mockDelimiter = jest.fn(() => (", "));
       const mockGetArrayFromString = jest.fn(() => (["2.0", "-3.5", "10"]));
       const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([2.0, -3.5, 10]));
       const mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree = jest.fn(() => false);
+      const mockIsValidInputFormat = jest.fn(() => (false));
       expect(getIsValidInputValueRemoveValues(
         mockInput(), 
         mockBinarySearchTree(), 
@@ -211,25 +52,93 @@ describe("Testing the function getIsValidInputValueRemoveValues", () => {
         mockDelimiter(), 
         mockGetArrayFromString,
         mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
-        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree
+        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree,
+        mockIsValidInputFormat()
       )).toBe(false);
+      expect(mockCloneObject.mock.calls).toHaveLength(0);
+      expect(mockGetArrayWithStringNumbersConvertedToNumbersFromString.mock.calls).toHaveLength(0);
+      expect(mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree.mock.calls).toHaveLength(0);
     });
 
-    test("The function getIsValidInputValueRemoveValues works correctly if the method is called with arguments of the right type, with an argument for the first parameter that is of type string with multiple elements which are all in the binarSearchTree, with an argument for the second parameter that is of type object, with an argument for the third parameter that is of type function, with an argument for the fourth parameter that is of type function, with an argument for the fifth parameter that is of type string, with an argument for the sixth parameter that is of type function, with an argument for the seventh parameter that is of type function, with an argument for the eighth parameter that is of type function", () => {
-      const mockInput = jest.fn(() => ("2.0, -3.5"));
+    test("The return value of function getIsValidInputValueRemoveValues is correct if the function is called with arguments of the right type, 1st of type string, 2nd of type object, 3rd of type function, 4th of type function, 5th of type string, 6th of type function, 7th of type function, 8th of type function that returns false and 9th of type boolean that is true", () => {
+      const mockInput = jest.fn(() => ("2.0, -3.5, 10"));
+      const mockBinarySearchTreeGetRootNodeMethod = jest.fn(() => (
+        { data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }
+      ));
+      const mockBinarySearchTreeFindMethod = jest.fn(() => (
+        null
+      ));
       const mockBinarySearchTree = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null }})), 
-        find: (() => null)
+        getRootNode: (mockBinarySearchTreeGetRootNodeMethod), 
+        find: (mockBinarySearchTreeFindMethod)
       }));
+      const mockCloneObjectGetRootNodeMethod = jest.fn(() => (
+        { data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }
+      ));
+      const mockCloneObjectFindMethod = jest.fn(() => (
+        null
+      ));
       const mockCloneObject = jest.fn(() => ({ 
-        getRootNode: (() => ({ data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null }})), 
-        find: (() => null)
+        getRootNode: (mockCloneObjectGetRootNodeMethod), 
+        find: (mockCloneObjectFindMethod)
+      }));
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([2.0, -3.5, 10]));
+      const mockDelimiter = jest.fn(() => (", "));
+      const mockGetArrayFromString = jest.fn(() => (["2.0", "-3.5", "10"]));
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([2.0, -3.5, 10]));
+      const mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree = jest.fn(() => false);
+      const mockIsValidInputFormat = jest.fn(() => (true));
+      expect(getIsValidInputValueRemoveValues(
+        mockInput(), 
+        mockBinarySearchTree(), 
+        mockCloneObject, 
+        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
+        mockDelimiter(), 
+        mockGetArrayFromString,
+        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
+        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree,
+        mockIsValidInputFormat()
+      )).toBe(false);
+      expect(mockCloneObject.mock.calls).toHaveLength(1);
+      expect(mockCloneObject.mock.calls[0][0]).toStrictEqual(mockBinarySearchTree());
+      expect(mockCloneObject.mock.results[0].value).toStrictEqual(mockCloneObject());
+      expect(mockGetArrayWithStringNumbersConvertedToNumbersFromString.mock.calls).toHaveLength(1);
+      expect(mockGetArrayWithStringNumbersConvertedToNumbersFromString.mock.calls[0][0]).toStrictEqual(mockInput(), mockDelimiter(), mockGetArrayFromString, mockGetArrayWithStringNumbersConvertedToNumbersFromArray);
+      expect(mockGetArrayWithStringNumbersConvertedToNumbersFromString.mock.results[0].value).toStrictEqual(mockGetArrayWithStringNumbersConvertedToNumbersFromString());
+      expect(mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree.mock.calls).toHaveLength(1);
+      expect(mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree.mock.calls[0][0]).toStrictEqual(mockGetArrayWithStringNumbersConvertedToNumbersFromString(), mockCloneObject(), mockCloneObject);
+      expect(mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree.mock.results[0].value).toStrictEqual(mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree());
+    
+    });
+
+    test("The return value of function getIsValidInputValueRemoveValues is correct if the function is called with arguments of the right type, 1st of type string, 2nd of type object, 3rd of type function, 4th of type function, 5th of type string, 6th of type function, 7th of type function, 8th of type function that returns true and 9th of type boolean that is false", () => {
+      const mockInput = jest.fn(() => ("2.0, -3.5"));
+      const mockBinarySearchTreeGetRootNodeMethod = jest.fn(() => (
+        { data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }
+      ));
+      const mockBinarySearchTreeFindMethod = jest.fn(() => (
+        null
+      ))
+      const mockBinarySearchTree = jest.fn(() => ({ 
+        getRootNode: (mockBinarySearchTreeGetRootNodeMethod), 
+        find: (mockBinarySearchTreeFindMethod)
+      }));
+      const mockCloneObjectGetRootNodeMethod = jest.fn(() => (
+        { data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }
+      ));
+      const mockCloneObjectFindMethod = jest.fn(() => (
+        null
+      ));
+      const mockCloneObject = jest.fn(() => ({ 
+        getRootNode: (mockCloneObjectGetRootNodeMethod), 
+        find: (mockCloneObjectFindMethod)
       }));
       const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([2.0, -3.5]));
       const mockDelimiter = jest.fn(() => (", "));
       const mockGetArrayFromString = jest.fn(() => (["2.0", "-3.5"]));
       const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([2.0, -3.5]));
       const mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree = jest.fn(() => true);
+      const mockIsValidInputFormat = jest.fn(() => (false));
       expect(getIsValidInputValueRemoveValues(
         mockInput(), 
         mockBinarySearchTree(), 
@@ -238,8 +147,62 @@ describe("Testing the function getIsValidInputValueRemoveValues", () => {
         mockDelimiter(), 
         mockGetArrayFromString,
         mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
-        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree
+        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree,
+        mockIsValidInputFormat()
+      )).toBe(false);
+      expect(mockCloneObject.mock.calls).toHaveLength(0);
+      expect(mockGetArrayWithStringNumbersConvertedToNumbersFromString.mock.calls).toHaveLength(0);
+      expect(mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree.mock.calls).toHaveLength(0);
+    });
+
+    test("The return value of function getIsValidInputValueRemoveValues is correct if the function is called with arguments of the right type, 1st of type string, 2nd of type object, 3rd of type function, 4th of type function, 5th of type string, 6th of type function, 7th of type function, 8th of type function that returns true and 9th of type boolean that is true", () => {
+      const mockInput = jest.fn(() => ("2.0, -3.5"));
+      const mockBinarySearchTreeGetRootNodeMethod = jest.fn(() => (
+        { data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }
+      ));
+      const mockBinarySearchTreeFindMethod = jest.fn(() => (
+        null
+      ))
+      const mockBinarySearchTree = jest.fn(() => ({ 
+        getRootNode: (mockBinarySearchTreeGetRootNodeMethod), 
+        find: (mockBinarySearchTreeFindMethod)
+      }));
+      const mockCloneObjectGetRootNodeMethod = jest.fn(() => (
+        { data: 2.0, left: { data: -3.5, left: null, right: null }, right: { data: 4.5, left: null, right: null } }
+      ));
+      const mockCloneObjectFindMethod = jest.fn(() => (
+        null
+      ));
+      const mockCloneObject = jest.fn(() => ({ 
+        getRootNode: (mockCloneObjectGetRootNodeMethod), 
+        find: (mockCloneObjectFindMethod)
+      }));
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromString = jest.fn(() => ([2.0, -3.5]));
+      const mockDelimiter = jest.fn(() => (", "));
+      const mockGetArrayFromString = jest.fn(() => (["2.0", "-3.5"]));
+      const mockGetArrayWithStringNumbersConvertedToNumbersFromArray = jest.fn(() => ([2.0, -3.5]));
+      const mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree = jest.fn(() => true);
+      const mockIsValidInputFormat = jest.fn(() => (true));
+      expect(getIsValidInputValueRemoveValues(
+        mockInput(), 
+        mockBinarySearchTree(), 
+        mockCloneObject, 
+        mockGetArrayWithStringNumbersConvertedToNumbersFromString, 
+        mockDelimiter(), 
+        mockGetArrayFromString,
+        mockGetArrayWithStringNumbersConvertedToNumbersFromArray,
+        mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree,
+        mockIsValidInputFormat()
       )).toBe(true);
+      expect(mockCloneObject.mock.calls).toHaveLength(1);
+      expect(mockCloneObject.mock.calls[0][0]).toStrictEqual(mockBinarySearchTree());
+      expect(mockCloneObject.mock.results[0].value).toStrictEqual(mockCloneObject());
+      expect(mockGetArrayWithStringNumbersConvertedToNumbersFromString.mock.calls).toHaveLength(1);
+      expect(mockGetArrayWithStringNumbersConvertedToNumbersFromString.mock.calls[0][0]).toStrictEqual(mockInput(), mockDelimiter(), mockGetArrayFromString, mockGetArrayWithStringNumbersConvertedToNumbersFromArray);
+      expect(mockGetArrayWithStringNumbersConvertedToNumbersFromString.mock.results[0].value).toStrictEqual(mockGetArrayWithStringNumbersConvertedToNumbersFromString());
+      expect(mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree.mock.calls).toHaveLength(1);
+      expect(mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree.mock.calls[0][0]).toStrictEqual(mockGetArrayWithStringNumbersConvertedToNumbersFromString(), mockCloneObject(), mockCloneObject);
+      expect(mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree.mock.results[0].value).toStrictEqual(mockGetIsArrayOnlyWithValuesThatExistInBinarySearchTree());
     });
   });
 });

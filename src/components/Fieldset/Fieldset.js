@@ -39,7 +39,7 @@ export const Fieldset = ({
   const isLastUpdatedFieldset = (lastUpdatedFieldsetId === inputId);
   const fieldsetMessageUpdatedSuccessValue = useMemo(() => getFieldsetMessageUpdatedSuccessValue(inputOnClickHandlerSuccessful), [getFieldsetMessageUpdatedSuccessValue, inputOnClickHandlerSuccessful]);
   const isValidInputFormat = useMemo(() => getIsValidInputFormat(input, regex), [input, regex]);
-  const isValidInputValue = useMemo(() => getIsValidInputValue(input), [getIsValidInputValue, input]);
+  const isValidInputValue = useMemo(() => getIsValidInputValue(input, isValidInputFormat), [getIsValidInputValue, input, isValidInputFormat]);
   const isInputSuccess = getIsInputSuccess(
     inputButtonClicked,
     isEmptyInput,

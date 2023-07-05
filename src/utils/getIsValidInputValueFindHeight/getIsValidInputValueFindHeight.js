@@ -1,14 +1,20 @@
 export const getIsValidInputValueFindHeight = (
   input,
   binarySearchTree,
-  cloneObject
+  cloneObject,
+  isValidInputFormat
 ) => {
   if (
        typeof(input) !== "string"
     || typeof(binarySearchTree) !== "object"
     || typeof(cloneObject) !== "function" 
+    || typeof(isValidInputFormat) !== "boolean" 
   ) {
     return false;
+  };
+
+  if (!isValidInputFormat) {
+    return (false);
   };
 
   const copyBinarySearchTree = cloneObject(binarySearchTree);
