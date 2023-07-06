@@ -11,6 +11,8 @@ import { getDepthOfValue } from "../utils/getDepthOfValue/getDepthOfValue.js";
 import { getHeightOfValue } from "../utils/getHeightOfValue/getHeightOfValue.js";
 import { getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree.js";
 import { getIsArrayOnlyWithValuesThatExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatExistInBinarySearchTree/getIsArrayOnlyWithValuesThatExistInBinarySearchTree.js";
+import { getIsValidInputValueCreateBST } from "../utils/getIsValidInputValueCreateBST/getIsValidInputValueCreateBST.js";
+import { getIsValidInputValueFindDepth } from "../utils/getIsValidInputValueFindDepth/getIsValidInputValueFindDepth.js";
 import { getIsValidInputValueFindHeight } from "../utils/getIsValidInputValueFindHeight/getIsValidInputValueFindHeight.js";
 import { getIsValidInputValueAddAdditionalValues } from "../utils/getIsValidInputValueAddAdditionalValues/getIsValidInputValueAddAdditionalValues.js";
 import { getIsValidInputValueRemoveValues } from "../utils/getIsValidInputValueRemoveValues/getIsValidInputValueRemoveValues.js";
@@ -39,8 +41,12 @@ export const fieldsetData = () => {
           inputName: "Initial-value(s)",
           regexPattern: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
           // implement getIsValidInputValue later
-          getIsValidInputValue: (input, binarySearchTree) => { 
-            return (true); 
+          getIsValidInputValue: (input, binarySearchTree, isValidInputFormat) => { 
+            return (
+              getIsValidInputValueCreateBST(
+                isValidInputFormat
+              )
+            ); 
           },
           labelText: "Add initial value(s) seperated by a comma and a space",
           onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
@@ -200,7 +206,16 @@ export const fieldsetData = () => {
           inputName: "Depth-value",
           regexPattern: "^(-?\\d+(\\.\\d+)?)$",
           // implement getIsValidInputValue later
-          getIsValidInputValue: (input) => (true),
+          getIsValidInputValue: (input, binarySearchTree, isValidInputFormat) => {
+            return (
+              getIsValidInputValueFindDepth(
+                input, 
+                binarySearchTree,
+                cloneObject,
+                isValidInputFormat
+              )
+            );
+          },
           labelText: "Find the depth of a value in the BST",
           // implement onClickHandlerSuccessful later
           onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {

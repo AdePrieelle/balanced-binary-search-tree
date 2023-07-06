@@ -1,4 +1,4 @@
-export const getIsValidInputValueFindHeight = (
+export const getIsValidInputValueFindDepth = (
   input,
   binarySearchTree,
   cloneObject,
