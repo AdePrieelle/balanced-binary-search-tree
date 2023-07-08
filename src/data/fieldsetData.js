@@ -16,7 +16,6 @@ import { getIsValidInputValueFindDepth } from "../utils/getIsValidInputValueFind
 import { getIsValidInputValueFindHeight } from "../utils/getIsValidInputValueFindHeight/getIsValidInputValueFindHeight.js";
 import { getIsValidInputValueAddAdditionalValues } from "../utils/getIsValidInputValueAddAdditionalValues/getIsValidInputValueAddAdditionalValues.js";
 import { getIsValidInputValueRemoveValues } from "../utils/getIsValidInputValueRemoveValues/getIsValidInputValueRemoveValues.js";
-
 import { FieldsetMessageUpdatedSuccessValue } from "../components/FieldsetMessageUpdatedSuccessValue/FieldsetMessageUpdatedSuccessValue.js";
 
 export const fieldsetData = () => {
@@ -32,7 +31,7 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the initial number(s) in the correct format",
           fieldsetMessageInputValueErrorValue: "Please enter the initial number(s) in the correct format",
           fieldsetMessageReadyToUpdateValue: "The BST is ready to be updated",
-          getFieldsetMessageUpdatedSuccessValue: (input) => {
+          getFieldsetMessageUpdatedSuccessValue: (input, binarySearchTree) => {
             return (
               <FieldsetMessageUpdatedSuccessValue icon={true} message={`The BST has been updated`} />
             );
@@ -40,7 +39,6 @@ export const fieldsetData = () => {
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Initial-value(s)",
           regexPattern: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$",
-          // implement getIsValidInputValue later
           getIsValidInputValue: (input, binarySearchTree, isValidInputFormat) => { 
             return (
               getIsValidInputValueCreateBST(
@@ -71,7 +69,7 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the additional value(s) in the correct format",
           fieldsetMessageInputValueErrorValue: "Please only enter value(s) that don't already exist in the BST",
           fieldsetMessageReadyToUpdateValue: "The BST is ready to be updated",
-          getFieldsetMessageUpdatedSuccessValue: (input) => {
+          getFieldsetMessageUpdatedSuccessValue: (input, binarySearchTree) => {
             return (
               <FieldsetMessageUpdatedSuccessValue icon={true} message={`The BST has been updated`} />
             );
@@ -118,7 +116,7 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the value(s) to be removed in the correct format",
           fieldsetMessageInputValueErrorValue: "Please only enter value(s) that already exist in the BST",
           fieldsetMessageReadyToUpdateValue: "The BST is ready to be updated",
-          getFieldsetMessageUpdatedSuccessValue: (input) => {
+          getFieldsetMessageUpdatedSuccessValue: (input, binarySearchTree) => {
             return (
               <FieldsetMessageUpdatedSuccessValue icon={true} message={`The BST has been updated`} />
             );
@@ -165,9 +163,9 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the value in the correct format",
           fieldsetMessageInputValueErrorValue: "Please only enter a value that exists in the BST",
           fieldsetMessageReadyToUpdateValue: "Ready to find the height",
-          getFieldsetMessageUpdatedSuccessValue: (input) => {
+          getFieldsetMessageUpdatedSuccessValue: (input, binarySearchTree) => {
             return (
-              <FieldsetMessageUpdatedSuccessValue icon={true} message={`Height of value ${input} is: ${getHeightOfValue(input)}`} />
+              <FieldsetMessageUpdatedSuccessValue icon={true} message={`Height of value ${input} is: ${getHeightOfValue(input, binarySearchTree, cloneObject)}`} />
             );
           },
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
@@ -197,7 +195,7 @@ export const fieldsetData = () => {
           fieldsetMessageInputFormatErrorValue: "Please enter the value in the correct format",
           fieldsetMessageInputValueErrorValue: "Please only enter a value that exists in the BST",
           fieldsetMessageReadyToUpdateValue: "Ready to find the depth",
-          getFieldsetMessageUpdatedSuccessValue: (input) => {
+          getFieldsetMessageUpdatedSuccessValue: (input, binarySearchTree) => {
             return (
               <FieldsetMessageUpdatedSuccessValue icon={true} message={`Depth of value ${input} is: ${getDepthOfValue(input)}`} />
             );
@@ -205,7 +203,6 @@ export const fieldsetData = () => {
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
           inputName: "Depth-value",
           regexPattern: "^(-?\\d+(\\.\\d+)?)$",
-          // implement getIsValidInputValue later
           getIsValidInputValue: (input, binarySearchTree, isValidInputFormat) => {
             return (
               getIsValidInputValueFindDepth(

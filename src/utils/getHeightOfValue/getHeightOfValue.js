@@ -1,4 +1,24 @@
-export const getHeightOfValue = (input) => {
-  // update later to use find and height methods of factory function BinarySearchTree
-  return (+input + 1);
+export const getHeightOfValue = (
+  input,
+  binarySearchTree,
+  cloneObject
+) => {
+  const unkownValue = "unkown";
+
+  if (
+       typeof(input) !== "string"
+    || typeof(binarySearchTree) !== "object"
+    || typeof(cloneObject) !== "function" 
+  ) {
+    return (unkownValue);
+  };
+
+  const copyBinarySearchTree = cloneObject(binarySearchTree);
+  const nodeInBinarySearchTreeWithInputValue = copyBinarySearchTree.find(+input);
+  if (nodeInBinarySearchTreeWithInputValue === null) {
+    return (unkownValue);
+  };
+  const heightOfNodeInBinarySearchTreeWithInputValue = copyBinarySearchTree.height(nodeInBinarySearchTreeWithInputValue);
+
+  return (heightOfNodeInBinarySearchTreeWithInputValue);
 };

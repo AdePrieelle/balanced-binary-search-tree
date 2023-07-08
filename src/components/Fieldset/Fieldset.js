@@ -73,11 +73,10 @@ export const Fieldset = ({
     setIsUpdatedBST(false);
     if (!isEmptyInput && isInputSuccess) {
       onClickHandlerSuccessful(input);
-      // maybe move setInput and setLastUpdatedFieldsetId in new useEffect hook with inputUpdatedBST as dependency
       setInputOnClickHandlerSuccessful(input);
       setInput("");
-      setIsUpdatedBST(true);
       setLastUpdatedFieldsetId(inputId);
+      setIsUpdatedBST(true);
     };
   };
 
