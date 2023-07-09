@@ -8,6 +8,7 @@ import { getBinarySearchTreeWithAddedInitialInputValues } from "../utils/getBina
 import { getBinarySearchTreeWithRemovedArrayElements } from "../utils/getBinarySearchTreeWithRemovedArrayElements/getBinarySearchTreeWithRemovedArrayElements.js";
 import { getBinarySearchTreeWithRemovedInputValues } from "../utils/getBinarySearchTreeWithRemovedInputValues/getBinarySearchTreeWithRemovedInputValues.js";
 import { getDepthOfValue } from "../utils/getDepthOfValue/getDepthOfValue.js";
+import { getFindNodeInBinarySearchTreeWithInputValue } from "../utils/getFindNodeInBinarySearchTreeWithInputValue/getFindNodeInBinarySearchTreeWithInputValue.js";
 import { getHeightOfValue } from "../utils/getHeightOfValue/getHeightOfValue.js";
 import { getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree/getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree.js";
 import { getIsArrayOnlyWithValuesThatExistInBinarySearchTree } from "../utils/getIsArrayOnlyWithValuesThatExistInBinarySearchTree/getIsArrayOnlyWithValuesThatExistInBinarySearchTree.js";
@@ -177,7 +178,8 @@ export const fieldsetData = () => {
                 input, 
                 binarySearchTree,
                 cloneObject,
-                isValidInputFormat
+                isValidInputFormat,
+                getFindNodeInBinarySearchTreeWithInputValue
               )
             );
           },
@@ -209,7 +211,8 @@ export const fieldsetData = () => {
                 input, 
                 binarySearchTree,
                 cloneObject,
-                isValidInputFormat
+                isValidInputFormat,
+                getFindNodeInBinarySearchTreeWithInputValue
               )
             );
           },

@@ -2,13 +2,15 @@ export const getIsValidInputValueFindDepth = (
   input,
   binarySearchTree,
   cloneObject,
-  isValidInputFormat
+  isValidInputFormat,
+  getFindNodeInBinarySearchTreeWithInputValue
 ) => {
   if (
        typeof(input) !== "string"
     || typeof(binarySearchTree) !== "object"
     || typeof(cloneObject) !== "function" 
     || typeof(isValidInputFormat) !== "boolean" 
+    || typeof(getFindNodeInBinarySearchTreeWithInputValue) !== "function" 
   ) {
     return (false);
   };
@@ -17,8 +19,7 @@ export const getIsValidInputValueFindDepth = (
     return (false);
   };
 
-  const copyBinarySearchTree = cloneObject(binarySearchTree);
-  const nodeInBinarySearchTreeWithInputValue = copyBinarySearchTree.find(+input);
+  const nodeInBinarySearchTreeWithInputValue = getFindNodeInBinarySearchTreeWithInputValue(input, binarySearchTree, cloneObject)
   if (nodeInBinarySearchTreeWithInputValue === null) {
     return (false);
   };
