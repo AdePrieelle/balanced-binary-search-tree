@@ -166,7 +166,7 @@ export const fieldsetData = () => {
           fieldsetMessageReadyToUpdateValue: "Ready to find the height",
           getFieldsetMessageUpdatedSuccessValue: (input, binarySearchTree) => {
             return (
-              <FieldsetMessageUpdatedSuccessValue icon={true} message={`Height of value ${input} is: ${getHeightOfValue(input, binarySearchTree, cloneObject)}`} />
+              <FieldsetMessageUpdatedSuccessValue icon={true} message={`Height of value ${input} is: ${getHeightOfValue(input, binarySearchTree, cloneObject, getFindNodeInBinarySearchTreeWithInputValue, "unknown")}`} />
             );
           },
           fieldsetMessageUpdatedSuccessValueWithIcon: true,
@@ -199,7 +199,7 @@ export const fieldsetData = () => {
           fieldsetMessageReadyToUpdateValue: "Ready to find the depth",
           getFieldsetMessageUpdatedSuccessValue: (input, binarySearchTree) => {
             return (
-              <FieldsetMessageUpdatedSuccessValue icon={true} message={`Depth of value ${input} is: ${getDepthOfValue(input)}`} />
+              <FieldsetMessageUpdatedSuccessValue icon={true} message={`Depth of value ${input} is: ${getDepthOfValue(input, binarySearchTree, cloneObject, getFindNodeInBinarySearchTreeWithInputValue, "unknown")}`} />
             );
           },
           fieldsetMessageUpdatedSuccessValueWithIcon: true,

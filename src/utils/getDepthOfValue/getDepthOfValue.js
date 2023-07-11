@@ -1,4 +1,27 @@
-export const getDepthOfValue = (input) => {
-  // update later to use find and depth methods of factory function BinarySearchTree
-  return (+input + 2);
+export const getDepthOfValue = (
+  input,
+  binarySearchTree,
+  cloneObject,
+  getFindNodeInBinarySearchTreeWithInputValue,
+  unknownValue
+) => {
+  if (
+       typeof(input) !== "string"
+    || typeof(binarySearchTree) !== "object"
+    || typeof(cloneObject) !== "function" 
+    || typeof(getFindNodeInBinarySearchTreeWithInputValue) !== "function" 
+    || typeof(unknownValue) !== "string" 
+  ) {
+    return ("unknown");
+  };
+
+  const nodeInBinarySearchTreeWithInputValue = getFindNodeInBinarySearchTreeWithInputValue(input, binarySearchTree, cloneObject);
+  if (nodeInBinarySearchTreeWithInputValue === null) {
+    return (unknownValue);
+  };
+
+  const copyBinarySearchTree = cloneObject(binarySearchTree);
+  const depthOfNodeInBinarySearchTreeWithInputValue = copyBinarySearchTree.depth(nodeInBinarySearchTreeWithInputValue);
+
+  return (depthOfNodeInBinarySearchTreeWithInputValue);
 };

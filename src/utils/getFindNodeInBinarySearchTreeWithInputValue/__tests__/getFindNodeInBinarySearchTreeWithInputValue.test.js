@@ -29,7 +29,9 @@ describe("Testing the function getFindNodeInBinarySearchTreeWithInputValue", () 
         find: (mockBinarySearchTreeFindMethod)
       }));
       const mockCloneObjectGetRootNodeMethod = jest.fn(() => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } }));
-      const mockCloneObjectFindMethod = jest.fn((value) => (null));
+      const mockCloneObjectFindMethod = jest.fn((value) => (
+        null
+      ));
       const mockCloneObject = jest.fn(() => ({ 
         getRootNode: (mockCloneObjectGetRootNodeMethod),
         find: (mockCloneObjectFindMethod)
@@ -79,7 +81,7 @@ describe("Testing the function getFindNodeInBinarySearchTreeWithInputValue", () 
       expect(mockCloneObjectFindMethod.mock.calls[0][0]).toStrictEqual(+(mockInput()));
       expect(mockCloneObjectFindMethod.mock.calls[1][0]).toStrictEqual(undefined);
       expect(mockCloneObjectFindMethod.mock.results[0].value).toStrictEqual(mockCloneObjectFindMethod());
-      expect(mockCloneObjectFindMethod.mock.results[0].value).toStrictEqual(mockCloneObjectFindMethod());
+      expect(mockCloneObjectFindMethod.mock.results[1].value).toStrictEqual(mockCloneObjectFindMethod());
     });
   });
 });

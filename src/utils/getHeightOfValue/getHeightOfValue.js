@@ -1,23 +1,26 @@
 export const getHeightOfValue = (
   input,
   binarySearchTree,
-  cloneObject
+  cloneObject,
+  getFindNodeInBinarySearchTreeWithInputValue,
+  unknownValue
 ) => {
-  const unkownValue = "unkown";
-
   if (
        typeof(input) !== "string"
     || typeof(binarySearchTree) !== "object"
     || typeof(cloneObject) !== "function" 
+    || typeof(getFindNodeInBinarySearchTreeWithInputValue) !== "function" 
+    || typeof(unknownValue) !== "string" 
   ) {
-    return (unkownValue);
+    return ("unknown");
+  };
+
+  const nodeInBinarySearchTreeWithInputValue = getFindNodeInBinarySearchTreeWithInputValue(input, binarySearchTree, cloneObject);
+  if (nodeInBinarySearchTreeWithInputValue === null) {
+    return (unknownValue);
   };
 
   const copyBinarySearchTree = cloneObject(binarySearchTree);
-  const nodeInBinarySearchTreeWithInputValue = copyBinarySearchTree.find(+input);
-  if (nodeInBinarySearchTreeWithInputValue === null) {
-    return (unkownValue);
-  };
   const heightOfNodeInBinarySearchTreeWithInputValue = copyBinarySearchTree.height(nodeInBinarySearchTreeWithInputValue);
 
   return (heightOfNodeInBinarySearchTreeWithInputValue);
