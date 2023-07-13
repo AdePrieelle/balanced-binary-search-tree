@@ -184,7 +184,6 @@ export const fieldsetData = () => {
             );
           },
           labelText: "Find the height of a value in the BST",
-          // implement onClickHandlerSuccessful later
           onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
             return (null);
           }
@@ -217,7 +216,6 @@ export const fieldsetData = () => {
             );
           },
           labelText: "Find the depth of a value in the BST",
-          // implement onClickHandlerSuccessful later
           onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
             return (null);
           }
