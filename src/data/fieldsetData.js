@@ -1,5 +1,5 @@
 import { cloneObject } from "../utils/cloneObject/cloneObject.js";
-import { delimeter } from "./delimiter.js";
+import { delimiter } from "./delimiter.js";
 import { getArrayFromString } from "../utils/getArrayFromString/getArrayFromString.js";
 import { getArrayWithStringNumbersConvertedToNumbersFromArray } from "../utils/getArrayWithStringNumbersConvertedToNumbersFromArray/getArrayWithStringNumbersConvertedToNumbersFromArray.js";
 import { getArrayWithStringNumbersConvertedToNumbersFromString } from "../utils/getArrayWithStringNumbersConvertedToNumbersFromString/getArrayWithStringNumbersConvertedToNumbersFromString.js";
@@ -56,7 +56,7 @@ export const fieldsetData = () => {
                 binarySearchTree, 
                 cloneObject,
                 getArrayWithStringNumbersConvertedToNumbersFromString, 
-                delimeter, 
+                delimiter, 
                 getArrayFromString, 
                 getArrayWithStringNumbersConvertedToNumbersFromArray
               )
@@ -86,7 +86,7 @@ export const fieldsetData = () => {
                 binarySearchTree,
                 cloneObject,
                 getArrayWithStringNumbersConvertedToNumbersFromString, 
-                delimeter, 
+                delimiter, 
                 getArrayFromString, 
                 getArrayWithStringNumbersConvertedToNumbersFromArray,
                 getIsArrayOnlyWithValuesThatDontExistInBinarySearchTree,
@@ -102,7 +102,7 @@ export const fieldsetData = () => {
                 binarySearchTree, 
                 cloneObject,
                 getArrayWithStringNumbersConvertedToNumbersFromString, 
-                delimeter, 
+                delimiter, 
                 getArrayFromString, 
                 getArrayWithStringNumbersConvertedToNumbersFromArray,
                 getBinarySearchTreeWithAddedArrayElements
@@ -133,7 +133,7 @@ export const fieldsetData = () => {
                 binarySearchTree,
                 cloneObject,
                 getArrayWithStringNumbersConvertedToNumbersFromString, 
-                delimeter, 
+                delimiter, 
                 getArrayFromString, 
                 getArrayWithStringNumbersConvertedToNumbersFromArray,
                 getIsArrayOnlyWithValuesThatExistInBinarySearchTree,
@@ -149,7 +149,7 @@ export const fieldsetData = () => {
                 binarySearchTree, 
                 cloneObject,
                 getArrayWithStringNumbersConvertedToNumbersFromString, 
-                delimeter, 
+                delimiter, 
                 getArrayFromString, 
                 getArrayWithStringNumbersConvertedToNumbersFromArray,
                 getBinarySearchTreeWithRemovedArrayElements

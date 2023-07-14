@@ -1,1 +1,1 @@
-export const delimeter = ", ";
+export const delimiter = ", ";

@@ -1,7 +1,7 @@
 import { useId, useMemo, useState } from 'react';
 import { Button } from '../Button/Button.js';
 import { ButtonWrapper } from '../ButtonWrapper/ButtonWrapper.js';
-import { delimeter } from '../../data/delimiter.js';
+import { delimiter } from '../../data/delimiter.js';
 import { FieldsetMessage } from '../FieldsetMessage/FieldsetMessage.js';
 import { FieldsetMessageWrapper } from '../FieldsetMessageWrapper/FieldsetMessageWrapper.js';
 import { getArrayFromString } from '../../utils/getArrayFromString/getArrayFromString.js';
@@ -44,7 +44,7 @@ export const Fieldset = ({
   const fieldsetMessageUpdatedSuccessValue = useMemo(() => getFieldsetMessageUpdatedSuccessValue(inputOnClickHandlerSuccessful), [getFieldsetMessageUpdatedSuccessValue, inputOnClickHandlerSuccessful]);
   const isValidInputFormat = useMemo(() => getIsValidInputFormat(input, regex), [input, regex]);
   const isValidInputValue = useMemo(() => getIsValidInputValue(input, isValidInputFormat), [getIsValidInputValue, input, isValidInputFormat]);
-  const isInputWithoutDuplicates = useMemo(() => getIsInputWithoutDuplicates(input, delimeter, getArrayFromString, getIsArrayWithoutDuplicates), [input]);
+  const isInputWithoutDuplicates = useMemo(() => getIsInputWithoutDuplicates(input, delimiter, getArrayFromString, getIsArrayWithoutDuplicates), [input]);
   const isInputSuccess = getIsInputSuccess(
     inputButtonClicked,
     isEmptyInput,
