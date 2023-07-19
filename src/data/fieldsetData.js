@@ -28,6 +28,7 @@ export const fieldsetData = () => {
         "fieldset1": { 
           id: "fieldset1", 
           buttonText: "Create BST", 
+          fieldsetMessageDuplicateInputValuesErrorValue: "Please remove duplicate input values",
           fieldsetMessageEmptyInputErrorValue: "Please enter the initial value(s)",
           fieldsetMessageEmptyInputSuccessValue: <>&nbsp;</>,
           fieldsetMessageInputFormatErrorValue: "Please enter the initial number(s) in the correct format",
@@ -66,6 +67,7 @@ export const fieldsetData = () => {
         "fieldset2": {
           id: "fieldset2", 
           buttonText: "Add value(s)", 
+          fieldsetMessageDuplicateInputValuesErrorValue: "Please remove duplicate input values",
           fieldsetMessageEmptyInputErrorValue: "Please enter the additional value(s)",
           fieldsetMessageEmptyInputSuccessValue: <>&nbsp;</>,
           fieldsetMessageInputFormatErrorValue: "Please enter the additional value(s) in the correct format",
@@ -113,6 +115,7 @@ export const fieldsetData = () => {
         "fieldset3": {
           id: "fieldset3", 
           buttonText: "Remove value(s)", 
+          fieldsetMessageDuplicateInputValuesErrorValue: "Please remove duplicate input values",
           fieldsetMessageEmptyInputErrorValue: "Please enter the value(s) to be removed",
           fieldsetMessageEmptyInputSuccessValue: <>&nbsp;</>,
           fieldsetMessageInputFormatErrorValue: "Please enter the value(s) to be removed in the correct format",
@@ -160,6 +163,7 @@ export const fieldsetData = () => {
         "fieldset4": {
           id: "fieldset4", 
           buttonText: "Find height", 
+          fieldsetMessageDuplicateInputValuesErrorValue: "Please remove duplicate input values",
           fieldsetMessageEmptyInputErrorValue: "Please enter a value",
           fieldsetMessageEmptyInputSuccessValue: <>&nbsp;</>,
           fieldsetMessageInputFormatErrorValue: "Please enter the value in the correct format",
@@ -192,6 +196,7 @@ export const fieldsetData = () => {
         "fieldset5": {
           id: "fieldset5", 
           buttonText: "Find depth", 
+          fieldsetMessageDuplicateInputValuesErrorValue: "Please remove duplicate input values",
           fieldsetMessageEmptyInputErrorValue: "Please enter a value",
           fieldsetMessageEmptyInputSuccessValue: <>&nbsp;</>,
           fieldsetMessageInputFormatErrorValue: "Please enter the value in the correct format",

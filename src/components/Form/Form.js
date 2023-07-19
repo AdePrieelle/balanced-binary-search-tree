@@ -13,6 +13,7 @@ export const Form = ({ binarySearchTree, setBinarySearchTree }) => {
         <FieldsetWrapper key={value.id}>
           <Fieldset 
             buttonText={value.buttonText}
+            fieldsetMessageDuplicateInputValuesErrorValue={value.fieldsetMessageDuplicateInputValuesErrorValue}
             fieldsetMessageEmptyInputErrorValue={value.fieldsetMessageEmptyInputErrorValue}
             fieldsetMessageEmptyInputSuccessValue={value.fieldsetMessageEmptyInputSuccessValue} 
             fieldsetMessageInputFormatErrorValue={value.fieldsetMessageInputFormatErrorValue} 

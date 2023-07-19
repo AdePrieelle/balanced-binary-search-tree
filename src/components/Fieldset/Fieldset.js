@@ -18,6 +18,7 @@ import styles from './Fieldset.module.scss';
 
 export const Fieldset = ({ 
   buttonText,
+  fieldsetMessageDuplicateInputValuesErrorValue,
   fieldsetMessageEmptyInputErrorValue,
   fieldsetMessageEmptyInputSuccessValue,
   fieldsetMessageInputFormatErrorValue,
@@ -66,6 +67,8 @@ export const Fieldset = ({
     isUpdatedBST,
     isValidInputFormat,
     isValidInputValue,
+    fieldsetMessageDuplicateInputValuesErrorValue,
+    isInputWithoutDuplicates
   );
 
   const inputOnChange = (e) => {
