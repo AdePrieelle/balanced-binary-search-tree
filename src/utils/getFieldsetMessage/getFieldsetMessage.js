@@ -11,6 +11,8 @@ export const getFieldsetMessage = (
   isUpdatedBST,
   isValidInputFormat,
   isValidInputValue,
+  fieldsetMessageDuplicateInputValuesErrorValue,
+  isInputWithoutDuplicates
 ) => {
   if (
        typeof(fieldsetMessageEmptyInputErrorValue) !== "string"
@@ -25,6 +27,8 @@ export const getFieldsetMessage = (
     || typeof(isUpdatedBST) !== "boolean"
     || typeof(isValidInputFormat) !== "boolean"
     || typeof(isValidInputValue) !== "boolean"
+    || typeof(fieldsetMessageDuplicateInputValuesErrorValue) !== "string"
+    || typeof(isInputWithoutDuplicates) !== "boolean"
   ) {
     return ((<>&nbsp;</>));
   };
@@ -39,7 +43,9 @@ export const getFieldsetMessage = (
     return (fieldsetMessageReadyToUpdateValue);
   } else if (!isEmptyInput && !isInputSuccess && !isValidInputFormat) {
     return (fieldsetMessageInputFormatErrorValue);
-  } else if (!isEmptyInput && !isInputSuccess && isValidInputFormat && !isValidInputValue) {
+  } else if (!isEmptyInput && !isInputSuccess && isValidInputFormat && !isInputWithoutDuplicates) {
+    return (fieldsetMessageDuplicateInputValuesErrorValue);
+  } else if (!isEmptyInput && !isInputSuccess && isValidInputFormat && isInputWithoutDuplicates && !isValidInputValue) {
     return (fieldsetMessageInputValueErrorValue);
   };
   return (fieldsetMessageEmptyInputSuccessValue);
