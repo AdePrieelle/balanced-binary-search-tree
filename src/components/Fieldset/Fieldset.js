@@ -50,7 +50,8 @@ export const Fieldset = ({
     isEmptyInput,
     isUpdatedBST,
     isValidInputFormat,
-    isValidInputValue
+    isValidInputValue,
+    isInputWithoutDuplicates
   );
   const fieldsetMessage = getFieldsetMessage(
     fieldsetMessageEmptyInputErrorValue,
