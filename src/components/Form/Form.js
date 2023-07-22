@@ -1,11 +1,16 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Fieldset } from '../Fieldset/Fieldset.js';
 import { fieldsetData } from '../../data/fieldsetData.js';
 import { FieldsetWrapper } from '../FieldsetWrapper/FieldsetWrapper.js';
 import styles from './Form.module.scss';
 
-export const Form = ({ binarySearchTree, setBinarySearchTree }) => {
-  const [lastUpdatedFieldsetId, setLastUpdatedFieldsetId] = useState("");
+export const Form = ({ 
+  binarySearchTree, 
+  lastUpdatedFieldsetId,
+  setBinarySearchTree,
+  setLastUpdatedFieldsetId
+}) => {
+  // const [lastUpdatedFieldsetId, setLastUpdatedFieldsetId] = useState("");
 
   return (
     <form className={styles.Form}>
