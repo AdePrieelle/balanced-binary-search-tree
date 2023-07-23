@@ -29,7 +29,12 @@ export const ControlsBST = ({ binarySearchTree, setBinarySearchTree }) => {
   return (
     <div className={styles.ControlsBST}>
       <FormWrapper>
-        <Form binarySearchTree={binarySearchTree} setBinarySearchTree={setBinarySearchTree} />
+        <Form 
+          binarySearchTree={binarySearchTree} 
+          lastUpdatedFieldsetId={lastUpdatedFieldsetId}
+          setBinarySearchTree={setBinarySearchTree} 
+          setLastUpdatedFieldsetId={setLastUpdatedFieldsetId}
+        />
       </FormWrapper>
       <RebalanceBSTButtonMessageWrapper>
         <RebalanceBSTButtonMessage 
