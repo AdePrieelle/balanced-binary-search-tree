@@ -7,7 +7,7 @@ import { HeaderWrapper } from '../HeaderWrapper/HeaderWrapper.js';
 import styles from './App.module.scss';
 
 export const App = () => {
-  const [binarySearchTree, setBinarySearchTree] = useState(BinarySearchTree([-2, 3, 1]));
+  const [binarySearchTree, setBinarySearchTree] = useState(BinarySearchTree([2, 3, 1]));
   // console.log(binarySearchTree.getRootNode());
 
   return (
