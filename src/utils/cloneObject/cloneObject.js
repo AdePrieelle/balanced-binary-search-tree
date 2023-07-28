@@ -1,7 +1,11 @@
+import { cloneDeep } from 'lodash';
+
 export const cloneObject = (obj) => {
   if (typeof(obj) !== "object") {
     return null;
   };
-  const clonedObject = {...obj};
-  return clonedObject;
+
+  const clonedObject = cloneDeep(obj);
+
+  return (clonedObject);
 };
