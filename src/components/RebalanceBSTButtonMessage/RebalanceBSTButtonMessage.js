@@ -1,7 +1,11 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
+import { BinarySearchTree } from '../../utils/binarySearchTree/binarySearchTree.js';
 import { Button } from '../Button/Button.js';
 import { cloneObject } from '../../utils/cloneObject/cloneObject.js';
+import { getAreObjectValuesEqual } from '../../utils/getAreObjectValuesEqual/getAreObjectValuesEqual.js';
 import { getIsBSTBalanced } from '../../utils/getIsBSTBalanced/getIsBSTBalanced.js';
+import { getIsRebalancedBSTEqualToBSTBeforeRebalancing } from '../../utils/getIsRebalancedBSTEqualToBSTBeforeRebalancing/getIsRebalancedBSTEqualToBSTBeforeRebalancing.js';
+import { getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues } from '../../utils/getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues/getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues.js';
 import { getRebalancedBinarySearchTree } from '../../utils/getRebalancedBinarySearchTree/getRebalancedBinarySearchTree.js';
 import { getRebalanceBSTMessage } from '../../utils/getRebalanceBSTMessage/getRebalanceBSTMessage.js';
 import { RebalanceBSTButtonWrapper } from '../RebalanceBSTButtonWrapper/RebalanceBSTButtonWrapper.js';
@@ -16,33 +20,13 @@ export const RebalanceBSTButtonMessage = ({
   setBinarySearchTree,
   setLastUpdatedFieldsetId
 }) => {
-  const RebalanceBSTButtonMessageId = useId();
-
-
-
-  // use the commented version
-  // const isLastUpdatedFieldset = (lastUpdatedFieldsetId === RebalanceBSTButtonMessageId);
-  const isLastUpdatedFieldset = true;
-
-  // make function for getIsBSTBalanced
-  // const isBSTBalanced = true;
-  const isBSTBalanced = getIsBSTBalanced(binarySearchTree, cloneObject);
-
-  // maken function for getIsRebalancedBSTEqualToBSTBeforeRebalancing
-  const isRebalancedBSTEqualToBSTBeforeRebalancing = true;
-
-
-  // add file rebalanceBSTData with object values:
-  // const rebalanceBSTMessageAlreadyBalancedBSTValue = "The BST is already balanced";
-  // const rebalanceBSTMessageEmptyValue = (<>&nbsp;</>);
-  // const rebalanceBSTMessageUpdatedAlreadyBalancedBSTRebalancedValue = ("The already balanced BST has been rebalanced");
-  // const rebalanceBSTMessageUpdatedRebalancedValue = ("The BST has been rebalanced");
-
-  // add getRebalanceMessage function to determine rebalanceMessage
-
+  const rebalanceBSTButtonMessageId = useId();
+  const [isBSTBalancedBeforeRebalancing, setIsBSTBalancedBeforeRebalancing] = useState(true);
+  const [isRebalancedBSTEqualToBSTBeforeRebalancing, setIsRebalancedBSTEqualToBSTBeforeRebalancing] = useState(true);
+  const isLastUpdatedFieldset = (rebalanceBSTButtonMessageId === lastUpdatedFieldsetId);
 
   const rebalanceBSTMessage = getRebalanceBSTMessage(
-    isBSTBalanced,
+    isBSTBalancedBeforeRebalancing,
     isLastUpdatedFieldset,
     isRebalancedBSTEqualToBSTBeforeRebalancing,
     rebalanceBSTMessageAlreadyBalancedBSTValue,
@@ -50,10 +34,15 @@ export const RebalanceBSTButtonMessage = ({
     rebalanceBSTMessageUpdatedAlreadyBalancedBSTRebalancedValue,
     rebalanceBSTMessageUpdatedRebalancedValue
   );
-
+  
   const onClickHandler = () => {
-    setLastUpdatedFieldsetId(RebalanceBSTButtonMessageId);
-    setBinarySearchTree(getRebalancedBinarySearchTree(binarySearchTree, cloneObject))
+    setIsBSTBalancedBeforeRebalancing(getIsBSTBalanced(binarySearchTree, cloneObject));
+    const isRebalancedBSTEqualToBSTBeforeRebalancingValue = getIsRebalancedBSTEqualToBSTBeforeRebalancing(binarySearchTree, BinarySearchTree, getAreObjectValuesEqual, getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues);
+    setIsRebalancedBSTEqualToBSTBeforeRebalancing(isRebalancedBSTEqualToBSTBeforeRebalancingValue);
+    setLastUpdatedFieldsetId(rebalanceBSTButtonMessageId);
+    if (!isRebalancedBSTEqualToBSTBeforeRebalancingValue) {
+      setBinarySearchTree(getRebalancedBinarySearchTree(binarySearchTree, cloneObject));
+    };
   };
 
   return (
