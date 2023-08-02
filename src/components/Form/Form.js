@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { Fieldset } from '../Fieldset/Fieldset.js';
 import { fieldsetData } from '../../data/fieldsetData.js';
 import { FieldsetWrapper } from '../FieldsetWrapper/FieldsetWrapper.js';
@@ -10,11 +9,9 @@ export const Form = ({
   setBinarySearchTree,
   setLastUpdatedFieldsetId
 }) => {
-  // const [lastUpdatedFieldsetId, setLastUpdatedFieldsetId] = useState("");
-
   return (
     <form className={styles.Form}>
-      { Object.entries(fieldsetData().fieldsets.entities).map(([key, value]) => (
+      {Object.entries(fieldsetData.fieldsets.entities).map(([key, value]) => (
         <FieldsetWrapper key={value.id}>
           <Fieldset 
             buttonText={value.buttonText}
