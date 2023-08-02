@@ -25,8 +25,8 @@ export const Fieldset = ({
   fieldsetMessageInputValueErrorValue,
   fieldsetMessageReadyToUpdateValue,
   getFieldsetMessageUpdatedSuccessValue,
-  inputName,
   getIsValidInputValue,
+  inputName,
   labelText,
   lastUpdatedFieldsetId,
   onClickHandlerSuccessful,
@@ -102,9 +102,9 @@ export const Fieldset = ({
           inputId={inputId}
           inputName={inputName}
           inputOnChange={inputOnChange}
-          regex={regex}
           isEmptyInput={isEmptyInput}
           isInputSuccess={isInputSuccess}
+          regex={regex}
         />
       </InputInputIconContainerWrapper>
       <FieldsetMessageWrapper>
@@ -114,7 +114,7 @@ export const Fieldset = ({
         />
       </FieldsetMessageWrapper>
       <ButtonWrapper>
-        <Button onClickHandler={(input) => onClickHandler(input)}>
+        <Button onClickHandler={() => onClickHandler()}>
           {buttonText}
         </Button>
       </ButtonWrapper>
