@@ -11,10 +11,10 @@ export const getRebalanceBSTMessage = (
        typeof(isBSTBalanced) !== "boolean"
     || typeof(isLastUpdatedFieldset) !== "boolean"
     || typeof(isRebalancedBSTEqualToBSTBeforeRebalancing) !== "boolean"
-    || typeof(rebalanceBSTMessageAlreadyBalancedBSTValue) !== "string"
-    || typeof(rebalanceBSTMessageEmptyValue) !== "object"
-    || typeof(rebalanceBSTMessageUpdatedAlreadyBalancedBSTRebalancedValue) !== "string"
-    || typeof(rebalanceBSTMessageUpdatedRebalancedValue) !== "string"
+    || ((typeof(rebalanceBSTMessageAlreadyBalancedBSTValue) !== "string") && (typeof(rebalanceBSTMessageAlreadyBalancedBSTValue) !== "object"))
+    || ((typeof(rebalanceBSTMessageEmptyValue) !== "string") && (typeof(rebalanceBSTMessageEmptyValue) !== "object"))
+    || ((typeof(rebalanceBSTMessageUpdatedAlreadyBalancedBSTRebalancedValue) !== "string") && (typeof(rebalanceBSTMessageUpdatedAlreadyBalancedBSTRebalancedValue) !== "object"))
+    || ((typeof(rebalanceBSTMessageUpdatedRebalancedValue) !== "string") && (typeof(rebalanceBSTMessageUpdatedRebalancedValue) !== "object"))
   ) {
     return (<>&nbsp;</>);
   };
