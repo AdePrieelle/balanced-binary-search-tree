@@ -2,4 +2,8 @@
 
 .RebalanceBSTMessage {
   width: 100%;
+  color: $ControlsBST__form-message--success-color;
+  font-size: $ControlsBST__form-message-font-size;
+  font-weight: $ControlsBST__form-message-font-weight;
+  line-height: $ControlsBST__form-message-line-height;
 }
