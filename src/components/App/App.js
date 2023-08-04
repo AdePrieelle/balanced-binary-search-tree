@@ -4,6 +4,7 @@ import { binarySearchTreeInitialValuesArray } from '../../data/binarySearchTreeD
 import { ControlsBST } from '../ControlsBST/ControlsBST.js';
 import { ControlsBSTWrapper } from '../ControlsBSTWrapper/ControlsBSTWrapper.js';
 import { Header } from '../Header/Header.js';
+import { headerTitle } from '../../data/headerData.js';
 import { HeaderWrapper } from '../HeaderWrapper/HeaderWrapper.js';
 import styles from './App.module.scss';
 
@@ -13,7 +14,7 @@ export const App = () => {
   return (
     <div className={styles.App}>
         <HeaderWrapper>
-          <Header title={"Binary Search Tree"} />
+          <Header title={headerTitle} />
         </HeaderWrapper>
         <ControlsBSTWrapper>
           <ControlsBST binarySearchTree={binarySearchTree} setBinarySearchTree={setBinarySearchTree} />
