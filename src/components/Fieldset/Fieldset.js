@@ -114,7 +114,7 @@ export const Fieldset = ({
         />
       </FieldsetMessageWrapper>
       <ButtonWrapper>
-        <Button onClickHandler={() => onClickHandler()}>
+        <Button onClickHandler={() => (onClickHandler())}>
           {buttonText}
         </Button>
       </ButtonWrapper>

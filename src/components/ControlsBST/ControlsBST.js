@@ -6,7 +6,7 @@ import { RebalanceBSTButtonMessageWrapper } from '../RebalanceBSTButtonMessageWr
 import styles from './ControlsBST.module.scss';;
 
 export const ControlsBST = ({ binarySearchTree, setBinarySearchTree }) => {
-  const [lastUpdatedFieldsetId, setLastUpdatedFieldsetId] = useState("");
+  const [lastUpdatedFieldsetId, setLastUpdatedFieldsetId] = useState(null);
 
   return (
     <div className={styles.ControlsBST}>
