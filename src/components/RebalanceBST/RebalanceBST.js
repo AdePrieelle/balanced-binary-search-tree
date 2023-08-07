@@ -12,18 +12,18 @@ import { rebalanceBSTButtonText, rebalanceBSTMessageAlreadyBalancedBSTValue, reb
 import { RebalanceBSTButtonWrapper } from '../RebalanceBSTButtonWrapper/RebalanceBSTButtonWrapper.js';
 import { RebalanceBSTMessage } from '../RebalanceBSTMessage/RebalanceBSTMessage.js';
 import { RebalanceBSTMessageWrapper } from '../RebalanceBSTMessageWrapper/RebalanceBSTMessageWrapper.js';
-import styles from './RebalanceBSTButtonMessage.module.scss';
+import styles from './RebalanceBST.module.scss';
 
-export const RebalanceBSTButtonMessage = ({
+export const RebalanceBST = ({
   binarySearchTree,
   lastUpdatedFieldsetId,
   setBinarySearchTree,
   setLastUpdatedFieldsetId
 }) => {
-  const rebalanceBSTButtonMessageId = useId();
+  const rebalanceBSTId = useId();
   const [isBSTBalancedBeforeRebalancing, setIsBSTBalancedBeforeRebalancing] = useState(true);
   const [isRebalancedBSTEqualToBSTBeforeRebalancing, setIsRebalancedBSTEqualToBSTBeforeRebalancing] = useState(true);
-  const isLastUpdatedFieldset = (rebalanceBSTButtonMessageId === lastUpdatedFieldsetId);
+  const isLastUpdatedFieldset = (rebalanceBSTId === lastUpdatedFieldsetId);
 
   const rebalanceBSTMessage = getRebalanceBSTMessage(
     isBSTBalancedBeforeRebalancing,
@@ -39,14 +39,14 @@ export const RebalanceBSTButtonMessage = ({
     setIsBSTBalancedBeforeRebalancing(getIsBSTBalanced(binarySearchTree, cloneObject));
     const isRebalancedBSTEqualToBSTBeforeRebalancingValue = getIsRebalancedBSTEqualToBSTBeforeRebalancing(binarySearchTree, BinarySearchTree, getAreObjectValuesEqual, getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues);
     setIsRebalancedBSTEqualToBSTBeforeRebalancing(isRebalancedBSTEqualToBSTBeforeRebalancingValue);
-    setLastUpdatedFieldsetId(rebalanceBSTButtonMessageId);
+    setLastUpdatedFieldsetId(rebalanceBSTId);
     if (!isRebalancedBSTEqualToBSTBeforeRebalancingValue) {
       setBinarySearchTree(getRebalancedBinarySearchTree(binarySearchTree, cloneObject));
     };
   };
 
   return (
-    <div className={`${styles["RebalanceBSTButtonMessage"]}`}>
+    <div className={`${styles["RebalanceBST"]}`}>
       <RebalanceBSTButtonWrapper>
         <Button onClickHandler={() => (onClickHandler())}>
           {rebalanceBSTButtonText}
