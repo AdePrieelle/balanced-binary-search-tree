@@ -1,8 +1,10 @@
 import styles from './FieldsetWrapper.module.scss';
 
-export const FieldsetWrapper = ({ children, gridArea = null }) => {
+export const FieldsetWrapper = ({ 
+  children
+}) => {
   return (
-    <div className={`${styles["FieldsetWrapper"]}`} style={{ gridArea: gridArea}}>
+    <div className={`${styles["FieldsetWrapper"]}`}>
       {children}
     </div>
   );

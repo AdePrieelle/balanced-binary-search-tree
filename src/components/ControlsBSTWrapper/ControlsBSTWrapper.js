@@ -1,8 +1,10 @@
 import styles from './ControlsBSTWrapper.module.scss';
 
-export const ControlsBSTWrapper = ({ children, gridArea = null }) => {
+export const ControlsBSTWrapper = ({ 
+  children
+}) => {
   return (
-    <div className={styles.ControlsBSTWrapper} style={{ gridArea: gridArea}}>
+    <div className={`${styles["ControlsBSTWrapper"]}`}>
       {children}
     </div>
   );

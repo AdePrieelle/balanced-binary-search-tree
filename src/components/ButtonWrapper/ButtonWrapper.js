@@ -1,12 +1,14 @@
 import scssVariables from '../../styles/partials/_export.scss';
-import styles from './ButtonWrapper.module.scss';
 import { useLargestElementWidthForAllQuerySelectorElementWidthsWithMediaQueryBreakpoint } from '../../hooks/useLargestElementWidthForAllQuerySelectorElementWidthsWithMediaQueryBreakpoint.js';
+import styles from './ButtonWrapper.module.scss';
 
-export const ButtonWrapper = ({ children, gridArea = null }) => {
+export const ButtonWrapper = ({ 
+  children
+}) => {
   useLargestElementWidthForAllQuerySelectorElementWidthsWithMediaQueryBreakpoint(`.${styles.ButtonWrapper}`, scssVariables.mediaQuerySmallScreen);
   
   return (
-    <div className={`${styles["ButtonWrapper"]}`} style={{ gridArea: gridArea}}>
+    <div className={`${styles["ButtonWrapper"]}`}>
       {children}
     </div>
   );

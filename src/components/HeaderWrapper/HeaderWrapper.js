@@ -1,8 +1,10 @@
 import styles from './HeaderWrapper.module.scss';
 
-export const HeaderWrapper = ({ children, gridArea = null }) => {
+export const HeaderWrapper = ({ 
+  children
+}) => {
   return (
-    <div className={styles.HeaderWrapper} style={{ gridArea: gridArea}}>
+    <div className={`${styles["HeaderWrapper"]}`}>
       {children}
     </div>
   );

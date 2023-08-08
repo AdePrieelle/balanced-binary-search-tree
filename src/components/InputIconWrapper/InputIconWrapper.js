@@ -1,8 +1,10 @@
 import styles from './InputIconWrapper.module.scss';
 
-export const InputIconWrapper = ({ children, gridArea = null }) => {
+export const InputIconWrapper = ({ 
+  children
+}) => {
   return (
-    <div className={`${styles["InputIconWrapper"]}`} style={{ gridArea: gridArea}}>
+    <div className={`${styles["InputIconWrapper"]}`}>
       {children}
     </div>
   );

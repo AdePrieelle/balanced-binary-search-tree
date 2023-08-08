@@ -14,10 +14,15 @@ export const App = () => {
   return (
     <div className={styles.App}>
         <HeaderWrapper>
-          <Header title={headerTitle} />
+          <Header 
+            title={headerTitle} 
+          />
         </HeaderWrapper>
         <ControlsBSTWrapper>
-          <ControlsBST binarySearchTree={binarySearchTree} setBinarySearchTree={setBinarySearchTree} />
+          <ControlsBST 
+            binarySearchTree={binarySearchTree} 
+            setBinarySearchTree={setBinarySearchTree} 
+          />
         </ControlsBSTWrapper>
     </div>
   );

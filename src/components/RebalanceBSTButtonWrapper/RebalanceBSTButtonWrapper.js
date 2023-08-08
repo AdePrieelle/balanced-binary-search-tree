@@ -1,8 +1,10 @@
 import styles from './RebalanceBSTButtonWrapper.module.scss';
 
-export const RebalanceBSTButtonWrapper = ({ children, gridArea = null }) => {
+export const RebalanceBSTButtonWrapper = ({ 
+  children
+}) => {
   return (
-    <div className={`${styles["RebalanceBSTButtonWrapper"]}`} style={{ gridArea: gridArea}}>
+    <div className={`${styles["RebalanceBSTButtonWrapper"]}`}>
       {children}
     </div>
   );

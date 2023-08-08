@@ -5,7 +5,10 @@ import { RebalanceBST } from '../RebalanceBST/RebalanceBST.js';
 import { RebalanceBSTWrapper } from '../RebalanceBSTWrapper/RebalanceBSTWrapper.js';
 import styles from './ControlsBST.module.scss';
 
-export const ControlsBST = ({ binarySearchTree, setBinarySearchTree }) => {
+export const ControlsBST = ({ 
+  binarySearchTree, 
+  setBinarySearchTree 
+}) => {
   const [lastUpdatedFieldsetId, setLastUpdatedFieldsetId] = useState(null);
 
   return (

@@ -6,8 +6,8 @@ import { getAreObjectValuesEqual } from '../../utils/getAreObjectValuesEqual/get
 import { getIsBSTBalanced } from '../../utils/getIsBSTBalanced/getIsBSTBalanced.js';
 import { getIsRebalancedBSTEqualToBSTBeforeRebalancing } from '../../utils/getIsRebalancedBSTEqualToBSTBeforeRebalancing/getIsRebalancedBSTEqualToBSTBeforeRebalancing.js';
 import { getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues } from '../../utils/getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues/getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues.js';
-import { getRebalancedBinarySearchTree } from '../../utils/getRebalancedBinarySearchTree/getRebalancedBinarySearchTree.js';
 import { getRebalanceBSTMessage } from '../../utils/getRebalanceBSTMessage/getRebalanceBSTMessage.js';
+import { getRebalancedBinarySearchTree } from '../../utils/getRebalancedBinarySearchTree/getRebalancedBinarySearchTree.js';
 import { rebalanceBSTButtonText, rebalanceBSTMessageAlreadyBalancedBSTValue, rebalanceBSTMessageEmptyValue, rebalanceBSTMessageUpdatedAlreadyBalancedBSTRebalancedValue, rebalanceBSTMessageUpdatedRebalancedValue } from '../../data/rebalanceBSTData.js';
 import { RebalanceBSTButtonWrapper } from '../RebalanceBSTButtonWrapper/RebalanceBSTButtonWrapper.js';
 import { RebalanceBSTMessage } from '../RebalanceBSTMessage/RebalanceBSTMessage.js';

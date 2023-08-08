@@ -1,8 +1,10 @@
 import styles from './LabelWrapper.module.scss';
 
-export const LabelWrapper = ({ children, gridArea = null }) => {
+export const LabelWrapper = ({ 
+  children
+}) => {
   return (
-    <div className={`${styles["LabelWrapper"]}`} style={{ gridArea: gridArea}}>
+    <div className={`${styles["LabelWrapper"]}`}>
       {children}
     </div>
   );

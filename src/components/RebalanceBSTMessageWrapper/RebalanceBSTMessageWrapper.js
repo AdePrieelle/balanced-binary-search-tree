@@ -1,8 +1,10 @@
 import styles from './RebalanceBSTMessageWrapper.module.scss';
 
-export const RebalanceBSTMessageWrapper = ({ children, gridArea = null }) => {
+export const RebalanceBSTMessageWrapper = ({ 
+  children
+}) => {
   return (
-    <div className={`${styles["RebalanceBSTMessageWrapper"]}`} style={{ gridArea: gridArea}}>
+    <div className={`${styles["RebalanceBSTMessageWrapper"]}`}>
       {children}
     </div>
   );
