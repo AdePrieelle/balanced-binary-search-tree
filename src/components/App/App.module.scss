@@ -2,7 +2,7 @@
 
 .App {
   height: 100%;
-  padding: 0 20px;
+  padding: $App-padding;
   overflow: auto;
   background-color: $App-bg-color;
 }

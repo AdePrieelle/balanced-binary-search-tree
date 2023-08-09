@@ -7,28 +7,30 @@ $media-query-large-screen: 750px;
 $media-query-xlarge-screen: 900px;
 $media-query-xxlarge-screen: 1200px;
 
+// color
+$color-indigo: #5469d4;
+$color-white: #ffffff;
+
 // index
+$html-font-size: 62.5%;
 $body-font-size: 1.6rem;
 
 // App
-$App-bg-color: #ffffff;
-// $App-bg-color: red;
+$App-bg-color: $color-white;
+$App-padding: 0 2rem;
 
-// color
-$primary-text-color: #7fd3ed;
-$primary-text-color: #e3e8ee;
-$primary-text-color: #212d63;
-$primary-text-color: #5469d4;
-// $primary-text-color: #5469d4;
-// $primary-text-color: rgb(84, 105, 212);
-// $primary-text-color: rgb(84, 105, 212);
-// $input-focus-color: #777;
-// $input-success-color: #2ecc71;
-// $input-error-color: #e74c3c;
+// Button
+$Button-bg-color: $color-indigo;
+
+// Fieldset
+$Fieldset-bg-color: $color-indigo;
 
 // Header
+$Header-color: $color-indigo;
 
 // ControlsBST
+$ControlsBST-bg-color: $color-indigo;
+
 $ControlsBST-font-size: 1.6rem;
 $ControlsBST__form-column-gap-small: 1.6rem;
 $ControlsBST__form-column-gap-medium: 2rem;
@@ -71,7 +73,7 @@ $ControlsBST__form-button-padding: .8rem 1.6rem;
 $ControlsBST__form-button-font-size: 1.6rem;
 $ControlsBST__form-button-font-weight: 700;
 $ControlsBST__form-button-color: #fff;
-$ControlsBST__form-button-bg-color: $primary-text-color;
+$ControlsBST__form-button-bg-color: $color-indigo;
 $ControlsBST__form-button-border: 0;
 $ControlsBST__form-button-border-radius: .4rem;
 $ControlsBST__form-button-margin-bottom: 0;
