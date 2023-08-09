@@ -12,7 +12,7 @@ export const App = () => {
   const [binarySearchTree, setBinarySearchTree] = useState(BinarySearchTree(binarySearchTreeInitialValuesArray));
 
   return (
-    <div className={styles.App}>
+    <div className={`${styles["App"]}`}>
         <HeaderWrapper>
           <Header 
             title={headerTitle} 
