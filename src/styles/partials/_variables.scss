@@ -8,12 +8,14 @@ $media-query-xlarge-screen: 900px;
 $media-query-xxlarge-screen: 1200px;
 
 // color
+$color-cinnabar: #e74c3c;
 $color-indigo: #5469d4;
+$color-shamrock: #2ecc71;
 $color-white: #ffffff;
 
 // index
-$html-font-size: 62.5%;
 $body-font-size: 1.6rem;
+$html-font-size: 62.5%;
 
 // App
 $App-bg-color: $color-white;
@@ -21,9 +23,53 @@ $App-padding: 0 2rem;
 
 // Button
 $Button-bg-color: $color-indigo;
+$Button-border: 0;
+$Button-border-radius: .4rem;
+$Button-color: $color-white;
+$Button-font-size: 1.6rem;
+$Button-font-weight: 700;
+$Button-min-height: 4.4rem;
+$Button-padding: .8rem 1.6rem;
+
+// ButtonWrapper
+$ButtonWrapper-margin-bottom: 0;
+$ButtonWrapper-margin-bottom-small: 3rem;
+$ButtonWrapper-media-query-small-screen-or-bigger-max-width: 250px;
+
+// ControlsBST
+
+// ControlsBSTWrapper
 
 // Fieldset
-$Fieldset-bg-color: $color-indigo;
+$Fieldset-column-gap-small: 1.6rem;
+$Fieldset-column-gap-medium: 2rem;
+
+// FieldsetMessage
+$FieldsetMessage-font-size: 1.4rem;
+$FieldsetMessage-font-weight: 500;
+// update later below to use real icon font-size from component
+$FieldsetMessage-icon-font-size: $FieldsetMessage-font-size;
+$FieldsetMessage-line-height: calc(max($FieldsetMessage-font-size, $FieldsetMessage-icon-font-size));
+$FieldsetMessage--success-color: $color-shamrock;
+$FieldsetMessage--error-color: $color-cinnabar;
+
+// FieldsetMessageUpdatedSuccessValue
+$FieldsetMessageUpdatedSuccessValue__icon-margin-right: .4rem;
+$FieldsetMessageUpdatedSuccessValue__icon-font-size: $FieldsetMessage-font-size;
+$FieldsetMessageUpdatedSuccessValue__icon--success-color: $FieldsetMessage--success-color;
+$FieldsetMessageUpdatedSuccessValue__icon--error-color: $FieldsetMessage--error-color;
+$FieldsetMessageUpdatedSuccessValue__message-font-size: $FieldsetMessage-font-size;
+$FieldsetMessageUpdatedSuccessValue__message-font-weight: $FieldsetMessage-font-weight;
+
+// FieldsetMessageWrapper
+
+// FieldsetWrapper
+
+// Form
+
+
+
+
 
 // Header
 $Header-color: $color-indigo;

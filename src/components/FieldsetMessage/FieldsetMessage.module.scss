@@ -2,13 +2,13 @@
 
 .FieldsetMessage {
   width: 100%;
-  font-size: $ControlsBST__form-message-font-size;
-  font-weight: $ControlsBST__form-message-font-weight;
-  line-height: $ControlsBST__form-message-line-height;
+  font-size: $FieldsetMessage-font-size;
+  font-weight: $FieldsetMessage-font-weight;
+  line-height: $FieldsetMessage-line-height;
 }
 .FieldsetMessage--success {
-  color: $ControlsBST__form-message--success-color;
+  color: $FieldsetMessage--success-color;
 }
 .FieldsetMessage--error {
-  color: $ControlsBST__form-message--error-color;
+  color: $FieldsetMessage--error-color;
 }

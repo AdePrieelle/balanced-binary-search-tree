@@ -5,17 +5,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: $ControlsBST__form-button-height;
-  margin-bottom: $ControlsBST__form-button-margin-bottom-small;
-  @media screen and (min-width: $media-query-small-screen) {
-    margin-bottom: $ControlsBST__form-button-margin-bottom;
-  }
-  padding: $ControlsBST__form-button-padding;
-  font-size: $ControlsBST__form-button-font-size;
-  font-weight: $ControlsBST__form-button-font-weight;
+  height: 100%;
+  min-height: $Button-min-height;
+  padding: $Button-padding;
+  font-size: $Button-font-size;
+  font-weight: $Button-font-weight;
   text-align: left;
   word-break: break-all;
-  color: $ControlsBST__form-button-color;
+  color: $Button-color;
   background-color: $Button-bg-color;
   border: $ControlsBST__form-button-border;
   border-radius: $ControlsBST__form-button-border-radius;

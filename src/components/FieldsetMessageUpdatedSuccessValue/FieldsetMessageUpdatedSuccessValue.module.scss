@@ -4,17 +4,17 @@
   display: flex;
   align-items: center;
   .FieldsetMessageUpdatedSuccessValue__icon {
-    margin-right: $ControlsBST__form-message-icon-margin-right;
-    font-size: $ControlsBST__form-message-icon-font-size;
+    margin-right: $FieldsetMessageUpdatedSuccessValue__icon-margin-right;
+    font-size: $FieldsetMessageUpdatedSuccessValue__icon-font-size;
   }
   .FieldsetMessageUpdatedSuccessValue__icon--success {
-    color: $ControlsBST__form-message-icon--success-color;
+    color: $FieldsetMessageUpdatedSuccessValue__icon--success-color;
   }
   .FieldsetMessageUpdatedSuccessValue__icon--error {
-    color: $ControlsBST__form-message-icon--error-color;
+    color: $FieldsetMessageUpdatedSuccessValue__icon--error-color;
   }
   .FieldsetMessageUpdatedSuccessValue__message {
-    font-size: $ControlsBST__form-message-font-size;
-    font-weight: $ControlsBST__form-message-font-weight;
+    font-size: $FieldsetMessageUpdatedSuccessValue__message-font-size;
+    font-weight: $FieldsetMessageUpdatedSuccessValue__message-font-weight;
   }
 }
