@@ -1,16 +1,12 @@
 @import "../../styles/partials/variables";
 
 .InputIcon {
-  // position: absolute;
-  // top: 50%;
-  // right: $InputIcon-right;
-  // transform: translate(0%, -50%);
   display: block;
   font-size: $InputIcon-font-size;
 }
 .InputIcon--success {
-  color: $InputIcon-success-color;
+  color: $InputIcon--success-color;
 }
 .InputIcon--error {
-  color: $InputIcon-error-color;
+  color: $InputIcon--error-color;
 }

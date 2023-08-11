@@ -2,10 +2,9 @@
 
 .Header {
   margin: 0;
-  margin-top: 10px;
-  font-size: 3.2rem;
+  font-size: $Header-font-size;
   @media screen and (min-width: $media-query-small-screen) {
-    font-size: 4rem;
+    font-size: $Header-font-size-small-screen-and-bigger;
   }
   color: $Header-color;
   text-align: center;

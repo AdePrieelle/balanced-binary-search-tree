@@ -1,6 +1,7 @@
 @import "../../styles/partials/variables";
 
 .InputIconWrapper {
+  grid-area: InputIconWrapper;
   position: absolute;
   top: 50%;
   right: $InputIconWrapper-right;

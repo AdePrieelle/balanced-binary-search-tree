@@ -8,8 +8,13 @@ $media-query-xlarge-screen: 900px;
 $media-query-xxlarge-screen: 1200px;
 
 // color
+// $color-biloba-flower: #a9b3e9;
+$color-biloba-flower: #5469d480;
 $color-cinnabar: #e74c3c;
 $color-indigo: #5469d4;
+// $color-iron: #dfe0e4;
+$color-iron: #3c425729;
+$color-rose-white: #fffafa;
 $color-shamrock: #2ecc71;
 $color-white: #ffffff;
 
@@ -67,12 +72,62 @@ $FieldsetMessageUpdatedSuccessValue__message-font-weight: $FieldsetMessage-font-
 
 // Form
 
-
-
-
+// FormWrapper
 
 // Header
 $Header-color: $color-indigo;
+$Header-font-size: 3.2rem;
+$Header-font-size-small-screen-and-bigger: 4rem;
+
+// HeaderWrapper
+$HeaderWrapper-margin-top: 1rem;
+
+// Input
+$Input-font-size: 1.6rem;
+$Input-padding-x: 1.6rem;
+$Input-padding: 0 $Input-padding-x;
+$Input-height: 4.4rem;
+$Input-border: 0.1rem solid $color-iron;
+$Input-border-radius: 0.4rem;
+$Input-bg-color: $color-white;
+$Input-focus-visible-bg-color: $Input-bg-color;
+$Input-focus-visible-outline-width: 0.2rem;
+$Input-focus-visible-outline-style: solid;
+$Input-focus-visible-outline-color: $color-biloba-flower;
+$Input-focus-visible-outline: $Input-focus-visible-outline-width $Input-focus-visible-outline-style $Input-focus-visible-outline-color;
+$Input--success-outline-width: $Input-focus-visible-outline-width;
+$Input--success-outline-style: $Input-focus-visible-outline-style;
+$Input--success-outline-color: $FieldsetMessage--success-color;
+$Input--success-outline: $Input--success-outline-width $Input--success-outline-style $Input--success-outline-color;
+$Input--error-bg-color: $color-rose-white;
+$Input--error-outline-width: $Input-focus-visible-outline-width;
+$Input--error-outline-style: $Input-focus-visible-outline-style;
+$Input--error-outline-color: $FieldsetMessage--error-color;
+$Input--error-outline: $Input-focus-visible-outline-width $Input-focus-visible-outline-style $Input--error-outline-color;
+
+// InputIcon
+$InputIcon-font-size: 1.6rem;
+$InputIcon--success-color: $FieldsetMessage--success-color;
+$InputIcon--error-color: $FieldsetMessage--error-color;
+
+// InputIconWrapper
+$InputIconWrapper-right: $Input-padding-x;
+
+// InputInputIconContainer
+
+// InputInputIconContainerWrapper
+
+// InputWrapper
+
+// Label
+
+
+
+
+
+
+
+
 
 // ControlsBST
 $ControlsBST-bg-color: $color-indigo;
@@ -139,37 +194,37 @@ $ControlsBST__form-message-icon--error-color: $ControlsBST__form-message--error-
 $ControlsBST__form-message-line-height: calc(max($ControlsBST__form-message-font-size, $ControlsBST__form-message-icon-font-size));
 
 // InputIconWrapper
-$InputIconWrapper-right: $ControlsBST__form-input-padding-x;
+// $InputIconWrapper-right: $ControlsBST__form-input-padding-x;
 // $InputInputIconContainer__inputicon-wrapper-right: $ControlsBST__form-input-padding-x;
 
 // Input
-$Input-font-size: 1.6rem;
-$Input-padding-x: 1.6rem;
-$Input-padding: 0 $Input-padding-x;
-$Input-height: 4.4rem;
-$Input-border: 0.1rem solid rgba(60, 66, 87, 0.16);
-$Input-border-radius: 0.4rem;
-$Input-background-color: #fff;
-$Input-focus-visible-background-color: #fff;
-$Input-focus-visible-outline-width: .2rem;
-$Input-focus-visible-outline-style: solid;
-$Input-focus-visible-outline-color: rgb(84 105 212 / 0.5);
-$Input-focus-visible-outline: $Input-focus-visible-outline-width $Input-focus-visible-outline-style $Input-focus-visible-outline-color;
-$Input--success-outline-width: $Input-focus-visible-outline-width;
-$Input--success-outline-style: $Input-focus-visible-outline-style;
-$Input--success-outline-color: #2ecc71;
-$Input--success-outline: $Input--success-outline-width $Input--success-outline-style $Input--success-outline-color;
-$Input--error-background-color: #fffafa;
-$Input--error-outline-width: $Input-focus-visible-outline-width;
-$Input--error-outline-style: $Input-focus-visible-outline-style;
-$Input--error-outline-color: #e74c3c;
-$Input--error-outline: $Input-focus-visible-outline-width $Input-focus-visible-outline-style $Input--error-outline-color;
+// $Input-font-size: 1.6rem;
+// $Input-padding-x: 1.6rem;
+// $Input-padding: 0 $Input-padding-x;
+// $Input-height: 4.4rem;
+// $Input-border: 0.1rem solid rgba(60, 66, 87, 0.16);
+// $Input-border-radius: 0.4rem;
+// $Input-background-color: #fff;
+// $Input-focus-visible-background-color: #fff;
+// $Input-focus-visible-outline-width: .2rem;
+// $Input-focus-visible-outline-style: solid;
+// $Input-focus-visible-outline-color: rgb(84 105 212 / 0.5);
+// $Input-focus-visible-outline: $Input-focus-visible-outline-width $Input-focus-visible-outline-style $Input-focus-visible-outline-color;
+// $Input--success-outline-width: $Input-focus-visible-outline-width;
+// $Input--success-outline-style: $Input-focus-visible-outline-style;
+// $Input--success-outline-color: #2ecc71;
+// $Input--success-outline: $Input--success-outline-width $Input--success-outline-style $Input--success-outline-color;
+// $Input--error-background-color: #fffafa;
+// $Input--error-outline-width: $Input-focus-visible-outline-width;
+// $Input--error-outline-style: $Input-focus-visible-outline-style;
+// $Input--error-outline-color: #e74c3c;
+// $Input--error-outline: $Input-focus-visible-outline-width $Input-focus-visible-outline-style $Input--error-outline-color;
 
 // InputIcon
 // $InputIcon-right: $ControlsBST__form-input-padding-x;
-$InputIcon-font-size: 1.6rem;
-$InputIcon-success-color: $ControlsBST__form-input--success-outline-color;
-$InputIcon-error-color: $ControlsBST__form-input--error-outline-color;
+// $InputIcon-font-size: 1.6rem;
+// $InputIcon-success-color: $ControlsBST__form-input--success-outline-color;
+// $InputIcon-error-color: $ControlsBST__form-input--error-outline-color;
 
 // ButtonWrapper
-$ButtonWrapper-media-query-small-screen-or-biggger-max-width: 250px;
+// $ButtonWrapper-media-query-small-screen-or-biggger-max-width: 250px;

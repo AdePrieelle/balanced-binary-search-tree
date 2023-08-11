@@ -5,11 +5,11 @@
   height: $Input-height;
   padding: $Input-padding;
   font-size: $Input-font-size;
-  background-color: $Input-background-color;
+  background-color: $Input-bg-color;
   border: $Input-border;
   border-radius: $Input-border-radius;
   &:focus-visible {
-    background-color: $Input-focus-visible-background-color;
+    background-color: $Input-focus-visible-bg-color;
     border: 0;
     outline: $Input-focus-visible-outline;
   }
@@ -19,7 +19,7 @@
   outline: $Input--success-outline;
 }
 .Input--error {
-  background-color: $Input--error-background-color;
+  background-color: $Input--error-bg-color;
   border: 0;
   outline: $Input--error-outline;
 }
