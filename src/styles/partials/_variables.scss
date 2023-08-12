@@ -22,6 +22,8 @@ $color-white: #ffffff;
 $body-font-size: 1.6rem;
 $html-font-size: 62.5%;
 
+/* Scss variables per react component*/
+
 // App
 $App-bg-color: $color-white;
 $App-padding: 0 2rem;
@@ -29,12 +31,12 @@ $App-padding: 0 2rem;
 // Button
 $Button-bg-color: $color-indigo;
 $Button-border: 0;
-$Button-border-radius: .4rem;
+$Button-border-radius: 0.4rem;
 $Button-color: $color-white;
 $Button-font-size: 1.6rem;
 $Button-font-weight: 700;
 $Button-min-height: 4.4rem;
-$Button-padding: .8rem 1.6rem;
+$Button-padding: 0.8rem 1.6rem;
 
 // ButtonWrapper
 $ButtonWrapper-margin-bottom: 0;
@@ -46,23 +48,22 @@ $ButtonWrapper-media-query-small-screen-or-bigger-max-width: 250px;
 // ControlsBSTWrapper
 
 // Fieldset
-$Fieldset-column-gap-small: 1.6rem;
 $Fieldset-column-gap-medium: 2rem;
+$Fieldset-column-gap-small: 1.6rem;
 
 // FieldsetMessage
 $FieldsetMessage-font-size: 1.4rem;
 $FieldsetMessage-font-weight: 500;
-// update later below to use real icon font-size from component
 $FieldsetMessage-icon-font-size: $FieldsetMessage-font-size;
 $FieldsetMessage-line-height: calc(max($FieldsetMessage-font-size, $FieldsetMessage-icon-font-size));
-$FieldsetMessage--success-color: $color-shamrock;
 $FieldsetMessage--error-color: $color-cinnabar;
+$FieldsetMessage--success-color: $color-shamrock;
 
 // FieldsetMessageUpdatedSuccessValue
-$FieldsetMessageUpdatedSuccessValue__icon-margin-right: .4rem;
 $FieldsetMessageUpdatedSuccessValue__icon-font-size: $FieldsetMessage-font-size;
-$FieldsetMessageUpdatedSuccessValue__icon--success-color: $FieldsetMessage--success-color;
+$FieldsetMessageUpdatedSuccessValue__icon-margin-right: 0.4rem;
 $FieldsetMessageUpdatedSuccessValue__icon--error-color: $FieldsetMessage--error-color;
+$FieldsetMessageUpdatedSuccessValue__icon--success-color: $FieldsetMessage--success-color;
 $FieldsetMessageUpdatedSuccessValue__message-font-size: $FieldsetMessage-font-size;
 $FieldsetMessageUpdatedSuccessValue__message-font-weight: $FieldsetMessage-font-weight;
 
@@ -83,32 +84,32 @@ $Header-font-size-small-screen-and-bigger: 4rem;
 $HeaderWrapper-margin-top: 1rem;
 
 // Input
-$Input-font-size: 1.6rem;
-$Input-padding-x: 1.6rem;
-$Input-padding: 0 $Input-padding-x;
-$Input-height: 4.4rem;
+$Input-bg-color: $color-white;
 $Input-border: 0.1rem solid $color-iron;
 $Input-border-radius: 0.4rem;
-$Input-bg-color: $color-white;
 $Input-focus-visible-bg-color: $Input-bg-color;
 $Input-focus-visible-outline-width: 0.2rem;
 $Input-focus-visible-outline-style: solid;
 $Input-focus-visible-outline-color: $color-biloba-flower;
 $Input-focus-visible-outline: $Input-focus-visible-outline-width $Input-focus-visible-outline-style $Input-focus-visible-outline-color;
-$Input--success-outline-width: $Input-focus-visible-outline-width;
-$Input--success-outline-style: $Input-focus-visible-outline-style;
-$Input--success-outline-color: $FieldsetMessage--success-color;
-$Input--success-outline: $Input--success-outline-width $Input--success-outline-style $Input--success-outline-color;
+$Input-font-size: 1.6rem;
+$Input-height: 4.4rem;
+$Input-padding-x: 1.6rem;
+$Input-padding: 0 $Input-padding-x;
 $Input--error-bg-color: $color-rose-white;
 $Input--error-outline-width: $Input-focus-visible-outline-width;
 $Input--error-outline-style: $Input-focus-visible-outline-style;
 $Input--error-outline-color: $FieldsetMessage--error-color;
 $Input--error-outline: $Input-focus-visible-outline-width $Input-focus-visible-outline-style $Input--error-outline-color;
+$Input--success-outline-width: $Input-focus-visible-outline-width;
+$Input--success-outline-style: $Input-focus-visible-outline-style;
+$Input--success-outline-color: $FieldsetMessage--success-color;
+$Input--success-outline: $Input--success-outline-width $Input--success-outline-style $Input--success-outline-color;
 
 // InputIcon
 $InputIcon-font-size: 1.6rem;
-$InputIcon--success-color: $FieldsetMessage--success-color;
 $InputIcon--error-color: $FieldsetMessage--error-color;
+$InputIcon--success-color: $FieldsetMessage--success-color;
 
 // InputIconWrapper
 $InputIconWrapper-right: $Input-padding-x;
@@ -120,111 +121,21 @@ $InputIconWrapper-right: $Input-padding-x;
 // InputWrapper
 
 // Label
+$Label-font-size: $FieldsetMessage-font-size;
+$Label-font-weight: $FieldsetMessage-font-weight;
 
+// LabelWrapper
 
+// RebalanceBST
 
+// RebalanceBSTButtonWrapper
 
+// RebalanceBSTMessage
+$RebalanceBSTMessage-color: $FieldsetMessage--success-color;
+$RebalanceBSTMessage-font-size: $FieldsetMessage-font-size;
+$RebalanceBSTMessage-font-weight: $FieldsetMessage-font-weight;
+$RebalanceBSTMessage-line-height: $FieldsetMessage-line-height;
 
+// RebalanceBSTMessageWrapper
 
-
-
-
-// ControlsBST
-$ControlsBST-bg-color: $color-indigo;
-
-$ControlsBST-font-size: 1.6rem;
-$ControlsBST__form-column-gap-small: 1.6rem;
-$ControlsBST__form-column-gap-medium: 2rem;
-$ControlsBST__form-label-margin-bottom: 1rem;
-$ControlsBST__form-label-font-size: 1.4rem;
-$ControlsBST__form-label-font-weight: 500;
-$ControlsBST__form-input-font-size: 1.6rem;
-$ControlsBST__form-input-padding-x: 1.6rem;
-$ControlsBST__form-input-padding: 0 $ControlsBST__form-input-padding-x;
-$ControlsBST__form-input-height: 4.4rem;
-$ControlsBST__form-input-border: 0.1rem solid rgba(60, 66, 87, 0.16);
-$ControlsBST__form-input-border-radius: 0.4rem;
-$ControlsBST__form-input-background-color: #fff;
-$ControlsBST__form-input-focus-visible-background-color: #fff;
-$ControlsBST__form-input-focus-visible-outline-width: .2rem;
-$ControlsBST__form-input-focus-visible-outline-style: solid;
-$ControlsBST__form-input-focus-visible-outline-color: rgb(84 105 212 / 0.5);
-$ControlsBST__form-input-focus-visible-outline: $ControlsBST__form-input-focus-visible-outline-width $ControlsBST__form-input-focus-visible-outline-style $ControlsBST__form-input-focus-visible-outline-color;
-$ControlsBST__form-input--success-outline-width: $ControlsBST__form-input-focus-visible-outline-width;
-$ControlsBST__form-input--success-outline-style: $ControlsBST__form-input-focus-visible-outline-style;
-$ControlsBST__form-input--success-outline-color: #2ecc71;
-$ControlsBST__form-input--success-outline: $ControlsBST__form-input--success-outline-width $ControlsBST__form-input--success-outline-style $ControlsBST__form-input--success-outline-color;
-$ControlsBST__form-input--error-background-color: #fffafa;
-$ControlsBST__form-input--error-outline-width: $ControlsBST__form-input-focus-visible-outline-width;
-$ControlsBST__form-input--error-outline-style: $ControlsBST__form-input-focus-visible-outline-style;
-$ControlsBST__form-input--error-outline-color: #e74c3c;
-$ControlsBST__form-input--error-outline: $ControlsBST__form-input-focus-visible-outline-width $ControlsBST__form-input-focus-visible-outline-style $ControlsBST__form-input--error-outline-color;
-
-// delete below later
-
-$ControlsBST__form-input-icon-right: $ControlsBST__form-input-padding-x;
-$ControlsBST__form-input-icon-font-size: 1.6rem;
-$ControlsBST__form-input-icon-success-color: $ControlsBST__form-input--success-outline-color;
-$ControlsBST__form-input-icon-error-color: $ControlsBST__form-input--error-outline-color;
-
-// delete above later
-
-$ControlsBST__form-button-height: 4.4rem;
-$ControlsBST__form-button-padding: .8rem 1.6rem;
-$ControlsBST__form-button-font-size: 1.6rem;
-$ControlsBST__form-button-font-weight: 700;
-$ControlsBST__form-button-color: #fff;
-$ControlsBST__form-button-bg-color: $color-indigo;
-$ControlsBST__form-button-border: 0;
-$ControlsBST__form-button-border-radius: .4rem;
-$ControlsBST__form-button-margin-bottom: 0;
-$ControlsBST__form-button-margin-bottom-small: 3rem;
-$ControlsBST__form-button--large-margin-bottom: 0;
-$ControlsBST__form-message-margin-top: $ControlsBST__form-label-margin-bottom;
-$ControlsBST__form-message-margin-bottom: $ControlsBST__form-button-margin-bottom-small;
-$ControlsBST__form-message-margin-bottom-small: $ControlsBST__form-label-margin-bottom;
-$ControlsBST__form-message-font-size: $ControlsBST__form-label-font-size;
-$ControlsBST__form-message-font-weight: $ControlsBST__form-label-font-weight;
-$ControlsBST__form-message--success-color: $ControlsBST__form-input--success-outline-color;
-$ControlsBST__form-message--error-color: $ControlsBST__form-input--error-outline-color;
-$ControlsBST__form-message-icon-font-size: $ControlsBST__form-message-font-size;
-$ControlsBST__form-message-icon-margin-right: .4rem;
-$ControlsBST__form-message-icon--success-color: $ControlsBST__form-message--success-color;
-$ControlsBST__form-message-icon--error-color: $ControlsBST__form-message--error-color;
-$ControlsBST__form-message-line-height: calc(max($ControlsBST__form-message-font-size, $ControlsBST__form-message-icon-font-size));
-
-// InputIconWrapper
-// $InputIconWrapper-right: $ControlsBST__form-input-padding-x;
-// $InputInputIconContainer__inputicon-wrapper-right: $ControlsBST__form-input-padding-x;
-
-// Input
-// $Input-font-size: 1.6rem;
-// $Input-padding-x: 1.6rem;
-// $Input-padding: 0 $Input-padding-x;
-// $Input-height: 4.4rem;
-// $Input-border: 0.1rem solid rgba(60, 66, 87, 0.16);
-// $Input-border-radius: 0.4rem;
-// $Input-background-color: #fff;
-// $Input-focus-visible-background-color: #fff;
-// $Input-focus-visible-outline-width: .2rem;
-// $Input-focus-visible-outline-style: solid;
-// $Input-focus-visible-outline-color: rgb(84 105 212 / 0.5);
-// $Input-focus-visible-outline: $Input-focus-visible-outline-width $Input-focus-visible-outline-style $Input-focus-visible-outline-color;
-// $Input--success-outline-width: $Input-focus-visible-outline-width;
-// $Input--success-outline-style: $Input-focus-visible-outline-style;
-// $Input--success-outline-color: #2ecc71;
-// $Input--success-outline: $Input--success-outline-width $Input--success-outline-style $Input--success-outline-color;
-// $Input--error-background-color: #fffafa;
-// $Input--error-outline-width: $Input-focus-visible-outline-width;
-// $Input--error-outline-style: $Input-focus-visible-outline-style;
-// $Input--error-outline-color: #e74c3c;
-// $Input--error-outline: $Input-focus-visible-outline-width $Input-focus-visible-outline-style $Input--error-outline-color;
-
-// InputIcon
-// $InputIcon-right: $ControlsBST__form-input-padding-x;
-// $InputIcon-font-size: 1.6rem;
-// $InputIcon-success-color: $ControlsBST__form-input--success-outline-color;
-// $InputIcon-error-color: $ControlsBST__form-input--error-outline-color;
-
-// ButtonWrapper
-// $ButtonWrapper-media-query-small-screen-or-biggger-max-width: 250px;
+// RebalanceBSTWrapper
