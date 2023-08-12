@@ -107,7 +107,7 @@ $Input--success-outline-color: $FieldsetMessage--success-color;
 $Input--success-outline: $Input--success-outline-width $Input--success-outline-style $Input--success-outline-color;
 
 // InputIcon
-$InputIcon-font-size: 1.6rem;
+$InputIcon-font-size: $Input-font-size;
 $InputIcon--error-color: $FieldsetMessage--error-color;
 $InputIcon--success-color: $FieldsetMessage--success-color;
 
