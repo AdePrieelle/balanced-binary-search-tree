@@ -3,4 +3,9 @@
 .FieldsetMessageWrapper {
   grid-area: FieldsetMessageWrapper;
   width: 100%;
+  margin-top: $FieldsetMessageWrapper-margin-top;
+  margin-bottom: $FieldsetMessageWrapper-margin-bottom-small;
+  @media screen and (min-width: $media-query-small-screen) {
+    margin-bottom: $FieldsetMessageWrapper-margin-bottom-medium;
+  }
 }

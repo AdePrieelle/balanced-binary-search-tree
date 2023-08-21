@@ -1,6 +1,13 @@
 @import "../../styles/partials/variables";
 
 .App {
+  display: grid;
+  grid-template-areas: 
+    "HeaderWrapper"
+    "ControlsBSTWrapper"
+  ;
+  align-content: flex-start;
+  justify-items: center;
   height: 100%;
   padding: $App-padding;
   overflow: auto;

@@ -3,4 +3,12 @@
 .ControlsBSTWrapper {
   grid-area: ControlsBSTWrapper;
   width: 100%;
+  max-width: $ControlsBSTWrapper-max-width;
+  padding: $ControlsBSTWrapper-padding-small;
+  @media screen and (min-width: $media-query-small-screen) {
+    padding: $ControlsBSTWrapper-padding-medium;
+  }
+  background-color: $ControlsBSTWrapper-bg-color;
+  box-shadow: $ControlsBSTWrapper-box-shadow;
+  border-radius: $ControlsBSTWrapper-border-radius;
 };

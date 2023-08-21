@@ -16,6 +16,7 @@ $color-indigo: #5469d4;
 $color-iron: #3c425729;
 $color-rose-white: #fffafa;
 $color-shamrock: #2ecc71;
+$color-whisper: #f5f6fa;
 $color-white: #ffffff;
 
 // index
@@ -25,8 +26,8 @@ $html-font-size: 62.5%;
 /* Scss variables per react component*/
 
 // App
-$App-bg-color: $color-white;
-$App-padding: 0 2rem;
+$App-bg-color: $color-whisper;
+$App-padding: 2rem;
 
 // Button
 $Button-bg-color: $color-indigo;
@@ -46,6 +47,12 @@ $ButtonWrapper-media-query-small-screen-or-bigger-max-width: 250px;
 // ControlsBST
 
 // ControlsBSTWrapper
+$ControlsBSTWrapper-bg-color: $color-white;
+$ControlsBSTWrapper-border-radius: 1rem;
+$ControlsBSTWrapper-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+$ControlsBSTWrapper-max-width: 600px;
+$ControlsBSTWrapper-padding-medium: 2rem;
+$ControlsBSTWrapper-padding-small: 1.6rem;
 
 // Fieldset
 $Fieldset-column-gap-medium: 2rem;
@@ -68,8 +75,12 @@ $FieldsetMessageUpdatedSuccessValue__message-font-size: $FieldsetMessage-font-si
 $FieldsetMessageUpdatedSuccessValue__message-font-weight: $FieldsetMessage-font-weight;
 
 // FieldsetMessageWrapper
+$FieldsetMessageWrapper-margin-top: 0.6rem;
+$FieldsetMessageWrapper-margin-bottom-medium: 0;
+$FieldsetMessageWrapper-margin-bottom-small: $FieldsetMessageWrapper-margin-top;
 
 // FieldsetWrapper
+$FieldsetWrapper-margin-bottom: 2rem;
 
 // Form
 
@@ -82,6 +93,7 @@ $Header-font-size-small-screen-and-bigger: 4rem;
 
 // HeaderWrapper
 $HeaderWrapper-margin-top: 1rem;
+$HeaderWrapper-margin-bottom: 3rem;
 
 // Input
 $Input-bg-color: $color-white;
@@ -125,6 +137,7 @@ $Label-font-size: $FieldsetMessage-font-size;
 $Label-font-weight: $FieldsetMessage-font-weight;
 
 // LabelWrapper
+$LabelWrapper-margin-bottom: $FieldsetMessageWrapper-margin-top;
 
 // RebalanceBST
 
@@ -137,5 +150,6 @@ $RebalanceBSTMessage-font-weight: $FieldsetMessage-font-weight;
 $RebalanceBSTMessage-line-height: $FieldsetMessage-line-height;
 
 // RebalanceBSTMessageWrapper
+$RebalanceBSTMessageWrapper-margin-top: $FieldsetMessageWrapper-margin-top;
 
 // RebalanceBSTWrapper
