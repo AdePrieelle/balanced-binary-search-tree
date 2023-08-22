@@ -51,11 +51,11 @@ $ControlsBSTWrapper-bg-color: $color-white;
 $ControlsBSTWrapper-border-radius: 1rem;
 $ControlsBSTWrapper-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 $ControlsBSTWrapper-max-width: 600px;
-$ControlsBSTWrapper-padding-medium: 2rem;
-$ControlsBSTWrapper-padding-small: 1.6rem;
+$ControlsBSTWrapper-padding-medium: 3.2rem;
+$ControlsBSTWrapper-padding-small: 2.4rem;
 
 // Fieldset
-$Fieldset-column-gap-medium: 2rem;
+$Fieldset-column-gap-medium: 1.6rem;
 $Fieldset-column-gap-small: 1.6rem;
 
 // FieldsetMessage
@@ -80,7 +80,7 @@ $FieldsetMessageWrapper-margin-bottom-medium: 0;
 $FieldsetMessageWrapper-margin-bottom-small: $FieldsetMessageWrapper-margin-top;
 
 // FieldsetWrapper
-$FieldsetWrapper-margin-bottom: 2rem;
+$FieldsetWrapper-margin-bottom: calc($FieldsetMessageWrapper-margin-top * 2);
 
 // Form
 
@@ -150,6 +150,7 @@ $RebalanceBSTMessage-font-weight: $FieldsetMessage-font-weight;
 $RebalanceBSTMessage-line-height: $FieldsetMessage-line-height;
 
 // RebalanceBSTMessageWrapper
-$RebalanceBSTMessageWrapper-margin-top: $FieldsetMessageWrapper-margin-top;
+$RebalanceBSTMessageWrapper-margin-top: calc($FieldsetMessageWrapper-margin-top *2);
+$RebalanceBSTMessageWrapper-margin-bottom: $RebalanceBSTMessageWrapper-margin-top;
 
 // RebalanceBSTWrapper
