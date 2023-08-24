@@ -4,4 +4,14 @@
   grid-area: FieldsetWrapper;
   width: 100%;
   margin-bottom: $FieldsetWrapper-margin-bottom;
+  @media screen and (min-width: $media-query-small-screen) {
+    margin-bottom: $FieldsetWrapper-margin-bottom-small-screen-and-bigger;
+  }
+  padding: $FieldsetWrapper-padding;
+  @media screen and (min-width: $media-query-small-screen) {
+    padding: $FieldsetWrapper-padding-small-screen-and-bigger;
+  }
+  border: $FieldsetWrapper-border;
+  border-radius: $FieldsetWrapper-border-radius;
 }
+

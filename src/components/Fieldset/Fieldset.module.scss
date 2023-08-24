@@ -15,14 +15,12 @@
       "InputInputIconContainerWrapper ButtonWrapper"
       "FieldsetMessageWrapper FieldsetMessageWrapper"
   }
-  column-gap: $Fieldset-column-gap-small;
+  column-gap: $Fieldset-column-gap;
   @media screen and (min-width: $media-query-medium-screen) {
-  column-gap: $Fieldset-column-gap-medium;
+    column-gap: $Fieldset-column-gap-medium-screen-and-bigger;
   }
   width: 100%;
   margin: 0;
   padding: 0;
   border: 0;
-  // delete later
-  // border: 2px solid red;
 }

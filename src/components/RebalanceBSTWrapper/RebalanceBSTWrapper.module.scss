@@ -3,4 +3,10 @@
 .RebalanceBSTWrapper {
   grid-area: RebalanceBSTWrapper;
   width: 100%;
+  padding: $RebalanceBSTWrapper-padding;
+  @media screen and (min-width: $media-query-small-screen) {
+    padding: $RebalanceBSTWrapper-padding-small-screen-and-bigger;
+  }
+  border: $RebalanceBSTWrapper-border;
+  border-radius: $RebalanceBSTWrapper-border-radius;
 }

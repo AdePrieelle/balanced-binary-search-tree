@@ -14,6 +14,7 @@ $color-cinnabar: #e74c3c;
 $color-indigo: #5469d4;
 // $color-iron: #dfe0e4;
 $color-iron: #3c425729;
+$color-mercury: #e5e5e5;
 $color-rose-white: #fffafa;
 $color-shamrock: #2ecc71;
 $color-whisper: #f5f6fa;
@@ -40,8 +41,6 @@ $Button-min-height: 4.4rem;
 $Button-padding: 0.8rem 1.6rem;
 
 // ButtonWrapper
-$ButtonWrapper-margin-bottom: 0;
-$ButtonWrapper-margin-bottom-small: 3rem;
 $ButtonWrapper-media-query-small-screen-or-bigger-max-width: 250px;
 
 // ControlsBST
@@ -51,12 +50,12 @@ $ControlsBSTWrapper-bg-color: $color-white;
 $ControlsBSTWrapper-border-radius: 1rem;
 $ControlsBSTWrapper-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 $ControlsBSTWrapper-max-width: 600px;
-$ControlsBSTWrapper-padding-medium: 3.2rem;
-$ControlsBSTWrapper-padding-small: 2.4rem;
+$ControlsBSTWrapper-padding: 2.4rem;
+$ControlsBSTWrapper-padding-small-screen-and-bigger: 3.2rem;
 
 // Fieldset
-$Fieldset-column-gap-medium: 1.6rem;
-$Fieldset-column-gap-small: 1.6rem;
+$Fieldset-column-gap: 1.6rem;
+$Fieldset-column-gap-medium-screen-and-bigger: 1.6rem;
 
 // FieldsetMessage
 $FieldsetMessage-font-size: 1.4rem;
@@ -75,12 +74,17 @@ $FieldsetMessageUpdatedSuccessValue__message-font-size: $FieldsetMessage-font-si
 $FieldsetMessageUpdatedSuccessValue__message-font-weight: $FieldsetMessage-font-weight;
 
 // FieldsetMessageWrapper
-$FieldsetMessageWrapper-margin-top: 0.6rem;
-$FieldsetMessageWrapper-margin-bottom-medium: 0;
-$FieldsetMessageWrapper-margin-bottom-small: $FieldsetMessageWrapper-margin-top;
+$FieldsetMessageWrapper-margin-bottom: 0.6rem;
+$FieldsetMessageWrapper-margin-bottom-small-screen-and-bigger: 0;
+$FieldsetMessageWrapper-margin-top: $FieldsetMessageWrapper-margin-bottom;
 
 // FieldsetWrapper
-$FieldsetWrapper-margin-bottom: calc($FieldsetMessageWrapper-margin-top * 2);
+$FieldsetWrapper-border: 0.2rem solid $color-mercury;
+$FieldsetWrapper-border-radius: $ControlsBSTWrapper-border-radius;
+$FieldsetWrapper-margin-bottom: $ControlsBSTWrapper-padding;
+$FieldsetWrapper-margin-bottom-small-screen-and-bigger: calc($ControlsBSTWrapper-padding-small-screen-and-bigger / 2);
+$FieldsetWrapper-padding: $Fieldset-column-gap;
+$FieldsetWrapper-padding-small-screen-and-bigger: $Fieldset-column-gap-medium-screen-and-bigger;
 
 // Form
 
@@ -154,3 +158,7 @@ $RebalanceBSTMessageWrapper-margin-top: calc($FieldsetMessageWrapper-margin-top 
 $RebalanceBSTMessageWrapper-margin-bottom: $RebalanceBSTMessageWrapper-margin-top;
 
 // RebalanceBSTWrapper
+$RebalanceBSTWrapper-border: $FieldsetWrapper-border;
+$RebalanceBSTWrapper-border-radius: $FieldsetWrapper-border-radius;
+$RebalanceBSTWrapper-padding: $FieldsetWrapper-padding;
+$RebalanceBSTWrapper-padding-small-screen-and-bigger: $FieldsetWrapper-padding-small-screen-and-bigger;

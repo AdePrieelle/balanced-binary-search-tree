@@ -4,9 +4,9 @@
   grid-area: ControlsBSTWrapper;
   width: 100%;
   max-width: $ControlsBSTWrapper-max-width;
-  padding: $ControlsBSTWrapper-padding-small;
+  padding: $ControlsBSTWrapper-padding;
   @media screen and (min-width: $media-query-small-screen) {
-    padding: $ControlsBSTWrapper-padding-medium;
+    padding: $ControlsBSTWrapper-padding-small-screen-and-bigger;
   }
   background-color: $ControlsBSTWrapper-bg-color;
   box-shadow: $ControlsBSTWrapper-box-shadow;
