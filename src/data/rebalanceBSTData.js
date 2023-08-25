@@ -5,3 +5,4 @@ export const rebalanceBSTMessageAlreadyBalancedBSTValue = (<FieldsetMessageUpdat
 export const rebalanceBSTMessageEmptyValue = (<>&nbsp;</>);
 export const rebalanceBSTMessageUpdatedAlreadyBalancedBSTRebalancedValue = (<FieldsetMessageUpdatedSuccessValue icon={true} message={"The already balanced BST has been rebalanced"} />);
 export const rebalanceBSTMessageUpdatedRebalancedValue = (<FieldsetMessageUpdatedSuccessValue icon={true} message={"The BST has been rebalanced"} />);
+export const rebalanceBSTTitleText = ("Rebalance the BST");

@@ -8,10 +8,12 @@ import { getIsRebalancedBSTEqualToBSTBeforeRebalancing } from '../../utils/getIs
 import { getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues } from '../../utils/getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues/getNewCreatedBalancedBinarySearchTreeFromBinarySearchTreeDataValues.js';
 import { getRebalanceBSTMessage } from '../../utils/getRebalanceBSTMessage/getRebalanceBSTMessage.js';
 import { getRebalancedBinarySearchTree } from '../../utils/getRebalancedBinarySearchTree/getRebalancedBinarySearchTree.js';
-import { rebalanceBSTButtonText, rebalanceBSTMessageAlreadyBalancedBSTValue, rebalanceBSTMessageEmptyValue, rebalanceBSTMessageUpdatedAlreadyBalancedBSTRebalancedValue, rebalanceBSTMessageUpdatedRebalancedValue } from '../../data/rebalanceBSTData.js';
+import { rebalanceBSTButtonText, rebalanceBSTMessageAlreadyBalancedBSTValue, rebalanceBSTMessageEmptyValue, rebalanceBSTMessageUpdatedAlreadyBalancedBSTRebalancedValue, rebalanceBSTMessageUpdatedRebalancedValue, rebalanceBSTTitleText } from '../../data/rebalanceBSTData.js';
 import { RebalanceBSTButtonWrapper } from '../RebalanceBSTButtonWrapper/RebalanceBSTButtonWrapper.js';
 import { RebalanceBSTMessage } from '../RebalanceBSTMessage/RebalanceBSTMessage.js';
 import { RebalanceBSTMessageWrapper } from '../RebalanceBSTMessageWrapper/RebalanceBSTMessageWrapper.js';
+import { RebalanceBSTTitle } from '../RebalanceBSTTitle/RebalanceBSTTitle.js';
+import { RebalanceBSTTitleWrapper } from '../RebalanceBSTTitleWrapper/RebalanceBSTTitleWrapper.js';
 import styles from './RebalanceBST.module.scss';
 
 export const RebalanceBST = ({
@@ -47,16 +49,21 @@ export const RebalanceBST = ({
 
   return (
     <div className={`${styles["RebalanceBST"]}`}>
-      <RebalanceBSTButtonWrapper>
-        <Button onClickHandler={() => (onClickHandler())}>
-          {rebalanceBSTButtonText}
-        </Button>
-      </RebalanceBSTButtonWrapper>
+      <RebalanceBSTTitleWrapper>
+        <RebalanceBSTTitle>
+          {rebalanceBSTTitleText}
+        </RebalanceBSTTitle>
+      </RebalanceBSTTitleWrapper>
       <RebalanceBSTMessageWrapper>
         <RebalanceBSTMessage 
           rebalanceBSTMessage={rebalanceBSTMessage}
         />
       </RebalanceBSTMessageWrapper>
+      <RebalanceBSTButtonWrapper>
+        <Button onClickHandler={() => (onClickHandler())}>
+          {rebalanceBSTButtonText}
+        </Button>
+      </RebalanceBSTButtonWrapper>
     </div>
   );
 };

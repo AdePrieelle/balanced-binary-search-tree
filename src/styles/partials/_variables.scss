@@ -154,8 +154,15 @@ $RebalanceBSTMessage-font-weight: $FieldsetMessage-font-weight;
 $RebalanceBSTMessage-line-height: $FieldsetMessage-line-height;
 
 // RebalanceBSTMessageWrapper
-$RebalanceBSTMessageWrapper-margin-top: calc($FieldsetMessageWrapper-margin-top *2);
-$RebalanceBSTMessageWrapper-margin-bottom: $RebalanceBSTMessageWrapper-margin-top;
+$RebalanceBSTMessageWrapper-margin-top: 0;
+$RebalanceBSTMessageWrapper-margin-bottom: calc($LabelWrapper-margin-bottom*2);
+
+// RebalanceBSTTitle
+$RebalanceBSTTitle-font-size: $Label-font-size;
+$RebalanceBSTTitle-font-weight: $Label-font-weight;
+
+// RebalanceBSTTitleWrapper
+$RebalanceBSTTitleWrapper-margin-bottom: $RebalanceBSTMessageWrapper-margin-bottom;
 
 // RebalanceBSTWrapper
 $RebalanceBSTWrapper-border: $FieldsetWrapper-border;
