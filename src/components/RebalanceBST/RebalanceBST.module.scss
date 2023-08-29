@@ -1,5 +1,10 @@
 @import "../../styles/partials/variables";
 
 .RebalanceBST {
+  display: grid;
+  grid-template-areas: 
+    "RebalanceBSTTitleWrapper"
+    "RebalanceBSTMessageWrapper"
+    "RebalanceBSTButtonWrapper";
   width: 100%;
 }

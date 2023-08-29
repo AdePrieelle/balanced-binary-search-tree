@@ -80,7 +80,7 @@ $FieldsetMessageWrapper-margin-top: $FieldsetMessageWrapper-margin-bottom;
 
 // FieldsetWrapper
 $FieldsetWrapper-border: 0.2rem solid $color-mercury;
-$FieldsetWrapper-border-radius: $ControlsBSTWrapper-border-radius;
+$FieldsetWrapper-border-radius: calc($ControlsBSTWrapper-border-radius*0.8);
 $FieldsetWrapper-margin-bottom: $ControlsBSTWrapper-padding;
 $FieldsetWrapper-margin-bottom-small-screen-and-bigger: calc($ControlsBSTWrapper-padding-small-screen-and-bigger / 2);
 $FieldsetWrapper-padding: $Fieldset-column-gap;
