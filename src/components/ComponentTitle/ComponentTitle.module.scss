@@ -1,0 +1,12 @@
+@import '../../styles/partials/variables';
+
+.ComponentTitle {
+  margin: $ComponentTitle-margin;
+  color: $ComponentTitle-color;
+  font-size: $ComponentTitle-font-size;
+  @media screen and (min-width: $media-query-small-screen) {
+    font-size: $ComponentTitle-font-size-small-screen-and-bigger;
+  }
+  font-weight: $ComponentTitle-font-weight;
+  text-align: center;
+}

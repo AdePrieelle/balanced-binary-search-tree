@@ -1,11 +1,12 @@
 @import '../../styles/partials/variables';
 
 .Header {
-  margin: 0;
+  margin: $Header-margin;
   font-size: $Header-font-size;
   @media screen and (min-width: $media-query-small-screen) {
     font-size: $Header-font-size-small-screen-and-bigger;
   }
+  font-weight: $Header-font-weight;
   color: $Header-color;
   text-align: center;
 }

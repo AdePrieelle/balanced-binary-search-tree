@@ -1,0 +1,11 @@
+@import "../../styles/partials/variables";
+
+.ComponentTitleWrapper {
+  grid-area: ComponentTitleWrapper;
+  width: 100%;
+  margin-top: $ComponentTitleWrapper-margin-top;
+  margin-bottom: $ComponentTitleWrapper-margin-bottom;
+  @media screen and (min-width: $media-query-small-screen) {
+    margin-bottom: $ComponentTitleWrapper-margin-bottom-small-screen-and-bigger;
+  }
+}

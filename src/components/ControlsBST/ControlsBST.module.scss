@@ -3,6 +3,7 @@
 .ControlsBST {
   display: grid;
   grid-template-areas: 
+    "ComponentTitleWrapper"
     "FormWrapper"
     "RebalanceBSTWrapper"
   ;
