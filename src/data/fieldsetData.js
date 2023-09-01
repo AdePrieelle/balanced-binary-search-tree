@@ -63,7 +63,7 @@ export const fieldsetData = {
         regexPattern: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"
       },
       "fieldset2": {
-        buttonText: "Add value(s)", 
+        buttonText: "Add values", 
         fieldsetMessageDuplicateInputValuesErrorValue: "Please remove duplicate input values",
         fieldsetMessageEmptyInputErrorValue: "Please enter the additional value(s)",
         fieldsetMessageEmptyInputSuccessValue: <>&nbsp;</>,
@@ -91,7 +91,7 @@ export const fieldsetData = {
           );
         },
         id: "fieldset2",
-        inputName: "Add-value(s)",
+        inputName: "Add-values",
         labelText: "Add additional value(s) seperated by a comma and a space",
         onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
           setBinarySearchTree(
@@ -110,7 +110,7 @@ export const fieldsetData = {
         regexPattern: "^(-?\\d+(\\.\\d+)?)+((, (-?\\d+(\\.\\d+)?))*)$"
       },
       "fieldset3": {
-        buttonText: "Remove value(s)", 
+        buttonText: "Remove values", 
         fieldsetMessageDuplicateInputValuesErrorValue: "Please remove duplicate input values",
         fieldsetMessageEmptyInputErrorValue: "Please enter the value(s) to be removed",
         fieldsetMessageEmptyInputSuccessValue: <>&nbsp;</>,
@@ -138,7 +138,7 @@ export const fieldsetData = {
           );
         },
         id: "fieldset3",
-        inputName: "Remove-value(s)",
+        inputName: "Remove-values",
         labelText: "Remove value(s) seperated by a comma and a space",
         onClickHandlerSuccessful: (input, binarySearchTree, setBinarySearchTree) => {
           setBinarySearchTree(
