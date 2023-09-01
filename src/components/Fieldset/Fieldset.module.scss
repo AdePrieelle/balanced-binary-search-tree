@@ -7,20 +7,22 @@
     "LabelWrapper"
     "InputInputIconContainerWrapper"
     "FieldsetMessageWrapper"
-    "ButtonWrapper";
+    "ButtonWrapper"
+  ;
   @media screen and (min-width: $media-query-small-screen) {
     grid-template-columns: 1fr minmax(0, max-content);
     grid-template-areas: 
       "LabelWrapper LabelWrapper"
       "InputInputIconContainerWrapper ButtonWrapper"
       "FieldsetMessageWrapper FieldsetMessageWrapper"
+    ;
   }
   column-gap: $Fieldset-column-gap;
   @media screen and (min-width: $media-query-medium-screen) {
     column-gap: $Fieldset-column-gap-medium-screen-and-bigger;
   }
   width: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
+  margin: $Fieldset-margin;
+  padding: $Fieldset-padding;
+  border: $Fieldset-border;
 }

@@ -8,12 +8,12 @@
   height: 100%;
   min-height: $Button-min-height;
   padding: $Button-padding;
+  color: $Button-color;
+  background-color: $Button-bg-color;
   font-size: $Button-font-size;
   font-weight: $Button-font-weight;
   text-align: left;
   word-break: break-all;
-  color: $Button-color;
-  background-color: $Button-bg-color;
   border: $Button-border;
   border-radius: $Button-border-radius;
   cursor: pointer;

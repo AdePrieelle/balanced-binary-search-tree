@@ -4,8 +4,8 @@
   width: 100%;
   height: $Input-height;
   padding: $Input-padding;
-  font-size: $Input-font-size;
   background-color: $Input-bg-color;
+  font-size: $Input-font-size;
   border: $Input-border;
   border-radius: $Input-border-radius;
   &:focus-visible {

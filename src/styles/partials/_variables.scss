@@ -7,7 +7,7 @@ $media-query-large-screen: 750px;
 $media-query-xlarge-screen: 900px;
 $media-query-xxlarge-screen: 1200px;
 
-// color
+// Colors
 // $color-biloba-flower: #a9b3e9;
 $color-biloba-flower: #5469d480;
 $color-cinnabar: #e74c3c;
@@ -22,6 +22,7 @@ $color-white: #ffffff;
 
 // index
 $body-font-size: 1.6rem;
+$body-margin: 0;
 $html-font-size: 62.5%;
 
 /* Scss variables per react component*/
@@ -51,9 +52,9 @@ $ComponentTitle-font-weight: 700;
 $ComponentTitle-margin: 0;
 
 // ComponentTitleWrapper
-$ComponentTitleWrapper-margin-top: 0rem;
 $ComponentTitleWrapper-margin-bottom: 3.2rem;
 $ComponentTitleWrapper-margin-bottom-small-screen-and-bigger: 4rem;
+$ComponentTitleWrapper-margin-top: 0rem;
 
 // ControlsBST
 
@@ -70,8 +71,11 @@ $ControlsBSTWrapper-padding-small-screen-and-bigger-y: $ComponentTitleWrapper-ma
 $ControlsBSTWrapper-padding-small-screen-and-bigger: $ControlsBSTWrapper-padding-small-screen-and-bigger-y $ControlsBSTWrapper-padding-small-screen-and-bigger-x;
 
 // Fieldset
+$Fieldset-border: 0;
 $Fieldset-column-gap: 1.6rem;
 $Fieldset-column-gap-medium-screen-and-bigger: 1.6rem;
+$Fieldset-margin: 0;
+$Fieldset-padding: 0;
 
 // FieldsetMessage
 $FieldsetMessage-font-size: 1.4rem;
@@ -108,14 +112,14 @@ $FieldsetWrapper-padding-small-screen-and-bigger: $Fieldset-column-gap-medium-sc
 
 // Header
 $Header-color: $color-indigo;
-$Header-margin: 0;
 $Header-font-size: 4rem;
 $Header-font-size-small-screen-and-bigger: 4.6rem;
 $Header-font-weight: 900;
+$Header-margin: 0;
 
 // HeaderWrapper
-$HeaderWrapper-margin-top: 2rem;
 $HeaderWrapper-margin-bottom: 5rem;
+$HeaderWrapper-margin-top: 2rem;
 
 // Input
 $Input-bg-color: $color-white;
@@ -172,8 +176,8 @@ $RebalanceBSTMessage-font-weight: $FieldsetMessage-font-weight;
 $RebalanceBSTMessage-line-height: $FieldsetMessage-line-height;
 
 // RebalanceBSTMessageWrapper
-$RebalanceBSTMessageWrapper-margin-top: 0;
 $RebalanceBSTMessageWrapper-margin-bottom: calc($LabelWrapper-margin-bottom*2);
+$RebalanceBSTMessageWrapper-margin-top: 0;
 
 // RebalanceBSTTitle
 $RebalanceBSTTitle-font-size: $Label-font-size;
