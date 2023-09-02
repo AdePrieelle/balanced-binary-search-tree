@@ -4,7 +4,8 @@ export const getIsInputSuccess = (
   isUpdatedBST,
   isValidInputFormat,
   isValidInputValue,
-  isInputWithoutDuplicates
+  isInputWithoutDuplicates,
+  isLastUpdatedFieldset
 ) => {
   if (
        typeof(inputButtonClicked) !== "boolean"
@@ -13,12 +14,14 @@ export const getIsInputSuccess = (
     || typeof(isValidInputFormat) !== "boolean"
     || typeof(isValidInputValue) !== "boolean"
     || typeof(isInputWithoutDuplicates) !== "boolean"
+    || typeof(isLastUpdatedFieldset) !== "boolean"
   ) {
     return (false);
   };
   
   if (
-       ((isEmptyInput) && (!inputButtonClicked || isUpdatedBST)) 
+       (isEmptyInput && !isLastUpdatedFieldset)
+    || ((isEmptyInput && isLastUpdatedFieldset) && (!inputButtonClicked || isUpdatedBST)) 
     || (!isEmptyInput && isValidInputFormat && isValidInputValue && isInputWithoutDuplicates)
   ) {
     return (true);

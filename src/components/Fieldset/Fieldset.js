@@ -52,7 +52,8 @@ export const Fieldset = ({
     isUpdatedBST,
     isValidInputFormat,
     isValidInputValue,
-    isInputWithoutDuplicates
+    isInputWithoutDuplicates,
+    isLastUpdatedFieldset
   );
   const fieldsetMessage = getFieldsetMessage(
     fieldsetMessageEmptyInputErrorValue,
@@ -75,16 +76,17 @@ export const Fieldset = ({
     setInput(e.target.value);
     setInputButtonClicked(false);
     setIsUpdatedBST(false);
+    setLastUpdatedFieldsetId(inputId);
   };
 
   const onClickHandler = () => {
     setInputButtonClicked(true);
     setIsUpdatedBST(false);
+    setLastUpdatedFieldsetId(inputId);
     if (!isEmptyInput && isInputSuccess) {
       onClickHandlerSuccessful(input);
       setInputOnClickHandlerSuccessful(input);
       setInput("");
-      setLastUpdatedFieldsetId(inputId);
       setIsUpdatedBST(true);
     };
   };
