@@ -15,7 +15,7 @@ export const useWindowSize = () => {
         width: window.innerWidth,
         height: window.innerHeight,
       });
-    }
+    };
 
     // Add event listener
     window.addEventListener("resize", handleResize);
@@ -27,5 +27,5 @@ export const useWindowSize = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount
 
-  return windowSize;
+  return (windowSize);
 };
