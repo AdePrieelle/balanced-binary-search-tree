@@ -152,7 +152,7 @@ describe("Testing the function getIsArrayOnlyWithValuesThatExistInBinarySearchTr
       expect(mockCopyObjectFindMethod.mock.results[2].value).toStrictEqual(null);
     });
 
-    test.only("The function getIsArrayOnlyWithValuesThatExistInBinarySearchTree if the method is called with arguments of the right type, with an argument for the first parameter that is an array with multiple elements which are all in the binarSearchTree, with the argument for the second parameter that is of type object and with an argument for the third parameter that is of type function", () => {
+    test("The function getIsArrayOnlyWithValuesThatExistInBinarySearchTree if the method is called with arguments of the right type, with an argument for the first parameter that is an array with multiple elements which are all in the binarSearchTree, with the argument for the second parameter that is of type object and with an argument for the third parameter that is of type function", () => {
       const mockArray = jest.fn(() => ([-1.5, 2.0]));
       const mockBinarySearchTree = jest.fn(() => ({
         getRootNode: (() => ({ data: 2.0, left: { data: -1.5, left: null, right: null }, right: { data: 3.5, left: null, right: null } })),
