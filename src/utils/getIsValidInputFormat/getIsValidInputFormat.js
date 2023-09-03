@@ -4,7 +4,7 @@ export const getIsValidInputFormat = (input, regex) => {
     || typeof(regex) !== "object"
   ) {
     return (false);
-  }
+  };
 
   if ((regex.test(input)) === true) {
     return (true);

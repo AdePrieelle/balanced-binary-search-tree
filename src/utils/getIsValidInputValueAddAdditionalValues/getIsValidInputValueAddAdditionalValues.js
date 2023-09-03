@@ -25,7 +25,7 @@ export const getIsValidInputValueAddAdditionalValues = (
 
   if (!isValidInputFormat) {
     return (false);
-  }
+  };
 
   const copyBinarySearchTree = cloneObject(binarySearchTree);
   const arrayWithStringNumbersConvertedToNumbersFromString = getArrayWithStringNumbersConvertedToNumbersFromString(input, delimiter, getArrayFromString, getArrayWithStringNumbersConvertedToNumbersFromArray);

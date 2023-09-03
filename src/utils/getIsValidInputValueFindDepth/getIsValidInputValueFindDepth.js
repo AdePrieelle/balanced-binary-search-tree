@@ -19,7 +19,7 @@ export const getIsValidInputValueFindDepth = (
     return (false);
   };
 
-  const nodeInBinarySearchTreeWithInputValue = getFindNodeInBinarySearchTreeWithInputValue(input, binarySearchTree, cloneObject)
+  const nodeInBinarySearchTreeWithInputValue = getFindNodeInBinarySearchTreeWithInputValue(input, binarySearchTree, cloneObject);
   if (nodeInBinarySearchTreeWithInputValue === null) {
     return (false);
   };
