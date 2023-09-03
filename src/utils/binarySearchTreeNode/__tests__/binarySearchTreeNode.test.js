@@ -28,12 +28,32 @@ describe("Testing the factory function BinarySearchTreeNode", () => {
       );
     });
 
-    test("Factory function BinarySearchTreeNode works correctly if it is called with an argument", () => {
+    test("Factory function BinarySearchTreeNode works correctly if it is called with an argument for the first parameter, without an argument for the second parameter, without an argument for the third parameter", () => {
       expect(BinarySearchTreeNode("data1")).toStrictEqual(
         {
           data: "data1",
           left: null,
           right: null
+        }
+      );
+    });
+
+    test("Factory function BinarySearchTreeNode works correctly if it is called with an argument for the first parameter, with an argument for the second parameter, without an argument for the third parameter", () => {
+      expect(BinarySearchTreeNode("data1", { data: "data2", left: null, right: null })).toStrictEqual(
+        {
+          data: "data1",
+          left: { data: "data2", left: null, right: null },
+          right: null
+        }
+      );
+    });
+
+    test("Factory function BinarySearchTreeNode works correctly if it is called with an argument for the first parameter, with an argument for the second parameter, with an argument for the third parameter", () => {
+      expect(BinarySearchTreeNode("data1", { data: "data2", left: null, right: null }, { data: "data3", left: null, right: null })).toStrictEqual(
+        {
+          data: "data1",
+          left: { data: "data2", left: null, right: null },
+          right: { data: "data3", left: null, right: null }
         }
       );
     });
