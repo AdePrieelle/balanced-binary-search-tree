@@ -1,33 +1,23 @@
 import { ComponentTitle } from '../ComponentTitle/ComponentTitle.js';
 import { ComponentTitleWrapper } from '../ComponentTitleWrapper/ComponentTitleWrapper.js';
-import { controlsBSTTitle } from '../../data/controlsBSTData.js';
-import { Form } from '../Form/Form.js';
-import { FormWrapper } from '../FormWrapper/FormWrapper.js';
 import { RebalanceBST } from '../RebalanceBST/RebalanceBST.js';
 import { RebalanceBSTWrapper } from '../RebalanceBSTWrapper/RebalanceBSTWrapper.js';
-import styles from './ControlsBST.module.scss';
+import { visualizationBSTTitle } from '../../data/visualizationBSTData.js';
+import styles from './VisualizationBST.module.scss';
 
-export const ControlsBST = ({ 
-  binarySearchTree, 
+export const VisualizationBST = ({
+  binarySearchTree,
   lastUpdatedFieldsetId,
   setBinarySearchTree,
   setLastUpdatedFieldsetId
 }) => {
   return (
-    <div className={styles.ControlsBST}>
+    <div className={styles.VisualizationBST}>
       <ComponentTitleWrapper>
         <ComponentTitle
-          title={controlsBSTTitle}
+          title={visualizationBSTTitle}
         />
       </ComponentTitleWrapper>
-      <FormWrapper>
-        <Form 
-          binarySearchTree={binarySearchTree} 
-          lastUpdatedFieldsetId={lastUpdatedFieldsetId}
-          setBinarySearchTree={setBinarySearchTree} 
-          setLastUpdatedFieldsetId={setLastUpdatedFieldsetId}
-        />
-      </FormWrapper>
       <RebalanceBSTWrapper>
         <RebalanceBST
           binarySearchTree={binarySearchTree}

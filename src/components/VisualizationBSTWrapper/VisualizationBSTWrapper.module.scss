@@ -1,0 +1,14 @@
+@import "../../styles/partials/variables";
+
+.VisualizationBSTWrapper {
+  grid-area: VisualizationBSTWrapper;
+  width: 100%;
+  max-width: $VisualizationBSTWrapper-max-width;
+  padding: $VisualizationBSTWrapper-padding;
+  @media screen and (min-width: $media-query-small-screen) {
+    padding: $VisualizationBSTWrapper-padding-small-screen-and-bigger;
+  }
+  background-color: $VisualizationBSTWrapper-bg-color;
+  box-shadow: $VisualizationBSTWrapper-box-shadow;
+  border-radius: $VisualizationBSTWrapper-border-radius;
+};

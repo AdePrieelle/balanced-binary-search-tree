@@ -5,9 +5,11 @@
   grid-template-areas: 
     "HeaderWrapper"
     "ControlsBSTWrapper"
+    "VisualizationBSTWrapper"
   ;
   align-content: flex-start;
   justify-items: center;
+  row-gap: $App-row-gap;
   height: 100%;
   padding: $App-padding;
   overflow: auto;

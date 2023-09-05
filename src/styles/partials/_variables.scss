@@ -29,7 +29,11 @@ $html-font-size: 62.5%;
 
 // App
 $App-bg-color: $color-whisper;
-$App-padding: 2rem;
+$App-padding-x: 2rem;
+$App-padding-top: 2rem;
+$App-padding-bottom: 4rem;
+$App-padding: $App-padding-top $App-padding-x $App-padding-bottom $App-padding-x;
+$App-row-gap: $App-padding-bottom;
 
 // Button
 $Button-bg-color: $color-indigo;
@@ -191,3 +195,13 @@ $RebalanceBSTWrapper-border: $FieldsetWrapper-border;
 $RebalanceBSTWrapper-border-radius: $FieldsetWrapper-border-radius;
 $RebalanceBSTWrapper-padding: $FieldsetWrapper-padding;
 $RebalanceBSTWrapper-padding-small-screen-and-bigger: $FieldsetWrapper-padding-small-screen-and-bigger;
+
+// VisualizationBST
+
+// VisualizationBSTWrapper
+$VisualizationBSTWrapper-max-width: $ControlsBSTWrapper-max-width;
+$VisualizationBSTWrapper-padding: $ControlsBSTWrapper-padding;
+$VisualizationBSTWrapper-padding-small-screen-and-bigger: $ControlsBSTWrapper-padding-small-screen-and-bigger;
+$VisualizationBSTWrapper-bg-color: $ControlsBSTWrapper-bg-color;
+$VisualizationBSTWrapper-box-shadow: $ControlsBSTWrapper-box-shadow;
+$VisualizationBSTWrapper-border-radius: $ControlsBSTWrapper-border-radius;

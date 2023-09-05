@@ -1,0 +1,9 @@
+@import "../../styles/partials/variables";
+
+.VisualizationBST {
+  display: grid;
+  grid-template-areas: 
+    "ComponentTitleWrapper"
+    "RebalanceBSTWrapper"
+  ;
+}
