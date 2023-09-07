@@ -1,5 +1,10 @@
 @import "../../styles/partials/variables";
 
 .Form {
+  display: grid;
+  row-gap: $Form-row-gap;
+  @media screen and (min-width: $media-query-small-screen) {
+    row-gap: $Form-row-gap-small-screen-and-bigger;
+  }
   width: 100%;
 }

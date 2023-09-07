@@ -1,6 +1,7 @@
 @import '../../styles/partials/variables';
 
 .ComponentTitle {
+  width: 100%;
   margin: $ComponentTitle-margin;
   color: $ComponentTitle-color;
   font-size: $ComponentTitle-font-size;

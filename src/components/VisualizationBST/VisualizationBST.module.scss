@@ -5,5 +5,11 @@
   grid-template-areas: 
     "ComponentTitleWrapper"
     "RebalanceBSTWrapper"
+    "FigureBSTWrapper"
   ;
+  row-gap: $VisualizationBST-row-gap;
+  @media screen and (min-width: $media-query-small-screen) {
+    row-gap: $VisualizationBST-row-gap-small-screen-and-bigger;
+  }
+  width: 100%;
 }

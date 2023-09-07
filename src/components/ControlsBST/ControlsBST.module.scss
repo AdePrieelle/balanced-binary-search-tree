@@ -7,4 +7,9 @@
     "FormWrapper"
     "RebalanceBSTWrapper"
   ;
+  width: 100%;
+  row-gap: $ControlsBST-row-gap;
+  @media screen and (min-width: $media-query-small-screen) {
+    row-gap: $ControlsBST-row-gap-small-screen-and-bigger;
+  }
 }

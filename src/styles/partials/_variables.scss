@@ -56,22 +56,25 @@ $ComponentTitle-font-weight: 700;
 $ComponentTitle-margin: 0;
 
 // ComponentTitleWrapper
-$ComponentTitleWrapper-margin-bottom: 3.2rem;
-$ComponentTitleWrapper-margin-bottom-small-screen-and-bigger: 4rem;
+$ComponentTitleWrapper-margin-bottom: 1.2rem;
+$ComponentTitleWrapper-margin-bottom-small-screen-and-bigger: 2.4rem;
 $ComponentTitleWrapper-margin-top: 0rem;
+$ComponentTitleWrapper-margin-top-small-screen-and-bigger: 0rem;
 
 // ControlsBST
+$ControlsBST-row-gap: 2.4rem;
+$ControlsBST-row-gap-small-screen-and-bigger: 1.6rem;
 
 // ControlsBSTWrapper
 $ControlsBSTWrapper-bg-color: $color-white;
 $ControlsBSTWrapper-border-radius: 1rem;
 $ControlsBSTWrapper-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 $ControlsBSTWrapper-max-width: 600px;
-$ControlsBSTWrapper-padding-x: 2.4rem;
-$ControlsBSTWrapper-padding-y: $ComponentTitleWrapper-margin-bottom;
+$ControlsBSTWrapper-padding-x: $ControlsBST-row-gap;
+$ControlsBSTWrapper-padding-y: calc($ComponentTitleWrapper-margin-bottom + $ControlsBST-row-gap);
 $ControlsBSTWrapper-padding: $ControlsBSTWrapper-padding-y $ControlsBSTWrapper-padding-x;
-$ControlsBSTWrapper-padding-small-screen-and-bigger-x: 3.2rem;
-$ControlsBSTWrapper-padding-small-screen-and-bigger-y: $ComponentTitleWrapper-margin-bottom-small-screen-and-bigger;
+$ControlsBSTWrapper-padding-small-screen-and-bigger-x: calc($ControlsBST-row-gap-small-screen-and-bigger * 2);
+$ControlsBSTWrapper-padding-small-screen-and-bigger-y: calc($ComponentTitleWrapper-margin-bottom-small-screen-and-bigger + $ControlsBST-row-gap-small-screen-and-bigger);
 $ControlsBSTWrapper-padding-small-screen-and-bigger: $ControlsBSTWrapper-padding-small-screen-and-bigger-y $ControlsBSTWrapper-padding-small-screen-and-bigger-x;
 
 // Fieldset
@@ -105,12 +108,23 @@ $FieldsetMessageWrapper-margin-top: $FieldsetMessageWrapper-margin-bottom;
 // FieldsetWrapper
 $FieldsetWrapper-border: 0.2rem solid $color-mercury;
 $FieldsetWrapper-border-radius: calc($ControlsBSTWrapper-border-radius*0.8);
-$FieldsetWrapper-margin-bottom: $ControlsBSTWrapper-padding-x;
-$FieldsetWrapper-margin-bottom-small-screen-and-bigger: calc($ControlsBSTWrapper-padding-small-screen-and-bigger-x / 2);
+$FieldsetWrapper-margin-bottom: 0;
+$FieldsetWrapper-margin-bottom-small-screen-and-bigger: 0;
 $FieldsetWrapper-padding: $Fieldset-column-gap;
 $FieldsetWrapper-padding-small-screen-and-bigger: $Fieldset-column-gap-medium-screen-and-bigger;
 
+// FigureBST
+$FigureBST-margin: 0;
+
+// FigureBSTWrapper
+$FigureBSTWrapper-border: $FieldsetWrapper-border;
+$FigureBSTWrapper-border-radius: $FieldsetWrapper-border-radius;
+$FigureBSTWrapper-padding: $FieldsetWrapper-padding;
+$FigureBSTWrapper-padding-small-screen-and-bigger: $FieldsetWrapper-padding-small-screen-and-bigger;
+
 // Form
+$Form-row-gap: $ControlsBST-row-gap;
+$Form-row-gap-small-screen-and-bigger: $ControlsBST-row-gap-small-screen-and-bigger;
 
 // FormWrapper
 
@@ -197,11 +211,13 @@ $RebalanceBSTWrapper-padding: $FieldsetWrapper-padding;
 $RebalanceBSTWrapper-padding-small-screen-and-bigger: $FieldsetWrapper-padding-small-screen-and-bigger;
 
 // VisualizationBST
+$VisualizationBST-row-gap: $ControlsBST-row-gap;
+$VisualizationBST-row-gap-small-screen-and-bigger: $ControlsBST-row-gap-small-screen-and-bigger;
 
 // VisualizationBSTWrapper
+$VisualizationBSTWrapper-bg-color: $ControlsBSTWrapper-bg-color;
+$VisualizationBSTWrapper-border-radius: $ControlsBSTWrapper-border-radius;
+$VisualizationBSTWrapper-box-shadow: $ControlsBSTWrapper-box-shadow;
 $VisualizationBSTWrapper-max-width: $ControlsBSTWrapper-max-width;
 $VisualizationBSTWrapper-padding: $ControlsBSTWrapper-padding;
 $VisualizationBSTWrapper-padding-small-screen-and-bigger: $ControlsBSTWrapper-padding-small-screen-and-bigger;
-$VisualizationBSTWrapper-bg-color: $ControlsBSTWrapper-bg-color;
-$VisualizationBSTWrapper-box-shadow: $ControlsBSTWrapper-box-shadow;
-$VisualizationBSTWrapper-border-radius: $ControlsBSTWrapper-border-radius;

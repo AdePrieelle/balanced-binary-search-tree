@@ -1,7 +1,6 @@
 @import "../../styles/partials/variables";
 
 .FieldsetWrapper {
-  grid-area: FieldsetWrapper;
   width: 100%;
   margin-bottom: $FieldsetWrapper-margin-bottom;
   @media screen and (min-width: $media-query-small-screen) {
