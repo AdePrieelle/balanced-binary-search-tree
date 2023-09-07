@@ -1,0 +1,12 @@
+@import "../../styles/partials/variables";
+
+.FigureBSTWrapper {
+  grid-area: FigureBSTWrapper;
+  width: 100%;
+  padding: $FigureBSTWrapper-padding;
+  @media screen and (min-width: $media-query-small-screen) {
+    padding: $FigureBSTWrapper-padding-small-screen-and-bigger;
+  }
+  border: $FigureBSTWrapper-border;
+  border-radius: $FigureBSTWrapper-border-radius;
+};

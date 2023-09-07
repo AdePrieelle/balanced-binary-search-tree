@@ -1,5 +1,7 @@
 import { ComponentTitle } from '../ComponentTitle/ComponentTitle.js';
 import { ComponentTitleWrapper } from '../ComponentTitleWrapper/ComponentTitleWrapper.js';
+import { FigureBST } from '../FigureBST/FigureBST.js';
+import { FigureBSTWrapper } from '../FigureBSTWrapper/FigureBSTWrapper.js';
 import { RebalanceBST } from '../RebalanceBST/RebalanceBST.js';
 import { RebalanceBSTWrapper } from '../RebalanceBSTWrapper/RebalanceBSTWrapper.js';
 import { visualizationBSTTitle } from '../../data/visualizationBSTData.js';
@@ -26,6 +28,11 @@ export const VisualizationBST = ({
           setLastUpdatedFieldsetId={setLastUpdatedFieldsetId}
         />
       </RebalanceBSTWrapper>
+      <FigureBSTWrapper>
+        <FigureBST
+          binarySearchTree={binarySearchTree}
+        />
+      </FigureBSTWrapper>
     </div>
   );
 };
